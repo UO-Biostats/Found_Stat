@@ -1,0 +1,26 @@
+--- 
+title: "Quantitative Genetics Graduate Education Module - Spring 2020"
+author: "William A. Cresko"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: ["book.bib", "packages.bib"]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "This is the book of materials we will be using for the Quantitative Genetics GEM at the University of Oregon for the Spring Term of 2020"
+---
+
+This is the complete set of _course materials_ for the _Quantitative Genetics Graduate Education Module (GEM)_ at the University of Oregon for the Spring of 2020. It is written in **Markdown** so that it can be easily updated. 
+
+In book you will find nearly all the information you will need to complete the course.
+
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

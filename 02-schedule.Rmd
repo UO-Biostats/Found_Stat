@@ -1,0 +1,34 @@
+# Course Schedule
+
+## Background Material
+
+  - Introduction to quantitative genetics
+  - Reading materials
+  - Introduction to R and RMarkdown
+
+## Heritability 
+
+  - Genetic variation
+  - Parent-offspring regression
+  - Line means analysis
+  - Environmental variation and trait distributions
+  - Covariation among traits
+  - The G-matrix
+
+## Selection Analysis
+
+  - Calculating fitness
+  - Selection analysis
+  - Correlation among traits
+  - Normalization of traits
+  - Calculation of selection gradients
+  - Comparison of the pattern of selection across populations
+
+## Quantitative Genetic Mapping
+
+  - Basic phenotyping and mapping information
+  - Quantitative Trait Loci (QTL) mapping
+  - Epistasis
+  - Genome Wide Association Studies (GWAS)
+
+
