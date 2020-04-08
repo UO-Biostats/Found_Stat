@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Organizing and manipulating data files | Foundational Statistics - Bi 610 - Spring 2020</title>
+  <meta name="description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Organizing and manipulating data files | Foundational Statistics - Bi 610 - Spring 2020" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Organizing and manipulating data files | Foundational Statistics - Bi 610 - Spring 2020" />
+  
+  <meta name="twitter:description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  
+
+<meta name="author" content="Clayton M. Small and William A. Cresko" />
+
+
+<meta name="date" content="2020-04-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="background-material-for-the-course.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Foundational Statistics Bi 610</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Course Overview</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>2</b> Introduction to the course</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#instructors"><i class="fa fa-check"></i><b>2.1</b> Instructors</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#course-information"><i class="fa fa-check"></i><b>2.2</b> Course Information</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#software"><i class="fa fa-check"></i><b>2.3</b> Software</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#inclusion-and-accessibility"><i class="fa fa-check"></i><b>2.4</b> Inclusion and Accessibility</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="course-schedule.html"><a href="course-schedule.html"><i class="fa fa-check"></i><b>3</b> Course Schedule</a><ul>
+<li class="chapter" data-level="3.1" data-path="course-schedule.html"><a href="course-schedule.html#weeks-1-2"><i class="fa fa-check"></i><b>3.1</b> Weeks 1-2</a></li>
+<li class="chapter" data-level="3.2" data-path="course-schedule.html"><a href="course-schedule.html#week-3"><i class="fa fa-check"></i><b>3.2</b> Week 3</a></li>
+<li class="chapter" data-level="3.3" data-path="course-schedule.html"><a href="course-schedule.html#week-4"><i class="fa fa-check"></i><b>3.3</b> Week 4</a></li>
+<li class="chapter" data-level="3.4" data-path="course-schedule.html"><a href="course-schedule.html#week-5"><i class="fa fa-check"></i><b>3.4</b> Week 5</a></li>
+<li class="chapter" data-level="3.5" data-path="course-schedule.html"><a href="course-schedule.html#week-6"><i class="fa fa-check"></i><b>3.5</b> Week 6</a></li>
+<li class="chapter" data-level="3.6" data-path="course-schedule.html"><a href="course-schedule.html#week-7"><i class="fa fa-check"></i><b>3.6</b> Week 7</a></li>
+<li class="chapter" data-level="3.7" data-path="course-schedule.html"><a href="course-schedule.html#week-8"><i class="fa fa-check"></i><b>3.7</b> Week 8</a></li>
+<li class="chapter" data-level="3.8" data-path="course-schedule.html"><a href="course-schedule.html#week-9"><i class="fa fa-check"></i><b>3.8</b> Week 9</a></li>
+<li class="chapter" data-level="3.9" data-path="course-schedule.html"><a href="course-schedule.html#week-10"><i class="fa fa-check"></i><b>3.9</b> Week 10</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html"><i class="fa fa-check"></i><b>4</b> Background material for the course</a><ul>
+<li class="chapter" data-level="4.1" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#description-of-the-course"><i class="fa fa-check"></i><b>4.1</b> Description of the course</a></li>
+<li class="chapter" data-level="4.2" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#course-goals"><i class="fa fa-check"></i><b>4.2</b> Course goals:</a></li>
+<li class="chapter" data-level="4.3" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#introduction-to-r-and-rstudio"><i class="fa fa-check"></i><b>4.3</b> Introduction to R and RStudio</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#learning-resources"><i class="fa fa-check"></i><b>4.3.1</b> Learning resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html"><i class="fa fa-check"></i><b>5</b> Organizing and manipulating data files</a><ul>
+<li class="chapter" data-level="5.1" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#introduction"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-file-systems-from-the-command-line"><i class="fa fa-check"></i><b>5.2</b> Navigating file systems from the command line</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#access-to-the-command-line"><i class="fa fa-check"></i><b>5.2.1</b> Access to the command line</a></li>
+<li class="chapter" data-level="5.2.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-directories-and-files"><i class="fa fa-check"></i><b>5.2.2</b> Navigating directories and files</a></li>
+<li class="chapter" data-level="5.2.3" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#useful-unix-commands-for-file-manipulation"><i class="fa fa-check"></i><b>5.2.3</b> Useful UNIX commands for file manipulation</a></li>
+<li class="chapter" data-level="5.2.4" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#a-quick-word-on-pipes-and-carrots"><i class="fa fa-check"></i><b>5.2.4</b> A quick word on pipes and carrots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#data-file-and-data-file-entry-dos-and-donts"><i class="fa fa-check"></i><b>5.3</b> Data file and data file entry dos and don’ts</a></li>
+<li class="chapter" data-level="5.4" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#exercises-associated-with-this-chapter"><i class="fa fa-check"></i><b>5.4</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="5.5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#additional-learning-resources"><i class="fa fa-check"></i><b>5.5</b> Additional learning resources</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Foundational Statistics - Bi 610 - Spring 2020</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="organizing-and-manipulating-data-files" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Organizing and manipulating data files</h1>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">5.1</span> Introduction</h2>
+<p>Many of you will already be familiar with data file organizaiton, editing, and formatting for analysis. If so, much of the following material may be review. If not, some of the following guidelines and tools should prove to be quite useful. In biology, and many other fields, primary data are routinely stored as “flat” text files. The exact formatting depends on the type of data, of course, but often we are working with text files organized into rows and columns. Rows can naturally be defined by lines in a file, and columns can be defined by separators (also called delimiters) such as spaces, tabs, or commas, to name a few commonly used ones. Fortunately there are some very powerful and simple-to-use (with a little practice) tools that can be invoked directly from a computer’s command line, or included in written “scripts” that your computer’s operating system can interpret upon you running them. These command line tools are now nearly ubiquitous on all personal computer platforms. Computers running a LINUX operating system allow direct access to these tools via the command line, as does the macOS operating system of Apple computers via the Terminal. Computers running Microsoft Windows 10 now also facilitate use of these conventional “UNIX tools” through a Windows Subsystem for Linux.</p>
+<p>In the following sections, we provide a <em>very brief</em> introduction to using some of these tools in order to organize your data files, parse them for information, and perform some basic text manipulations. Mastering these activities is not necessary for this course (in fact, many of the text manipulation tasks can be done in R!), but if you learn to adopt at least some of these skills you will become a better, more organized analyst, and it will help you become comfortable with the command line and programming in general.</p>
+</div>
+<div id="navigating-file-systems-from-the-command-line" class="section level2">
+<h2><span class="header-section-number">5.2</span> Navigating file systems from the command line</h2>
+<div id="access-to-the-command-line" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Access to the command line</h3>
+<p>The first step to using command line tools is to get access to the command line! On Mac and Linux systems you can simply do this by finding and opening the <code>Terminal</code> application. On Windows 10 systems, you’ll have to install a Linux Bash Shell if you haven’t already. To do this you will need to follow the instructions here: <a href="https://itsfoss.com/install-bash-on-windows/" class="uri">https://itsfoss.com/install-bash-on-windows/</a>
+When you get to the point of choosing the Linux distribution to install, I recommend Ubuntu.</p>
+<p>At this point you should have command line access through a terminal prompt, which should look something like my Mac Terminal below:
+<img src="images/MacTerminal.png" alt="Alt text" /></p>
+<p>You are now ready to navigate and explore files simply by typing!</p>
+</div>
+<div id="navigating-directories-and-files" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Navigating directories and files</h3>
+<p>When you are at the command line, just think of your computer as you would if you were navigating using a graphical application (e.g. Mac Finder or Windows Explorer). You are always in a directory in your file system, and you can move to any other directory by typing the approriate command and destination, then hitting Enter.</p>
+<p>The first crucial UNIX command to learn is <code>pwd</code>. This command stands for “print working directory,” and it will literally print the path of the directory you are currently in.</p>
+<p>Another important command is <code>ls</code>. This lists the files and directories (by default) in your working directory. If you specify a different directory, it will list the files and/or directories there. Most UNIX commands (and indeed command-line programs in general), can be run with options. One way to invoke the and option is to type a “flag” along with the command. In the case of <code>ls</code>, we can type <code>ls -l</code>, for example, which will print the output line-by-line. We can also add annother flag: <code>ls -lh</code> (equivalent to <code>ls -l -h</code>), which will print items line-by-line but also make sure the item sizes are “human readable.” If you ever have quesitons about how to use UNIX program, including the flags and other options, you can type <code>man program_name</code> and a wonderful help manual will appear. To exit and return to the command prompt, just hit “q”. These <code>man</code> pages are extremely useful and should be your first go-to if you need information for a particular command. Please use these regularly!</p>
+<p>The command <code>cd</code> will change your location from the current directory to another directory. Like many other programs (UNIX and otherwise) require you to input directory and file locations, with <code>cd</code> you can specify your desired location using either the <em>absolute</em> or <em>relative</em> path. An absolute path is the full “address” of a directory or file, starting from the root of your file system. An example of an absolute path to a directory in my file system is <code>/Users/csmall/Dropbox/sculpin_project/images/</code>. Regardless of where my current working directory is in my file system, I can change to this <code>images/</code> directory using <code>cd</code> and the full path. I can also use a relative path, which is a sort of “shortcut,” to specify the location of a directory or file. Let’s say I am in <code>/Users/csmall/Dropbox/BiostatsFound_S2020/</code> and I want to get to the <code>images/</code> directory above. I could type <code>cd ../sculpin_project/images</code>, which uses a relative path to take me “up” one directory (as denoted by <code>../</code>) into <code>Dropbox/</code> and back “down” into <code>sculpin_project/images</code>. In fact, <code>..</code> is a special file in every directory that just means “the directory above.” The special file <code>.</code> is the current directory. And to mention one final useful designation for navigation shortcuts, you can use the <code>~</code> to denote your home directory.</p>
+<p>The schematic below should help you visualize how to think about file system navigation from the commmand line:
+<img src="images/Directory_example.jpeg" alt="Alt text" /></p>
+<p>And for another example, take a look at this series of navigation commands from my terminal and see if you can follow along:
+<img src="images/MacTerminal_2.png" alt="Alt text" /></p>
+<p>If you want to create a new directory, you can use the <code>mkdir</code> command, including the desired name of the new directory. By default this will create the directory in your current working directory, but you can use absolute or relative paths to instead write the directory somewhere else. If you want to delete an empty directory, <code>rmdir</code> is the appropriate command.</p>
+<p>Now let’s briefly cover some UNIX commands that are useful for managing files. Some of these apply to directories as well, which I will point out as we go. The command <code>touch</code> can be used to create a new, empty file, which you can add to using a plain text editor. Examples of popular plain text editors with advanced user interfaces are BBEdit and Atom. You can also use command line text editors, such as <code>nano</code>, <code>emacs</code>, and <code>vim</code>. Most UNIX/LINUX systems have <code>nano</code> installed by default. To copy or change the name and/or location of a file (or directory), use <code>cp</code> and <code>mv</code> commands, respectively. Note that by using absolute or relative paths, you can specify where you want the file or directory to end up. Be especially careful with these, however, because you will overwrite any existing file or directory if you specify the same name and location. Another command you should be extremely cautious with is <code>rm</code>, which removes (permanently deletes) a file. <code>rm -r</code> can be used to delete a non-empty directory AND all of its contents.</p>
+<p>In many cases you will want to look at files, or parts of them at least, from the command line. <code>cat</code> will print the entire contents of a file, but can also be used to combine (“concatenate”) multiple files in a line-wise manner. <code>less</code> and <code>more</code> will display specific lines of a file (starting with the first ones), with single- or multi-line “scrolling,” respectively, activated using the return or down-arrow keys. To leave the display, you need to hit the “q” key. <code>head</code> and <code>tail</code> will display the first or last, respectively, <em>n</em> lines of the file, where <em>n</em> is provided as a flag (e.g. <code>head -200 file.tsv</code>). The “word count” command <code>wc</code> can quantify elements of a text file in various ways, but one common application is <code>wc -l</code>, which counts the number of lines in a file.</p>
+<p>An aside: If you are working from the command line and want to terminate a process (say you accidentally start a task that will take way too long), press Ctrl-C.</p>
+<div id="a-quick-review-of-important-unix-commands-for-navigation-and-viewing" class="section level4">
+<h4><span class="header-section-number">5.2.2.1</span> A quick review of important UNIX commands for navigation and viewing</h4>
+<p><code>pwd</code> - prints working directory</p>
+<p><code>ls</code> - lists contents of a directory</p>
+<p><code>cd</code> - changes the working directory</p>
+<p><code>mkdir</code> - creates a new directory</p>
+<p><code>rmdir</code> - deletes an empty directory</p>
+<p><code>touch</code> - creates an empty file</p>
+<p><code>cp</code> - copies a file or directory</p>
+<p><code>mv</code> - changes the name of a file or directory</p>
+<p><code>rm</code> - deletes a file, or a directory and everyting inside with <code>-r</code></p>
+<p><code>cat</code> - prints the entire file to the terminal, or concatenates and prints multiple files</p>
+<p><code>less</code> - displays the first lines of a file, with scrolling line-by-line</p>
+<p><code>head</code> - prints the first 10 lines (default) of a file</p>
+<p><code>tail</code> - prints the last 10 lines (default) of a file</p>
+<p><code>wc -l</code> - prints the number of lines in a file</p>
+</div>
+</div>
+<div id="useful-unix-commands-for-file-manipulation" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> Useful UNIX commands for file manipulation</h3>
+<p>In many cases you will want to search for specific characters or combinations of characters, and do various things with that information. Maybe you want to isolate the lines of a file that contain the query, or perhaps you want to count how many lines contain the query. The tool <code>grep</code> is extremely useful in this regard. We don’t have time for a comprehensive dive into the utilities of <code>grep</code>, but a few common applications are worth mentioning. Character patterns we search for using <code>grep</code> may or may not involve special characters that are not interpretted literally. Here we will discuss just a few common cases of <code>grep</code> searches and the special characters involved. Some examples of these special characters include <code>^</code> (beginning of a line), <code>$</code> (end of a line), <code>.</code> (any single character except a newline), <code>*</code> (zero or more instances of the preceeding character), and <code>\s</code> (any white space). The standard syntax for <code>grep</code> from the command line is <code>grep &quot;expression&quot; filename</code>. So, if you wanted to return all of the lines in the data file <code>zfish_data.tsv</code> (assuming it is in the current directory) that begin with “embryo_10”, you could try <code>grep &quot;^embryo_10&quot; zfish_data.tsv</code>. This search would also (unintentionally) find lines beginning with “embryo_100” or “embryo_101”, etc., if they exist. So, you have to be careful, and learning the rules just takes practice. In this case <code>grep &quot;^embryo_10\s&quot; zfish_data.tsv</code> would acheive the desired result, assuming that there is a whitespace delimiter between fields (“columns”) in the data file. Useful flags for <code>grep</code> include <code>-c</code> (which counts the number of lines containing the query), <code>-v</code> (which returns the lines that <em>do not</em> contain the query), and <code>-n</code> (which prints the line number for each line containing the query). I encourage you to look at many different <code>grep</code> use cases online as your demand for complex searches grows.</p>
+<p>The program <code>sed</code> has reasonably complex applciations, but is commonly used as a sort of “search and replace” tool. The syntax for <code>sed</code> use is similar to <code>grep</code>, except that the query and replacement expressions are organized (with other information) using slashes. For “search and replace” functionality, that sytax looks like this: <code>sed 's/query/replacement/flag' filename</code>. One common option for the “flag” component is “g”, meaning “global”, which replaces all instances. If no flag designation is made only the first instance in the file is replaced. Building on our toy example from above, <code>sed 's/^embryo_/^larva_/g' zfish_data.tsv</code> would perform a global replacement and print the output to the terminal. To change the contents in the original file on the fly, including <code>sed -i</code> would do the trick, but is riskier than redirecting the output to a new file.</p>
+<p><code>cut</code> is quite straightforward, and can be used to isolate individual fields (think of them like “columns”) from a text file, provided the fields are consistently separated by a delimeter on each line. So, if I had a comma-separated file and I just wanted the first two columns I could type <code>cut -f1,2 -d&quot;\t&quot; filename</code>. Note that if you don’t specify a delimter using the <code>-d</code> flag, then it is assumed to be tab-delimited. If you want to bring together fields in separate files, <code>join</code> can be used to accomplish this. The two files should have equivalent rows, however, for this action to work properly.</p>
+<p>If you want to sort text files alphanumerically, in a field-wise fashion, <code>sort</code> is quite useful. If a file contains a single field, minimal specification is required, aside from tuning numerical sorting. For example, if you want to sort numerically, use the <code>-n</code> flag, and if you want to sort from largest to smallest, add the <code>-r</code> flag. If you want to sort a multi-field file based on just one field, you can use the “key” flag. For instance, if you have a tab-delimited file and want to sort by the second field in reverse numerical order, <code>sort -k2,2 -nr filename.tsv</code> would give you the desired result. Finally, if you want to eliminate lines with the same value for a given field, you can use the <code>-u</code> “unique” flag.</p>
+<p>The UNIX program <code>awk</code> is an extremely powerful tool, and can itself be used essentially as a mini programming language. We will not get into the myriad uses of <code>awk</code> here, but the reference at the bottom of the chapter is a great resource if you want to learn more. <code>awk</code> is extremely efficient at parsing and capturing text files in a column-wise manner, with the ability to also evaluate logical statements applied to rows. The structure of <code>awk</code> commands is more complex than that of other UNIX programs we have discussed, but it is still very intuitive. One unique feature is that <code>awk</code> contains its own internal functions, which are typed inside curly braces. The “print” function can be used to extract fields, much like <code>cut</code>. For instance, <code>awk -F: '{print $1,$6}' filename.tsv</code> would print the first and sixth field from <code>filename.tsv</code>, assuming a “:” delimiter. With <code>awk</code>, fields are specified using the <code>$</code> character. If you want also to select only specific rows from a set of columns (like those with a certain value), you can incorporate logical operators. In the above example if we had wanted fields 1 and 6, but only those rows with a value of at least 610 in field 2, we could type the following <code>awk -F: '$4 &gt;= 610 {print $1,$6}' filename.tsv</code>. Again, this is just scratching the surface with <code>awk</code>, which boasts a great deal of potential for your text file manipulation needs.</p>
+<div id="a-quick-review-of-key-unix-commands-for-text-file-searching-and-manipulation" class="section level4">
+<h4><span class="header-section-number">5.2.3.1</span> A quick review of key UNIX commands for text file searching and manipulation</h4>
+<p><code>grep</code> - searches a file for characters and character combinations</p>
+<p><code>sed</code> - stream edits characters and character combinations</p>
+<p><code>cut</code> - isolates specific fields (“columns”) from a file using a delimiter</p>
+<p><code>join</code> - combines fields (“columns”) from multiple files with equivalent rows</p>
+<p><code>sort</code> - orders the rows in a file based on one or more fields</p>
+<p><code>awk</code> - flexibly parses, evaluates, and selectively prints row- and column-wise</p>
+</div>
+</div>
+<div id="a-quick-word-on-pipes-and-carrots" class="section level3">
+<h3><span class="header-section-number">5.2.4</span> A quick word on pipes and carrots</h3>
+<p>One very convenient feature of UNIX commands is that you can control the flow of input and output from one command to another using the <code>|</code> (“pipe”) character. For instance, I may want to search an entire file for rows that begin with “fish-1”, and then replace the “-” with &quot;_“. To do this I could do something like <code>cat file.tsv | grep &quot;^fish-1&quot; | sed 's/fish-1/fish_1/g'</code> This, of course, would print the output to the terminal, but I could actually capture that output into a file using the <code>&gt;</code> charcter. <code>cat filename | grep &quot;^fish-1&quot; | sed 's/fish-1/fish_1/g' &gt; ./newfile.tsv</code> would write this new file to my current working directory. Furthermore, if you want to append lines of text to an existing file, the”double sideways right-pointing carrot&quot; character <code>&gt;&gt;</code> can be used.</p>
+<p>The above lessons on UNIX commands for file manipulation truly just scratch the surface of what can be accomplished at the command line and in “shell scripts.” You certainly will have further questions and be hungry for more, but we simply don’t have time during this course. But to work on your UNIX skills for now, check out <code>Ex1_Unix_Intro.html</code> (on Canvas). We need to move on to R now, but at the bottom of this chapter are some UNIX command resources I have found to be especially useful.</p>
+</div>
+</div>
+<div id="data-file-and-data-file-entry-dos-and-donts" class="section level2">
+<h2><span class="header-section-number">5.3</span> Data file and data file entry dos and don’ts</h2>
+<p>Do store a copy of your data in a nonproprietary format, such as plain ASCII text (aka a flat file). This is especially important if you are using tools (like UNIX commands) to parse and manipulate the files. Formats like Microsoft Excel are not acceptable as input for many analysis tools, and not everyone has access to proprietary software.</p>
+<p>Do leave an un-edited copy of an original data file, even when main analyes require an edited version.</p>
+<p>Do use descriptive names for your data files and variables, and use them consistently!</p>
+<p>Do maintain effective metadata about the data.</p>
+<p>Do add new observations to a data file as rows.</p>
+<p>Do add new variables to a data file as columns.</p>
+<p>Don’t include multiple data types in the same column.</p>
+<p>Don’t use non-alphanumeric characters (other than the underscore) in file or directory names.</p>
+<p>Don’t use spaces, tabs, commas, colons, semicolons, or other chacters commonly used as field (column) delimiters in names of individual data entries. For example, don’t use something like <code>March 8</code> as a value for date in a data set.</p>
+<p>Don’t copy and paste data directly from rich-text-formatted files (like Microsoft Word) into primary data files.</p>
+</div>
+<div id="exercises-associated-with-this-chapter" class="section level2">
+<h2><span class="header-section-number">5.4</span> Exercises associated with this chapter:</h2>
+<ul>
+<li>Exercise 1 (file: <code>Ex1_Unix_Intro.html</code>)</li>
+</ul>
+</div>
+<div id="additional-learning-resources" class="section level2">
+<h2><span class="header-section-number">5.5</span> Additional learning resources</h2>
+<ul>
+<li><p><a href="http://mally.stanford.edu/~sr/computing/basic-unix.html" class="uri">http://mally.stanford.edu/~sr/computing/basic-unix.html</a> - A nice “cheat sheet”</p></li>
+<li><p><a href="http://korflab.ucdavis.edu/Unix_and_Perl/" class="uri">http://korflab.ucdavis.edu/Unix_and_Perl/</a> - Outstanding tutorial by Keith Bradnam and Ian Korf</p></li>
+<li><p><a href="https://www.datacamp.com/courses/introduction-to-shell-for-data-science" class="uri">https://www.datacamp.com/courses/introduction-to-shell-for-data-science</a> - DataCamp tutorial</p></li>
+<li><p><a href="https://www.gnu.org/software/gawk/manual/gawk.html" class="uri">https://www.gnu.org/software/gawk/manual/gawk.html</a> - A comprehensive guide to <code>awk</code></p></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="background-material-for-the-course.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-data_organization.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["foundational_statistics.pdf", "foundational_statistics.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

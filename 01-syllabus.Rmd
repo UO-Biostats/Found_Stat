@@ -1,16 +1,18 @@
 # Introduction to the course
 
-This is the complete set of _course materials_ for the _Quantitative Genetics Graduate Education Module (GEM)_ at the University of Oregon for the Spring of 2020. It is written in **Markdown** so that it can be easily updated. 
+This is the complete set of _course materials_ for the _Foundational Statistics Course_ at the University of Oregon for the Spring of 2020. It is written in **Markdown** so that it can be easily updated. 
 
 In this book you will find nearly all the information you will need to complete the course.
 
 
-## Instructor
+## Instructors
+Dr. Clay Small, csmall@uoregon.edu
+
 Dr. Bill Cresko, wcresko@uoregon.edu
 
 
 ## Course Information
-Virtual Office Hours: M-W-F 11 to 12 (Zoom)
+Virtual Office Hours: T-R 12 to 1:30 (Zoom)
 
 
 ## Software

@@ -1,0 +1,678 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={Foundational Statistics - Bi 610 - Spring 2020},
+            pdfauthor={Clayton M. Small and William A. Cresko},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{Foundational Statistics - Bi 610 - Spring 2020}
+\author{Clayton M. Small and William A. Cresko}
+\date{2020-04-07}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{course-overview}{%
+\chapter{Course Overview}\label{course-overview}}
+
+This is the complete set of \emph{course materials} for the \emph{Foundational Statistics Course} at the University of Oregon for the Spring of 2020. It is written in \textbf{Markdown} so that it can be easily updated.
+
+In this book you will find nearly all the information you will need to complete the course.
+
+\hypertarget{introduction-to-the-course}{%
+\chapter{Introduction to the course}\label{introduction-to-the-course}}
+
+This is the complete set of \emph{course materials} for the \emph{Foundational Statistics Course} at the University of Oregon for the Spring of 2020. It is written in \textbf{Markdown} so that it can be easily updated.
+
+In this book you will find nearly all the information you will need to complete the course.
+
+\hypertarget{instructors}{%
+\section{Instructors}\label{instructors}}
+
+Dr.~Clay Small, \href{mailto:csmall@uoregon.edu}{\nolinkurl{csmall@uoregon.edu}}
+
+Dr.~Bill Cresko, \href{mailto:wcresko@uoregon.edu}{\nolinkurl{wcresko@uoregon.edu}}
+
+\hypertarget{course-information}{%
+\section{Course Information}\label{course-information}}
+
+Virtual Office Hours: T-R 12 to 1:30 (Zoom)
+
+\hypertarget{software}{%
+\section{Software}\label{software}}
+
+\begin{itemize}
+\item
+  Latest version of R
+\item
+  Latest version of RStudio
+\end{itemize}
+
+\hypertarget{inclusion-and-accessibility}{%
+\section{Inclusion and Accessibility}\label{inclusion-and-accessibility}}
+
+Please tell us your preferred pronouns and/or name, especially if it differs from the class roster. We take seriously our responsibility to create inclusive learning environments. Please notify us if there are aspects of the instruction or design of this course that result in barriers to your participation! You are also encouraged to contact the Accessible Education Center in 164 Oregon Hall at 541-346-1155 or \href{mailto:uoaec@uoregon.edu}{\nolinkurl{uoaec@uoregon.edu}}.
+
+We are committed to making this course an inclusive and respectful learning space. Being respectful includes using preferred pronouns for your classmates. Your classmates come from a diverse set of backgrounds and experiences; please avoid assumptions or stereotypes, and aim for inclusivity. Let us know if there are classroom dynamics that impede your (or someone else's) full engagement.
+
+Because of the COVID-19 pandemic, this course is being delivered entirely remotely. We realized that this situation makes it difficult for some students to interact with the material, for a variety of reasons. We are committed to flexibility during this stressful time and emphasize that we will work with students to overcome difficult barriers as they arise.
+
+Please see this page for more information on campus resources, academic integrity, discrimination, and harassment (and reporting of it).
+
+\hypertarget{course-schedule}{%
+\chapter{Course Schedule}\label{course-schedule}}
+
+\hypertarget{weeks-1-2}{%
+\section{Weeks 1-2}\label{weeks-1-2}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Data organization and management
+
+  \begin{itemize}
+  \tightlist
+  \item
+    best practices, reproducibility, etc.
+  \end{itemize}
+\item
+  Basic programming fundamentals for data curation
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The Unix environment and fundamental commands
+  \item
+    Formatting and manipulating tabular text files from the terminal
+  \end{itemize}
+\item
+  Introduction to R and Rstudio
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Installation/Updates
+  \item
+    R object types and assignment
+  \end{itemize}
+\item
+  Practice with R objects
+
+  \begin{itemize}
+  \tightlist
+  \item
+    vectors, matrices, data frames, etc.
+  \end{itemize}
+\item
+  Applying core programming fundamentals in R
+
+  \begin{itemize}
+  \tightlist
+  \item
+    vectorized operations
+  \item
+    replicate, apply family, ifelse, for loops, etc.
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{week-3}{%
+\section{Week 3}\label{week-3}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Plotting/visualizing data as a means of exploration
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Different plot types
+  \item
+    Scale, transformations, etc.
+  \end{itemize}
+\item
+  Fundamentals of plotting in base R
+
+  \begin{itemize}
+  \tightlist
+  \item
+    par
+  \item
+    using palettes, points, sizes, etc. to convey information
+  \item
+    axes and labels
+  \end{itemize}
+\item
+  R markdown
+\end{enumerate}
+
+\hypertarget{week-4}{%
+\section{Week 4}\label{week-4}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Population parameters, samples, and sampling distributions
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Central Limit Theorem and the normal dist.
+  \item
+    Mean and st. dev.
+  \end{itemize}
+\item
+  Probability and probability distributions
+\item
+  Calculating summary statistics
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Other common summary statistics (quantiles, etc.)
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{week-5}{%
+\section{Week 5}\label{week-5}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Parameter estimation
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Simulating data sets with known parameters
+  \item
+    Revisit probability distributions
+  \end{itemize}
+\item
+  Uncertainty in estimation
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Parametric and nonparametric approaches to uncertainty
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{week-6}{%
+\section{Week 6}\label{week-6}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Experimental design
+
+  \begin{itemize}
+  \tightlist
+  \item
+    lexicon
+  \item
+    considering sources of variance
+  \item
+    types of variables (categorical, ordinal, rational)
+  \item
+    confounding variables
+  \end{itemize}
+\item
+  Frequentist hypothesis testing
+
+  \begin{itemize}
+  \tightlist
+  \item
+    error types
+  \item
+    p-values
+  \item
+    degrees of freedom
+  \item
+    statistical power
+  \item
+    multiple testing problem
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{week-7}{%
+\section{Week 7}\label{week-7}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Comparing means between groups
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Student's t-test
+  \end{itemize}
+\item
+  Bootstrapping and randomization to compare means
+\end{enumerate}
+
+\hypertarget{week-8}{%
+\section{Week 8}\label{week-8}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Relationships between quantitative variables
+
+  \begin{itemize}
+  \tightlist
+  \item
+    correlation and covariance
+  \end{itemize}
+\item
+  Simple linear regression
+
+  \begin{itemize}
+  \tightlist
+  \item
+    residuals and least squares
+  \item
+    fitting linear regression models
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{week-9}{%
+\section{Week 9}\label{week-9}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Analysis of variance
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Table components and test statistics
+  \end{itemize}
+\item
+  General linear models in R
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Model formulae
+  \item
+    Interpretation of summary output
+  \end{itemize}
+\item
+  More complex ANOVA frameworks
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Nested models
+  \item
+    Factorial models
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{week-10}{%
+\section{Week 10}\label{week-10}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Frequency-based statistical tests
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Chi-squared tests
+  \item
+    Contingency tables and tests of independence
+  \end{itemize}
+\item
+  Brief introduction to generalized linear models (time permitting)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    logistic regression
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{background-material-for-the-course}{%
+\chapter{Background material for the course}\label{background-material-for-the-course}}
+
+\hypertarget{description-of-the-course}{%
+\section{Description of the course}\label{description-of-the-course}}
+
+This course in an introduction to data management, data visualization, and statistical
+inference. It is intended for early-stage graduate students with no background in
+statistics. No prior coursework (undergraduate or graduate) in statistics or
+programming is assumed. The primary objective of the course is to get students up to
+speed with respect to organization, manipulation, visualization, and analysis of data,
+using the R statistical language. The emphasis on application is strong, with the goal
+of enabling students (after the course) to analyze their own data sets with confidence
+using reasonable approaches, and, when faced with more difficult analysis problems,
+to be able to communicate their inference objectives clearly to expert analysts.
+Students will learn to organize and analyze data sets in the form of RStudio projects,
+using R Markdown files to reproducibly capture and render code, visualizations, and
+analyses. In-class exercises will be delivered in the form of pre-formatted R
+Notebooks, which can be interactively executed by students without having to write
+all code from scratch.
+
+The course is designed to acquaint students primarily with univariate (single
+response variable) analysis. Multivariate analysis will be covered in the Advanced
+Biostatics 2-course series offered during the Fall and Winter terms. Examples and
+assignments in class will include data sets primarily from the biological sciences,
+including studies of morphological and molecular traits, behaviors, ecological
+questions, and clinical studies. For specific statistical topics covered in class, please
+see the course goals and tentative schedule below.
+
+\hypertarget{course-goals}{%
+\section{Course goals:}\label{course-goals}}
+
+\begin{itemize}
+\tightlist
+\item
+  Properly organize and format primary data and metadata files for analysis
+\item
+  Learn programming fundamentals of the R statistical language, including
+  objects, functions, iteration, and simulation.
+\item
+  Make publication-quality data visualizations, including scatterplots, boxplots,
+  frequency distributions, mosaic plots, etc.
+\item
+  Understand Type I and Type II statistical error, including p-values and power analysis.
+\item
+  Understand ordinary least-squares regression and linear models in general
+\item
+  Learn the fundamentals of strong experimental design
+\item
+  Learn to apply general linear models to basic univariate analysis problems,
+  including Analysis of Variance (ANOVA)
+\item
+  Learn nonparametric approaches to parameter estimate and statistical
+  inference, including resampling (bootstrapping), permutation, and rank-
+  based analysis.
+\item
+  Understand how to analyze binary response variables and frequency-based
+  (e.g.~contingency table) data sets.
+\end{itemize}
+
+\hypertarget{introduction-to-r-and-rstudio}{%
+\section{Introduction to R and RStudio}\label{introduction-to-r-and-rstudio}}
+
+R is a core computational platform for statistical analysis. It was developed a number of years ago to create an open source envirnment for advanced computing in statistics and has since become the standard for statistical analysis in the field, replacing commerical packages like SAS and SPSS for the most part. Learning R is an essential part of becoming a scientist who is able to work at the cutting edge of statistical analysis -- or even to perform conventional statistical tests (e.g.~a t-test) in a standard way. An important part of R is that it is script-based, which makes it easy to create reproducible analysis pipelines, which is an emerging feature of the open data/open analysis movement in science. This is becoming an important component of publication and sharing of research results, so being able to engage fully with this effort is something that all young scientists should do.
+
+RMarkdown is an extra layer placed on top of R that makes it easy to integrate text explanations of what is going on, native R code/scripts, and R output all in one document. The final result can be put into a variety of forms, including webpages, pdf documents, Word documents, etc. Entire books are now written in RMarkdown and its relatives. It is a great way to make quick webpages, like this document, for instance. It is very easy to use and will be the format that I use to distribute your assignments to you and that you will use to turn in your assignments.
+
+R Projects are a simple way of designating a working directory in which to house files related to a given, well, project. Those files might include primary data and metadata files ready for reading into R, \texttt{.R} scripts, Rmarkdown files, and output such as Rmarkdown-rendered .html files or individual plots, for example. The nice thing about organizing your work with R Projects is that you can keep everthing needed to reproduce an analysis in a single directory on your computer. You can open an R Project in RStudio by opening the project's index (\texttt{.RProj}) file, which will automatically set your working directory to that of the project and facilitate loading any saved environments, etc.
+
+In Chapter 6 we will begin working in R and RStudio, but you can get them installed now (in that order) on your computer, if you haven't already. Get the most recent \emph{released} R version by following this link:
+\url{https://www.r-project.org/}
+
+We will do our work using Rstudio, which is a powerful and convenient user interface for R, and can be downloaded from here for installation:
+\url{https://rstudio.com/products/rstudio/}
+
+\hypertarget{learning-resources}{%
+\subsection{Learning resources}\label{learning-resources}}
+
+There are tons of resources for learning R and RMarkdown on the internet. Here are just a few, but you will no doubt find your own favorites as you become routine R users.
+
+There is an organized group that is dedicated to training in R called DataCamp (\url{https://www.datacamp.com/}). They provide all of the basics for free. They actually have training for most data science platforms. RStudio provides links for training directly related to R and RMarkdown here:
+\url{https://www.rstudio.com/online-learning/}
+
+There are also many, many R training videos on YouTube. Most of them are very well meaning but may not be as in-depth as you want.
+
+You can also go the old ``paper'' manual route by reading the materials provided by R itself:
+\url{https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf}
+
+In reality, if you want to do almost anything in R, simply type in what you are interested in doing into Google and include ``in R'' and a whole bunch of links telling you exactly what to do will magically appear. Most of them appear as discussions on websites like StackOverflow and Stats.StackExchange. In that case, the first thing that you see is the question--usually someone doing it just a bit wrong--so you should scroll down to see the right way to do it in the answers. It is really an amazing resource that will speed you along in nearly every form of analysis that you are interested in.
+
+Please do not hesitate to contact us if you have questions or run into obstacles. The point of this class is to learn by doing, but our aim is that the doing should involve reasonable first efforts supplemented with help if needed. Also, many of your classmates have some experience with R, writing code, or statistics in general, so they are an excellent resource as well!
+
+\hypertarget{organizing-and-manipulating-data-files}{%
+\chapter{Organizing and manipulating data files}\label{organizing-and-manipulating-data-files}}
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+Many of you will already be familiar with data file organizaiton, editing, and formatting for analysis. If so, much of the following material may be review. If not, some of the following guidelines and tools should prove to be quite useful. In biology, and many other fields, primary data are routinely stored as ``flat'' text files. The exact formatting depends on the type of data, of course, but often we are working with text files organized into rows and columns. Rows can naturally be defined by lines in a file, and columns can be defined by separators (also called delimiters) such as spaces, tabs, or commas, to name a few commonly used ones. Fortunately there are some very powerful and simple-to-use (with a little practice) tools that can be invoked directly from a computer's command line, or included in written ``scripts'' that your computer's operating system can interpret upon you running them. These command line tools are now nearly ubiquitous on all personal computer platforms. Computers running a LINUX operating system allow direct access to these tools via the command line, as does the macOS operating system of Apple computers via the Terminal. Computers running Microsoft Windows 10 now also facilitate use of these conventional ``UNIX tools'' through a Windows Subsystem for Linux.
+
+In the following sections, we provide a \emph{very brief} introduction to using some of these tools in order to organize your data files, parse them for information, and perform some basic text manipulations. Mastering these activities is not necessary for this course (in fact, many of the text manipulation tasks can be done in R!), but if you learn to adopt at least some of these skills you will become a better, more organized analyst, and it will help you become comfortable with the command line and programming in general.
+
+\hypertarget{navigating-file-systems-from-the-command-line}{%
+\section{Navigating file systems from the command line}\label{navigating-file-systems-from-the-command-line}}
+
+\hypertarget{access-to-the-command-line}{%
+\subsection{Access to the command line}\label{access-to-the-command-line}}
+
+The first step to using command line tools is to get access to the command line! On Mac and Linux systems you can simply do this by finding and opening the \texttt{Terminal} application. On Windows 10 systems, you'll have to install a Linux Bash Shell if you haven't already. To do this you will need to follow the instructions here: \url{https://itsfoss.com/install-bash-on-windows/}
+When you get to the point of choosing the Linux distribution to install, I recommend Ubuntu.
+
+At this point you should have command line access through a terminal prompt, which should look something like my Mac Terminal below:
+\includegraphics{/Users/csmall/github_repos/found_stat_book/images/MacTerminal.png}
+
+You are now ready to navigate and explore files simply by typing!
+
+\hypertarget{navigating-directories-and-files}{%
+\subsection{Navigating directories and files}\label{navigating-directories-and-files}}
+
+When you are at the command line, just think of your computer as you would if you were navigating using a graphical application (e.g.~Mac Finder or Windows Explorer). You are always in a directory in your file system, and you can move to any other directory by typing the approriate command and destination, then hitting Enter.
+
+The first crucial UNIX command to learn is \texttt{pwd}. This command stands for ``print working directory,'' and it will literally print the path of the directory you are currently in.
+
+Another important command is \texttt{ls}. This lists the files and directories (by default) in your working directory. If you specify a different directory, it will list the files and/or directories there. Most UNIX commands (and indeed command-line programs in general), can be run with options. One way to invoke the and option is to type a ``flag'' along with the command. In the case of \texttt{ls}, we can type \texttt{ls\ -l}, for example, which will print the output line-by-line. We can also add annother flag: \texttt{ls\ -lh} (equivalent to \texttt{ls\ -l\ -h}), which will print items line-by-line but also make sure the item sizes are ``human readable.'' If you ever have quesitons about how to use UNIX program, including the flags and other options, you can type \texttt{man\ program\_name} and a wonderful help manual will appear. To exit and return to the command prompt, just hit ``q''. These \texttt{man} pages are extremely useful and should be your first go-to if you need information for a particular command. Please use these regularly!
+
+The command \texttt{cd} will change your location from the current directory to another directory. Like many other programs (UNIX and otherwise) require you to input directory and file locations, with \texttt{cd} you can specify your desired location using either the \emph{absolute} or \emph{relative} path. An absolute path is the full ``address'' of a directory or file, starting from the root of your file system. An example of an absolute path to a directory in my file system is \texttt{/Users/csmall/Dropbox/sculpin\_project/images/}. Regardless of where my current working directory is in my file system, I can change to this \texttt{images/} directory using \texttt{cd} and the full path. I can also use a relative path, which is a sort of ``shortcut,'' to specify the location of a directory or file. Let's say I am in \texttt{/Users/csmall/Dropbox/BiostatsFound\_S2020/} and I want to get to the \texttt{images/} directory above. I could type \texttt{cd\ ../sculpin\_project/images}, which uses a relative path to take me ``up'' one directory (as denoted by \texttt{../}) into \texttt{Dropbox/} and back ``down'' into \texttt{sculpin\_project/images}. In fact, \texttt{..} is a special file in every directory that just means ``the directory above.'' The special file \texttt{.} is the current directory. And to mention one final useful designation for navigation shortcuts, you can use the \texttt{\textasciitilde{}} to denote your home directory.
+
+The schematic below should help you visualize how to think about file system navigation from the commmand line:
+\includegraphics{/Users/csmall/github_repos/found_stat_book/images/Directory_example.jpeg}
+
+And for another example, take a look at this series of navigation commands from my terminal and see if you can follow along:
+\includegraphics{/Users/csmall/github_repos/found_stat_book/images/MacTerminal_2.png}
+
+If you want to create a new directory, you can use the \texttt{mkdir} command, including the desired name of the new directory. By default this will create the directory in your current working directory, but you can use absolute or relative paths to instead write the directory somewhere else. If you want to delete an empty directory, \texttt{rmdir} is the appropriate command.
+
+Now let's briefly cover some UNIX commands that are useful for managing files. Some of these apply to directories as well, which I will point out as we go. The command \texttt{touch} can be used to create a new, empty file, which you can add to using a plain text editor. Examples of popular plain text editors with advanced user interfaces are BBEdit and Atom. You can also use command line text editors, such as \texttt{nano}, \texttt{emacs}, and \texttt{vim}. Most UNIX/LINUX systems have \texttt{nano} installed by default. To copy or change the name and/or location of a file (or directory), use \texttt{cp} and \texttt{mv} commands, respectively. Note that by using absolute or relative paths, you can specify where you want the file or directory to end up. Be especially careful with these, however, because you will overwrite any existing file or directory if you specify the same name and location. Another command you should be extremely cautious with is \texttt{rm}, which removes (permanently deletes) a file. \texttt{rm\ -r} can be used to delete a non-empty directory AND all of its contents.
+
+In many cases you will want to look at files, or parts of them at least, from the command line. \texttt{cat} will print the entire contents of a file, but can also be used to combine (``concatenate'') multiple files in a line-wise manner. \texttt{less} and \texttt{more} will display specific lines of a file (starting with the first ones), with single- or multi-line ``scrolling,'' respectively, activated using the return or down-arrow keys. To leave the display, you need to hit the ``q'' key. \texttt{head} and \texttt{tail} will display the first or last, respectively, \emph{n} lines of the file, where \emph{n} is provided as a flag (e.g. \texttt{head\ -200\ file.tsv}). The ``word count'' command \texttt{wc} can quantify elements of a text file in various ways, but one common application is \texttt{wc\ -l}, which counts the number of lines in a file.
+
+An aside: If you are working from the command line and want to terminate a process (say you accidentally start a task that will take way too long), press Ctrl-C.
+
+\hypertarget{a-quick-review-of-important-unix-commands-for-navigation-and-viewing}{%
+\subsubsection{A quick review of important UNIX commands for navigation and viewing}\label{a-quick-review-of-important-unix-commands-for-navigation-and-viewing}}
+
+\texttt{pwd} - prints working directory
+
+\texttt{ls} - lists contents of a directory
+
+\texttt{cd} - changes the working directory
+
+\texttt{mkdir} - creates a new directory
+
+\texttt{rmdir} - deletes an empty directory
+
+\texttt{touch} - creates an empty file
+
+\texttt{cp} - copies a file or directory
+
+\texttt{mv} - changes the name of a file or directory
+
+\texttt{rm} - deletes a file, or a directory and everyting inside with \texttt{-r}
+
+\texttt{cat} - prints the entire file to the terminal, or concatenates and prints multiple files
+
+\texttt{less} - displays the first lines of a file, with scrolling line-by-line
+
+\texttt{head} - prints the first 10 lines (default) of a file
+
+\texttt{tail} - prints the last 10 lines (default) of a file
+
+\texttt{wc\ -l} - prints the number of lines in a file
+
+\hypertarget{useful-unix-commands-for-file-manipulation}{%
+\subsection{Useful UNIX commands for file manipulation}\label{useful-unix-commands-for-file-manipulation}}
+
+In many cases you will want to search for specific characters or combinations of characters, and do various things with that information. Maybe you want to isolate the lines of a file that contain the query, or perhaps you want to count how many lines contain the query. The tool \texttt{grep} is extremely useful in this regard. We don't have time for a comprehensive dive into the utilities of \texttt{grep}, but a few common applications are worth mentioning. Character patterns we search for using \texttt{grep} may or may not involve special characters that are not interpretted literally. Here we will discuss just a few common cases of \texttt{grep} searches and the special characters involved. Some examples of these special characters include \texttt{\^{}} (beginning of a line), \texttt{\$} (end of a line), \texttt{.} (any single character except a newline), \texttt{*} (zero or more instances of the preceeding character), and \texttt{\textbackslash{}s} (any white space). The standard syntax for \texttt{grep} from the command line is \texttt{grep\ "expression"\ filename}. So, if you wanted to return all of the lines in the data file \texttt{zfish\_data.tsv} (assuming it is in the current directory) that begin with ``embryo\_10'', you could try \texttt{grep\ "\^{}embryo\_10"\ zfish\_data.tsv}. This search would also (unintentionally) find lines beginning with ``embryo\_100'' or ``embryo\_101'', etc., if they exist. So, you have to be careful, and learning the rules just takes practice. In this case \texttt{grep\ "\^{}embryo\_10\textbackslash{}s"\ zfish\_data.tsv} would acheive the desired result, assuming that there is a whitespace delimiter between fields (``columns'') in the data file. Useful flags for \texttt{grep} include \texttt{-c} (which counts the number of lines containing the query), \texttt{-v} (which returns the lines that \emph{do not} contain the query), and \texttt{-n} (which prints the line number for each line containing the query). I encourage you to look at many different \texttt{grep} use cases online as your demand for complex searches grows.
+
+The program \texttt{sed} has reasonably complex applciations, but is commonly used as a sort of ``search and replace'' tool. The syntax for \texttt{sed} use is similar to \texttt{grep}, except that the query and replacement expressions are organized (with other information) using slashes. For ``search and replace'' functionality, that sytax looks like this: \texttt{sed\ \textquotesingle{}s/query/replacement/flag\textquotesingle{}\ filename}. One common option for the ``flag'' component is ``g'', meaning ``global'', which replaces all instances. If no flag designation is made only the first instance in the file is replaced. Building on our toy example from above, \texttt{sed\ \textquotesingle{}s/\^{}embryo\_/\^{}larva\_/g\textquotesingle{}\ zfish\_data.tsv} would perform a global replacement and print the output to the terminal. To change the contents in the original file on the fly, including \texttt{sed\ -i} would do the trick, but is riskier than redirecting the output to a new file.
+
+\texttt{cut} is quite straightforward, and can be used to isolate individual fields (think of them like ``columns'') from a text file, provided the fields are consistently separated by a delimeter on each line. So, if I had a comma-separated file and I just wanted the first two columns I could type \texttt{cut\ -f1,2\ -d"\textbackslash{}t"\ filename}. Note that if you don't specify a delimter using the \texttt{-d} flag, then it is assumed to be tab-delimited. If you want to bring together fields in separate files, \texttt{join} can be used to accomplish this. The two files should have equivalent rows, however, for this action to work properly.
+
+If you want to sort text files alphanumerically, in a field-wise fashion, \texttt{sort} is quite useful. If a file contains a single field, minimal specification is required, aside from tuning numerical sorting. For example, if you want to sort numerically, use the \texttt{-n} flag, and if you want to sort from largest to smallest, add the \texttt{-r} flag. If you want to sort a multi-field file based on just one field, you can use the ``key'' flag. For instance, if you have a tab-delimited file and want to sort by the second field in reverse numerical order, \texttt{sort\ -k2,2\ -nr\ filename.tsv} would give you the desired result. Finally, if you want to eliminate lines with the same value for a given field, you can use the \texttt{-u} ``unique'' flag.
+
+The UNIX program \texttt{awk} is an extremely powerful tool, and can itself be used essentially as a mini programming language. We will not get into the myriad uses of \texttt{awk} here, but the reference at the bottom of the chapter is a great resource if you want to learn more. \texttt{awk} is extremely efficient at parsing and capturing text files in a column-wise manner, with the ability to also evaluate logical statements applied to rows. The structure of \texttt{awk} commands is more complex than that of other UNIX programs we have discussed, but it is still very intuitive. One unique feature is that \texttt{awk} contains its own internal functions, which are typed inside curly braces. The ``print'' function can be used to extract fields, much like \texttt{cut}. For instance, \texttt{awk\ -F:\ \textquotesingle{}\{print\ \$1,\$6\}\textquotesingle{}\ filename.tsv} would print the first and sixth field from \texttt{filename.tsv}, assuming a ``:'' delimiter. With \texttt{awk}, fields are specified using the \texttt{\$} character. If you want also to select only specific rows from a set of columns (like those with a certain value), you can incorporate logical operators. In the above example if we had wanted fields 1 and 6, but only those rows with a value of at least 610 in field 2, we could type the following \texttt{awk\ -F:\ \textquotesingle{}\$4\ \textgreater{}=\ 610\ \{print\ \$1,\$6\}\textquotesingle{}\ filename.tsv}. Again, this is just scratching the surface with \texttt{awk}, which boasts a great deal of potential for your text file manipulation needs.
+
+\hypertarget{a-quick-review-of-key-unix-commands-for-text-file-searching-and-manipulation}{%
+\subsubsection{A quick review of key UNIX commands for text file searching and manipulation}\label{a-quick-review-of-key-unix-commands-for-text-file-searching-and-manipulation}}
+
+\texttt{grep} - searches a file for characters and character combinations
+
+\texttt{sed} - stream edits characters and character combinations
+
+\texttt{cut} - isolates specific fields (``columns'') from a file using a delimiter
+
+\texttt{join} - combines fields (``columns'') from multiple files with equivalent rows
+
+\texttt{sort} - orders the rows in a file based on one or more fields
+
+\texttt{awk} - flexibly parses, evaluates, and selectively prints row- and column-wise
+
+\hypertarget{a-quick-word-on-pipes-and-carrots}{%
+\subsection{A quick word on pipes and carrots}\label{a-quick-word-on-pipes-and-carrots}}
+
+One very convenient feature of UNIX commands is that you can control the flow of input and output from one command to another using the \texttt{\textbar{}} (``pipe'') character. For instance, I may want to search an entire file for rows that begin with ``fish-1'', and then replace the ``-'' with "\_``. To do this I could do something like \texttt{cat\ file.tsv\ \textbar{}\ grep\ "\^{}fish-1"\ \textbar{}\ sed\ \textquotesingle{}s/fish-1/fish\_1/g\textquotesingle{}} This, of course, would print the output to the terminal, but I could actually capture that output into a file using the \texttt{\textgreater{}} charcter. \texttt{cat\ filename\ \textbar{}\ grep\ "\^{}fish-1"\ \textbar{}\ sed\ \textquotesingle{}s/fish-1/fish\_1/g\textquotesingle{}\ \textgreater{}\ ./newfile.tsv} would write this new file to my current working directory. Furthermore, if you want to append lines of text to an existing file, the''double sideways right-pointing carrot" character \texttt{\textgreater{}\textgreater{}} can be used.
+
+The above lessons on UNIX commands for file manipulation truly just scratch the surface of what can be accomplished at the command line and in ``shell scripts.'' You certainly will have further questions and be hungry for more, but we simply don't have time during this course. But to work on your UNIX skills for now, check out \texttt{Ex1\_Unix\_Intro.html} (on Canvas). We need to move on to R now, but at the bottom of this chapter are some UNIX command resources I have found to be especially useful.
+
+\hypertarget{data-file-and-data-file-entry-dos-and-donts}{%
+\section{Data file and data file entry dos and don'ts}\label{data-file-and-data-file-entry-dos-and-donts}}
+
+Do store a copy of your data in a nonproprietary format, such as plain ASCII text (aka a flat file). This is especially important if you are using tools (like UNIX commands) to parse and manipulate the files. Formats like Microsoft Excel are not acceptable as input for many analysis tools, and not everyone has access to proprietary software.
+
+Do leave an un-edited copy of an original data file, even when main analyes require an edited version.
+
+Do use descriptive names for your data files and variables, and use them consistently!
+
+Do maintain effective metadata about the data.
+
+Do add new observations to a data file as rows.
+
+Do add new variables to a data file as columns.
+
+Don't include multiple data types in the same column.
+
+Don't use non-alphanumeric characters (other than the underscore) in file or directory names.
+
+Don't use spaces, tabs, commas, colons, semicolons, or other chacters commonly used as field (column) delimiters in names of individual data entries. For example, don't use something like \texttt{March\ 8} as a value for date in a data set.
+
+Don't copy and paste data directly from rich-text-formatted files (like Microsoft Word) into primary data files.
+
+\hypertarget{exercises-associated-with-this-chapter}{%
+\section{Exercises associated with this chapter:}\label{exercises-associated-with-this-chapter}}
+
+\begin{itemize}
+\tightlist
+\item
+  Exercise 1 (file: \texttt{Ex1\_Unix\_Intro.html})
+\end{itemize}
+
+\hypertarget{additional-learning-resources}{%
+\section{Additional learning resources}\label{additional-learning-resources}}
+
+\begin{itemize}
+\item
+  \url{http://mally.stanford.edu/~sr/computing/basic-unix.html} - A nice ``cheat sheet''
+\item
+  \url{http://korflab.ucdavis.edu/Unix_and_Perl/} - Outstanding tutorial by Keith Bradnam and Ian Korf
+\item
+  \url{https://www.datacamp.com/courses/introduction-to-shell-for-data-science} - DataCamp tutorial
+\item
+  \url{https://www.gnu.org/software/gawk/manual/gawk.html} - A comprehensive guide to \texttt{awk}
+\end{itemize}
+
+\bibliography{book.bib,packages.bib}
+
+\end{document}

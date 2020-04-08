@@ -1,34 +1,108 @@
 # Course Schedule
 
-## Background Material
+## Weeks 1-2
 
-  - Introduction to quantitative genetics
-  - Reading materials
-  - Introduction to R and RMarkdown
+1. Data organization and management
+    - best practices, reproducibility, etc.
 
-## Heritability 
+2. Basic programming fundamentals for data curation
+    - The Unix environment and fundamental commands
+    - Formatting and manipulating tabular text files from the terminal
 
-  - Genetic variation
-  - Parent-offspring regression
-  - Line means analysis
-  - Environmental variation and trait distributions
-  - Covariation among traits
-  - The G-matrix
+3. Introduction to R and Rstudio
+    - Installation/Updates
+    - R object types and assignment
 
-## Selection Analysis
+4. Practice with R objects
+    - vectors, matrices, data frames, etc.
 
-  - Calculating fitness
-  - Selection analysis
-  - Correlation among traits
-  - Normalization of traits
-  - Calculation of selection gradients
-  - Comparison of the pattern of selection across populations
+5. Applying core programming fundamentals in R
+    - vectorized operations
+    - replicate, apply family, ifelse, for loops, etc.
 
-## Quantitative Genetic Mapping
+## Week 3
 
-  - Basic phenotyping and mapping information
-  - Quantitative Trait Loci (QTL) mapping
-  - Epistasis
-  - Genome Wide Association Studies (GWAS)
+1. Plotting/visualizing data as a means of exploration
+    - Different plot types
+    - Scale, transformations, etc.
 
+2. Fundamentals of plotting in base R
+    - par
+    - using palettes, points, sizes, etc. to convey information
+    - axes and labels
+    
+3. R markdown
 
+## Week 4
+
+1. Population parameters, samples, and sampling distributions
+    - Central Limit Theorem and the normal dist.
+    - Mean and st. dev.
+
+2. Probability and probability distributions
+
+3. Calculating summary statistics
+    - Other common summary statistics (quantiles, etc.)
+
+## Week 5
+
+1. Parameter estimation
+    - Simulating data sets with known parameters
+    - Revisit probability distributions
+
+2. Uncertainty in estimation
+    - Parametric and nonparametric approaches to uncertainty
+
+## Week 6
+
+1. Experimental design
+    - lexicon
+    - considering sources of variance
+    - types of variables (categorical, ordinal, rational)
+    - confounding variables
+
+2. Frequentist hypothesis testing
+    - error types
+    - p-values
+    - degrees of freedom
+    - statistical power
+    - multiple testing problem
+
+## Week 7
+
+1. Comparing means between groups
+    - Student’s t-test
+
+2. Bootstrapping and randomization to compare means
+
+## Week 8
+
+1. Relationships between quantitative variables
+    - correlation and covariance
+
+2. Simple linear regression
+    - residuals and least squares
+    - fitting linear regression models
+
+## Week 9
+
+1. Analysis of variance
+    - Table components and test statistics
+
+2. General linear models in R
+    - Model formulae
+    - Interpretation of summary output
+
+3. More complex ANOVA frameworks
+    - Nested models
+    - Factorial models
+
+## Week 10
+
+1. Frequency-based statistical tests
+    - Chi-squared tests
+    - Contingency tables and tests of independence
+
+2. Brief introduction to generalized linear models (time permitting)
+    - logistic regression
+    

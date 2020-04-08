@@ -1,0 +1,74 @@
+# Background material for the course
+
+## Description of the course
+
+This course in an introduction to data management, data visualization, and statistical
+inference. It is intended for early-stage graduate students with no background in
+statistics. No prior coursework (undergraduate or graduate) in statistics or
+programming is assumed. The primary objective of the course is to get students up to
+speed with respect to organization, manipulation, visualization, and analysis of data,
+using the R statistical language. The emphasis on application is strong, with the goal
+of enabling students (after the course) to analyze their own data sets with confidence
+using reasonable approaches, and, when faced with more difficult analysis problems,
+to be able to communicate their inference objectives clearly to expert analysts.
+Students will learn to organize and analyze data sets in the form of RStudio projects,
+using R Markdown files to reproducibly capture and render code, visualizations, and
+analyses. In-class exercises will be delivered in the form of pre-formatted R
+Notebooks, which can be interactively executed by students without having to write
+all code from scratch.
+
+The course is designed to acquaint students primarily with univariate (single
+response variable) analysis. Multivariate analysis will be covered in the Advanced
+Biostatics 2-course series offered during the Fall and Winter terms. Examples and
+assignments in class will include data sets primarily from the biological sciences,
+including studies of morphological and molecular traits, behaviors, ecological
+questions, and clinical studies. For specific statistical topics covered in class, please
+see the course goals and tentative schedule below.
+
+## Course goals:
+
+- Properly organize and format primary data and metadata files for analysis
+- Learn programming fundamentals of the R statistical language, including
+    objects, functions, iteration, and simulation.
+- Make publication-quality data visualizations, including scatterplots, boxplots,
+    frequency distributions, mosaic plots, etc.
+- Understand Type I and Type II statistical error, including p-values and power analysis.
+- Understand ordinary least-squares regression and linear models in general
+- Learn the fundamentals of strong experimental design
+- Learn to apply general linear models to basic univariate analysis problems,
+    including Analysis of Variance (ANOVA)
+- Learn nonparametric approaches to parameter estimate and statistical
+    inference, including resampling (bootstrapping), permutation, and rank-
+    based analysis.
+- Understand how to analyze binary response variables and frequency-based
+    (e.g. contingency table) data sets.
+
+## Introduction to R and RStudio
+
+R is a core computational platform for statistical analysis. It was developed a number of years ago to create an open source envirnment for advanced computing in statistics and has since become the standard for statistical analysis in the field, replacing commerical packages like SAS and SPSS for the most part. Learning R is an essential part of becoming a scientist who is able to work at the cutting edge of statistical analysis -- or even to perform conventional statistical tests (e.g. a t-test) in a standard way. An important part of R is that it is script-based, which makes it easy to create reproducible analysis pipelines, which is an emerging feature of the open data/open analysis movement in science. This is becoming an important component of publication and sharing of research results, so being able to engage fully with this effort is something that all young scientists should do.
+
+RMarkdown is an extra layer placed on top of R that makes it easy to integrate text explanations of what is going on, native R code/scripts, and R output all in one document. The final result can be put into a variety of forms, including webpages, pdf documents, Word documents, etc. Entire books are now written in RMarkdown and its relatives. It is a great way to make quick webpages, like this document, for instance. It is very easy to use and will be the format that I use to distribute your assignments to you and that you will use to turn in your assignments.
+
+R Projects are a simple way of designating a working directory in which to house files related to a given, well, project. Those files might include primary data and metadata files ready for reading into R, `.R` scripts, Rmarkdown files, and output such as Rmarkdown-rendered .html files or individual plots, for example. The nice thing about organizing your work with R Projects is that you can keep everthing needed to reproduce an analysis in a single directory on your computer. You can open an R Project in RStudio by opening the project's index (`.RProj`) file, which will automatically set your working directory to that of the project and facilitate loading any saved environments, etc.
+
+In Chapter 6 we will begin working in R and RStudio, but you can get them installed now (in that order) on your computer, if you haven't already. Get the most recent *released* R version by following this link:
+https://www.r-project.org/
+
+We will do our work using Rstudio, which is a powerful and convenient user interface for R, and can be downloaded from here for installation:
+https://rstudio.com/products/rstudio/
+
+### Learning resources
+
+There are tons of resources for learning R and RMarkdown on the internet. Here are just a few, but you will no doubt find your own favorites as you become routine R users.
+
+There is an organized group that is dedicated to training in R called DataCamp (https://www.datacamp.com/). They provide all of the basics for free. They actually have training for most data science platforms. RStudio provides links for training directly related to R and RMarkdown here:
+https://www.rstudio.com/online-learning/
+
+There are also many, many R training videos on YouTube. Most of them are very well meaning but may not be as in-depth as you want. 
+
+You can also go the old "paper" manual route by reading the materials provided by R itself:
+https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf
+
+In reality, if you want to do almost anything in R, simply type in what you are interested in doing into Google and include "in R" and a whole bunch of links telling you exactly what to do will magically appear. Most of them appear as discussions on websites like StackOverflow and Stats.StackExchange. In that case, the first thing that you see is the question--usually someone doing it just a bit wrong--so you should scroll down to see the right way to do it in the answers. It is really an amazing resource that will speed you along in nearly every form of analysis that you are interested in.
+
+Please do not hesitate to contact us if you have questions or run into obstacles. The point of this class is to learn by doing, but our aim is that the doing should involve reasonable first efforts supplemented with help if needed. Also, many of your classmates have some experience with R, writing code, or statistics in general, so they are an excellent resource as well!
