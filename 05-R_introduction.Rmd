@@ -1,0 +1,291 @@
+# An Introduction to the R language
+
+## Background
+
+`R` is a computer programming language and environment especially useful for graphic visualization and statistical analysis of data. It is an offshoot of a language developed in 1976 at Bell Laboratories called `S`. `R` is an interpreted language, meaning that every time code is run it must be translated to machine language by the `R` interpreter, as opposed to being compiled prior to running. `R` is the premier computational platform for statistical analysis thanks to its GNU open-source status and countless packages contributed by diverse members of the scientific community.
+
+## Why use `R`?
+
+- Good general scripting tool for statistics and mathematics
+- Powerful and flexible and free
+- Runs on all computer platforms 
+- New packages released all the time
+- Superb data management & graphics capabilities
+- Reproducibility - can keep your scripts to see exactly what was done
+- Can embed your `R` analyses in dynamic, polished files using R markdown
+- You can write your own functions 
+- Lots of online help available
+- Can use a nice IDE such as `RStudio`
+
+## Important `R` terms and definitions
+
+![Alt text](/Users/csmall/github_repos/Found_Stat/images/R_definitions_Logan.001.jpeg)
+
+From Logan, M. 2010. *Biostatistical Design and Analysis Using R*
+
+
+Operators are symbols in programming that have a specific meaning
+
+![Alt text](/Users/csmall/github_repos/Found_Stat/images/R_definitions_Logan.002.jpeg)
+
+From Logan, M. 2010. *Biostatistical Design and Analysis Using R*
+
+## Getting started with `R` via the RStudio Environment
+
+To begin working with `R`, open RStudio. You should first see something that looks like this:
+![Alt text](/Users/csmall/github_repos/Found_Stat/images/MacTerminal_3.png)
+
+To open a new script editor (where you will keep track of your code and notes), go to File > New File > R Script. Note that there are other options for file types, which we will be using in the future. For now, though, we want a plain script, which when saved will have the extention `.R`.
+
+It is easy to run code directly from the script editor. For single lines of code, simply make sure your cursor is on that line, and hit Ctrl-Enter. For multiple lines, highlight the block of code you want to run and hit Ctrl-Enter.
+
+Now your display should look somehting like below (but without the red pane labels, of course):
+![Alt text](/Users/csmall/github_repos/Found_Stat/images/R_definitions_Logan.003.jpeg)
+
+Note that you can also type commands directly from the command line using the `R` Console (lower left pane), and the `R` interpreter will run them when you press Enter.
+
+Any objects you define, and a summary of their values, will appear in the upper right pane, and the lower right pane differs in appearance depending on instructions you provide to `R Studio`. For instance, if you produce a plot, it will appear there by default. Another extremely important feature of R functions (we'll get to them in a bit) is the help file. Recall from Chapter 5 our discussion of `man` pages for UNIX programs. Help files the equivalent for `R` functions. They contain almost everything you need to know about a given function, and most of them even include and example at the bottom. These help files will appear in the lower right RStudio pane when you call them, for example when you run `help(function_name)` at the `R` Console.
+
+### R Programming Basics
+
+For the code examples below, it might be useful for you to start your own RStudio session, open a new `.R` file and type/run code while reading.
+
+- Commands can be submitted through the terminal, console or scripts
+- In your scripts, anything that follows `#` symbol (aka hash) is just for humans
+- Notice on these slides I'm evaluating the code chunks and showing output
+- The output is shown here after the two `#` symbols and the number of output items is in `[]`
+- Also notice that `R` follows the normal priority of mathematical evaluation
+
+
+```{r basic multiplication, echo=TRUE}
+4*4
+```
+
+```{r more multiplication, echo=TRUE}
+(4+3*2^2)
+```
+
+#### A note on `R` Markdown
+
+This format provides a much better way to embed code and output, in an easily readable, reproducible manner. We will dive into `R` Markdown next week, so for now just be aware that it exists.
+
+- http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html
+
+- You can insert `R` chunks into `Rmarkdown` documents
+
+#### Assigning Variables
+
+- To "store" information for later use, like the arithmetic operation above, we can assign variables in `R`.
+
+- Variables are assigned values using the `<-` operator.
+
+- Variable names must begin with a letter, and should not contain spaces or `R` operators (see above) but other than that, just about anything goes. 
+
+- Do keep in mind that `R` is case sensitive.
+
+```{r assigning variables, echo=TRUE, tidy=TRUE}
+
+x <- 2
+x*3
+y <- x * 3
+y-2
+
+```
+
+These do not work
+
+```{r eval=FALSE, echo=TRUE}
+3y <- 3
+3*y <- 3
+```
+
+#### Arithmetic operations with functions
+
+- Arithmetic operations can be used with functions as well as numbers.
+
+- Try the following, and then your own.
+
+```{r functions, eval = FALSE, echo = TRUE}
+x+2
+x^2
+log(x) + log(x+1)
+```
+
+- Note that the last of these - `log()` - is a built in function of `R`, and therefore the argument for the function (in this case "x" or "x+1") needs to be put in parentheses.
+
+- These parentheses will be important, and we'll come back to them later when we add other arguments after the object in the parentheses.  
+
+- The outcome of calculations can be assigned to new variables as well, and the results can be checked using the `print()` function.
+
+```{r, echo=TRUE}
+y <- 67
+print(y)
+
+x <- 124
+z <- (x*y)^2
+print(z)
+```
+
+#### Strings
+
+- Assignments and operations can be performed on characters as well.
+- Note that characters need to be set off by quotation marks to differentiate them from numeric objects.
+
+- The c(function) stands for 'concatenate'.
+- Note that we are using the same variable names as we did previously, which means that we're overwriting our previous assignment.
+
+- A good general rule is to use new names for each variable, and make them short but still descriptive
+
+```{r, echo=TRUE}
+x <- "I Love"
+print (x)
+y <- "Biostatistics"
+print (y)
+z <- c(x,y)
+print (z)
+```
+
+The variable z is now a vector of character objects.
+
+#### Factors
+
+- Sometimes we would like to treat character objects as if they were units for subsequent calculations.
+
+- These are called factors, and we can redefine our character object as one of class factor.
+
+- This might seem a bit strange, but it’s important for statistical analyses where we might want to calculate the mean or variance for two different treatments. In that case the two different treatments would be coded as two different "levels" of a factor we designate in our metadata. This will become clear when we get into hypothesis testing in `R`.
+
+```{r, eval = FALSE, echo = TRUE}
+z_factor <- as.factor(z)
+print(z_factor)
+class(z_factor)
+```
+
+Note that factor levels are reported alphabetically. I used the `class()` function to ask `R` what type of object "z_factor" is. `class()` is one of the most important tools at your disposal. Often times you can debug your code simply by changing the class of an object. Because functions are written to work with specific classes, changing the class of a given object is crucial in many cases.
+
+#### Vectors
+
+- In general R thinks in terms of vectors (a list of characters factors or numerical values) and it will benefit any R user to try to write programs with that in mind.
+
+- R operations, and therefore functions, are vectorized.
+
+- This means an operation or function will be performed for each element in a vector.
+
+- Vectors can be assigned directly using the 'c()' function and then entering the exact values.
+
+```{r Example vectors, echo=TRUE}
+x <- c(2,3,4,2,1,2,4,5,10,8,9)
+print(x)
+x_plus <- x+1
+print(x_plus)
+```
+
+- Creating vectors of new data by entering it by hand can be a drag.
+
+- However, it is also very easy to use functions such as `seq()` and `sample()`.
+
+- Try the examples below. Can you figure out what the three arguments in the parentheses mean?
+
+- Within reason, try varying the arguments to see what happens
+
+
+```{r, echo = TRUE}
+seq_1 <- seq(0.0, 10.0, by = 0.1)
+print(seq_1)
+seq_2 <- seq(10.0, 0.0, by = -0.1)
+print(seq_2)
+```
+
+
+```{r, echo = TRUE}
+seq_square <- (seq_2)*(seq_2)
+print(seq_square)
+```
+
+
+```{r, echo = TRUE}
+seq_square_new <- (seq_2)^2
+print(seq_square_new)
+```
+
+
+- Here is a way to create your own data sets that are random samples.
+
+- Again, on your own, play around with the arguments in the parentheses to see what happens.
+
+
+```{r Samples from distributions 1, out.width='100%', echo = TRUE}
+x <- rnorm (10000, 0, 10)
+y <- sample (1:10000, 10000, replace = T)
+xy <- cbind(x,y)
+plot(x,y) 
+```
+
+- You’ve probably figured out that "y" from the last example is a draw of numbers with equal probability (what we call a flat, or uniform distribution).
+
+- What if you want to draw from a distribution?
+
+- Again, play around with the arguments in the parentheses to see what happens.
+
+```{r Samples from distributions 2, out.width='100%', echo = TRUE}
+x <-rnorm(1000, 0, 100)
+print (x)
+hist(x, xlim = c(-50,50))
+hist(x, xlim = c(-500,500))
+```
+
+Can you figure out what the three rnorm() arguments represent?
+
+
+#### Basic Summary Statistics
+
+We will get into the details regarding summary statistics later, but for now, check out several of the `R` functions that calculate them.
+
+```{r, eval = FALSE, echo = TRUE}
+mean(x)
+median(x)
+var(x)
+log(x)
+ln(x)
+sqrt(x)
+sum(x)
+length(x)
+sample(x, replace = T)
+```
+
+- Notice that the last function (`sample`) has an argument (`replace=T`)
+
+- Arguments simply modify or direct the function in some way
+
+- There are many arguments for each function, some of which are defaults
+
+#### Getting help to understand functions
+
+- Getting help on any function is very easy - just type a question mark and the name of the function.
+
+- There are functions for just about anything within `R` and it is easy enough to write your own functions if none already exist to do what you want to do.
+
+- In general, function calls have a simple structure: a function name, a set of parentheses and an optional set of arguments you assign parameters to and send to the function.
+
+- Help pages exist for all functions that, at a minimum, explain what parameters exist for the function.
+
+- Help can be accessed a few ways - try them :
+
+```{r, eval = FALSE, echo = TRUE}
+- help(mean)
+- ?mean
+- example(mean)
+- help.search("mean")
+- apropos("mean")
+- args(mean)
+```
+
+## Exercises associated with this chapter:
+
+- Exercise 2 (file: `rtutorial_1.Rmd`)
+
+## Additional learning resources:
+
+- Logan, M. 2010. Biostatistical Design and Analysis Using R. - A great intro to R for statistical analysis
+
+- http://library.open.oregonstate.edu/computationalbiology/ - O’Neil, S.T. 2017. A Primer for Computational Biology
