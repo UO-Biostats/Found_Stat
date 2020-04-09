@@ -15,7 +15,7 @@ The first step to using command line tools is to get access to the command line!
 When you get to the point of choosing the Linux distribution to install, I recommend Ubuntu.
 
 At this point you should have command line access through a terminal prompt, which should look something like my Mac Terminal below:
-![Alt text](/Users/csmall/github_repos/found_stat_book/images/MacTerminal.png)
+![Alt text](/Users/csmall/github_repos/Found_Stat/images/MacTerminal.png)
 
 You are now ready to navigate and explore files simply by typing!
 
@@ -30,10 +30,10 @@ Another important command is `ls`. This lists the files and directories (by defa
 The command `cd` will change your location from the current directory to another directory. Like many other programs (UNIX and otherwise) require you to input directory and file locations, with `cd` you can specify your desired location using either the *absolute* or *relative* path. An absolute path is the full "address" of a directory or file, starting from the root of your file system. An example of an absolute path to a directory in my file system is `/Users/csmall/Dropbox/sculpin_project/images/`. Regardless of where my current working directory is in my file system, I can change to this `images/` directory using `cd` and the full path. I can also use a relative path, which is a sort of "shortcut," to specify the location of a directory or file. Let's say I am in `/Users/csmall/Dropbox/BiostatsFound_S2020/` and I want to get to the `images/` directory above. I could type `cd ../sculpin_project/images`, which uses a relative path to take me "up" one directory (as denoted by `../`) into `Dropbox/` and back "down" into `sculpin_project/images`. In fact, `..` is a special file in every directory that just means "the directory above." The special file `.` is the current directory. And to mention one final useful designation for navigation shortcuts, you can use the `~` to denote your home directory.
 
 The schematic below should help you visualize how to think about file system navigation from the commmand line:
-![Alt text](/Users/csmall/github_repos/found_stat_book/images/Directory_example.jpeg)
+![Alt text](/Users/csmall/github_repos/Found_Stat/images/Directory_example.jpeg)
 
 And for another example, take a look at this series of navigation commands from my terminal and see if you can follow along:
-![Alt text](/Users/csmall/github_repos/found_stat_book/images/MacTerminal_2.png)
+![Alt text](/Users/csmall/github_repos/Found_Stat/images/MacTerminal_2.png)
 
 If you want to create a new directory, you can use the `mkdir` command, including the desired name of the new directory. By default this will create the directory in your current working directory, but you can use absolute or relative paths to instead write the directory somewhere else. If you want to delete an empty directory, `rmdir` is the appropriate command. 
 
