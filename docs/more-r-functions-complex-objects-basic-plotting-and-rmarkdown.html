@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 More R Functions, Complex Objects, Basic Plotting, and RMarkdown | Foundational Statistics - Bi 610 - Spring 2020</title>
+  <meta name="description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 More R Functions, Complex Objects, Basic Plotting, and RMarkdown | Foundational Statistics - Bi 610 - Spring 2020" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 More R Functions, Complex Objects, Basic Plotting, and RMarkdown | Foundational Statistics - Bi 610 - Spring 2020" />
+  
+  <meta name="twitter:description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  
+
+<meta name="author" content="Clayton M. Small and William A. Cresko" />
+
+
+<meta name="date" content="2020-04-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="an-introduction-to-the-r-language.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Foundational Statistics Bi 610</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Course Overview</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>2</b> Introduction to the course</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#instructors"><i class="fa fa-check"></i><b>2.1</b> Instructors</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#course-information"><i class="fa fa-check"></i><b>2.2</b> Course Information</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#software"><i class="fa fa-check"></i><b>2.3</b> Software</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#inclusion-and-accessibility"><i class="fa fa-check"></i><b>2.4</b> Inclusion and Accessibility</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="course-schedule.html"><a href="course-schedule.html"><i class="fa fa-check"></i><b>3</b> Course Schedule</a><ul>
+<li class="chapter" data-level="3.1" data-path="course-schedule.html"><a href="course-schedule.html#weeks-1-2"><i class="fa fa-check"></i><b>3.1</b> Weeks 1-2</a></li>
+<li class="chapter" data-level="3.2" data-path="course-schedule.html"><a href="course-schedule.html#week-3"><i class="fa fa-check"></i><b>3.2</b> Week 3</a></li>
+<li class="chapter" data-level="3.3" data-path="course-schedule.html"><a href="course-schedule.html#week-4"><i class="fa fa-check"></i><b>3.3</b> Week 4</a></li>
+<li class="chapter" data-level="3.4" data-path="course-schedule.html"><a href="course-schedule.html#week-5"><i class="fa fa-check"></i><b>3.4</b> Week 5</a></li>
+<li class="chapter" data-level="3.5" data-path="course-schedule.html"><a href="course-schedule.html#week-6"><i class="fa fa-check"></i><b>3.5</b> Week 6</a></li>
+<li class="chapter" data-level="3.6" data-path="course-schedule.html"><a href="course-schedule.html#week-7"><i class="fa fa-check"></i><b>3.6</b> Week 7</a></li>
+<li class="chapter" data-level="3.7" data-path="course-schedule.html"><a href="course-schedule.html#week-8"><i class="fa fa-check"></i><b>3.7</b> Week 8</a></li>
+<li class="chapter" data-level="3.8" data-path="course-schedule.html"><a href="course-schedule.html#week-9"><i class="fa fa-check"></i><b>3.8</b> Week 9</a></li>
+<li class="chapter" data-level="3.9" data-path="course-schedule.html"><a href="course-schedule.html#week-10"><i class="fa fa-check"></i><b>3.9</b> Week 10</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html"><i class="fa fa-check"></i><b>4</b> Background material for the course</a><ul>
+<li class="chapter" data-level="4.1" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#description-of-the-course"><i class="fa fa-check"></i><b>4.1</b> Description of the course</a></li>
+<li class="chapter" data-level="4.2" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#course-goals"><i class="fa fa-check"></i><b>4.2</b> Course goals:</a></li>
+<li class="chapter" data-level="4.3" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#introduction-to-r-and-rstudio"><i class="fa fa-check"></i><b>4.3</b> Introduction to R and RStudio</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#learning-resources"><i class="fa fa-check"></i><b>4.3.1</b> Learning resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html"><i class="fa fa-check"></i><b>5</b> Organizing and manipulating data files</a><ul>
+<li class="chapter" data-level="5.1" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#introduction"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-file-systems-from-the-command-line"><i class="fa fa-check"></i><b>5.2</b> Navigating file systems from the command line</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#access-to-the-command-line"><i class="fa fa-check"></i><b>5.2.1</b> Access to the command line</a></li>
+<li class="chapter" data-level="5.2.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-directories-and-files"><i class="fa fa-check"></i><b>5.2.2</b> Navigating directories and files</a></li>
+<li class="chapter" data-level="5.2.3" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#useful-unix-commands-for-file-manipulation"><i class="fa fa-check"></i><b>5.2.3</b> Useful UNIX commands for file manipulation</a></li>
+<li class="chapter" data-level="5.2.4" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#a-quick-word-on-pipes-and-carrots"><i class="fa fa-check"></i><b>5.2.4</b> A quick word on pipes and carrots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#data-file-and-data-file-entry-dos-and-donts"><i class="fa fa-check"></i><b>5.3</b> Data file and data file entry dos and don’ts</a></li>
+<li class="chapter" data-level="5.4" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#exercises-associated-with-this-chapter"><i class="fa fa-check"></i><b>5.4</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="5.5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#additional-learning-resources"><i class="fa fa-check"></i><b>5.5</b> Additional learning resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html"><i class="fa fa-check"></i><b>6</b> An Introduction to the R language</a><ul>
+<li class="chapter" data-level="6.1" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#background"><i class="fa fa-check"></i><b>6.1</b> Background</a></li>
+<li class="chapter" data-level="6.2" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#why-use-r"><i class="fa fa-check"></i><b>6.2</b> Why use <code>R</code>?</a></li>
+<li class="chapter" data-level="6.3" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#important-r-terms-and-definitions"><i class="fa fa-check"></i><b>6.3</b> Important <code>R</code> terms and definitions</a></li>
+<li class="chapter" data-level="6.4" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#getting-started-with-r-via-the-rstudio-environment"><i class="fa fa-check"></i><b>6.4</b> Getting started with <code>R</code> via the RStudio Environment</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#r-programming-basics"><i class="fa fa-check"></i><b>6.4.1</b> R Programming Basics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#exercises-associated-with-this-chapter-1"><i class="fa fa-check"></i><b>6.5</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="6.6" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#additional-learning-resources-1"><i class="fa fa-check"></i><b>6.6</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><i class="fa fa-check"></i><b>7</b> More R Functions, Complex Objects, Basic Plotting, and RMarkdown</a><ul>
+<li class="chapter" data-level="7.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#background-1"><i class="fa fa-check"></i><b>7.1</b> Background</a></li>
+<li class="chapter" data-level="7.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-on-functions"><i class="fa fa-check"></i><b>7.2</b> More on functions</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-base-r-functions-useful-for-working-with-vectors"><i class="fa fa-check"></i><b>7.2.1</b> More base <code>R</code> functions useful for working with vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#indexing-vectors"><i class="fa fa-check"></i><b>7.3</b> Indexing vectors</a></li>
+<li class="chapter" data-level="7.4" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-complex-data-objects-in-r"><i class="fa fa-check"></i><b>7.4</b> More complex data objects in <code>R</code></a><ul>
+<li class="chapter" data-level="7.4.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#lists"><i class="fa fa-check"></i><b>7.4.1</b> lists</a></li>
+<li class="chapter" data-level="7.4.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#data-frames"><i class="fa fa-check"></i><b>7.4.2</b> data frames</a></li>
+<li class="chapter" data-level="7.4.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#matrices"><i class="fa fa-check"></i><b>7.4.3</b> matrices</a></li>
+<li class="chapter" data-level="7.4.4" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#a-few-additional-base-r-functions-for-working-with-complex-r-objects"><i class="fa fa-check"></i><b>7.4.4</b> A few additional base <code>R</code> functions for working with complex <code>R</code> objects</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#some-brief-notes-on-basic-programming-in-r"><i class="fa fa-check"></i><b>7.5</b> Some brief notes on basic programming in <code>R</code></a><ul>
+<li class="chapter" data-level="7.5.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#conditional-statements-with-ifelse"><i class="fa fa-check"></i><b>7.5.1</b> conditional statements with <code>ifelse()</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#replicate-tapply-and-apply"><i class="fa fa-check"></i><b>7.5.2</b> <code>replicate()</code>, <code>tapply()</code>, and <code>apply()</code></a></li>
+<li class="chapter" data-level="7.5.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#for-loops-in-r"><i class="fa fa-check"></i><b>7.5.3</b> for loops in <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#fundamentals-of-plotting-in-r"><i class="fa fa-check"></i><b>7.6</b> Fundamentals of plotting in <code>R</code></a><ul>
+<li class="chapter" data-level="7.6.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#basic-plotting-with-plot"><i class="fa fa-check"></i><b>7.6.1</b> Basic plotting with <code>plot()</code></a></li>
+<li class="chapter" data-level="7.6.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#histograms-using-hist"><i class="fa fa-check"></i><b>7.6.2</b> Histograms using <code>hist()</code></a></li>
+<li class="chapter" data-level="7.6.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#boxplots-using-boxplot"><i class="fa fa-check"></i><b>7.6.3</b> Boxplots using <code>boxplot()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#a-brief-introduction-to-rmarkdown"><i class="fa fa-check"></i><b>7.7</b> A brief introduction to <code>RMarkdown</code></a><ul>
+<li class="chapter" data-level="7.7.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#rmarkdown-formatting-basics"><i class="fa fa-check"></i><b>7.7.1</b> <code>RMarkdown</code> formatting basics</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#experiment-with-headers"><i class="fa fa-check"></i><b>7.8</b> Experiment with headers</a><ul>
+<li class="chapter" data-level="7.8.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#try-a-third-level-header"><i class="fa fa-check"></i><b>7.8.1</b> Try a third-level header</a></li>
+<li class="chapter" data-level="7.8.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#rmarkdown-code-chunk-options"><i class="fa fa-check"></i><b>7.8.2</b> <code>RMarkdown</code> code chunk options</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#exercises-associated-with-this-chapter-2"><i class="fa fa-check"></i><b>7.9</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="7.10" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#additional-learning-resources-2"><i class="fa fa-check"></i><b>7.10</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Foundational Statistics - Bi 610 - Spring 2020</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="more-r-functions-complex-objects-basic-plotting-and-rmarkdown" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> More R Functions, Complex Objects, Basic Plotting, and RMarkdown</h1>
+<div id="background-1" class="section level2">
+<h2><span class="header-section-number">7.1</span> Background</h2>
+<p>In this chapter we will cover a variety of topics, all of which will help you build your <code>R</code> programming skills and make you capable of dealing with data sets using <code>R</code>. We will explore additional base <code>R</code> functions that are extremely useful for generating and manipulating vectors, combining vectors into multidimensional <code>R</code> objects, and working with those objects. We will also cover base <code>R</code> plotting functions to get you started with making your own publication-quality plots. Finally, we will touch on the RMarkdown file format, how to write those files in <code>RStudio</code>, and how to render the <code>.Rmd</code> file into polished, readable <code>.html</code> documents.</p>
+</div>
+<div id="more-on-functions" class="section level2">
+<h2><span class="header-section-number">7.2</span> More on functions</h2>
+<p>In the last chapter we touched on functions in <code>R</code>, gave a few examples of commonly used functions, and covered how to learn more about a function using the <code>help()</code> function. As mentioned, functions and their use follow a basic structure. To call functions we type their name and include a set of parameters expressed as arguments, which specify what we want them to do, inside parentheses <code>()</code>. For example, to successfully call the function <code>mean()</code>, we need, at minimum, to supply a vector of numeric values. That vector can be an obect we have already assigned in our environment, or it can be the outcome of another function called within the <code>mean()</code> function. Below are these two alternatives.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</a>
+<a class="sourceLine" id="cb41-2" data-line-number="2"><span class="kw">mean</span>(z)</a></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>))</a></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<p>The second alternative illustrates the power of “nesting” functions within <code>R</code>. You don’t need to perform tasks by defining a bunch of intermediate objects and calling functions in piecemeal manner. In many cases it is much more efficient to nest functions within one another, as long as it doesn’t jeopardize the functionality or readability of your code.</p>
+<p>Base <code>R</code> includes dozens of useful functions that will become part of your regular arsenal. We have already mentioned several of these and discussed how to discover and learn more about them. As you become a more advanced <code>R</code> user, and in particular as you begin performing tasks and analyses more specific to your field of study, you will need to use functions that are not included in the base <code>R</code> library. Fortunately, there are thousands of functions distributed in the form of <code>R</code> “packages,” which you can easily install on your system. Packages especially easy to find and use are those distributed via the Comprehensive R Archive Network (CRAN): <a href="https://cran.r-project.org/web/packages/index.html" class="uri">https://cran.r-project.org/web/packages/index.html</a>. If you find a specific function or set of functions you are interested in trying out, for instance after a Google search of your problem, you can download and install the package those functions belong to by running the following command from your <code>R</code> Console:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;name_of_package&quot;</span>)</a></code></pre></div>
+<p>Note that the name of the package has to be spelled correctly (and <code>R</code> is case sensitive), and that the name of the package should be in quotation marks. You will get a series of messages printed to the Console, and finally either a confirmation of installation or error message. Once you have installed a package successfully, you do not need to re-run the <code>install.packages()</code> function. If you want to check whether a package has already been installed, and look at the details of that installation, you can always run the following from the Console:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="kw">installed.packages</span>(<span class="st">&quot;name_of_package&quot;</span>)</a></code></pre></div>
+<p>To actually use the functions from an installed package, you have to “load” that package into your current working environment. To do that we use the <code>library()</code> function:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="kw">library</span>(name_of_package)</a></code></pre></div>
+<p>Note that you do not include quotation marks around the package name for the <code>library()</code> function. Unlike package installation, you will need to invoke <code>library()</code> every time you start a new <code>R</code> session to load the package and its functions.</p>
+<p>It is also possible, and quite straightforward, to write your own <code>R</code> functions, which you can define within your <code>.R</code> or <code>.Rmd</code> scripts for convenient usage. If you get the the point at which you want to distribute your own functions in the form of a package, that is possible too. Later during this course we will get a little experience in writing simple <code>R</code> functions. Writing more involved functions and publishing packages, however, are topics for a more advanced <code>R</code> course.</p>
+<div id="more-base-r-functions-useful-for-working-with-vectors" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> More base <code>R</code> functions useful for working with vectors</h3>
+<p>Below are annotated lists of base <code>R</code> functions commonly used to work with vectors. We will not take the time here to give specific examples for each function, because their usage is quite straightforward and you will get plenty of practice with them in associated exercies. You can also practice using the <code>help()</code> function if you have specific questions.</p>
+<p><strong>The following functions provide information about vectors:</strong></p>
+<ul>
+<li><p><code>head()</code>: returns the first elements of an object (like a vector or data frame)</p></li>
+<li><p><code>tail()</code>: returns the last elements of an object (like a vector or data frame)</p></li>
+<li><p><code>length()</code>: returns the number of elements in a vector</p></li>
+<li><p><code>class()</code>: returns the class of elements in a vector (e.g. “character”, “numeric”, “factor”, etc.)</p></li>
+</ul>
+<p><strong>The following functions can modify or generate vectors in structured ways:</strong></p>
+<ul>
+<li><p><code>sort()</code>: returns a sorted vector from an orignal vector of numeric values</p></li>
+<li><p><code>seq()</code>: returns a “series” of numeric values beginning at one value and ending at another, while also specifying the size of increments/decrements between values</p></li>
+<li><p><code>rep()</code>: returns a vector of identical elements, repeated a specified number of times</p></li>
+</ul>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">5</span>)</a></code></pre></div>
+<pre><code>## [1] 1 1 1 1 1</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="kw">rep</span>(<span class="st">&quot;one&quot;</span>, <span class="dv">5</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;one&quot; &quot;one&quot; &quot;one&quot; &quot;one&quot; &quot;one&quot;</code></pre>
+<p>Note that <code>seq()</code> and <code>rep()</code> can be repeated and/or combined in various ways, in some cases using <code>c()</code>, to generate vectors in a multitude of patterned ways.</p>
+<p><strong>The following functions can generate vectors of random values, randomly shuffle vectors, or generate vectors of values drawn from defined probability distributions:</strong></p>
+<ul>
+<li><p><code>sample()</code>: randomly selects and returns elements from a vector (“shuffles” a vector when size argument is set to original vector size and replace argument is set to “FALSE”)</p></li>
+<li><p><code>rnorm()</code>: randomly draws values from a theoretical normal distribution</p></li>
+<li><p><code>rbinom()</code>: randomly draws values from a theoretical binomial distribution</p></li>
+<li><p><code>set.seed()</code>: sets <code>R</code>’s random number generator seed so that operations with stochastic properties can be reproduced</p></li>
+</ul>
+<p><strong>The following functions can change the class of elements in a particular vector:</strong></p>
+<ul>
+<li><p><code>as.numeric()</code>: changes the class of objects in a vector to “numeric”.</p></li>
+<li><p><code>as.factor()</code>: changes the class of objects in a vector to “factor”.</p></li>
+<li><p><code>as.character()</code>: changes the class of objects in a vector to “character”.</p></li>
+</ul>
+<p>The <code>as.xxx</code> family of <code>R</code> functions is especially useful if you need to convert the class of a particular object for a given function to use the object properly.</p>
+</div>
+</div>
+<div id="indexing-vectors" class="section level2">
+<h2><span class="header-section-number">7.3</span> Indexing vectors</h2>
+<p>Now that we are quite familiar with different ways for generating vectors, let’s discuss how we isolate specific elements from those vectors. This process is called “indexing,” and in <code>R</code> simple numeric (or “positional”) indexing is intuitively based on integers, starting from “1”. We use the square braces for numeric indexing in <code>R</code>: <code>[]</code>. For example if we want to index the first element in a vector, we simply type <code>[1]</code> after the vector. Indexing can be performed on a defined vector, or on the fly using the immediate output of a function call.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="co">## Using our vector z from above</span></a>
+<a class="sourceLine" id="cb52-2" data-line-number="2">z[<span class="dv">1</span>]</a></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="co">## On the fly using output from the c() function</span></a>
+<a class="sourceLine" id="cb54-2" data-line-number="2"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)[<span class="dv">1</span>]</a></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>To isolate a series of consecutive elements from a vector, we simply use the <code>:</code> character. For example, if we want to index the first (or last) 4 elements from the vector below we could do this, respectively:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>)[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</a></code></pre></div>
+<pre><code>## [1] 10 20 30 40</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>)[<span class="dv">4</span><span class="op">:</span><span class="dv">7</span>]</a></code></pre></div>
+<pre><code>## [1]  40  50 100 200</code></pre>
+<p>For indexing discontinuous elements, we can use our old friend, the <code>c()</code> function inside of the square braces. So, if we want to index the first 3 and the 5th elements:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>)[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">5</span>)]</a></code></pre></div>
+<pre><code>## [1] 10 20 30 50</code></pre>
+<p>Finally, we can use the <code>-</code> character to index all elements of a vector, “minus” other elements. When excluding even consecutive elements, however, we have to include <code>c()</code>. For instance, if we want all <strong>except</strong> the first 2 elements, we could do:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>)[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)]</a></code></pre></div>
+<pre><code>## [1]  30  40  50 100 200</code></pre>
+</div>
+<div id="more-complex-data-objects-in-r" class="section level2">
+<h2><span class="header-section-number">7.4</span> More complex data objects in <code>R</code></h2>
+<p>Vectors are extremely important object types in <code>R</code>, for the reasons and examples we have already discussed. Other types of objects in <code>R</code> are also important, and necessary to learn about to do meaningful and efficient work. These other types of objects are more complex than vectors, but they can, in many cases, be composed of vectors.</p>
+<div id="lists" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> lists</h3>
+<p>Lists in <code>R</code> are aggregates of different objects, and those objects can be a mixed variety of types. For example, a list could be an aggregate of 3 different vectors, even if those vectors are different lengths and contain elements of a different class. We can generate lists using the <code>list()</code> function.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1">vec1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>)</a>
+<a class="sourceLine" id="cb64-2" data-line-number="2">vec2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;happy&quot;</span>, <span class="st">&quot;sad&quot;</span>, <span class="st">&quot;grumpy&quot;</span>)</a>
+<a class="sourceLine" id="cb64-3" data-line-number="3">vec3 &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;high&quot;</span>, <span class="st">&quot;low&quot;</span>))</a>
+<a class="sourceLine" id="cb64-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb64-5" data-line-number="5">mylist &lt;-<span class="st"> </span><span class="kw">list</span>(vec1, vec2, vec3)</a>
+<a class="sourceLine" id="cb64-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb64-7" data-line-number="7"><span class="kw">print</span>(mylist)</a></code></pre></div>
+<pre><code>## [[1]]
+## [1]  10  20  30  40  50 100 200
+## 
+## [[2]]
+## [1] &quot;happy&quot;  &quot;sad&quot;    &quot;grumpy&quot;
+## 
+## [[3]]
+## [1] high low 
+## Levels: high low</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="kw">class</span>(mylist)</a></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="kw">str</span>(mylist)</a></code></pre></div>
+<pre><code>## List of 3
+##  $ : num [1:7] 10 20 30 40 50 100 200
+##  $ : chr [1:3] &quot;happy&quot; &quot;sad&quot; &quot;grumpy&quot;
+##  $ : Factor w/ 2 levels &quot;high&quot;,&quot;low&quot;: 1 2</code></pre>
+<p>Let’s take note of a few things from the output above. First, notice that each of the three vectors in <code>mylist</code> has a numeric (positional) index. Unlike individual vectors, however, primary elements of lists are indexed by double square braces <code>[[]]</code>. So, if we want to index the <code>vec2</code> element of <code>mylist</code>, we type:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1">mylist[[<span class="dv">2</span>]]</a></code></pre></div>
+<pre><code>## [1] &quot;happy&quot;  &quot;sad&quot;    &quot;grumpy&quot;</code></pre>
+<p>Taking it one step further, if we want to index the 2nd element of the <code>vec2</code> element of <code>mylist</code>, we type:</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1">mylist[[<span class="dv">2</span>]][<span class="dv">2</span>]</a></code></pre></div>
+<pre><code>## [1] &quot;sad&quot;</code></pre>
+<p>The other things we should note from our exploration of <code>mylist</code> above is that 1. It has a class when we call the <code>class()</code> function, and 2. We see a nice breakdown of the 3 components that make up <code>mylist</code> when we call the <code>str()</code> function. <code>str()</code>, which is short for “structure,” is an especially useful function for trying to understand the organization of complex objects in <code>R</code>.</p>
+</div>
+<div id="data-frames" class="section level3">
+<h3><span class="header-section-number">7.4.2</span> data frames</h3>
+<p>There is a special class of list we very often work with in <code>R</code> called a “data frame.” You can think of data frames as an especially useful organizing structure for data sets. Data frames are lists of vectors, but the vectors have to be the same length. Also, the vectors (officially known as “columns”) in data frames have names we refer to as “column names,” and the rows also have names. For the types of analysis we will be dealing with in this course, it helps to organize our data so that variables in our study correspond to columns and observations correspond to rows. Let’s explore some practical details regarding the generation and use of data frames.</p>
+<div id="creating-data-frames-in-r" class="section level4">
+<h4><span class="header-section-number">7.4.2.1</span> creating data frames in <code>R</code></h4>
+<p>We can generate data frames manually, like we did with the list <code>mylist</code> above. Here, for example, we can set up three variables (habitat, temp and elevation) as vectors.</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1">habitat &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;mixed&quot;</span>, <span class="st">&quot;wet&quot;</span>, <span class="st">&quot;wet&quot;</span>, <span class="st">&quot;wet&quot;</span>, <span class="st">&quot;dry&quot;</span>, <span class="st">&quot;dry&quot;</span>, <span class="st">&quot;dry&quot;</span>,<span class="st">&quot;mixed&quot;</span>))</a>
+<a class="sourceLine" id="cb74-2" data-line-number="2">temp &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.4</span>, <span class="fl">3.4</span>, <span class="fl">8.4</span>, <span class="dv">3</span>, <span class="fl">5.6</span>, <span class="fl">8.1</span>, <span class="fl">8.3</span>, <span class="fl">4.5</span>)</a>
+<a class="sourceLine" id="cb74-3" data-line-number="3">elevation &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">9.2</span>, <span class="fl">3.8</span>, <span class="dv">5</span>, <span class="fl">5.6</span>, <span class="fl">4.1</span>, <span class="fl">7.1</span>, <span class="fl">5.3</span>)</a></code></pre></div>
+<p>Then we can use the <code>data.frame()</code> function to incorporate the vectors into columns of the data frame.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1">mydata &lt;-<span class="st"> </span><span class="kw">data.frame</span>(habitat, temp, elevation)</a>
+<a class="sourceLine" id="cb75-2" data-line-number="2"><span class="kw">row.names</span>(mydata) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Reedy Lake&quot;</span>, <span class="st">&quot;Pearcadale&quot;</span>, <span class="st">&quot;Warneet&quot;</span>, <span class="st">&quot;Cranbourne&quot;</span>, </a>
+<a class="sourceLine" id="cb75-3" data-line-number="3">                       <span class="st">&quot;Lysterfield&quot;</span>, <span class="st">&quot;Red Hill&quot;</span>, <span class="st">&quot;Devilbend&quot;</span>, <span class="st">&quot;Olinda&quot;</span>)</a></code></pre></div>
+<p>Note above that we used a function called <code>row.names</code> to assign row names to <code>mydata</code>. The function <code>colnames()</code> does the same, but for column names.</p>
+</div>
+<div id="working-with-pre-loaded-base-r-data-frames." class="section level4">
+<h4><span class="header-section-number">7.4.2.2</span> working with pre-loaded base <code>R</code> data frames.</h4>
+<p>There are a few data frames that are available to work with whenever you begin an <code>R</code> session. These can be a great way to practice plotting and analysis, and in fact many examples written to accompany <code>R</code> functions include these data frames to promote reproducibility and convenience. Two of these pre-loaded data frames that are especially popular are <code>mtcars</code> and <code>iris</code>.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="kw">head</span>(mtcars)</a></code></pre></div>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="kw">head</span>(iris)</a></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+<div id="reading-in-data-frames-in-r" class="section level4">
+<h4><span class="header-section-number">7.4.2.3</span> reading in data frames in <code>R</code></h4>
+<p>A strength of <code>R</code> is being able to import data from an external source. For example, if you have a comma- or tab- separated text file (like the UNIX-friendly formats we discussed previously), it can be easily read into <code>R</code>, by default as a data frame. One function for accomplishing this is <code>read.table()</code>, although functions like <code>read.delim()</code> can be similarly applied. Two important arguments for <code>read.table()</code> are “header” and “row.names”, which indicate that there is a header row (with column names) and row label column (with row names), respectively. You also need to supply the file path and name in quotation marks (no path necessary if the file is in the current working directory), and what character is used as the field (column) delimiter. Here is an example:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1">YourFile &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;yourfile.csv&#39;</span>, <span class="dt">header=</span>T, <span class="dt">row.names=</span><span class="dv">1</span>, <span class="dt">sep=</span><span class="st">&#39;,&#39;</span>)</a>
+<a class="sourceLine" id="cb80-2" data-line-number="2">YourFile &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;yourfile.txt&#39;</span>, <span class="dt">header=</span>T, <span class="dt">row.names=</span><span class="dv">1</span>, <span class="dt">sep=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</a></code></pre></div>
+</div>
+<div id="exporting-data-frames-in-r" class="section level4">
+<h4><span class="header-section-number">7.4.2.4</span> exporting data frames in <code>R</code></h4>
+<p>If you ever want to save a data frame in a format that you can work with outside of <code>R</code>, the <code>write.table()</code> function does pretty much the opposite of its “read” counterpart.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">write.table</span>(YourFile, <span class="st">&quot;yourfile.csv&quot;</span>, <span class="dt">quote=</span>F, <span class="dt">row.names=</span>T, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)</a>
+<a class="sourceLine" id="cb81-2" data-line-number="2"><span class="kw">write.table</span>(YourFile, <span class="st">&quot;yourfile.txt&quot;</span>, <span class="dt">quote=</span>F, <span class="dt">row.names=</span>T, <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</a></code></pre></div>
+</div>
+<div id="indexing-data-frames" class="section level4">
+<h4><span class="header-section-number">7.4.2.5</span> indexing data frames</h4>
+<p>Indexing data frames can be acheived in two different ways. We can use numeric (positional) indexing as in the case of vectors and lists (see above). With a data frame, we can index any subset of it using two pieces of information: row coordinates and column coordinates. To accomplish this we use single square braces <code>[,]</code>, in which the row coordinate(s) are typed first, followed by a comma, followed by the column cooridate(s). If we want to index all rows or all columns, we just leave the space to the left or right of the comma blank, respectively. Here are some examples for indexing subsets of the <code>iris</code> data frame.</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="co">## The first row, with all columns</span></a>
+<a class="sourceLine" id="cb82-2" data-line-number="2">iris[<span class="dv">1</span>,]</a></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="co">## The first 5 rows and the first 2 columns</span></a>
+<a class="sourceLine" id="cb84-2" data-line-number="2">iris[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</a></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width
+## 1          5.1         3.5
+## 2          4.9         3.0
+## 3          4.7         3.2
+## 4          4.6         3.1
+## 5          5.0         3.6</code></pre>
+<p>With data frames, we can also use the column names to index subsets. To do this we use the <code>$</code> character after the name of the data frame, followed by the name of the column we want to index. Again, below is a demonstration using <code>iris</code>. Indexing using column names is perhaps the most useful when defining statistical models, a topic we will reach later in the course.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="co">## The first 5 rows of the first column</span></a>
+<a class="sourceLine" id="cb86-2" data-line-number="2">iris<span class="op">$</span>Sepal.Length[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a></code></pre></div>
+<pre><code>## [1] 5.1 4.9 4.7 4.6 5.0</code></pre>
+</div>
+</div>
+<div id="matrices" class="section level3">
+<h3><span class="header-section-number">7.4.3</span> matrices</h3>
+<p>Matrices in <code>R</code> are somewhat similar to data frames, but mixed classes among columns are not permitted, and rows and columns are only positionally indexed as opposed to having names. Positional indexing for matrices, not surprisingly, follows the <code>[rownumber, columnnumber]</code> convention, similar to data frames. A matrix can be generated using the <code>matrix()</code> function, as demonstrated below.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="co">## Populate a 3x3 matrix with values 1 to 9</span></a>
+<a class="sourceLine" id="cb88-2" data-line-number="2"><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">3</span>)</a></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+</div>
+<div id="a-few-additional-base-r-functions-for-working-with-complex-r-objects" class="section level3">
+<h3><span class="header-section-number">7.4.4</span> A few additional base <code>R</code> functions for working with complex <code>R</code> objects</h3>
+<p>To add to your foundational knowledge of <code>R</code> functions, below are a few more functions especially useful for working with objects like data frames and matrices.</p>
+<ul>
+<li><p><code>dim()</code>: returns the number of rows and columns of a data frame or matrix</p></li>
+<li><p><code>View()</code>: opens up a GUI “viewer” for visual inspection of data frames (not recommended for large data frames)</p></li>
+<li><p><code>cbind()</code>: combines columns into a single object, which can be used to define or build data frames or matrices</p></li>
+<li><p><code>rbind()</code>: combines rows into a single object, which can be used to define or build data frames or matrices</p></li>
+<li><p><code>t()</code>: transposes a data frame or matrix, such that rows become columns, and columns become rows</p></li>
+</ul>
+</div>
+</div>
+<div id="some-brief-notes-on-basic-programming-in-r" class="section level2">
+<h2><span class="header-section-number">7.5</span> Some brief notes on basic programming in <code>R</code></h2>
+<p>At some point during your development as an <code>R</code> user you will want to programmatically manipulate <code>R</code> objects in an iterative, repeatable manner to automate tasks like plotting, simulations, and analysis. This use of the <code>R</code> language is especially relevant if you want to write your own functions. Here we touch on a few tools and approaches that will open the door to more powerful programming in <code>R</code>. These are skills that are great to practice and learn, but at a fairly foundational level for now. More advanced programming training in <code>R</code> is beyond the scope of this course.</p>
+<div id="conditional-statements-with-ifelse" class="section level3">
+<h3><span class="header-section-number">7.5.1</span> conditional statements with <code>ifelse()</code></h3>
+<p>One fundamental structural component of computer programming languages is the idea of conditional statements, which often take the form of “if/else” evaluation and execution. The idea is that we can write an algorithm to evaluate a particular statement using a logical operator, and if that statement is true have the program do one thing, but if the statement is false, have it do somehting “else.” In <code>R</code> we can write these statements with a structure similar to other languages, but we can also use the single <code>R</code> function <code>ifelse()</code> to accomplish the same thing. The <code>ifelse()</code> function is very easy to use. The first argument is the logical evaluation, the second argument is the action to take if that statement is true, and the third argument is the action to take if false. It is also possible to nest multiple <code>ifelse()</code> function calls wihtin one another, if mulitiple evaluations need to be performed with different outcomes. Below is a simple example for using <code>ifelse()</code> to generate a vector of values (“colors”), based on another vector.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="co">## First define a character vector</span></a>
+<a class="sourceLine" id="cb90-2" data-line-number="2">char_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;treatment&quot;</span>,<span class="dv">5</span>), <span class="kw">rep</span>(<span class="st">&quot;control&quot;</span>,<span class="dv">3</span>), <span class="kw">rep</span>(<span class="st">&quot;treatment&quot;</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="st">&quot;control&quot;</span>, <span class="dv">6</span>))</a>
+<a class="sourceLine" id="cb90-3" data-line-number="3"><span class="kw">print</span>(char_vec)</a></code></pre></div>
+<pre><code>##  [1] &quot;treatment&quot; &quot;treatment&quot; &quot;treatment&quot; &quot;treatment&quot; &quot;treatment&quot; &quot;control&quot;  
+##  [7] &quot;control&quot;   &quot;control&quot;   &quot;treatment&quot; &quot;treatment&quot; &quot;treatment&quot; &quot;treatment&quot;
+## [13] &quot;control&quot;   &quot;control&quot;   &quot;control&quot;   &quot;control&quot;   &quot;control&quot;   &quot;control&quot;</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="co">## Generate a vector that stores the color &quot;red&quot; for &quot;treatment&quot; and &quot;blue&quot; for &quot;control&quot;</span></a>
+<a class="sourceLine" id="cb92-2" data-line-number="2">col_vec &lt;-<span class="st"> </span><span class="kw">ifelse</span>(char_vec<span class="op">==</span><span class="st">&quot;treatment&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>)</a>
+<a class="sourceLine" id="cb92-3" data-line-number="3"><span class="kw">print</span>(col_vec)</a></code></pre></div>
+<pre><code>##  [1] &quot;red&quot;  &quot;red&quot;  &quot;red&quot;  &quot;red&quot;  &quot;red&quot;  &quot;blue&quot; &quot;blue&quot; &quot;blue&quot; &quot;red&quot;  &quot;red&quot; 
+## [11] &quot;red&quot;  &quot;red&quot;  &quot;blue&quot; &quot;blue&quot; &quot;blue&quot; &quot;blue&quot; &quot;blue&quot; &quot;blue&quot;</code></pre>
+</div>
+<div id="replicate-tapply-and-apply" class="section level3">
+<h3><span class="header-section-number">7.5.2</span> <code>replicate()</code>, <code>tapply()</code>, and <code>apply()</code></h3>
+<p>In some cases we want to repeat a given process over and over again. For example, maybe we want to simulate the sampling process and generate 100 random samples of 100 values from a normal distribution. Fortunately, the <code>R</code> function <code>replicate()</code> makes this very easy.</p>
+<p>In the example below, we “shuffle” the order of the integers 1 through 10 five times using <code>replicate()</code>:</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="kw">replicate</span>(<span class="dv">5</span>, <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size=</span><span class="dv">10</span>, <span class="dt">replace=</span><span class="ot">FALSE</span>))</a></code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5]
+##  [1,]    1    6    1    1    7
+##  [2,]    5    4    4    9    1
+##  [3,]    8    3    7   10    4
+##  [4,]    9    9    2    2    6
+##  [5,]    4    8    9    5    3
+##  [6,]   10    5   10    3    5
+##  [7,]    7    7    3    8    8
+##  [8,]    6    2    8    4    2
+##  [9,]    3    1    6    7    9
+## [10,]    2   10    5    6   10</code></pre>
+<p>Note that the first argument is the number of total iterations we want to reproduce, and that the function returns a matrix as output.</p>
+<p>The <code>replicate()</code> function belongs to a group of functions referred to informally as the “apply” family. Another commonly used function from this group is <code>tapply()</code>, which allows you to apply a function to one vector (for example a numeric vector in a data frame), in a group-wise manner based on one or more factor vectors that correspond to the numeric vector. In other words, if we want to find the maximum value of variable x for each level of factor y in a data frame, we could use <code>tapply()</code> to do so. Below is an example, again using the <code>iris</code> data frame.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="co">## Find the maximum petal length for each species in the iris data frame</span></a>
+<a class="sourceLine" id="cb96-2" data-line-number="2"><span class="kw">tapply</span>(iris<span class="op">$</span>Petal.Length, iris<span class="op">$</span>Species, max)</a></code></pre></div>
+<pre><code>##     setosa versicolor  virginica 
+##        1.9        5.1        6.9</code></pre>
+<p>Note that the first argument is the numerical column, and the second is a factor column. The third is the function we wish to apply, in this case to each species separately.</p>
+<p>Another, similar function from this family is simply called <code>apply()</code>, and it can be used to apply a function to either all rows (with the MARGIN argument set to 1) or all columns (with the MARGIN argument set to 2) in a data frame or matrix. This is especially useful for calculating summary statistics for what we call the “margins” of data in tables.</p>
+</div>
+<div id="for-loops-in-r" class="section level3">
+<h3><span class="header-section-number">7.5.3</span> for loops in <code>R</code></h3>
+<p>Another fundamental concept in computer programming is the “for loop,” which is an algorithmic strategy for iteratively performing a task according to a pre-defined counter or loop variable, then terminating when the “loop” is evaluated as complete. For example, we may want to perform a specific calculation again and again for sucessive elements of an <code>R</code> object (like a data frame), and build a vector that successively stores the calculation for each iteration of the “loop.” We will not devote much time to for loops in <code>R</code> here, because the “apply” group of functions can accomplish many of the tasks you would write a for loop to perform, with much greater speed. If you do find a need for including a for loop in your future <code>R</code> programming, however, the commented example below illustrates an efficient framework in which “pre-allocation” of an output vector maximizes for loop speed despite some of <code>R</code>’s.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="co">## Calculate mpg/cyl and mpg/wt, for every row in mtcars and if the second is at least twice the size of the first include that ratio and another character value &quot;Yes&quot; in a growing 2-column dataframe. If the ratio is less than 2, then include &quot;No&quot; in the second column. </span></a>
+<a class="sourceLine" id="cb98-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb98-3" data-line-number="3"><span class="co">## first pre-allocate our new data frame, which contains NAs initially</span></a>
+<a class="sourceLine" id="cb98-4" data-line-number="4">newdf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">rep</span>(<span class="ot">NA</span>, <span class="kw">length</span>(mtcars<span class="op">$</span>mpg)), <span class="kw">rep</span>(<span class="ot">NA</span>, <span class="kw">length</span>(mtcars<span class="op">$</span>mpg)))</a>
+<a class="sourceLine" id="cb98-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb98-6" data-line-number="6"><span class="co">## then write the for loop to do the above task for every row in mtcars</span></a>
+<a class="sourceLine" id="cb98-7" data-line-number="7"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(mtcars<span class="op">$</span>mpg)) {</a>
+<a class="sourceLine" id="cb98-8" data-line-number="8">  newdf[i,<span class="dv">1</span>] &lt;-<span class="st"> </span>(mtcars<span class="op">$</span>mpg[i]<span class="op">/</span>mtcars<span class="op">$</span>wt[i])<span class="op">/</span>(mtcars<span class="op">$</span>mpg[i]<span class="op">/</span>mtcars<span class="op">$</span>cyl[i])</a>
+<a class="sourceLine" id="cb98-9" data-line-number="9">  newdf[i,<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="kw">ifelse</span>(newdf[i,<span class="dv">1</span>]<span class="op">&gt;=</span><span class="dv">2</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>)</a>
+<a class="sourceLine" id="cb98-10" data-line-number="10">}</a>
+<a class="sourceLine" id="cb98-11" data-line-number="11">  <span class="kw">print</span>(newdf)</a></code></pre></div>
+<pre><code>##    rep.NA..length.mtcars.mpg.. rep.NA..length.mtcars.mpg...1
+## 1                     2.290076                           Yes
+## 2                     2.086957                           Yes
+## 3                     1.724138                            No
+## 4                     1.866252                            No
+## 5                     2.325581                           Yes
+## 6                     1.734104                            No
+## 7                     2.240896                           Yes
+## 8                     1.253918                            No
+## 9                     1.269841                            No
+## 10                    1.744186                            No
+## 11                    1.744186                            No
+## 12                    1.965602                            No
+## 13                    2.144772                           Yes
+## 14                    2.116402                           Yes
+## 15                    1.523810                            No
+## 16                    1.474926                            No
+## 17                    1.496726                            No
+## 18                    1.818182                            No
+## 19                    2.476780                           Yes
+## 20                    2.179837                           Yes
+## 21                    1.622718                            No
+## 22                    2.272727                           Yes
+## 23                    2.328967                           Yes
+## 24                    2.083333                           Yes
+## 25                    2.080624                           Yes
+## 26                    2.067183                           Yes
+## 27                    1.869159                            No
+## 28                    2.643754                           Yes
+## 29                    2.523659                           Yes
+## 30                    2.166065                           Yes
+## 31                    2.240896                           Yes
+## 32                    1.438849                            No</code></pre>
+<p>In the case above, we used the length of the <code>mtcars</code> data frame (number of rows) to build a pre-allocated (filled with NAs) data frame of the correct size. Then, we also used the values 1 through that length to set up our “counter” in the for loop. The loop stops after tasks have been completed for <code>i=32</code>, which corresponds to the final row in <code>mtcars</code>. As mentioned, it’s probably better to rely on the other convenient <code>R</code> functions above for iterative processes, but pre-allocation of output objects is the way to go if you do need to rely on a for loop.</p>
+</div>
+</div>
+<div id="fundamentals-of-plotting-in-r" class="section level2">
+<h2><span class="header-section-number">7.6</span> Fundamentals of plotting in <code>R</code></h2>
+<p>The world of plotting in <code>R</code> is incredibly diverse, and there are entire courses dedicated to data visualization using <code>R</code>. Here we will very briefly cover a few of the most useful plotting functions and strategies using base <code>R</code>. This should be enough of an introduction to get you jump started, but you will no doubt discover more appealing and finely tuned strategies to apply in your future as an <code>R</code> user. For example, some people will find that the highly flexible, customizable package <code>ggplot2</code> and its plotting functions are preferable over base <code>R</code>. I encourage you to explore tools like this on your own, once you feel comfortable with <code>R</code> in general. We will also introduce plot- and visualization-related lessons throughout the remainder of the course, as they pertain to the analysis topic at hand.</p>
+<div id="basic-plotting-with-plot" class="section level3">
+<h3><span class="header-section-number">7.6.1</span> Basic plotting with <code>plot()</code></h3>
+<p>One “high level” plotting function in base <code>R</code> is simply called <code>plot()</code>. This function can accomplish many, many plotting goals, so we will start with it. Below, we start by calling <code>plot()</code> on a single vector that we have generated. Spend a little time examining the code, and the arguments passed to <code>plot()</code> in this example.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1">seq_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="fl">0.0</span>, <span class="fl">10.0</span>, <span class="dt">by =</span> <span class="fl">0.1</span>) </a>
+<a class="sourceLine" id="cb100-2" data-line-number="2"><span class="kw">plot</span>(seq_<span class="dv">1</span>, <span class="dt">xlab=</span><span class="st">&quot;space&quot;</span>, <span class="dt">ylab =</span><span class="st">&quot;function of space&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<p><img src="foundational_statistics_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p>We only supplied the one vector (<code>seq_1</code>) to <code>plot()</code> in this case, which resulted in the function just defining the x-axis values as the numeric positions (1 to 101) of <code>seq_1</code>. Also, this style of plot is known as a “scatterplot.” There is usually more “scatter,” for example when plotting two variables that not perfectly related. With <code>plot()</code>, we usually want to examine the relationship between two different variables, like below:</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1">seq_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="fl">0.0</span>, <span class="fl">10.0</span>, <span class="dt">by =</span> <span class="fl">0.1</span>)</a>
+<a class="sourceLine" id="cb101-2" data-line-number="2">seq_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="fl">10.0</span>, <span class="fl">0.0</span>, <span class="dt">by =</span> <span class="fl">-0.1</span>)</a>
+<a class="sourceLine" id="cb101-3" data-line-number="3"><span class="kw">plot</span>(seq_<span class="dv">1</span>, seq_<span class="dv">2</span>, <span class="dt">xlab=</span><span class="st">&quot;sequence 1&quot;</span>, <span class="dt">ylab =</span><span class="st">&quot;sequence 2&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<p><img src="foundational_statistics_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p>In this example, <code>plot()</code> takes the first argument as the x-axis variable, and the second argument as the y-axis variable. You can also use the <code>~</code> to specify variables, but in this case the y-axis variable comes first (<code>y ~ x</code>). Also note the other arguments, which are usually named pretty intuitively. Note the axis label arguments, the type of object plotted (“p” stands for “points”), and the color of the plotted objects. There are many possible arguments, and many are actually set by another function called <code>par()</code>, that <code>plot()</code> calls on internally. One great resource for understanding plotting function arguments is the help menu for <code>par()</code>. I promise, if you become familiar with the <code>par()</code> documentation, you will quickly ascend the ranks of plotting prowess, and it will save you many frustrating moments in the future! I encourage you to study the <code>plot()</code> and <code>par()</code> documentation and practice using some of the other arguments that are especially useful, including “main”, “xlim”, “ylim”, and “cex”, for example.</p>
+<p>The nice thing about graphical parameters is that, like many things in <code>R</code>, they are vectorized. So, if we want to use different symbols (look into the “pch” argument), colors (“col”), or sizes (look at “cex”) of points for different observations in something like a data frame, we can supply those in the form of a vector! Taking the example above, if we want to plot the first 10 observations as blue, and the remaining observations as red, we can supply a vector of “blues” and “reds” in the appropriate order to <code>plot()</code>.</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1">seq_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="fl">0.0</span>, <span class="fl">10.0</span>, <span class="dt">by =</span> <span class="fl">0.1</span>)</a>
+<a class="sourceLine" id="cb102-2" data-line-number="2">seq_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="fl">10.0</span>, <span class="fl">0.0</span>, <span class="dt">by =</span> <span class="fl">-0.1</span>)</a>
+<a class="sourceLine" id="cb102-3" data-line-number="3"><span class="kw">plot</span>(seq_<span class="dv">1</span>, seq_<span class="dv">2</span>, <span class="dt">xlab=</span><span class="st">&quot;sequence 1&quot;</span>, <span class="dt">ylab =</span><span class="st">&quot;sequence 2&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, </a>
+<a class="sourceLine" id="cb102-4" data-line-number="4">     <span class="dt">col =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;blue&quot;</span>, <span class="dv">10</span>), <span class="kw">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">91</span>)))</a></code></pre></div>
+<p><img src="foundational_statistics_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p>You can see how this would be a nice way to differentiate among observation types in your data set, and produce an information-rich, single plot, as opposed to producing many plots that highlight single variables.</p>
+<p>Sometimes we want to include multiple plots, as different panels, in the same figure. Fortunately this is made easy by the <code>mfrow</code> argument within <code>par()</code>. You simply set the dimensions, denoted by number of rows and number of columns in parentheses, before calling <code>plot()</code> repeatedly.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1">seq_square &lt;-<span class="st"> </span>(seq_<span class="dv">2</span>)<span class="op">*</span>(seq_<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb103-2" data-line-number="2">seq_square_new &lt;-<span class="st"> </span>(seq_<span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb103-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb103-4" data-line-number="4"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb103-5" data-line-number="5"><span class="kw">plot</span> (seq_<span class="dv">1</span>, <span class="dt">xlab=</span><span class="st">&quot;time&quot;</span>, <span class="dt">ylab =</span><span class="st">&quot;p in population 1&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, <span class="dt">col =</span> <span class="st">&#39;red&#39;</span>)</a>
+<a class="sourceLine" id="cb103-6" data-line-number="6"><span class="kw">plot</span> (seq_<span class="dv">2</span>, <span class="dt">xlab=</span><span class="st">&quot;time&quot;</span>, <span class="dt">ylab =</span><span class="st">&quot;p in population 2&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, <span class="dt">col =</span> <span class="st">&#39;green&#39;</span>)</a>
+<a class="sourceLine" id="cb103-7" data-line-number="7"><span class="kw">plot</span> (seq_square, <span class="dt">xlab=</span><span class="st">&quot;time&quot;</span>, <span class="dt">ylab =</span><span class="st">&quot;p2 in population 2&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, <span class="dt">col =</span> <span class="st">&#39;blue&#39;</span>)</a>
+<a class="sourceLine" id="cb103-8" data-line-number="8"><span class="kw">plot</span> (seq_square_new, <span class="dt">xlab=</span><span class="st">&quot;time&quot;</span>, <span class="dt">ylab =</span><span class="st">&quot;p in population 1&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&#39;yellow&#39;</span>)</a></code></pre></div>
+<p><img src="foundational_statistics_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+</div>
+<div id="histograms-using-hist" class="section level3">
+<h3><span class="header-section-number">7.6.2</span> Histograms using <code>hist()</code></h3>
+<p>We will talk more about frequency distributions and histograms later in the course, but for now it is a good idea to become familiar with one way to plot them. If we have a quantitative variable, like height, and we want to know what the distribution among individuals looks like, we can use a histogram. The function <code>hist()</code> will help us with this task. To illustrate, below we will sample values from a binomial distribution. Don’t worry about what this means now, as we will return to it later, but the scenario is intuitive. Let’s say we flip a coin 20 times and record the number of “heads” as “successes,” and let’s further say that we perform this “20 coin flips” activity 1000 times. And let’s assume that our coin is “fair,” such that the probability of getting heads on any given flip is 0.5. We can simulate this process using the <code>rbinom()</code> function and plot the results using <code>hist()</code>.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="kw">hist</span>(<span class="kw">rbinom</span>(<span class="dt">n=</span><span class="dv">1000</span>, <span class="dt">size=</span><span class="dv">20</span>, <span class="dt">prob=</span><span class="fl">0.5</span>), <span class="dt">xlab=</span><span class="st">&quot;number of heads&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;number of activities&quot;</span>,</a>
+<a class="sourceLine" id="cb104-2" data-line-number="2">     <span class="dt">main=</span><span class="st">&quot;Freq. Dist. of Coin Flip Successes&quot;</span>)</a></code></pre></div>
+<p><img src="foundational_statistics_files/figure-html/binomial%20function-1.png" width="672" /></p>
+<p>Note that, as expected, our most frequent observation is that we get 10 heads out of 20 flips.</p>
+</div>
+<div id="boxplots-using-boxplot" class="section level3">
+<h3><span class="header-section-number">7.6.3</span> Boxplots using <code>boxplot()</code></h3>
+<p>In many cases we want to summarize the distribution of a qunatitiative variable using “quartiles” (we’ll cover these in depth later), and perhaps we want to do this separately for different observation types in our data set. A boxplot (or “box and whisker plot,” depending on how it is drawn), depicts the 1st, 2nd (median), and 3rd quartile for a vector of numeric values using a box. “Whiskers” are often added to define “fences” beyond which are putative “outliers.” The <code>boxplot()</code> function of base <code>R</code> is convenient to use, particularly when your data set is organized in a data frame. Below is a series of simple examples to illustrate the utility of <code>boxplot()</code></p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="co">## make a modified version of the iris data frame, which includes a &quot;Region&quot; factor</span></a>
+<a class="sourceLine" id="cb105-2" data-line-number="2">new_iris &lt;-<span class="st"> </span>iris</a>
+<a class="sourceLine" id="cb105-3" data-line-number="3">new_iris<span class="op">$</span>Region &lt;-<span class="st"> </span><span class="kw">as.factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;West&quot;</span>, <span class="dv">5</span>), <span class="kw">rep</span>(<span class="st">&quot;East&quot;</span>, <span class="dv">5</span>)), <span class="dv">15</span>))</a>
+<a class="sourceLine" id="cb105-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb105-5" data-line-number="5"><span class="co">## make a boxplot of Sepal.Length that plots individual boxes for the separate Species</span></a>
+<a class="sourceLine" id="cb105-6" data-line-number="6"><span class="kw">boxplot</span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data=</span>new_iris)</a></code></pre></div>
+<p><img src="foundational_statistics_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="co">## make a boxplot of Sepal.Length that shows all 6 combinations of factor levels from Species and Region, including a different color for each species</span></a>
+<a class="sourceLine" id="cb106-2" data-line-number="2"><span class="kw">boxplot</span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Species<span class="op">*</span>Region, <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>),</a>
+<a class="sourceLine" id="cb106-3" data-line-number="3">        <span class="dt">data=</span>new_iris, <span class="dt">names=</span><span class="kw">c</span>(<span class="st">&quot;set_E&quot;</span>,<span class="st">&quot;ver_E&quot;</span>,<span class="st">&quot;vir_E&quot;</span>,<span class="st">&quot;set_W&quot;</span>,<span class="st">&quot;ver_W&quot;</span>,<span class="st">&quot;vir_W&quot;</span>))</a></code></pre></div>
+<p><img src="foundational_statistics_files/figure-html/unnamed-chunk-40-2.png" width="672" /></p>
+<p>Above you can see that by using the <code>*</code> character between the factors “Species” and “Region in our plotting”formula&quot; <code>boxplot()</code> produces a box for each factor level combination. Also, for <code>boxplot()</code> note that the “col” argument refers to the boxes themselves, so if we supply a vector of 6 colors, those will be applied to the boxes in order from left to right. Speaking of colors, an almost limitless array of colors can be specified in <code>R</code> plotting functions. Furthermore, colors can be coded using their names, or hexadecimal RGB specification. For a thorough treatment and great resources regarding colors in <code>R</code>, I recommend visiting the links at the bottom of the chapter.</p>
+</div>
+</div>
+<div id="a-brief-introduction-to-rmarkdown" class="section level2">
+<h2><span class="header-section-number">7.7</span> A brief introduction to <code>RMarkdown</code></h2>
+<p><code>RMarkdown</code> is a language that is distinct from <code>R</code>, but that incorporates <code>R</code> code “chunks,” which can be displayed and run if desired in the final, knitted output. The output can be knitted to a variety of file formats, such as <code>.html</code>, <code>.pdf</code>, or even Microsoft Word. For this course we will get into the habit of knitting to <code>.html</code>, which is the least buggy and error-prone in my experience. In the short section below, we will go over the simple steps required to write and knit your first <code>.Rmd</code> file, including the basic style elements of the language and some essential <code>R</code> chunk settings.</p>
+<p>To get started using <code>RMarkdown</code>, you first need to make sure that you install the package <code>rmarkdown</code> from your Console, using <code>install.packages()</code>. Then, assuming you have an <code>RStudio</code> session running, click on File -&gt; New File -&gt; R Markdown. This will open a window in which you will type the name of your new file and the author’s (your) name. A new file in your <code>RStudio</code> script editor pane (the upper left one) should appear. There will be a templated header, along with some other templated code, which you can modify based on your preferences. You may want to get rid of the pdf output line at the top for now, as we will knit to <code>.html</code> for this course. Knitting to <code>.pdf</code> requires some addtional software installation, which we don’t have time to troubleshoot during this course. In any case, let’s now cover some basic formatting code and code “chunk” types.</p>
+<p>Below I will provide the code you would type in your own <code>RMarkdown</code> file, followed by what it looks like rendered in this <code>Bookdown</code> document, which is built using a collection of <code>RMarkdown</code> files itself!</p>
+<div id="rmarkdown-formatting-basics" class="section level3">
+<h3><span class="header-section-number">7.7.1</span> <code>RMarkdown</code> formatting basics</h3>
+<p>You can include “nested” headers (like the one directly above) by using <code>#</code> symbols. For example this:</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="co">## Experiment with headers</span></a>
+<a class="sourceLine" id="cb107-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb107-3" data-line-number="3"><span class="co">### Try a third-level header</span></a>
+<a class="sourceLine" id="cb107-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb107-5" data-line-number="5"><span class="co">#### Or a fourth-level header</span></a></code></pre></div>
+<p>Renders as this:</p>
+</div>
+</div>
+<div id="experiment-with-headers" class="section level2">
+<h2><span class="header-section-number">7.8</span> Experiment with headers</h2>
+<div id="try-a-third-level-header" class="section level3">
+<h3><span class="header-section-number">7.8.1</span> Try a third-level header</h3>
+<div id="or-a-fourth-level-header" class="section level4">
+<h4><span class="header-section-number">7.8.1.1</span> Or a fourth-level header</h4>
+<p>Text can be rendered in bold, italics, or both like this:</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb108-1" data-line-number="1"><span class="ex">Text</span> can easilly be *italicized* or **bolded** or ***both***</a></code></pre></div>
+<p>Which renders as this:</p>
+<p>Text can easilly be <em>italicized</em> or <strong>bolded</strong> or <strong><em>both</em></strong></p>
+<p>Links can be included like this:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="ex">Here</span> is a useful link: [Rmd intro by RStudio](https://rmarkdown.rstudio.com/articles_intro.html)</a>
+<a class="sourceLine" id="cb109-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb109-3" data-line-number="3"><span class="ex">Here</span> is another: [R Markdown cheat sheet](https://rmarkdown.rstudio.com/lesson-15.html)</a></code></pre></div>
+<p>Which render like this:</p>
+<p>Here is a useful link: <a href="https://rmarkdown.rstudio.com/articles_intro.html">Rmd intro by RStudio</a></p>
+<p>Here is another: <a href="https://rmarkdown.rstudio.com/lesson-15.html">R Markdown cheat sheet</a></p>
+<p>For many more details on <code>RMarkdown</code> format and coding, I highly recommend the above links.</p>
+</div>
+</div>
+<div id="rmarkdown-code-chunk-options" class="section level3">
+<h3><span class="header-section-number">7.8.2</span> <code>RMarkdown</code> code chunk options</h3>
+<p>Code chunks in <code>RMarkdown</code> exist to show <code>R</code> code, run the code, or both. In every <code>RMarkdown</code> file you write, you will demarcate code chunks with three “ticks” at the top of the chuck followed immediately by the chunk options in curly braces, on the same line, and another three ticks (on their own line) below the chunk of code. This is what a coded chunk looks like:</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb110-1" data-line-number="1"><span class="bn">```{r, eval = TRUE, echo = TRUE}</span></a>
+<a class="sourceLine" id="cb110-2" data-line-number="2"><span class="bn">seq(1, 10, 1)</span></a>
+<a class="sourceLine" id="cb110-3" data-line-number="3"><span class="bn">```</span></a></code></pre></div>
+<p>Which renders like this:</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">1</span>)</a></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>Note that in the above example the <code>R</code> code will be both run (“evaluated”) and displayed (“echoed”) in the knitted <code>.html</code> file. If we want to suppress either or both of those from being rendered, we just set the chunk options to “FALSE”.</p>
+<p>When your <code>RMarkdown</code> file is completed, save any final changes, and click on the “Knit” icon in the toolbar, or click File -&gt; Knit Document. Assuming there are no errors in your code, the rendered <code>.html</code> file should load in a new window for inspection, and the file should be saved in the same location as your <code>.Rmd</code> file. This has been a minimal treatment of <code>RMarkdown</code>, but it should be enough guidance to get you started writing your own <code>RMarkdown</code> scripts. Please consult the aforementioned <code>RMarkdown</code> resources for additional instruction, examples, and help.</p>
+</div>
+</div>
+<div id="exercises-associated-with-this-chapter-2" class="section level2">
+<h2><span class="header-section-number">7.9</span> Exercises associated with this chapter:</h2>
+<ul>
+<li>Exercise 2 (<code>rtutorial_1</code> in <code>foundstats</code> R package)</li>
+<li>Exercise 3 (<code>rtutorial_2</code> in <code>foundstats</code> R package)</li>
+</ul>
+</div>
+<div id="additional-learning-resources-2" class="section level2">
+<h2><span class="header-section-number">7.10</span> Additional learning resources:</h2>
+<ul>
+<li><p>Logan, M. 2010. Biostatistical Design and Analysis Using R. - A great intro to R for statistical analysis</p></li>
+<li><p><a href="http://library.open.oregonstate.edu/computationalbiology/" class="uri">http://library.open.oregonstate.edu/computationalbiology/</a> - O’Neil, S.T. 2017. A Primer for Computational Biology</p></li>
+<li><p><a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" class="uri">http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf</a> - A nice <code>.pdf</code> menu for many <code>R</code> colors</p></li>
+<li><p><a href="https://www.stat.ubc.ca/~jenny/STAT545A/block14_colors.html" class="uri">https://www.stat.ubc.ca/~jenny/STAT545A/block14_colors.html</a> - A good introduction to colors in <code>R</code></p></li>
+<li><p><a href="https://medialab.github.io/iwanthue/" class="uri">https://medialab.github.io/iwanthue/</a> - A cool automated color palette selection tool</p></li>
+<li><p><a href="https://rmarkdown.rstudio.com/articles_intro.html" class="uri">https://rmarkdown.rstudio.com/articles_intro.html</a> - <code>RStudio</code> guide to <code>RMarkdown</code></p></li>
+<li><p><a href="https://rmarkdown.rstudio.com/lesson-15.html" class="uri">https://rmarkdown.rstudio.com/lesson-15.html</a> - <code>RMarkdown</code> “cheat sheet”</p></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="an-introduction-to-the-r-language.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-R_morefunc_dfs_plot.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["foundational_statistics.pdf", "foundational_statistics.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

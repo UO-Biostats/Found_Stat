@@ -223,12 +223,12 @@ plot(x,y)
 
 - You’ve probably figured out that "y" from the last example is a draw of numbers with equal probability (what we call a flat, or uniform distribution).
 
-- What if you want to draw from a distribution?
+- What if you want to draw from a defined probability distribution, like the normal distribution?
 
 - Again, play around with the arguments in the parentheses to see what happens.
 
 ```{r Samples from distributions 2, out.width='100%', echo = TRUE}
-x <-rnorm(1000, 0, 100)
+x <-rnorm(100, 0, 100)
 print (x)
 hist(x, xlim = c(-50,50))
 hist(x, xlim = c(-500,500))
@@ -282,7 +282,7 @@ sample(x, replace = T)
 
 ## Exercises associated with this chapter:
 
-- Exercise 2 (file: `rtutorial_1.Rmd`)
+- Exercise 2 (`rtutorial_1` in `foundstats` R package)
 
 ## Additional learning resources:
 

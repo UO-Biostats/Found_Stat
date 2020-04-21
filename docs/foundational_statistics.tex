@@ -118,7 +118,7 @@
 
 \title{Foundational Statistics - Bi 610 - Spring 2020}
 \author{Clayton M. Small and William A. Cresko}
-\date{2020-04-09}
+\date{2020-04-20}
 
 \begin{document}
 \maketitle
@@ -643,7 +643,7 @@ The program \texttt{sed} has reasonably complex applciations, but is commonly us
 
 If you want to sort text files alphanumerically, in a field-wise fashion, \texttt{sort} is quite useful. If a file contains a single field, minimal specification is required, aside from tuning numerical sorting. For example, if you want to sort numerically, use the \texttt{-n} flag, and if you want to sort from largest to smallest, add the \texttt{-r} flag. If you want to sort a multi-field file based on just one field, you can use the ``key'' flag. For instance, if you have a tab-delimited file and want to sort by the second field in reverse numerical order, \texttt{sort\ -k2,2\ -nr\ filename.tsv} would give you the desired result. Finally, if you want to eliminate lines with the same value for a given field, you can use the \texttt{-u} ``unique'' flag.
 
-The UNIX program \texttt{awk} is an extremely powerful tool, and can itself be used essentially as a mini programming language. We will not get into the myriad uses of \texttt{awk} here, but the reference at the bottom of the chapter is a great resource if you want to learn more. \texttt{awk} is extremely efficient at parsing and capturing text files in a column-wise manner, with the ability to also evaluate logical statements applied to rows. The structure of \texttt{awk} commands is more complex than that of other UNIX programs we have discussed, but it is still very intuitive. One unique feature is that \texttt{awk} contains its own internal functions, which are typed inside curly braces. The ``print'' function can be used to extract fields, much like \texttt{cut}. For instance, \texttt{awk\ -F:\ \textquotesingle{}\{print\ \$1,\$6\}\textquotesingle{}\ filename.tsv} would print the first and sixth field from \texttt{filename.tsv}, assuming a ``:'' delimiter. With \texttt{awk}, fields are specified using the \texttt{\$} character. If you want also to select only specific rows from a set of columns (like those with a certain value), you can incorporate logical operators. In the above example if we had wanted fields 1 and 6, but only those rows with a value of at least 610 in field 2, we could type the following \texttt{awk\ -F:\ \textquotesingle{}\$4\ \textgreater{}=\ 610\ \{print\ \$1,\$6\}\textquotesingle{}\ filename.tsv}. Again, this is just scratching the surface with \texttt{awk}, which boasts a great deal of potential for your text file manipulation needs.
+The UNIX program \texttt{awk} is an extremely powerful tool, and can itself be used essentially as a mini programming language. We will not get into the myriad uses of \texttt{awk} here, but the reference at the bottom of the chapter is a great resource if you want to learn more. \texttt{awk} is extremely efficient at parsing and capturing text files in a column-wise manner, with the ability to also evaluate logical statements applied to rows. The structure of \texttt{awk} commands is more complex than that of other UNIX programs we have discussed, but it is still very intuitive. One unique feature is that \texttt{awk} contains its own internal functions, which are typed inside curly braces. The ``print'' function can be used to extract fields, much like \texttt{cut}. For instance, \texttt{awk\ -F:\ \textquotesingle{}\{print\ \$1,\$6\}\textquotesingle{}\ filename.tsv} would print the first and sixth field from \texttt{filename.tsv}, assuming a ``:'' delimiter. With \texttt{awk}, fields are specified using the \texttt{\$} character. If you want also to select only specific rows from a set of columns (like those with a certain value), you can incorporate logical operators. In the above example if we had wanted fields 1 and 6, but only those rows with a value of at least 610 in field 4, we could type the following \texttt{awk\ -F:\ \textquotesingle{}\$4\ \textgreater{}=\ 610\ \{print\ \$1,\$6\}\textquotesingle{}\ filename.tsv}. Again, this is just scratching the surface with \texttt{awk}, which boasts a great deal of potential for your text file manipulation needs.
 
 \hypertarget{a-quick-review-of-key-unix-commands-for-text-file-searching-and-manipulation}{%
 \subsubsection{A quick review of key UNIX commands for text file searching and manipulation}\label{a-quick-review-of-key-unix-commands-for-text-file-searching-and-manipulation}}
@@ -1150,219 +1150,39 @@ Note that factor levels are reported alphabetically. I used the \texttt{class()}
 \item
   You've probably figured out that ``y'' from the last example is a draw of numbers with equal probability (what we call a flat, or uniform distribution).
 \item
-  What if you want to draw from a distribution?
+  What if you want to draw from a defined probability distribution, like the normal distribution?
 \item
   Again, play around with the arguments in the parentheses to see what happens.
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{x <-}\KeywordTok{rnorm}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{)}
+\NormalTok{x <-}\KeywordTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{)}
 \KeywordTok{print}\NormalTok{ (x)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##    [1] -9.632411e+01 -2.946647e+00  1.313783e+02 -9.480609e+01 -2.176785e+01
-##    [6] -6.902277e+01  1.217067e+02 -4.919045e+01  1.376299e+01  9.325818e+01
-##   [11] -1.453173e+02  9.160958e+01  7.042451e+00  5.191549e+01  7.195463e+01
-##   [16]  9.965544e+01 -1.166697e+02 -8.964599e+01 -1.825209e+02  1.009805e+02
-##   [21]  6.252903e+00  6.076688e+01 -8.660954e+01 -4.090593e+01 -2.008898e+02
-##   [26] -7.015944e+01  1.343167e+02  3.362328e+00  5.880706e+01 -3.623925e+01
-##   [31]  1.277877e+02 -3.998500e+01 -3.484093e+01 -1.339164e+01 -1.633124e+02
-##   [36] -1.635518e+01  3.905313e+01  1.331722e+02 -1.373011e+02 -6.198433e+01
-##   [41] -4.875205e+01  9.926274e+01  3.140175e+00  2.969474e+01  2.332572e+01
-##   [46] -8.898687e+00  3.499248e+01  4.851585e+01 -1.613946e+02 -1.271991e+02
-##   [51]  6.307856e+01  7.909786e+01 -4.924356e+01  1.226313e+01 -2.049451e+01
-##   [56]  1.000208e+02 -7.688159e+01 -1.076552e+01  2.097432e+01 -4.074642e+01
-##   [61] -6.255335e+01 -8.519156e+01 -2.767848e+01  7.259556e+01  1.213101e+01
-##   [66] -6.865817e+01 -1.259162e+02  1.252900e+02  7.250425e+01  1.445048e+02
-##   [71]  2.826689e+01  4.428281e+01  6.312902e+01  2.972080e+01 -8.158195e+01
-##   [76]  5.928978e+01 -6.077438e+01 -4.215137e+01  1.692347e+00 -8.276484e+01
-##   [81] -6.503482e+01  9.030229e+00  1.921182e+02  2.268500e+02  1.752507e+02
-##   [86]  1.378213e+02  2.955754e+02  8.780553e+01 -1.215567e+02  1.094922e+02
-##   [91]  6.049493e+01  7.788699e+01  5.322968e+01 -1.083615e+02  1.633540e+02
-##   [96] -7.300259e+01  1.642928e+02 -3.111706e+01  8.667127e+01 -8.990059e+01
-##  [101] -1.511448e+02 -7.787664e+01 -3.640184e+01  5.021656e+01  4.337944e+01
-##  [106]  6.831986e+01  1.304706e+02  6.392730e+00  2.865631e+01 -1.923467e+02
-##  [111]  5.722541e+01  9.854878e+01 -1.359966e+02  3.550338e+01  4.861449e+01
-##  [116]  1.337257e+02  6.623885e+01 -7.164239e+01  2.909886e+01 -4.662361e+01
-##  [121]  6.275616e+01  4.681043e+00 -6.119822e+01 -3.495573e+01 -5.706925e+01
-##  [126] -1.574845e+02 -2.781019e+01 -3.443886e+01 -3.400346e+01 -1.202975e+02
-##  [131] -1.028865e+02  1.345223e+02  2.544974e+01  7.464498e+01 -1.249406e+02
-##  [136]  8.614705e+01 -1.929300e+01  1.639148e+02 -7.155742e+01  7.677499e+01
-##  [141]  2.972604e+01  5.075692e+01 -7.074975e+01  2.075689e+02  8.712670e+00
-##  [146]  5.899291e+00 -2.603035e+01 -1.396319e+01 -1.341926e+01  1.726184e+01
-##  [151] -9.072652e+01 -7.822792e+00 -1.783876e+02 -6.951719e+01 -8.329521e+01
-##  [156] -1.273539e+02 -2.376056e+02 -1.190907e+02  5.832475e+01 -8.389184e+00
-##  [161]  1.201160e+02 -1.868325e+02 -4.288855e+01 -2.550842e+01  8.920134e+01
-##  [166] -8.432805e+01  5.098763e+01 -1.035770e+00 -2.221542e+02  1.868706e+02
-##  [171] -3.656348e+01 -4.149033e+01  1.459730e+02 -1.193954e+02  2.833110e+02
-##  [176] -4.068171e+01 -1.544371e+02 -5.680622e+01  7.764468e+01 -7.256705e+00
-##  [181]  4.503894e+01  2.280042e+01  3.040137e+00  7.392931e+01 -1.521450e+02
-##  [186] -8.446755e+01  1.175750e+02 -1.067265e+02  1.373877e+02 -1.266127e+02
-##  [191]  2.900111e+02  5.143878e+01  2.677810e+01 -1.960169e+02 -1.144241e+00
-##  [196] -1.039952e+02  6.479881e+01  1.358096e+02  5.711393e+01  2.199968e+02
-##  [201] -8.485430e+01  9.917356e-02 -2.123235e+02  2.524766e+01  6.371120e+01
-##  [206]  1.029988e+02  1.000252e+01  1.405151e+01  5.167583e+01 -2.742315e+00
-##  [211]  1.449433e+02 -4.239975e+01  7.047416e+01  1.362807e+02 -1.300393e+02
-##  [216]  6.587748e+01 -3.079467e+01  3.162797e+01 -1.419183e+01  5.693963e+01
-##  [221]  4.363431e+01 -9.270680e+01 -3.820765e+01 -3.084564e+01  3.994561e+01
-##  [226]  1.092547e+01 -5.021147e+01  4.047592e+01 -5.836661e+01  4.879898e+01
-##  [231]  6.038813e+01  4.560072e+01 -8.660941e+01  9.825662e+01  5.079133e+01
-##  [236] -4.759508e+01  7.581111e+01  9.610488e+01 -1.432524e+02  1.371760e+02
-##  [241] -3.000739e+01  1.699131e+01 -1.277462e+02 -1.654911e+01 -4.926940e+01
-##  [246] -1.813617e+01  5.964411e+01  1.638270e+02 -7.141095e+01 -1.802035e+01
-##  [251] -1.067661e+02 -3.565662e+01 -1.162727e+02 -3.538397e+01 -2.702157e+01
-##  [256] -3.126035e+02  1.433742e+02 -5.178696e+01  1.148077e+02 -3.131507e+01
-##  [261]  8.671968e+01 -1.396525e+02 -1.026743e+02 -4.350522e+01  1.588712e+02
-##  [266]  7.857444e+01 -2.402158e+02 -5.374252e+00  1.085156e+02  8.091078e+01
-##  [271] -6.249773e+01 -2.468853e+00  1.708820e+00 -1.397036e+02  7.300529e+01
-##  [276] -2.877680e+01 -1.798716e+01  2.667128e+01 -9.232577e+01 -2.110803e+01
-##  [281]  1.176793e+02 -3.655279e+01  3.884940e+01 -1.657838e+02  5.559963e+01
-##  [286] -2.201539e+01  1.362909e+02  3.088568e+01  1.326746e+02 -4.814824e+01
-##  [291] -5.635774e+01  1.009186e+02  1.104251e+02 -1.112464e+02 -2.285409e+01
-##  [296]  6.331426e+00  7.835113e+00 -2.401437e+02 -1.218013e+02  1.643300e+02
-##  [301]  2.704060e+01 -9.266432e+01  5.775971e+01 -7.218742e+01  1.964048e+01
-##  [306] -8.789628e+01 -8.240194e-01 -2.058518e+01 -7.520597e+01 -4.098236e+01
-##  [311] -5.607751e+01 -1.747447e+01  2.587224e+01 -1.734155e+01 -1.788334e+02
-##  [316] -1.491692e+01  4.807637e+01  2.523923e+01 -8.872898e+00  5.691297e+01
-##  [321]  1.851195e+02 -1.385800e+02 -1.136834e+02  5.911101e+01 -6.145119e+01
-##  [326]  4.107069e+01 -1.138331e+02  8.601329e+01  5.603667e+01 -1.058089e+02
-##  [331] -1.802256e+02  1.491332e+02 -1.293818e+02 -1.022609e+02  1.356032e+02
-##  [336]  1.512181e+02 -5.894247e+01 -4.883880e+00  6.500841e+01 -2.855792e+01
-##  [341]  1.118414e+01 -3.228621e+01 -1.143158e+02 -2.036571e+01  1.154825e+02
-##  [346] -6.820513e+01 -6.368369e+01  3.187772e+01  1.395743e+02  5.358236e+01
-##  [351]  2.379528e+01  6.651672e+01 -7.712340e-01 -1.224001e+02  1.997318e+02
-##  [356] -2.398511e+01  3.906540e+01 -6.499069e+01  3.259685e+01  2.044476e+02
-##  [361] -4.449345e+01  1.096166e+02  2.333460e+02  3.934079e+01 -9.076984e+01
-##  [366] -8.543076e+01  5.120112e+01  2.906386e+01  5.702113e+01 -4.126197e-01
-##  [371] -1.441345e+02  9.395028e-01  1.408054e+01 -8.110283e+01  6.514175e+01
-##  [376] -1.463480e+02  1.907694e+02 -6.882346e+01 -2.334587e+00  1.035028e+02
-##  [381]  1.090939e+02  2.151777e+01 -6.556306e+00  5.142084e+01 -1.540541e+01
-##  [386] -8.684738e+01  1.167559e+02 -2.262589e+02 -2.644830e+02  1.109031e+02
-##  [391]  6.977420e+01  9.329498e+01 -8.392115e+01 -1.857329e+01  1.536897e+02
-##  [396] -4.479736e+01  1.577224e+02 -1.511114e+02 -1.266306e+02 -1.194619e+02
-##  [401]  1.238197e+02 -2.407194e+01 -6.228671e+01 -1.253816e+02  3.405348e-01
-##  [406] -1.890644e+02 -3.055084e+02 -2.646561e+01  1.166811e+02 -9.394711e+01
-##  [411] -1.327591e+01 -3.565332e+01  1.108846e+02  8.933374e+01  2.174234e+01
-##  [416]  1.888519e+02 -8.237874e+01  6.332198e+01 -5.770161e+00  1.178538e+02
-##  [421] -5.047875e+01 -8.999629e+01 -4.489108e+01 -3.908257e+01 -1.036047e+02
-##  [426]  1.164914e+02  1.194058e+02  1.313459e+02  5.964865e+01  1.221358e+01
-##  [431] -7.165196e+01  7.919594e+00 -5.112326e+01 -1.319262e+01 -1.579283e+01
-##  [436] -4.400220e+01 -1.524559e+02 -1.825653e+02 -1.323106e+02 -4.915743e+01
-##  [441]  2.795146e+01  6.100640e+01  5.870862e+01 -3.342527e+01  2.357855e+01
-##  [446] -1.043097e+02  3.024001e+01 -1.927248e+02 -3.634680e+01 -9.433250e+01
-##  [451]  1.509546e+02 -1.281711e+02 -1.028420e+02 -1.022912e+02 -9.848921e+01
-##  [456]  1.126762e+02 -1.022950e+02  6.254944e+01 -1.341724e+01  5.183440e+01
-##  [461]  7.957523e+01  1.367580e+02 -1.553383e+02 -1.930007e+01 -2.406074e+01
-##  [466]  2.144203e+01 -1.145699e+02 -1.503301e+02 -8.726628e+01 -1.046818e+02
-##  [471]  4.976399e+01  4.027661e+01 -6.823631e+00 -3.886997e-01 -8.605546e+01
-##  [476]  1.230212e+02 -3.369318e+01  1.657357e-01 -3.851507e-01 -3.807406e+01
-##  [481] -1.195864e+01 -1.921639e+02  1.481283e+02 -3.928103e+01  2.596589e+01
-##  [486] -3.617253e+01 -6.141301e+01  1.421086e+02  4.053527e+00  1.920930e+01
-##  [491] -2.276686e+02  8.912867e+01 -1.079684e+01 -3.295911e+01 -1.823070e+00
-##  [496]  7.415054e+01  6.553642e+01 -3.999012e+01 -5.199661e+01 -1.211854e+01
-##  [501] -3.920845e+00  1.053256e+02  1.812013e+00  9.617899e+01 -1.283143e+02
-##  [506] -9.507969e+01 -4.219995e+01 -2.374181e+02 -7.777524e+01 -9.009118e+01
-##  [511]  1.265222e+02  1.081654e+02  8.211969e+01  8.620803e+01  3.180911e+01
-##  [516]  3.419310e+01 -1.454936e+02 -6.388090e+01 -1.487528e+02 -1.143193e+02
-##  [521]  1.849124e+02  4.110752e+01 -1.317828e+02 -4.556302e+01  3.882809e+01
-##  [526]  2.532924e+01 -1.149329e+02  2.583072e+01 -8.254706e+01  5.733686e+01
-##  [531] -7.569305e+01  9.865659e+01 -4.674082e+01  8.572595e+01  1.588345e+02
-##  [536]  1.365000e+01  2.896219e+01  5.597367e+01  9.537225e+01 -8.631454e+01
-##  [541]  7.321559e+01 -1.859776e+01 -8.567348e+01  1.320364e+02 -7.336111e+01
-##  [546] -1.662205e+01 -4.925110e+01 -1.072929e+02 -5.778051e+01  7.880813e+00
-##  [551] -3.001144e+01  6.102117e+01 -1.914918e+00  5.608385e+01 -4.243316e+00
-##  [556] -2.293509e+01  8.939485e+01  1.102060e+02 -1.580026e+02  1.057391e+02
-##  [561]  2.026081e+01 -2.650916e+01 -1.829339e+02 -1.496983e+01  7.059417e+01
-##  [566] -1.065498e+02  1.250187e+02  6.951958e+01  3.869608e+01  8.371719e+01
-##  [571] -8.150094e+01  1.091408e+02 -7.264239e+01 -4.183778e+01 -1.978531e+01
-##  [576] -2.481549e+01  1.889573e+01  1.037666e+02  1.375203e+02 -3.570707e+01
-##  [581] -6.486770e+01 -4.379172e+01  8.853807e+01  1.063544e+01 -3.920313e+01
-##  [586]  1.593278e+02 -1.755889e+02  4.256121e+01 -8.223893e+01  3.895314e+00
-##  [591] -9.509101e+01 -1.637086e+02  1.337099e+02 -8.685364e+01  9.995676e+00
-##  [596]  1.965327e+02 -1.366256e+02 -3.148484e+01  9.548940e+01  1.562852e+02
-##  [601] -1.201817e+02  4.360627e+00  3.900634e+01 -2.329831e+02 -5.932206e+01
-##  [606] -9.672414e+01  3.505079e+01 -6.721509e+00 -1.965768e+02  1.478660e+02
-##  [611] -1.542613e+02  7.236708e+01  1.107052e+02  8.747391e+01  9.529106e+01
-##  [616]  3.582387e+01  8.308489e+01 -8.668761e+00  9.598227e+01 -8.596283e+01
-##  [621]  1.200841e+01 -5.772102e+01 -6.264569e+01 -1.859903e+01  2.014001e+02
-##  [626] -7.427240e+01 -2.265722e+01 -2.437090e+01 -2.133346e+01  6.642049e+01
-##  [631] -1.421570e+01 -3.033463e+01 -9.978815e+01 -4.827290e+01 -2.227630e+00
-##  [636] -9.813082e+00  2.216067e+01  1.369490e+02 -1.365663e+02  7.354403e+01
-##  [641]  3.522018e+01 -3.277792e+01 -2.263976e+01 -3.701086e+01 -1.987911e+02
-##  [646]  2.451724e+01 -6.338506e+01  1.058587e+02  2.678512e+02  1.339453e+02
-##  [651] -6.242527e+01 -8.958057e+01 -7.995812e+01  3.016585e+01 -1.739943e+02
-##  [656]  3.436805e+01  3.757583e+01 -4.994822e+01  1.847981e+02 -7.287585e+01
-##  [661]  4.030974e+01 -9.147180e+01  1.229114e+02  2.712884e+01 -3.811247e+01
-##  [666]  9.550231e+01  2.261274e+02 -9.087736e+01  1.340559e+02  7.540179e+01
-##  [671] -1.281451e+01 -7.322630e+01 -1.224938e+01 -1.729696e+02  1.902332e+02
-##  [676]  1.021067e+02  9.845653e+01  4.605987e+01  1.741151e+02  7.065228e+01
-##  [681]  6.328805e+01  8.788754e+01  1.443435e+02  7.714077e+01  1.965453e+02
-##  [686]  3.503461e+01 -1.530337e+01 -6.935420e+01 -2.740559e+00  2.281459e+01
-##  [691]  2.675274e+01 -9.355365e+01 -1.124817e+01  1.167142e+01 -1.328469e+02
-##  [696] -1.729077e+01  9.490001e+01 -2.041649e+01  8.108525e+01 -1.025042e+02
-##  [701] -6.479063e+01  4.838856e+00  1.345383e+02  8.195719e+01  2.742820e+02
-##  [706]  7.528146e+01 -7.201496e+01  5.739326e+01  1.340256e+02  4.508085e-03
-##  [711] -6.614753e+01 -4.985802e+01  1.016060e+02  2.998868e+01  1.055259e+02
-##  [716] -1.964175e+02 -2.624484e+01  1.925031e+02  1.587370e+02 -4.760702e+01
-##  [721]  8.556741e+01  5.702033e+01 -5.863248e+01  8.066524e+01 -4.575569e+01
-##  [726] -6.405493e+01  8.923198e+01 -4.117726e+01 -1.303796e+02  1.947045e+01
-##  [731] -5.776675e+01  4.159134e+01  1.004072e+01  6.715970e+01  7.794020e+01
-##  [736] -5.962927e+01  7.078611e+01 -7.225475e+01 -1.553864e+02  3.901645e+01
-##  [741] -7.391585e+01  1.611866e+02 -5.694669e+01 -2.085814e+02 -1.539142e+02
-##  [746] -7.427986e+01 -4.258104e+01 -2.431742e+01 -7.755738e+01 -2.567634e+01
-##  [751] -1.123901e+02  7.215657e+01 -2.533908e+01 -1.263971e+02 -2.156903e+01
-##  [756]  1.503232e+02  1.323775e+02 -1.381415e+02 -8.509368e+01 -7.748420e+00
-##  [761]  9.395214e+01  6.971698e+01 -3.025405e+01  1.190802e+02 -4.675354e+01
-##  [766] -4.291207e+00  4.928402e+01  3.986277e+00 -2.420144e+01 -2.622542e+01
-##  [771] -9.121144e+01 -6.634909e+01 -3.065351e+01 -1.113056e+02  9.774857e-01
-##  [776] -8.653542e+01  1.531898e+01 -1.484764e+02  1.027073e+02  1.191334e+02
-##  [781]  8.079541e+01 -1.326184e+02  7.668478e+01  6.998787e+01  2.225859e+02
-##  [786] -9.746936e+01 -1.631121e+02 -3.384048e+01  3.302569e+01  3.687808e+01
-##  [791] -8.189613e+01 -6.747353e+01  9.938360e+01  1.219446e+02 -1.049275e+02
-##  [796] -2.894126e+01 -8.661852e+00  1.191198e+02 -8.857771e+01  1.836779e+02
-##  [801] -8.514820e+01 -5.820340e+01  8.171538e+01  9.733134e+01 -6.801310e+01
-##  [806]  1.759763e+00 -1.106434e+02 -1.455405e+00 -1.854861e+02 -1.070496e+02
-##  [811]  1.646613e+02 -6.339518e+01 -1.262067e+02 -1.490989e+02  9.406135e+01
-##  [816] -1.930688e+01 -4.036816e+01 -3.417009e+01 -8.580004e+01  1.197862e+02
-##  [821] -1.801420e+02 -6.249816e+01 -9.611559e+01  1.661881e+02 -1.575072e+02
-##  [826]  1.316233e+02  3.045032e+01  4.875284e+01  7.692344e+01 -3.109959e+01
-##  [831] -1.222723e+02 -5.053869e+01 -7.277502e+01 -2.771258e+01  1.722247e+02
-##  [836] -9.015410e+01 -1.365412e+02 -8.494124e+01 -1.097742e+02  3.563410e+01
-##  [841]  5.687477e+01 -1.425916e+01 -7.929238e+00 -2.478807e+02  7.832968e+01
-##  [846] -1.007460e+02 -1.173860e+02  2.129740e+01  2.622033e+02  5.660083e+01
-##  [851]  9.734236e+01 -3.434605e+01  9.716732e+00 -1.012788e+01  9.939509e+01
-##  [856] -6.936073e+01  1.386178e+02  3.874617e+01  3.219052e+01 -2.586483e+01
-##  [861]  6.167873e+01 -4.273083e+01  5.151848e+01 -9.842675e+01 -2.498785e+01
-##  [866] -1.135727e+02 -1.740705e+02  1.159547e+02  2.186337e+00  1.695844e+02
-##  [871]  1.471802e+02 -1.349718e+02 -7.585076e+01 -1.016018e+02 -7.079777e+01
-##  [876] -1.166189e+02  2.502812e+01  5.220238e+01 -3.765801e+01 -6.029564e+01
-##  [881]  1.388687e+00  1.306913e+02 -1.178755e+02  1.833873e+01 -1.396343e+02
-##  [886]  2.257843e+00  7.901024e+01 -4.260354e+00  1.444804e+02 -5.998962e+01
-##  [891] -3.326110e+01 -1.625563e+02 -1.257131e+02  7.666526e+01  9.918874e+01
-##  [896]  5.534856e+01 -7.137956e+01  3.415869e+01  4.168533e+00 -2.437278e+01
-##  [901] -3.745845e+01 -1.075850e+02  2.536468e+02  8.959670e+01  9.292464e+01
-##  [906] -1.866057e+02  1.205549e+02  1.203846e+01 -2.748793e+01  1.573858e+02
-##  [911]  1.120433e+02 -2.408124e+02  1.611804e+01  6.776519e+01  4.931427e+01
-##  [916] -7.282368e+00 -9.570613e+01 -5.458058e+01  2.137207e+02  3.867011e+01
-##  [921] -5.148826e+01 -1.576149e+02  8.060121e+01 -1.934120e+01 -6.224347e+01
-##  [926]  5.750517e+00  7.861141e+01  1.334782e+02  1.615862e+02 -6.437721e+01
-##  [931] -4.281610e+01 -3.559026e+01 -2.219572e+01 -7.622408e+01 -9.991926e+01
-##  [936] -1.052987e+02  4.106839e+01 -1.288628e+02 -9.637850e+01 -2.104430e+01
-##  [941]  4.629157e+01  1.917738e+01 -7.489351e+01 -1.815277e+00  1.915721e+02
-##  [946] -3.568372e+01 -4.753921e+01  4.865418e+01 -7.062431e+01  4.942442e+01
-##  [951] -3.754630e+01  1.712584e+01 -1.771198e+01 -3.007542e+01 -1.662739e+02
-##  [956]  5.078226e+00  5.402923e+01 -1.687089e+02 -2.124013e+01 -5.564933e+01
-##  [961] -5.521287e+01  6.748005e-01  4.617274e+01  3.160277e+01  2.677520e+01
-##  [966]  2.710642e+01 -6.344277e+01 -9.797320e+01 -1.649687e+02 -2.586085e+01
-##  [971] -6.728047e+01 -1.414794e+02  1.018355e+02  2.838364e+01 -1.327246e+02
-##  [976] -8.257584e+01 -6.530273e+01  9.052841e+01 -1.553269e+02  3.088988e+01
-##  [981] -1.865751e+02 -6.305439e+01 -6.259455e+01 -7.185359e+01  4.949858e+01
-##  [986]  1.065410e+02  7.641417e+01 -5.075361e+01  1.991034e+00 -1.153476e+02
-##  [991] -2.552500e+02  2.663271e+01  3.393291e+00 -1.866147e+02  6.882899e+01
-##  [996]  4.943874e+01 -4.533336e+01  9.554360e+00  1.849825e+01  2.044823e+02
+##   [1]  151.6253376   61.4491546 -101.2273315  -36.4167184   20.9546360
+##   [6]   49.7479827  124.4586469   85.2667920   34.3207485   64.0841631
+##  [11]  -72.9346097  -22.7366729   -0.1940761 -261.5592573   38.3398461
+##  [16]  117.4703986  155.4074906   54.0642015 -241.1690891   -5.2591731
+##  [21]  125.2066296  -88.0526361   30.5564379   38.1836204   25.8460324
+##  [26]  183.2226328 -130.9675001 -169.6844518  -23.4818771   -7.8957591
+##  [31]  -56.9563600 -145.6200350  108.9253905  106.1174824   35.5578525
+##  [36]  -62.4442141   47.7071453 -105.3214641   64.5432149  138.7378265
+##  [41]  -41.0994345   35.7084069   -5.7955199 -107.9345640  -78.1587436
+##  [46]  136.8157345  -24.1229416   23.9543780  158.2036725 -141.7687017
+##  [51]  -28.1602197  173.4236959  -96.7606934 -143.0933201  113.4298557
+##  [56]   52.8402860   33.5927839   12.5271322  208.7985487  278.2796770
+##  [61]  -49.0290720   26.6166432  -10.5347618  -35.1882400  141.0702531
+##  [66]   61.8747644  -76.2120553  126.0627941   61.8327910  -90.4532729
+##  [71] -125.1321953 -109.5867921  116.7964207   -6.1924235   65.3464859
+##  [76]  230.6699083 -182.2410965  -79.2745295   45.2407916  198.7500070
+##  [81]   50.5875433 -208.7598598  159.4834695  164.3723365 -134.3170363
+##  [86]   16.9837007  -86.8701030   -8.2594203   89.5801083 -136.1875106
+##  [91]   28.6984757  -46.3979982   10.0864558   41.6677033  -42.1931638
+##  [96] -119.1738562  147.0814166  200.0535118  -95.1464831  -84.2382407
 \end{verbatim}
 
 \begin{Shaded}
@@ -1444,7 +1264,7 @@ We will get into the details regarding summary statistics later, but for now, ch
 \begin{itemize}
 \tightlist
 \item
-  Exercise 2 (file: \texttt{rtutorial\_1.Rmd})
+  Exercise 2 (\texttt{rtutorial\_1} in \texttt{foundstats} R package)
 \end{itemize}
 
 \hypertarget{additional-learning-resources-1}{%
@@ -1455,6 +1275,856 @@ We will get into the details regarding summary statistics later, but for now, ch
   Logan, M. 2010. Biostatistical Design and Analysis Using R. - A great intro to R for statistical analysis
 \item
   \url{http://library.open.oregonstate.edu/computationalbiology/} - O'Neil, S.T. 2017. A Primer for Computational Biology
+\end{itemize}
+
+\hypertarget{more-r-functions-complex-objects-basic-plotting-and-rmarkdown}{%
+\chapter{More R Functions, Complex Objects, Basic Plotting, and RMarkdown}\label{more-r-functions-complex-objects-basic-plotting-and-rmarkdown}}
+
+\hypertarget{background-1}{%
+\section{Background}\label{background-1}}
+
+In this chapter we will cover a variety of topics, all of which will help you build your \texttt{R} programming skills and make you capable of dealing with data sets using \texttt{R}. We will explore additional base \texttt{R} functions that are extremely useful for generating and manipulating vectors, combining vectors into multidimensional \texttt{R} objects, and working with those objects. We will also cover base \texttt{R} plotting functions to get you started with making your own publication-quality plots. Finally, we will touch on the RMarkdown file format, how to write those files in \texttt{RStudio}, and how to render the \texttt{.Rmd} file into polished, readable \texttt{.html} documents.
+
+\hypertarget{more-on-functions}{%
+\section{More on functions}\label{more-on-functions}}
+
+In the last chapter we touched on functions in \texttt{R}, gave a few examples of commonly used functions, and covered how to learn more about a function using the \texttt{help()} function. As mentioned, functions and their use follow a basic structure. To call functions we type their name and include a set of parameters expressed as arguments, which specify what we want them to do, inside parentheses \texttt{()}. For example, to successfully call the function \texttt{mean()}, we need, at minimum, to supply a vector of numeric values. That vector can be an obect we have already assigned in our environment, or it can be the outcome of another function called within the \texttt{mean()} function. Below are these two alternatives.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{30}\NormalTok{)}
+\KeywordTok{mean}\NormalTok{(z)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 20
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{30}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 20
+\end{verbatim}
+
+The second alternative illustrates the power of ``nesting'' functions within \texttt{R}. You don't need to perform tasks by defining a bunch of intermediate objects and calling functions in piecemeal manner. In many cases it is much more efficient to nest functions within one another, as long as it doesn't jeopardize the functionality or readability of your code.
+
+Base \texttt{R} includes dozens of useful functions that will become part of your regular arsenal. We have already mentioned several of these and discussed how to discover and learn more about them. As you become a more advanced \texttt{R} user, and in particular as you begin performing tasks and analyses more specific to your field of study, you will need to use functions that are not included in the base \texttt{R} library. Fortunately, there are thousands of functions distributed in the form of \texttt{R} ``packages,'' which you can easily install on your system. Packages especially easy to find and use are those distributed via the Comprehensive R Archive Network (CRAN): \url{https://cran.r-project.org/web/packages/index.html}. If you find a specific function or set of functions you are interested in trying out, for instance after a Google search of your problem, you can download and install the package those functions belong to by running the following command from your \texttt{R} Console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"name_of_package"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Note that the name of the package has to be spelled correctly (and \texttt{R} is case sensitive), and that the name of the package should be in quotation marks. You will get a series of messages printed to the Console, and finally either a confirmation of installation or error message. Once you have installed a package successfully, you do not need to re-run the \texttt{install.packages()} function. If you want to check whether a package has already been installed, and look at the details of that installation, you can always run the following from the Console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{installed.packages}\NormalTok{(}\StringTok{"name_of_package"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+To actually use the functions from an installed package, you have to ``load'' that package into your current working environment. To do that we use the \texttt{library()} function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(name_of_package)}
+\end{Highlighting}
+\end{Shaded}
+
+Note that you do not include quotation marks around the package name for the \texttt{library()} function. Unlike package installation, you will need to invoke \texttt{library()} every time you start a new \texttt{R} session to load the package and its functions.
+
+It is also possible, and quite straightforward, to write your own \texttt{R} functions, which you can define within your \texttt{.R} or \texttt{.Rmd} scripts for convenient usage. If you get the the point at which you want to distribute your own functions in the form of a package, that is possible too. Later during this course we will get a little experience in writing simple \texttt{R} functions. Writing more involved functions and publishing packages, however, are topics for a more advanced \texttt{R} course.
+
+\hypertarget{more-base-r-functions-useful-for-working-with-vectors}{%
+\subsection{\texorpdfstring{More base \texttt{R} functions useful for working with vectors}{More base R functions useful for working with vectors}}\label{more-base-r-functions-useful-for-working-with-vectors}}
+
+Below are annotated lists of base \texttt{R} functions commonly used to work with vectors. We will not take the time here to give specific examples for each function, because their usage is quite straightforward and you will get plenty of practice with them in associated exercies. You can also practice using the \texttt{help()} function if you have specific questions.
+
+\textbf{The following functions provide information about vectors:}
+
+\begin{itemize}
+\item
+  \texttt{head()}: returns the first elements of an object (like a vector or data frame)
+\item
+  \texttt{tail()}: returns the last elements of an object (like a vector or data frame)
+\item
+  \texttt{length()}: returns the number of elements in a vector
+\item
+  \texttt{class()}: returns the class of elements in a vector (e.g. ``character'', ``numeric'', ``factor'', etc.)
+\end{itemize}
+
+\textbf{The following functions can modify or generate vectors in structured ways:}
+
+\begin{itemize}
+\item
+  \texttt{sort()}: returns a sorted vector from an orignal vector of numeric values
+\item
+  \texttt{seq()}: returns a ``series'' of numeric values beginning at one value and ending at another, while also specifying the size of increments/decrements between values
+\item
+  \texttt{rep()}: returns a vector of identical elements, repeated a specified number of times
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 1 1 1 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{rep}\NormalTok{(}\StringTok{"one"}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "one" "one" "one" "one" "one"
+\end{verbatim}
+
+Note that \texttt{seq()} and \texttt{rep()} can be repeated and/or combined in various ways, in some cases using \texttt{c()}, to generate vectors in a multitude of patterned ways.
+
+\textbf{The following functions can generate vectors of random values, randomly shuffle vectors, or generate vectors of values drawn from defined probability distributions:}
+
+\begin{itemize}
+\item
+  \texttt{sample()}: randomly selects and returns elements from a vector (``shuffles'' a vector when size argument is set to original vector size and replace argument is set to ``FALSE'')
+\item
+  \texttt{rnorm()}: randomly draws values from a theoretical normal distribution
+\item
+  \texttt{rbinom()}: randomly draws values from a theoretical binomial distribution
+\item
+  \texttt{set.seed()}: sets \texttt{R}'s random number generator seed so that operations with stochastic properties can be reproduced
+\end{itemize}
+
+\textbf{The following functions can change the class of elements in a particular vector:}
+
+\begin{itemize}
+\item
+  \texttt{as.numeric()}: changes the class of objects in a vector to ``numeric''.
+\item
+  \texttt{as.factor()}: changes the class of objects in a vector to ``factor''.
+\item
+  \texttt{as.character()}: changes the class of objects in a vector to ``character''.
+\end{itemize}
+
+The \texttt{as.xxx} family of \texttt{R} functions is especially useful if you need to convert the class of a particular object for a given function to use the object properly.
+
+\hypertarget{indexing-vectors}{%
+\section{Indexing vectors}\label{indexing-vectors}}
+
+Now that we are quite familiar with different ways for generating vectors, let's discuss how we isolate specific elements from those vectors. This process is called ``indexing,'' and in \texttt{R} simple numeric (or ``positional'') indexing is intuitively based on integers, starting from ``1''. We use the square braces for numeric indexing in \texttt{R}: \texttt{{[}{]}}. For example if we want to index the first element in a vector, we simply type \texttt{{[}1{]}} after the vector. Indexing can be performed on a defined vector, or on the fly using the immediate output of a function call.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Using our vector z from above}
+\NormalTok{z[}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## On the fly using output from the c() function}
+\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{30}\NormalTok{)[}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+To isolate a series of consecutive elements from a vector, we simply use the \texttt{:} character. For example, if we want to index the first (or last) 4 elements from the vector below we could do this, respectively:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{)[}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10 20 30 40
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{)[}\DecValTok{4}\OperatorTok{:}\DecValTok{7}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  40  50 100 200
+\end{verbatim}
+
+For indexing discontinuous elements, we can use our old friend, the \texttt{c()} function inside of the square braces. So, if we want to index the first 3 and the 5th elements:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{)[}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10 20 30 50
+\end{verbatim}
+
+Finally, we can use the \texttt{-} character to index all elements of a vector, ``minus'' other elements. When excluding even consecutive elements, however, we have to include \texttt{c()}. For instance, if we want all \textbf{except} the first 2 elements, we could do:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{)[}\OperatorTok{-}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  30  40  50 100 200
+\end{verbatim}
+
+\hypertarget{more-complex-data-objects-in-r}{%
+\section{\texorpdfstring{More complex data objects in \texttt{R}}{More complex data objects in R}}\label{more-complex-data-objects-in-r}}
+
+Vectors are extremely important object types in \texttt{R}, for the reasons and examples we have already discussed. Other types of objects in \texttt{R} are also important, and necessary to learn about to do meaningful and efficient work. These other types of objects are more complex than vectors, but they can, in many cases, be composed of vectors.
+
+\hypertarget{lists}{%
+\subsection{lists}\label{lists}}
+
+Lists in \texttt{R} are aggregates of different objects, and those objects can be a mixed variety of types. For example, a list could be an aggregate of 3 different vectors, even if those vectors are different lengths and contain elements of a different class. We can generate lists using the \texttt{list()} function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vec1 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{)}
+\NormalTok{vec2 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"happy"}\NormalTok{, }\StringTok{"sad"}\NormalTok{, }\StringTok{"grumpy"}\NormalTok{)}
+\NormalTok{vec3 <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"high"}\NormalTok{, }\StringTok{"low"}\NormalTok{))}
+
+\NormalTok{mylist <-}\StringTok{ }\KeywordTok{list}\NormalTok{(vec1, vec2, vec3)}
+
+\KeywordTok{print}\NormalTok{(mylist)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## [1]  10  20  30  40  50 100 200
+## 
+## [[2]]
+## [1] "happy"  "sad"    "grumpy"
+## 
+## [[3]]
+## [1] high low 
+## Levels: high low
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(mylist)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "list"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str}\NormalTok{(mylist)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## List of 3
+##  $ : num [1:7] 10 20 30 40 50 100 200
+##  $ : chr [1:3] "happy" "sad" "grumpy"
+##  $ : Factor w/ 2 levels "high","low": 1 2
+\end{verbatim}
+
+Let's take note of a few things from the output above. First, notice that each of the three vectors in \texttt{mylist} has a numeric (positional) index. Unlike individual vectors, however, primary elements of lists are indexed by double square braces \texttt{{[}{[}{]}{]}}. So, if we want to index the \texttt{vec2} element of \texttt{mylist}, we type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mylist[[}\DecValTok{2}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "happy"  "sad"    "grumpy"
+\end{verbatim}
+
+Taking it one step further, if we want to index the 2nd element of the \texttt{vec2} element of \texttt{mylist}, we type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mylist[[}\DecValTok{2}\NormalTok{]][}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "sad"
+\end{verbatim}
+
+The other things we should note from our exploration of \texttt{mylist} above is that 1. It has a class when we call the \texttt{class()} function, and 2. We see a nice breakdown of the 3 components that make up \texttt{mylist} when we call the \texttt{str()} function. \texttt{str()}, which is short for ``structure,'' is an especially useful function for trying to understand the organization of complex objects in \texttt{R}.
+
+\hypertarget{data-frames}{%
+\subsection{data frames}\label{data-frames}}
+
+There is a special class of list we very often work with in \texttt{R} called a ``data frame.'' You can think of data frames as an especially useful organizing structure for data sets. Data frames are lists of vectors, but the vectors have to be the same length. Also, the vectors (officially known as ``columns'') in data frames have names we refer to as ``column names,'' and the rows also have names. For the types of analysis we will be dealing with in this course, it helps to organize our data so that variables in our study correspond to columns and observations correspond to rows. Let's explore some practical details regarding the generation and use of data frames.
+
+\hypertarget{creating-data-frames-in-r}{%
+\subsubsection{\texorpdfstring{creating data frames in \texttt{R}}{creating data frames in R}}\label{creating-data-frames-in-r}}
+
+We can generate data frames manually, like we did with the list \texttt{mylist} above. Here, for example, we can set up three variables (habitat, temp and elevation) as vectors.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{habitat <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"mixed"}\NormalTok{, }\StringTok{"wet"}\NormalTok{, }\StringTok{"wet"}\NormalTok{, }\StringTok{"wet"}\NormalTok{, }\StringTok{"dry"}\NormalTok{, }\StringTok{"dry"}\NormalTok{, }\StringTok{"dry"}\NormalTok{,}\StringTok{"mixed"}\NormalTok{))}
+\NormalTok{temp <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{3.4}\NormalTok{, }\FloatTok{3.4}\NormalTok{, }\FloatTok{8.4}\NormalTok{, }\DecValTok{3}\NormalTok{, }\FloatTok{5.6}\NormalTok{, }\FloatTok{8.1}\NormalTok{, }\FloatTok{8.3}\NormalTok{, }\FloatTok{4.5}\NormalTok{)}
+\NormalTok{elevation <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{9.2}\NormalTok{, }\FloatTok{3.8}\NormalTok{, }\DecValTok{5}\NormalTok{, }\FloatTok{5.6}\NormalTok{, }\FloatTok{4.1}\NormalTok{, }\FloatTok{7.1}\NormalTok{, }\FloatTok{5.3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Then we can use the \texttt{data.frame()} function to incorporate the vectors into columns of the data frame.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydata <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(habitat, temp, elevation)}
+\KeywordTok{row.names}\NormalTok{(mydata) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Reedy Lake"}\NormalTok{, }\StringTok{"Pearcadale"}\NormalTok{, }\StringTok{"Warneet"}\NormalTok{, }\StringTok{"Cranbourne"}\NormalTok{, }
+                       \StringTok{"Lysterfield"}\NormalTok{, }\StringTok{"Red Hill"}\NormalTok{, }\StringTok{"Devilbend"}\NormalTok{, }\StringTok{"Olinda"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Note above that we used a function called \texttt{row.names} to assign row names to \texttt{mydata}. The function \texttt{colnames()} does the same, but for column names.
+
+\hypertarget{working-with-pre-loaded-base-r-data-frames.}{%
+\subsubsection{\texorpdfstring{working with pre-loaded base \texttt{R} data frames.}{working with pre-loaded base R data frames.}}\label{working-with-pre-loaded-base-r-data-frames.}}
+
+There are a few data frames that are available to work with whenever you begin an \texttt{R} session. These can be a great way to practice plotting and analysis, and in fact many examples written to accompany \texttt{R} functions include these data frames to promote reproducibility and convenience. Two of these pre-loaded data frames that are especially popular are \texttt{mtcars} and \texttt{iris}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(mtcars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(iris)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
+\end{verbatim}
+
+\hypertarget{reading-in-data-frames-in-r}{%
+\subsubsection{\texorpdfstring{reading in data frames in \texttt{R}}{reading in data frames in R}}\label{reading-in-data-frames-in-r}}
+
+A strength of \texttt{R} is being able to import data from an external source. For example, if you have a comma- or tab- separated text file (like the UNIX-friendly formats we discussed previously), it can be easily read into \texttt{R}, by default as a data frame. One function for accomplishing this is \texttt{read.table()}, although functions like \texttt{read.delim()} can be similarly applied. Two important arguments for \texttt{read.table()} are ``header'' and ``row.names'', which indicate that there is a header row (with column names) and row label column (with row names), respectively. You also need to supply the file path and name in quotation marks (no path necessary if the file is in the current working directory), and what character is used as the field (column) delimiter. Here is an example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{YourFile <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\StringTok{'yourfile.csv'}\NormalTok{, }\DataTypeTok{header=}\NormalTok{T, }\DataTypeTok{row.names=}\DecValTok{1}\NormalTok{, }\DataTypeTok{sep=}\StringTok{','}\NormalTok{)}
+\NormalTok{YourFile <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\StringTok{'yourfile.txt'}\NormalTok{, }\DataTypeTok{header=}\NormalTok{T, }\DataTypeTok{row.names=}\DecValTok{1}\NormalTok{, }\DataTypeTok{sep=}\StringTok{'}\CharTok{\textbackslash{}t}\StringTok{'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exporting-data-frames-in-r}{%
+\subsubsection{\texorpdfstring{exporting data frames in \texttt{R}}{exporting data frames in R}}\label{exporting-data-frames-in-r}}
+
+If you ever want to save a data frame in a format that you can work with outside of \texttt{R}, the \texttt{write.table()} function does pretty much the opposite of its ``read'' counterpart.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{write.table}\NormalTok{(YourFile, }\StringTok{"yourfile.csv"}\NormalTok{, }\DataTypeTok{quote=}\NormalTok{F, }\DataTypeTok{row.names=}\NormalTok{T, }\DataTypeTok{sep=}\StringTok{","}\NormalTok{)}
+\KeywordTok{write.table}\NormalTok{(YourFile, }\StringTok{"yourfile.txt"}\NormalTok{, }\DataTypeTok{quote=}\NormalTok{F, }\DataTypeTok{row.names=}\NormalTok{T, }\DataTypeTok{sep=}\StringTok{"}\CharTok{\textbackslash{}t}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{indexing-data-frames}{%
+\subsubsection{indexing data frames}\label{indexing-data-frames}}
+
+Indexing data frames can be acheived in two different ways. We can use numeric (positional) indexing as in the case of vectors and lists (see above). With a data frame, we can index any subset of it using two pieces of information: row coordinates and column coordinates. To accomplish this we use single square braces \texttt{{[},{]}}, in which the row coordinate(s) are typed first, followed by a comma, followed by the column cooridate(s). If we want to index all rows or all columns, we just leave the space to the left or right of the comma blank, respectively. Here are some examples for indexing subsets of the \texttt{iris} data frame.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## The first row, with all columns}
+\NormalTok{iris[}\DecValTok{1}\NormalTok{,]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## The first 5 rows and the first 2 columns}
+\NormalTok{iris[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{,}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Sepal.Length Sepal.Width
+## 1          5.1         3.5
+## 2          4.9         3.0
+## 3          4.7         3.2
+## 4          4.6         3.1
+## 5          5.0         3.6
+\end{verbatim}
+
+With data frames, we can also use the column names to index subsets. To do this we use the \texttt{\$} character after the name of the data frame, followed by the name of the column we want to index. Again, below is a demonstration using \texttt{iris}. Indexing using column names is perhaps the most useful when defining statistical models, a topic we will reach later in the course.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## The first 5 rows of the first column}
+\NormalTok{iris}\OperatorTok{$}\NormalTok{Sepal.Length[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5.1 4.9 4.7 4.6 5.0
+\end{verbatim}
+
+\hypertarget{matrices}{%
+\subsection{matrices}\label{matrices}}
+
+Matrices in \texttt{R} are somewhat similar to data frames, but mixed classes among columns are not permitted, and rows and columns are only positionally indexed as opposed to having names. Positional indexing for matrices, not surprisingly, follows the \texttt{{[}rownumber,\ columnnumber{]}} convention, similar to data frames. A matrix can be generated using the \texttt{matrix()} function, as demonstrated below.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Populate a 3x3 matrix with values 1 to 9}
+\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{9}\NormalTok{, }\DataTypeTok{nrow=}\DecValTok{3}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9
+\end{verbatim}
+
+\hypertarget{a-few-additional-base-r-functions-for-working-with-complex-r-objects}{%
+\subsection{\texorpdfstring{A few additional base \texttt{R} functions for working with complex \texttt{R} objects}{A few additional base R functions for working with complex R objects}}\label{a-few-additional-base-r-functions-for-working-with-complex-r-objects}}
+
+To add to your foundational knowledge of \texttt{R} functions, below are a few more functions especially useful for working with objects like data frames and matrices.
+
+\begin{itemize}
+\item
+  \texttt{dim()}: returns the number of rows and columns of a data frame or matrix
+\item
+  \texttt{View()}: opens up a GUI ``viewer'' for visual inspection of data frames (not recommended for large data frames)
+\item
+  \texttt{cbind()}: combines columns into a single object, which can be used to define or build data frames or matrices
+\item
+  \texttt{rbind()}: combines rows into a single object, which can be used to define or build data frames or matrices
+\item
+  \texttt{t()}: transposes a data frame or matrix, such that rows become columns, and columns become rows
+\end{itemize}
+
+\hypertarget{some-brief-notes-on-basic-programming-in-r}{%
+\section{\texorpdfstring{Some brief notes on basic programming in \texttt{R}}{Some brief notes on basic programming in R}}\label{some-brief-notes-on-basic-programming-in-r}}
+
+At some point during your development as an \texttt{R} user you will want to programmatically manipulate \texttt{R} objects in an iterative, repeatable manner to automate tasks like plotting, simulations, and analysis. This use of the \texttt{R} language is especially relevant if you want to write your own functions. Here we touch on a few tools and approaches that will open the door to more powerful programming in \texttt{R}. These are skills that are great to practice and learn, but at a fairly foundational level for now. More advanced programming training in \texttt{R} is beyond the scope of this course.
+
+\hypertarget{conditional-statements-with-ifelse}{%
+\subsection{\texorpdfstring{conditional statements with \texttt{ifelse()}}{conditional statements with ifelse()}}\label{conditional-statements-with-ifelse}}
+
+One fundamental structural component of computer programming languages is the idea of conditional statements, which often take the form of ``if/else'' evaluation and execution. The idea is that we can write an algorithm to evaluate a particular statement using a logical operator, and if that statement is true have the program do one thing, but if the statement is false, have it do somehting ``else.'' In \texttt{R} we can write these statements with a structure similar to other languages, but we can also use the single \texttt{R} function \texttt{ifelse()} to accomplish the same thing. The \texttt{ifelse()} function is very easy to use. The first argument is the logical evaluation, the second argument is the action to take if that statement is true, and the third argument is the action to take if false. It is also possible to nest multiple \texttt{ifelse()} function calls wihtin one another, if mulitiple evaluations need to be performed with different outcomes. Below is a simple example for using \texttt{ifelse()} to generate a vector of values (``colors''), based on another vector.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## First define a character vector}
+\NormalTok{char_vec <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\StringTok{"treatment"}\NormalTok{,}\DecValTok{5}\NormalTok{), }\KeywordTok{rep}\NormalTok{(}\StringTok{"control"}\NormalTok{,}\DecValTok{3}\NormalTok{), }\KeywordTok{rep}\NormalTok{(}\StringTok{"treatment"}\NormalTok{, }\DecValTok{4}\NormalTok{), }\KeywordTok{rep}\NormalTok{(}\StringTok{"control"}\NormalTok{, }\DecValTok{6}\NormalTok{))}
+\KeywordTok{print}\NormalTok{(char_vec)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "treatment" "treatment" "treatment" "treatment" "treatment" "control"  
+##  [7] "control"   "control"   "treatment" "treatment" "treatment" "treatment"
+## [13] "control"   "control"   "control"   "control"   "control"   "control"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Generate a vector that stores the color "red" for "treatment" and "blue" for "control"}
+\NormalTok{col_vec <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(char_vec}\OperatorTok{==}\StringTok{"treatment"}\NormalTok{, }\StringTok{"red"}\NormalTok{, }\StringTok{"blue"}\NormalTok{)}
+\KeywordTok{print}\NormalTok{(col_vec)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "red"  "red"  "red"  "red"  "red"  "blue" "blue" "blue" "red"  "red" 
+## [11] "red"  "red"  "blue" "blue" "blue" "blue" "blue" "blue"
+\end{verbatim}
+
+\hypertarget{replicate-tapply-and-apply}{%
+\subsection{\texorpdfstring{\texttt{replicate()}, \texttt{tapply()}, and \texttt{apply()}}{replicate(), tapply(), and apply()}}\label{replicate-tapply-and-apply}}
+
+In some cases we want to repeat a given process over and over again. For example, maybe we want to simulate the sampling process and generate 100 random samples of 100 values from a normal distribution. Fortunately, the \texttt{R} function \texttt{replicate()} makes this very easy.
+
+In the example below, we ``shuffle'' the order of the integers 1 through 10 five times using \texttt{replicate()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{replicate}\NormalTok{(}\DecValTok{5}\NormalTok{, }\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{, }\DataTypeTok{size=}\DecValTok{10}\NormalTok{, }\DataTypeTok{replace=}\OtherTok{FALSE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1] [,2] [,3] [,4] [,5]
+##  [1,]    6    7    7   10    7
+##  [2,]   10    9    6    5    3
+##  [3,]    9    4    1    7    2
+##  [4,]    7    1    9    9    8
+##  [5,]    8    6   10    1    5
+##  [6,]    4    2    4    2    9
+##  [7,]    1    8    3    3   10
+##  [8,]    3   10    8    6    6
+##  [9,]    2    3    2    4    1
+## [10,]    5    5    5    8    4
+\end{verbatim}
+
+Note that the first argument is the number of total iterations we want to reproduce, and that the function returns a matrix as output.
+
+The \texttt{replicate()} function belongs to a group of functions referred to informally as the ``apply'' family. Another commonly used function from this group is \texttt{tapply()}, which allows you to apply a function to one vector (for example a numeric vector in a data frame), in a group-wise manner based on one or more factor vectors that correspond to the numeric vector. In other words, if we want to find the maximum value of variable x for each level of factor y in a data frame, we could use \texttt{tapply()} to do so. Below is an example, again using the \texttt{iris} data frame.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Find the maximum petal length for each species in the iris data frame}
+\KeywordTok{tapply}\NormalTok{(iris}\OperatorTok{$}\NormalTok{Petal.Length, iris}\OperatorTok{$}\NormalTok{Species, max)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     setosa versicolor  virginica 
+##        1.9        5.1        6.9
+\end{verbatim}
+
+Note that the first argument is the numerical column, and the second is a factor column. The third is the function we wish to apply, in this case to each species separately.
+
+Another, similar function from this family is simply called \texttt{apply()}, and it can be used to apply a function to either all rows (with the MARGIN argument set to 1) or all columns (with the MARGIN argument set to 2) in a data frame or matrix. This is especially useful for calculating summary statistics for what we call the ``margins'' of data in tables.
+
+\hypertarget{for-loops-in-r}{%
+\subsection{\texorpdfstring{for loops in \texttt{R}}{for loops in R}}\label{for-loops-in-r}}
+
+Another fundamental concept in computer programming is the ``for loop,'' which is an algorithmic strategy for iteratively performing a task according to a pre-defined counter or loop variable, then terminating when the ``loop'' is evaluated as complete. For example, we may want to perform a specific calculation again and again for sucessive elements of an \texttt{R} object (like a data frame), and build a vector that successively stores the calculation for each iteration of the ``loop.'' We will not devote much time to for loops in \texttt{R} here, because the ``apply'' group of functions can accomplish many of the tasks you would write a for loop to perform, with much greater speed. If you do find a need for including a for loop in your future \texttt{R} programming, however, the commented example below illustrates an efficient framework in which ``pre-allocation'' of an output vector maximizes for loop speed despite some of \texttt{R}'s.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Calculate mpg/cyl and mpg/wt, for every row in mtcars and if the second is at least twice the size of the first include that ratio and another character value "Yes" in a growing 2-column dataframe. If the ratio is less than 2, then include "No" in the second column. }
+
+\CommentTok{## first pre-allocate our new data frame, which contains NAs initially}
+\NormalTok{newdf <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{length}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{mpg)), }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{length}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{mpg)))}
+
+\CommentTok{## then write the for loop to do the above task for every row in mtcars}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{length}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{mpg)) \{}
+\NormalTok{  newdf[i,}\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{mpg[i]}\OperatorTok{/}\NormalTok{mtcars}\OperatorTok{$}\NormalTok{wt[i])}\OperatorTok{/}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{mpg[i]}\OperatorTok{/}\NormalTok{mtcars}\OperatorTok{$}\NormalTok{cyl[i])}
+\NormalTok{  newdf[i,}\DecValTok{2}\NormalTok{] <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(newdf[i,}\DecValTok{1}\NormalTok{]}\OperatorTok{>=}\DecValTok{2}\NormalTok{, }\StringTok{"Yes"}\NormalTok{, }\StringTok{"No"}\NormalTok{)}
+\NormalTok{\}}
+  \KeywordTok{print}\NormalTok{(newdf)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    rep.NA..length.mtcars.mpg.. rep.NA..length.mtcars.mpg...1
+## 1                     2.290076                           Yes
+## 2                     2.086957                           Yes
+## 3                     1.724138                            No
+## 4                     1.866252                            No
+## 5                     2.325581                           Yes
+## 6                     1.734104                            No
+## 7                     2.240896                           Yes
+## 8                     1.253918                            No
+## 9                     1.269841                            No
+## 10                    1.744186                            No
+## 11                    1.744186                            No
+## 12                    1.965602                            No
+## 13                    2.144772                           Yes
+## 14                    2.116402                           Yes
+## 15                    1.523810                            No
+## 16                    1.474926                            No
+## 17                    1.496726                            No
+## 18                    1.818182                            No
+## 19                    2.476780                           Yes
+## 20                    2.179837                           Yes
+## 21                    1.622718                            No
+## 22                    2.272727                           Yes
+## 23                    2.328967                           Yes
+## 24                    2.083333                           Yes
+## 25                    2.080624                           Yes
+## 26                    2.067183                           Yes
+## 27                    1.869159                            No
+## 28                    2.643754                           Yes
+## 29                    2.523659                           Yes
+## 30                    2.166065                           Yes
+## 31                    2.240896                           Yes
+## 32                    1.438849                            No
+\end{verbatim}
+
+In the case above, we used the length of the \texttt{mtcars} data frame (number of rows) to build a pre-allocated (filled with NAs) data frame of the correct size. Then, we also used the values 1 through that length to set up our ``counter'' in the for loop. The loop stops after tasks have been completed for \texttt{i=32}, which corresponds to the final row in \texttt{mtcars}. As mentioned, it's probably better to rely on the other convenient \texttt{R} functions above for iterative processes, but pre-allocation of output objects is the way to go if you do need to rely on a for loop.
+
+\hypertarget{fundamentals-of-plotting-in-r}{%
+\section{\texorpdfstring{Fundamentals of plotting in \texttt{R}}{Fundamentals of plotting in R}}\label{fundamentals-of-plotting-in-r}}
+
+The world of plotting in \texttt{R} is incredibly diverse, and there are entire courses dedicated to data visualization using \texttt{R}. Here we will very briefly cover a few of the most useful plotting functions and strategies using base \texttt{R}. This should be enough of an introduction to get you jump started, but you will no doubt discover more appealing and finely tuned strategies to apply in your future as an \texttt{R} user. For example, some people will find that the highly flexible, customizable package \texttt{ggplot2} and its plotting functions are preferable over base \texttt{R}. I encourage you to explore tools like this on your own, once you feel comfortable with \texttt{R} in general. We will also introduce plot- and visualization-related lessons throughout the remainder of the course, as they pertain to the analysis topic at hand.
+
+\hypertarget{basic-plotting-with-plot}{%
+\subsection{\texorpdfstring{Basic plotting with \texttt{plot()}}{Basic plotting with plot()}}\label{basic-plotting-with-plot}}
+
+One ``high level'' plotting function in base \texttt{R} is simply called \texttt{plot()}. This function can accomplish many, many plotting goals, so we will start with it. Below, we start by calling \texttt{plot()} on a single vector that we have generated. Spend a little time examining the code, and the arguments passed to \texttt{plot()} in this example.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seq_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\FloatTok{0.0}\NormalTok{, }\FloatTok{10.0}\NormalTok{, }\DataTypeTok{by =} \FloatTok{0.1}\NormalTok{) }
+\KeywordTok{plot}\NormalTok{(seq_}\DecValTok{1}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"space"}\NormalTok{, }\DataTypeTok{ylab =}\StringTok{"function of space"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"p"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{foundational_statistics_files/figure-latex/unnamed-chunk-36-1.pdf}
+
+We only supplied the one vector (\texttt{seq\_1}) to \texttt{plot()} in this case, which resulted in the function just defining the x-axis values as the numeric positions (1 to 101) of \texttt{seq\_1}. Also, this style of plot is known as a ``scatterplot.'' There is usually more ``scatter,'' for example when plotting two variables that not perfectly related. With \texttt{plot()}, we usually want to examine the relationship between two different variables, like below:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seq_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\FloatTok{0.0}\NormalTok{, }\FloatTok{10.0}\NormalTok{, }\DataTypeTok{by =} \FloatTok{0.1}\NormalTok{)}
+\NormalTok{seq_}\DecValTok{2}\NormalTok{ <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\FloatTok{10.0}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\DataTypeTok{by =} \FloatTok{-0.1}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(seq_}\DecValTok{1}\NormalTok{, seq_}\DecValTok{2}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"sequence 1"}\NormalTok{, }\DataTypeTok{ylab =}\StringTok{"sequence 2"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"p"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{foundational_statistics_files/figure-latex/unnamed-chunk-37-1.pdf}
+
+In this example, \texttt{plot()} takes the first argument as the x-axis variable, and the second argument as the y-axis variable. You can also use the \texttt{\textasciitilde{}} to specify variables, but in this case the y-axis variable comes first (\texttt{y\ \textasciitilde{}\ x}). Also note the other arguments, which are usually named pretty intuitively. Note the axis label arguments, the type of object plotted (``p'' stands for ``points''), and the color of the plotted objects. There are many possible arguments, and many are actually set by another function called \texttt{par()}, that \texttt{plot()} calls on internally. One great resource for understanding plotting function arguments is the help menu for \texttt{par()}. I promise, if you become familiar with the \texttt{par()} documentation, you will quickly ascend the ranks of plotting prowess, and it will save you many frustrating moments in the future! I encourage you to study the \texttt{plot()} and \texttt{par()} documentation and practice using some of the other arguments that are especially useful, including ``main'', ``xlim'', ``ylim'', and ``cex'', for example.
+
+The nice thing about graphical parameters is that, like many things in \texttt{R}, they are vectorized. So, if we want to use different symbols (look into the ``pch'' argument), colors (``col''), or sizes (look at ``cex'') of points for different observations in something like a data frame, we can supply those in the form of a vector! Taking the example above, if we want to plot the first 10 observations as blue, and the remaining observations as red, we can supply a vector of ``blues'' and ``reds'' in the appropriate order to \texttt{plot()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seq_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\FloatTok{0.0}\NormalTok{, }\FloatTok{10.0}\NormalTok{, }\DataTypeTok{by =} \FloatTok{0.1}\NormalTok{)}
+\NormalTok{seq_}\DecValTok{2}\NormalTok{ <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\FloatTok{10.0}\NormalTok{, }\FloatTok{0.0}\NormalTok{, }\DataTypeTok{by =} \FloatTok{-0.1}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(seq_}\DecValTok{1}\NormalTok{, seq_}\DecValTok{2}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"sequence 1"}\NormalTok{, }\DataTypeTok{ylab =}\StringTok{"sequence 2"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"p"}\NormalTok{, }
+     \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{rep}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\DecValTok{91}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{foundational_statistics_files/figure-latex/unnamed-chunk-38-1.pdf}
+
+You can see how this would be a nice way to differentiate among observation types in your data set, and produce an information-rich, single plot, as opposed to producing many plots that highlight single variables.
+
+Sometimes we want to include multiple plots, as different panels, in the same figure. Fortunately this is made easy by the \texttt{mfrow} argument within \texttt{par()}. You simply set the dimensions, denoted by number of rows and number of columns in parentheses, before calling \texttt{plot()} repeatedly.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seq_square <-}\StringTok{ }\NormalTok{(seq_}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{(seq_}\DecValTok{2}\NormalTok{)}
+\NormalTok{seq_square_new <-}\StringTok{ }\NormalTok{(seq_}\DecValTok{2}\NormalTok{)}\OperatorTok{^}\DecValTok{2}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{ (seq_}\DecValTok{1}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"time"}\NormalTok{, }\DataTypeTok{ylab =}\StringTok{"p in population 1"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"p"}\NormalTok{, }\DataTypeTok{col =} \StringTok{'red'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{ (seq_}\DecValTok{2}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"time"}\NormalTok{, }\DataTypeTok{ylab =}\StringTok{"p in population 2"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"p"}\NormalTok{, }\DataTypeTok{col =} \StringTok{'green'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{ (seq_square, }\DataTypeTok{xlab=}\StringTok{"time"}\NormalTok{, }\DataTypeTok{ylab =}\StringTok{"p2 in population 2"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"p"}\NormalTok{, }\DataTypeTok{col =} \StringTok{'blue'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{ (seq_square_new, }\DataTypeTok{xlab=}\StringTok{"time"}\NormalTok{, }\DataTypeTok{ylab =}\StringTok{"p in population 1"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{, }\DataTypeTok{col =} \StringTok{'yellow'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{foundational_statistics_files/figure-latex/unnamed-chunk-39-1.pdf}
+
+\hypertarget{histograms-using-hist}{%
+\subsection{\texorpdfstring{Histograms using \texttt{hist()}}{Histograms using hist()}}\label{histograms-using-hist}}
+
+We will talk more about frequency distributions and histograms later in the course, but for now it is a good idea to become familiar with one way to plot them. If we have a quantitative variable, like height, and we want to know what the distribution among individuals looks like, we can use a histogram. The function \texttt{hist()} will help us with this task. To illustrate, below we will sample values from a binomial distribution. Don't worry about what this means now, as we will return to it later, but the scenario is intuitive. Let's say we flip a coin 20 times and record the number of ``heads'' as ``successes,'' and let's further say that we perform this ``20 coin flips'' activity 1000 times. And let's assume that our coin is ``fair,'' such that the probability of getting heads on any given flip is 0.5. We can simulate this process using the \texttt{rbinom()} function and plot the results using \texttt{hist()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(}\KeywordTok{rbinom}\NormalTok{(}\DataTypeTok{n=}\DecValTok{1000}\NormalTok{, }\DataTypeTok{size=}\DecValTok{20}\NormalTok{, }\DataTypeTok{prob=}\FloatTok{0.5}\NormalTok{), }\DataTypeTok{xlab=}\StringTok{"number of heads"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"number of activities"}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{"Freq. Dist. of Coin Flip Successes"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{foundational_statistics_files/figure-latex/binomial function-1.pdf}
+
+Note that, as expected, our most frequent observation is that we get 10 heads out of 20 flips.
+
+\hypertarget{boxplots-using-boxplot}{%
+\subsection{\texorpdfstring{Boxplots using \texttt{boxplot()}}{Boxplots using boxplot()}}\label{boxplots-using-boxplot}}
+
+In many cases we want to summarize the distribution of a qunatitiative variable using ``quartiles'' (we'll cover these in depth later), and perhaps we want to do this separately for different observation types in our data set. A boxplot (or ``box and whisker plot,'' depending on how it is drawn), depicts the 1st, 2nd (median), and 3rd quartile for a vector of numeric values using a box. ``Whiskers'' are often added to define ``fences'' beyond which are putative ``outliers.'' The \texttt{boxplot()} function of base \texttt{R} is convenient to use, particularly when your data set is organized in a data frame. Below is a series of simple examples to illustrate the utility of \texttt{boxplot()}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## make a modified version of the iris data frame, which includes a "Region" factor}
+\NormalTok{new_iris <-}\StringTok{ }\NormalTok{iris}
+\NormalTok{new_iris}\OperatorTok{$}\NormalTok{Region <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\StringTok{"West"}\NormalTok{, }\DecValTok{5}\NormalTok{), }\KeywordTok{rep}\NormalTok{(}\StringTok{"East"}\NormalTok{, }\DecValTok{5}\NormalTok{)), }\DecValTok{15}\NormalTok{))}
+
+\CommentTok{## make a boxplot of Sepal.Length that plots individual boxes for the separate Species}
+\KeywordTok{boxplot}\NormalTok{(Sepal.Length }\OperatorTok{~}\StringTok{ }\NormalTok{Species, }\DataTypeTok{data=}\NormalTok{new_iris)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{foundational_statistics_files/figure-latex/unnamed-chunk-40-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## make a boxplot of Sepal.Length that shows all 6 combinations of factor levels from Species and Region, including a different color for each species}
+\KeywordTok{boxplot}\NormalTok{(Sepal.Length }\OperatorTok{~}\StringTok{ }\NormalTok{Species}\OperatorTok{*}\NormalTok{Region, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\StringTok{"red"}\NormalTok{, }\StringTok{"yellow"}\NormalTok{, }\StringTok{"blue"}\NormalTok{, }\StringTok{"red"}\NormalTok{, }\StringTok{"yellow"}\NormalTok{),}
+        \DataTypeTok{data=}\NormalTok{new_iris, }\DataTypeTok{names=}\KeywordTok{c}\NormalTok{(}\StringTok{"set_E"}\NormalTok{,}\StringTok{"ver_E"}\NormalTok{,}\StringTok{"vir_E"}\NormalTok{,}\StringTok{"set_W"}\NormalTok{,}\StringTok{"ver_W"}\NormalTok{,}\StringTok{"vir_W"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{foundational_statistics_files/figure-latex/unnamed-chunk-40-2.pdf}
+
+Above you can see that by using the \texttt{*} character between the factors ``Species'' and ``Region in our plotting''formula" \texttt{boxplot()} produces a box for each factor level combination. Also, for \texttt{boxplot()} note that the ``col'' argument refers to the boxes themselves, so if we supply a vector of 6 colors, those will be applied to the boxes in order from left to right. Speaking of colors, an almost limitless array of colors can be specified in \texttt{R} plotting functions. Furthermore, colors can be coded using their names, or hexadecimal RGB specification. For a thorough treatment and great resources regarding colors in \texttt{R}, I recommend visiting the links at the bottom of the chapter.
+
+\hypertarget{a-brief-introduction-to-rmarkdown}{%
+\section{\texorpdfstring{A brief introduction to \texttt{RMarkdown}}{A brief introduction to RMarkdown}}\label{a-brief-introduction-to-rmarkdown}}
+
+\texttt{RMarkdown} is a language that is distinct from \texttt{R}, but that incorporates \texttt{R} code ``chunks,'' which can be displayed and run if desired in the final, knitted output. The output can be knitted to a variety of file formats, such as \texttt{.html}, \texttt{.pdf}, or even Microsoft Word. For this course we will get into the habit of knitting to \texttt{.html}, which is the least buggy and error-prone in my experience. In the short section below, we will go over the simple steps required to write and knit your first \texttt{.Rmd} file, including the basic style elements of the language and some essential \texttt{R} chunk settings.
+
+To get started using \texttt{RMarkdown}, you first need to make sure that you install the package \texttt{rmarkdown} from your Console, using \texttt{install.packages()}. Then, assuming you have an \texttt{RStudio} session running, click on File -\textgreater{} New File -\textgreater{} R Markdown. This will open a window in which you will type the name of your new file and the author's (your) name. A new file in your \texttt{RStudio} script editor pane (the upper left one) should appear. There will be a templated header, along with some other templated code, which you can modify based on your preferences. You may want to get rid of the pdf output line at the top for now, as we will knit to \texttt{.html} for this course. Knitting to \texttt{.pdf} requires some addtional software installation, which we don't have time to troubleshoot during this course. In any case, let's now cover some basic formatting code and code ``chunk'' types.
+
+Below I will provide the code you would type in your own \texttt{RMarkdown} file, followed by what it looks like rendered in this \texttt{Bookdown} document, which is built using a collection of \texttt{RMarkdown} files itself!
+
+\hypertarget{rmarkdown-formatting-basics}{%
+\subsection{\texorpdfstring{\texttt{RMarkdown} formatting basics}{RMarkdown formatting basics}}\label{rmarkdown-formatting-basics}}
+
+You can include ``nested'' headers (like the one directly above) by using \texttt{\#} symbols. For example this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Experiment with headers}
+
+\CommentTok{### Try a third-level header}
+
+\CommentTok{#### Or a fourth-level header}
+\end{Highlighting}
+\end{Shaded}
+
+Renders as this:
+
+\hypertarget{experiment-with-headers}{%
+\section{Experiment with headers}\label{experiment-with-headers}}
+
+\hypertarget{try-a-third-level-header}{%
+\subsection{Try a third-level header}\label{try-a-third-level-header}}
+
+\hypertarget{or-a-fourth-level-header}{%
+\subsubsection{Or a fourth-level header}\label{or-a-fourth-level-header}}
+
+Text can be rendered in bold, italics, or both like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Text}\NormalTok{ can easilly be *italicized* or **bolded** or ***both***}
+\end{Highlighting}
+\end{Shaded}
+
+Which renders as this:
+
+Text can easilly be \emph{italicized} or \textbf{bolded} or \textbf{\emph{both}}
+
+Links can be included like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Here}\NormalTok{ is a useful link: [Rmd intro by RStudio](https://rmarkdown.rstudio.com/articles_intro.html)}
+
+\ExtensionTok{Here}\NormalTok{ is another: [R Markdown cheat sheet](https://rmarkdown.rstudio.com/lesson-15.html)}
+\end{Highlighting}
+\end{Shaded}
+
+Which render like this:
+
+Here is a useful link: \href{https://rmarkdown.rstudio.com/articles_intro.html}{Rmd intro by RStudio}
+
+Here is another: \href{https://rmarkdown.rstudio.com/lesson-15.html}{R Markdown cheat sheet}
+
+For many more details on \texttt{RMarkdown} format and coding, I highly recommend the above links.
+
+\hypertarget{rmarkdown-code-chunk-options}{%
+\subsection{\texorpdfstring{\texttt{RMarkdown} code chunk options}{RMarkdown code chunk options}}\label{rmarkdown-code-chunk-options}}
+
+Code chunks in \texttt{RMarkdown} exist to show \texttt{R} code, run the code, or both. In every \texttt{RMarkdown} file you write, you will demarcate code chunks with three ``ticks'' at the top of the chuck followed immediately by the chunk options in curly braces, on the same line, and another three ticks (on their own line) below the chunk of code. This is what a coded chunk looks like:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BaseNTok{```\{r, eval = TRUE, echo = TRUE\}}
+\BaseNTok{seq(1, 10, 1)}
+\BaseNTok{```}
+\end{Highlighting}
+\end{Shaded}
+
+Which renders like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  1  2  3  4  5  6  7  8  9 10
+\end{verbatim}
+
+Note that in the above example the \texttt{R} code will be both run (``evaluated'') and displayed (``echoed'') in the knitted \texttt{.html} file. If we want to suppress either or both of those from being rendered, we just set the chunk options to ``FALSE''.
+
+When your \texttt{RMarkdown} file is completed, save any final changes, and click on the ``Knit'' icon in the toolbar, or click File -\textgreater{} Knit Document. Assuming there are no errors in your code, the rendered \texttt{.html} file should load in a new window for inspection, and the file should be saved in the same location as your \texttt{.Rmd} file. This has been a minimal treatment of \texttt{RMarkdown}, but it should be enough guidance to get you started writing your own \texttt{RMarkdown} scripts. Please consult the aforementioned \texttt{RMarkdown} resources for additional instruction, examples, and help.
+
+\hypertarget{exercises-associated-with-this-chapter-2}{%
+\section{Exercises associated with this chapter:}\label{exercises-associated-with-this-chapter-2}}
+
+\begin{itemize}
+\tightlist
+\item
+  Exercise 2 (\texttt{rtutorial\_1} in \texttt{foundstats} R package)
+\item
+  Exercise 3 (\texttt{rtutorial\_2} in \texttt{foundstats} R package)
+\end{itemize}
+
+\hypertarget{additional-learning-resources-2}{%
+\section{Additional learning resources:}\label{additional-learning-resources-2}}
+
+\begin{itemize}
+\item
+  Logan, M. 2010. Biostatistical Design and Analysis Using R. - A great intro to R for statistical analysis
+\item
+  \url{http://library.open.oregonstate.edu/computationalbiology/} - O'Neil, S.T. 2017. A Primer for Computational Biology
+\item
+  \url{http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf} - A nice \texttt{.pdf} menu for many \texttt{R} colors
+\item
+  \url{https://www.stat.ubc.ca/~jenny/STAT545A/block14_colors.html} - A good introduction to colors in \texttt{R}
+\item
+  \url{https://medialab.github.io/iwanthue/} - A cool automated color palette selection tool
+\item
+  \url{https://rmarkdown.rstudio.com/articles_intro.html} - \texttt{RStudio} guide to \texttt{RMarkdown}
+\item
+  \url{https://rmarkdown.rstudio.com/lesson-15.html} - \texttt{RMarkdown} ``cheat sheet''
 \end{itemize}
 
 \bibliography{book.bib,packages.bib}
