@@ -24,7 +24,7 @@
 <meta name="author" content="Clayton M. Small and William A. Cresko" />
 
 
-<meta name="date" content="2020-04-20" />
+<meta name="date" content="2020-04-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -209,6 +209,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.9" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#exercises-associated-with-this-chapter-2"><i class="fa fa-check"></i><b>7.9</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="7.10" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#additional-learning-resources-2"><i class="fa fa-check"></i><b>7.10</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html"><i class="fa fa-check"></i><b>8</b> Introduction to Probability and Probability Distributions</a><ul>
+<li class="chapter" data-level="8.1" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#background-2"><i class="fa fa-check"></i><b>8.1</b> Background</a></li>
+<li class="chapter" data-level="8.2" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#what-is-probability"><i class="fa fa-check"></i><b>8.2</b> What is probability?</a></li>
+<li class="chapter" data-level="8.3" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#random-variables-probability"><i class="fa fa-check"></i><b>8.3</b> Random variables &amp; probability</a></li>
+<li class="chapter" data-level="8.4" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-and-the-bernoulli-distribution"><i class="fa fa-check"></i><b>8.4</b> Probability and the Bernoulli distribution</a></li>
+<li class="chapter" data-level="8.5" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-rules"><i class="fa fa-check"></i><b>8.5</b> Probability rules</a></li>
+<li class="chapter" data-level="8.6" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#joint-probability"><i class="fa fa-check"></i><b>8.6</b> Joint probability</a></li>
+<li class="chapter" data-level="8.7" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#conditional-probability"><i class="fa fa-check"></i><b>8.7</b> Conditional probability</a></li>
+<li class="chapter" data-level="8.8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#a-brief-note-on-likelihood-vs.probability"><i class="fa fa-check"></i><b>8.8</b> A brief note on likelihood vs. probability</a></li>
+<li class="chapter" data-level="8.9" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-distributions-commonly-used-in-biological-statistics"><i class="fa fa-check"></i><b>8.9</b> Probability distributions commonly used in biological statistics</a><ul>
+<li class="chapter" data-level="8.9.1" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#discrete-probability-distributions"><i class="fa fa-check"></i><b>8.9.1</b> Discrete Probability Distributions</a></li>
+<li class="chapter" data-level="8.9.2" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#continuous-probability-distributions"><i class="fa fa-check"></i><b>8.9.2</b> <strong>Continuous probability distributions</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#exercises-associated-with-this-chapter-3"><i class="fa fa-check"></i><b>8.10</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="8.11" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#additional-learning-resources-3"><i class="fa fa-check"></i><b>8.11</b> Additional learning resources:</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -450,26 +466,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">x &lt;-<span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">100</span>)</a>
 <a class="sourceLine" id="cb35-2" data-line-number="2"><span class="kw">print</span> (x)</a></code></pre></div>
-<pre><code>##   [1]  -76.6060333  -17.4333349  103.2433191 -242.7960695  -99.4755116
-##   [6]  -50.3783695  -45.9568836  -57.2294050   33.2873006  -11.2165189
-##  [11]  -12.3636174  -92.6476337 -204.7553653  -64.6638890  137.1714774
-##  [16]    3.8221938   27.2795550   69.1481184  -51.3154293 -111.5870772
-##  [21]  -77.7256308  -49.2901056   19.2134352 -188.0404432   -5.0579350
-##  [26]  -82.5464918  220.1086858  -17.8864581   57.3993951   73.9601993
-##  [31]   76.5281070  -85.9706949   37.4273688  -19.4167469  -41.9324839
-##  [36]   21.2714627  -78.7998485  -77.5583588   36.2864933   66.7736619
-##  [41]   53.6243758 -102.0723942   72.1193769  -56.4411518  -36.2487489
-##  [46]   33.5527938  -12.2863289 -152.7916266   54.8645504  -99.3252829
-##  [51]   -2.6514283  107.4636560 -200.4397189  -36.3687327  -12.0777841
-##  [56] -111.5118911 -157.8829547    5.5499368  175.8903401   66.8799503
-##  [61]    3.8842635   77.7224525    2.6199628   44.6381216  112.9661065
-##  [66]  -16.2767277  -95.4246999 -130.5591186 -123.5844109   14.9585372
-##  [71]   94.8001225 -135.4981488  -26.7186250   98.6632891  194.1421558
-##  [76]  -26.7027773  144.8728569  -53.8405307   65.5438518    0.7124474
-##  [81]  -29.2928687   96.9721911   26.1710017  -34.3289884 -132.4280594
-##  [86]  -75.5157662  -44.8333985    8.2665028 -158.4168447  -55.4382908
-##  [91]   74.6399329   12.3707090   55.7048982   79.0440130  127.2001934
-##  [96]   69.6439747  -28.1754391 -102.2140585 -147.3057094   68.3171437</code></pre>
+<pre><code>##   [1]  -24.975635   44.197857  135.261236  166.855809 -191.700374  -24.755619
+##   [7]  122.241911    5.534374   43.011129   74.608346  -65.265209  -32.434925
+##  [13]   36.581177  -74.119949 -188.576554   46.614909  -71.208141  134.330788
+##  [19]  -78.243772 -112.720754  -32.053229  -30.366233  -57.720595  -13.798358
+##  [25]   56.516930  -72.437567 -131.830924   -2.310668  -74.895594  103.353931
+##  [31]    9.856491   44.983078  -97.265043   25.002085  -57.552758   37.670762
+##  [37] -173.737639   94.276633   65.996401  -25.293400   47.687056  -57.241284
+##  [43]  -77.679399  129.054513  -19.404775   76.201771 -128.314479   67.401363
+##  [49]  -23.033199   14.521036   26.042428  101.843324   28.578206  -59.203421
+##  [55]  -17.980185 -197.741345  -19.930042  -90.605006 -136.915089   54.479451
+##  [61]  -74.980358   54.152243 -108.744371 -122.645936   50.014209 -153.764003
+##  [67]  -65.270602 -116.174170 -190.362256   21.058926  -29.496721  -39.430504
+##  [73]   59.352363 -124.270107  106.854909   97.226571   14.825647  -92.612472
+##  [79]  126.508383   33.932084   -6.132644    5.512288  -94.631822 -124.456690
+##  [85]  154.214354   45.098193  112.065487  -26.756318  -34.616225 -110.914676
+##  [91]  -46.428405   72.655744  -47.343628   33.826112  -15.643414 -136.154022
+##  [97]  109.089581  -14.424015  -10.992884  -95.004910</code></pre>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">hist</span>(x, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>,<span class="dv">50</span>))</a></code></pre></div>
 <p><img src="foundational_statistics_files/figure-html/Samples%20from%20distributions%202-1.png" width="100%" /></p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">hist</span>(x, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">500</span>,<span class="dv">500</span>))</a></code></pre></div>
@@ -583,6 +596,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
