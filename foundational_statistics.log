@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.8)  1 MAY 2020 02:46
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.8)  5 MAY 2020 00:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1053,37 +1053,37 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 6.99925pt on input line 3.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 3.
-[3])
+[3] [4])
 \tf@toc=\write5
 \openout5 = `foundational_statistics.toc'.
 
-[4]
-Chapter 1.
-[5
+[5] [6
 
-] [6
+]
+Chapter 1.
+[7] [8
 
 ]
 Chapter 2.
-[7] [8]
+[9] [10]
 Chapter 3.
 
 Underfull \vbox (badness 2221) has occurred while \output is active []
 
-[9
+[11
 
-] [10] [11] [12
+] [12] [13] [14
 
 ]
 Chapter 4.
 
 Underfull \vbox (badness 3525) has occurred while \output is active []
 
-[13] [14] [15] [16
+[15] [16] [17] [18
 
 ]
 Chapter 5.
-[17]
+[19]
 File: /Users/csmall/github_repos/Found_Stat/images/MacTerminal.png Graphic file
  (type bmp)
 </Users/csmall/github_repos/Found_Stat/images/MacTerminal.png>
@@ -1093,7 +1093,7 @@ Underfull \hbox (badness 1635) in paragraph at lines 574--576
 rmi-
  []
 
-[18]
+[20]
 File: /Users/csmall/github_repos/Found_Stat/images/Directory_example.jpeg Graph
 ic file (type bmp)
 </Users/csmall/github_repos/Found_Stat/images/Directory_example.jpeg>
@@ -1105,7 +1105,7 @@ Overfull \hbox (161.43185pt too wide) in paragraph at lines 590--592
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[19]
+[21]
 File: /Users/csmall/github_repos/Found_Stat/images/MacTerminal_2.png Graphic fi
 le (type bmp)
 </Users/csmall/github_repos/Found_Stat/images/MacTerminal_2.png>
@@ -1114,7 +1114,7 @@ Overfull \hbox (188.67497pt too wide) in paragraph at lines 593--595
 \TU/lmr/m/n/10 my terminal and see if you can follow along: [] 
  []
 
-[20] [21]
+[22] [23]
 Underfull \hbox (badness 1331) in paragraph at lines 640--641
 \TU/lmr/m/n/10 that sytax looks like this: \TU/lmtt/m/n/10 sed []s/query/replac
 ement/flag[] filename\TU/lmr/m/n/10 .
@@ -1126,14 +1126,14 @@ Underfull \hbox (badness 5260) in paragraph at lines 640--641
 d perform a global
  []
 
-[22] [23] [24]
+[24] [25] [26]
 Underfull \hbox (badness 10000) in paragraph at lines 711--713
 [][]$[][][][][] [] [] [] [][][] [] [][][][][][][][] [] [][][] [] [][][][][][][]
  [] [][][][][][][][][][][][] [][] [][] [][] [][][][][] [][] [][][] [][] [][][][
 ] [][]
  []
 
-[25] [26
+[27] [28
 
 ]
 Chapter 6.
@@ -1145,7 +1145,7 @@ File: /Users/csmall/github_repos/Found_Stat/images/R_definitions_Logan.001.jpeg
 
 Underfull \vbox (badness 3623) has occurred while \output is active []
 
-[27] [28]
+[29] [30]
 File: /Users/csmall/github_repos/Found_Stat/images/R_definitions_Logan.002.jpeg
  Graphic file (type bmp)
 </Users/csmall/github_repos/Found_Stat/images/R_definitions_Logan.002.jpeg>
@@ -1160,7 +1160,7 @@ Overfull \hbox (64.53497pt too wide) in paragraph at lines 775--777
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[29]
+[31]
 File: /Users/csmall/github_repos/Found_Stat/images/R_definitions_Logan.003.jpeg
  Graphic file (type bmp)
 </Users/csmall/github_repos/Found_Stat/images/R_definitions_Logan.003.jpeg>
@@ -1172,10 +1172,10 @@ Overfull \hbox (70.36385pt too wide) in paragraph at lines 782--784
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[30] [31]
+[32] [33]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 810.
-[32] [33] [34]
+[34] [35] [36]
 Overfull \hbox (90.75pt too wide) in paragraph at lines 1070--1070
 []\TU/lmtt/m/n/10 ##   [1]  0.0  0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1
 .0  1.1  1.2  1.3  1.4[] 
@@ -1319,7 +1319,7 @@ Overfull \hbox (64.5pt too wide) in paragraph at lines 1129--1129
 .89  67.24  65.61[] 
  []
 
-[35]
+[37]
 Overfull \hbox (64.5pt too wide) in paragraph at lines 1129--1129
 []\TU/lmtt/m/n/10 ##  [21]  64.00  62.41  60.84  59.29  57.76  56.25  54.76  53
 .29  51.84  50.41[] 
@@ -1376,100 +1376,124 @@ Overfull \hbox (109.3802pt too wide) in paragraph at lines 1147--1148
 []\TU/lmr/m/n/10 from distributions 1-1.bb [] 
  []
 
-[36]
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##   [1]   89.804568   29.278327 -150.748702   21.096462 -147
-.004544  -38.717629[] 
+[38]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##   [1] -114.1362941   13.7219486   44.0308728 -121.1187013 
+ -40.5313019[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##   [7] -250.105846  175.002271   43.148180   24.313689 -196
-.406246 -127.434675[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##   [6]   51.8312851 -150.5454701  -33.4265386  -33.2280531 
+  71.6210827[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [13]  -40.795241  132.922253 -114.170015 -129.884357  -40
-.138695  -26.714701[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [11]  202.8223492 -164.8973107    9.8725906   71.7264188 
+-145.5265485[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [19]  154.476197 -151.541504  102.397544 -172.186745  214
-.321371  -41.629047[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [16]  -61.7981080  -75.4268457 -208.0775880  -54.1495063 
+ 253.3283626[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [25]   91.010313   54.579906   17.644070   67.203450  -14
-.115028  -92.025851[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [21]   99.2251022   75.0027678   25.0052832  -50.8135626 
+-105.9467744[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [31]  -84.173482   57.076481 -326.395450   21.211307    1
-.260318 -205.566963[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [26]   -9.7243308   88.0521762 -193.9621713  -73.2799713 
+-186.6398761[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [37]  -31.481784 -275.353504   97.755249 -138.155475  212
-.056928  -51.958815[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [31]   36.2260772  -10.9445902   13.5840321   49.8935827 
+ -85.7701823[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [43]  -44.702646  -45.358447   10.809078  124.610741  228
-.139363  151.427038[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [36]  165.0343067  -73.2211035  110.3643720   -9.8633874 
+ -22.2138786[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [49] -167.346090  243.662881  -47.725816   59.861151   39
-.148512   49.966065[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [41]   21.0394556    0.4117868    6.0024943    7.6205116 
+ -18.3627934[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [55]  -27.788058   98.010683  -79.905667  -52.762780   34
-.861798 -102.951503[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [46]  -91.7109685  -17.2677948 -174.6164187  -24.6090479 
+-248.4662538[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [61]  -20.038353  -15.284471 -224.184486 -230.348009 -192
-.590857  187.023945[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [51]  -58.6921478  129.9822178   28.6141248  -35.7133923 
+ -78.3604238[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [67]  -85.792035  -64.489073 -106.236259  -77.179929  -73
-.164949   98.487083[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [56]   -9.1429265    7.5310182 -135.9589400   75.9533535 
+-247.0511689[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [73]  199.576111 -117.547684   73.431410  138.755581   76
-.411508 -116.494983[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [61]  115.0707808   -8.7887198  -16.3655373   31.4041134 
+  -9.9447463[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [79]   21.919599   12.934302 -100.758875  -92.050658  -48
-.389206    5.171509[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [66]  137.2522731   52.8521168  -60.6084893 -141.2007591 
+ -85.4682424[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [85]   55.059021   46.302565  -20.009713  -78.737710   45
-.287459  -92.392592[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [71]  -79.1718631   66.7150621   56.1130725   56.1282721 
+   7.4026032[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [91]  -60.712167  172.295837  -32.836205  -48.770381   34
-.095705 -167.802579[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [76]  -42.4839138   18.7595257  -28.9153450  239.6972231 
+ 101.1100190[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [81] -165.6141234   44.1272043  -79.2127196  121.4522575 
+ 120.5407120[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [86]  -21.4314133  -27.2173528   89.9735580  113.3529883 
+-193.5186119[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [91]  162.6403283   -4.7818974   -0.9788961  150.0004747 
+  27.1922951[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1186--1186
+[]\TU/lmtt/m/n/10 ##  [96] -154.0484839  -19.9351859   53.3140979   80.8383224 
+-186.1715612[] 
  []
 
 File: foundational_statistics_files/figure-latex/Samples from distributions 2-1
@@ -1477,132 +1501,130 @@ File: foundational_statistics_files/figure-latex/Samples from distributions 2-1
 <use foundational_statistics_files/figure-latex/Samples from distributions 2-1.
 pdf>
 
-Overfull \hbox (109.35944pt too wide) in paragraph at lines 1191--1192
+Overfull \hbox (109.35944pt too wide) in paragraph at lines 1194--1195
 []\TU/lmr/m/n/10 from distributions 2-1.bb [] 
  []
 
+[39]
 File: foundational_statistics_files/figure-latex/Samples from distributions 2-2
 .pdf Graphic file (type pdf)
 <use foundational_statistics_files/figure-latex/Samples from distributions 2-2.
 pdf>
 
-Overfull \hbox (109.3685pt too wide) in paragraph at lines 1199--1200
+Overfull \hbox (109.3685pt too wide) in paragraph at lines 1202--1203
 []\TU/lmr/m/n/10 from distributions 2-2.bb [] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[37] [38] [39] [40
+[40] [41] [42
 
 ]
 Chapter 7.
-[41]
-Overfull \hbox (134.99452pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 42 \TU/lmr/m/sl/10 CHAPTER 7.  MORE R FUNCTIONS, COMPLEX OBJECTS
-, BASIC PLOTTING, AND RMARKDOWN
- []
-
-[42]
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1342.
 [43]
 Overfull \hbox (134.99452pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 44 \TU/lmr/m/sl/10 CHAPTER 7.  MORE R FUNCTIONS, COMPLEX OBJECTS
 , BASIC PLOTTING, AND RMARKDOWN
  []
 
-[44] [45]
+[44]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1345.
+[45]
 Overfull \hbox (134.99452pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 46 \TU/lmr/m/sl/10 CHAPTER 7.  MORE R FUNCTIONS, COMPLEX OBJECTS
 , BASIC PLOTTING, AND RMARKDOWN
  []
 
-[46]
-Overfull \hbox (27.75pt too wide) in paragraph at lines 1623--1623
-[]\TU/lmtt/m/n/10 ##                    mpg cyl disp  hp drat    wt  qsec vs am
- gear carb[] 
- []
-
-
-Overfull \hbox (27.75pt too wide) in paragraph at lines 1623--1623
-[]\TU/lmtt/m/n/10 ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1
-    4    4[] 
- []
-
-
-Overfull \hbox (27.75pt too wide) in paragraph at lines 1623--1623
-[]\TU/lmtt/m/n/10 ## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1
-    4    4[] 
- []
-
-
-Overfull \hbox (27.75pt too wide) in paragraph at lines 1623--1623
-[]\TU/lmtt/m/n/10 ## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1
-    4    1[] 
- []
-
-
-Overfull \hbox (27.75pt too wide) in paragraph at lines 1623--1623
-[]\TU/lmtt/m/n/10 ## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0
-    3    1[] 
- []
-
-
-Overfull \hbox (27.75pt too wide) in paragraph at lines 1623--1623
-[]\TU/lmtt/m/n/10 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0
-    3    2[] 
- []
-
-
-Overfull \hbox (27.75pt too wide) in paragraph at lines 1623--1623
-[]\TU/lmtt/m/n/10 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0
-    3    1[] 
- []
-
-[47]
+[46] [47]
 Overfull \hbox (134.99452pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 48 \TU/lmr/m/sl/10 CHAPTER 7.  MORE R FUNCTIONS, COMPLEX OBJECTS
 , BASIC PLOTTING, AND RMARKDOWN
  []
 
-[48] [49]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 1770--1770
-[]\TU/lmtt/m/n/10 ##  [1] "treatment" "treatment" "treatment" "treatment" "trea
-tment" "control"[] 
+[48]
+Overfull \hbox (27.75pt too wide) in paragraph at lines 1626--1626
+[]\TU/lmtt/m/n/10 ##                    mpg cyl disp  hp drat    wt  qsec vs am
+ gear carb[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 1770--1770
-[]\TU/lmtt/m/n/10 ##  [7] "control"   "control"   "treatment" "treatment" "trea
-tment" "treatment"[] 
+Overfull \hbox (27.75pt too wide) in paragraph at lines 1626--1626
+[]\TU/lmtt/m/n/10 ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1
+    4    4[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 1770--1770
-[]\TU/lmtt/m/n/10 ## [13] "control"   "control"   "control"   "control"   "cont
-rol"   "control"[] 
+Overfull \hbox (27.75pt too wide) in paragraph at lines 1626--1626
+[]\TU/lmtt/m/n/10 ## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1
+    4    4[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 1783--1783
-[]\TU/lmtt/m/n/10 ##  [1] "red"  "red"  "red"  "red"  "red"  "blue" "blue" "blu
-e" "red"  "red"[] 
+Overfull \hbox (27.75pt too wide) in paragraph at lines 1626--1626
+[]\TU/lmtt/m/n/10 ## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1
+    4    1[] 
  []
 
 
+Overfull \hbox (27.75pt too wide) in paragraph at lines 1626--1626
+[]\TU/lmtt/m/n/10 ## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0
+    3    1[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 1626--1626
+[]\TU/lmtt/m/n/10 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0
+    3    2[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 1626--1626
+[]\TU/lmtt/m/n/10 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0
+    3    1[] 
+ []
+
+[49]
 Overfull \hbox (134.99452pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 50 \TU/lmr/m/sl/10 CHAPTER 7.  MORE R FUNCTIONS, COMPLEX OBJECTS
 , BASIC PLOTTING, AND RMARKDOWN
  []
 
 [50] [51]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1773--1773
+[]\TU/lmtt/m/n/10 ##  [1] "treatment" "treatment" "treatment" "treatment" "trea
+tment" "control"[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 1773--1773
+[]\TU/lmtt/m/n/10 ##  [7] "control"   "control"   "treatment" "treatment" "trea
+tment" "treatment"[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1773--1773
+[]\TU/lmtt/m/n/10 ## [13] "control"   "control"   "control"   "control"   "cont
+rol"   "control"[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1786--1786
+[]\TU/lmtt/m/n/10 ##  [1] "red"  "red"  "red"  "red"  "red"  "blue" "blue" "blu
+e" "red"  "red"[] 
+ []
+
+
 Overfull \hbox (134.99452pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 52 \TU/lmr/m/sl/10 CHAPTER 7.  MORE R FUNCTIONS, COMPLEX OBJECTS
 , BASIC PLOTTING, AND RMARKDOWN
  []
 
 [52] [53]
+Overfull \hbox (134.99452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 54 \TU/lmr/m/sl/10 CHAPTER 7.  MORE R FUNCTIONS, COMPLEX OBJECTS
+, BASIC PLOTTING, AND RMARKDOWN
+ []
+
+[54] [55]
 File: foundational_statistics_files/figure-latex/unnamed-chunk-36-1.pdf Graphic
  file (type pdf)
 <use foundational_statistics_files/figure-latex/unnamed-chunk-36-1.pdf>
@@ -1614,46 +1636,21 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (134.99452pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 54 \TU/lmr/m/sl/10 CHAPTER 7.  MORE R FUNCTIONS, COMPLEX OBJECTS
+\TU/lmr/m/n/10 56 \TU/lmr/m/sl/10 CHAPTER 7.  MORE R FUNCTIONS, COMPLEX OBJECTS
 , BASIC PLOTTING, AND RMARKDOWN
  []
 
-[54]
+[56]
 File: foundational_statistics_files/figure-latex/unnamed-chunk-38-1.pdf Graphic
  file (type pdf)
 <use foundational_statistics_files/figure-latex/unnamed-chunk-38-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[55]
+[57]
 File: foundational_statistics_files/figure-latex/unnamed-chunk-39-1.pdf Graphic
  file (type pdf)
 <use foundational_statistics_files/figure-latex/unnamed-chunk-39-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (134.99452pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 56 \TU/lmr/m/sl/10 CHAPTER 7.  MORE R FUNCTIONS, COMPLEX OBJECTS
-, BASIC PLOTTING, AND RMARKDOWN
- []
-
-[56]
-File: foundational_statistics_files/figure-latex/binomial function-1.pdf Graphi
-c file (type pdf)
-<use foundational_statistics_files/figure-latex/binomial function-1.pdf>
-
-Overfull \hbox (60.31384pt too wide) in paragraph at lines 1968--1969
-[]\TU/lmr/m/n/10 function-1.bb [] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[57]
-File: foundational_statistics_files/figure-latex/unnamed-chunk-40-1.pdf Graphic
- file (type pdf)
-<use foundational_statistics_files/figure-latex/unnamed-chunk-40-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1664,14 +1661,23 @@ Overfull \hbox (134.99452pt too wide) has occurred while \output is active
  []
 
 [58]
-File: foundational_statistics_files/figure-latex/unnamed-chunk-40-2.pdf Graphic
- file (type pdf)
-<use foundational_statistics_files/figure-latex/unnamed-chunk-40-2.pdf>
+File: foundational_statistics_files/figure-latex/binomial function-1.pdf Graphi
+c file (type pdf)
+<use foundational_statistics_files/figure-latex/binomial function-1.pdf>
 
-Underfull \vbox (badness 2538) has occurred while \output is active []
+Overfull \hbox (60.31384pt too wide) in paragraph at lines 1971--1972
+[]\TU/lmr/m/n/10 function-1.bb [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [59]
-Underfull \vbox (badness 3229) has occurred while \output is active []
+File: foundational_statistics_files/figure-latex/unnamed-chunk-40-1.pdf Graphic
+ file (type pdf)
+<use foundational_statistics_files/figure-latex/unnamed-chunk-40-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (134.99452pt too wide) has occurred while \output is active
@@ -1679,19 +1685,15 @@ Overfull \hbox (134.99452pt too wide) has occurred while \output is active
 , BASIC PLOTTING, AND RMARKDOWN
  []
 
-[60] [61]
-Underfull \hbox (badness 4805) in paragraph at lines 2118--2120
-[][]$[][][][][] [] [] [] [][][] [] [][][][] [] [][][] [] [][] [] [][][][][][] [
-] [][][][][][][][] [] [][][][][][][] [] [][][][][][] [] [][][][]$[] \TU/lmr/m/n
-/10 - A
- []
+[60]
+File: foundational_statistics_files/figure-latex/unnamed-chunk-40-2.pdf Graphic
+ file (type pdf)
+<use foundational_statistics_files/figure-latex/unnamed-chunk-40-2.pdf>
 
+Underfull \vbox (badness 2538) has occurred while \output is active []
 
-Underfull \hbox (badness 10000) in paragraph at lines 2124--2125
-[][]$[][][][][] [] [] [] [][][][][][][][][] [] [][][][][][][] [] [][][] [] [][]
-[][][][] [][] [][] [] [][][][]$[] \TU/lmr/m/n/10 - \TU/lmtt/m/n/10 RMarkdown \T
-U/lmr/m/n/10 “cheat
- []
+[61]
+Underfull \vbox (badness 3229) has occurred while \output is active []
 
 
 Overfull \hbox (134.99452pt too wide) has occurred while \output is active
@@ -1699,37 +1701,57 @@ Overfull \hbox (134.99452pt too wide) has occurred while \output is active
 , BASIC PLOTTING, AND RMARKDOWN
  []
 
-[62]
+[62] [63]
+Underfull \hbox (badness 4805) in paragraph at lines 2121--2123
+[][]$[][][][][] [] [] [] [][][] [] [][][][] [] [][][] [] [][] [] [][][][][][] [
+] [][][][][][][][] [] [][][][][][][] [] [][][][][][] [] [][][][]$[] \TU/lmr/m/n
+/10 - A
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2127--2128
+[][]$[][][][][] [] [] [] [][][][][][][][][] [] [][][][][][][] [] [][][] [] [][]
+[][][][] [][] [][] [] [][][][]$[] \TU/lmr/m/n/10 - \TU/lmtt/m/n/10 RMarkdown \T
+U/lmr/m/n/10 “cheat
+ []
+
+
+Overfull \hbox (134.99452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 64 \TU/lmr/m/sl/10 CHAPTER 7.  MORE R FUNCTIONS, COMPLEX OBJECTS
+, BASIC PLOTTING, AND RMARKDOWN
+ []
+
+[64]
 Chapter 8.
-[63
+[65
 
 ]
-Overfull \hbox (86.39453pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 64 \TU/lmr/m/sl/10 CHAPTER 8.  INTRODUCTION TO PROBABILITY AND P
-ROBABILITY DISTRIBUTIONS
- []
-
-[64] [65]
-Underfull \hbox (badness 10000) in paragraph at lines 2241--2242
-
- []
-
-
 Overfull \hbox (86.39453pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 66 \TU/lmr/m/sl/10 CHAPTER 8.  INTRODUCTION TO PROBABILITY AND P
 ROBABILITY DISTRIBUTIONS
  []
 
 [66] [67]
+Underfull \hbox (badness 10000) in paragraph at lines 2244--2245
+
+ []
+
+
+Overfull \hbox (86.39453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 68 \TU/lmr/m/sl/10 CHAPTER 8.  INTRODUCTION TO PROBABILITY AND P
+ROBABILITY DISTRIBUTIONS
+ []
+
+[68] [69]
 File: images/prob.017.jpeg Graphic file (type bmp)
 <images/prob.017.jpeg>
 
-LaTeX Font Warning: Command \large invalid in math mode on input line 2360.
+LaTeX Font Warning: Command \large invalid in math mode on input line 2363.
 
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 2360.
+(amsmath)                 on input line 2363.
 
 File: images/week_2.003.jpeg Graphic file (type bmp)
 <images/week_2.003.jpeg>
@@ -1738,31 +1760,13 @@ Underfull \vbox (badness 4229) has occurred while \output is active []
 
 
 Overfull \hbox (86.39453pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 68 \TU/lmr/m/sl/10 CHAPTER 8.  INTRODUCTION TO PROBABILITY AND P
-ROBABILITY DISTRIBUTIONS
- []
-
-[68]
-File: images/prob.018.jpeg Graphic file (type bmp)
-<images/prob.018.jpeg>
-
-Overfull \hbox (76.64343pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 8.9.  PROBABILITY DISTRIBUTIONS COMMONLY USED IN BIOLOGICAL STA
-TISTICS \TU/lmr/m/n/10 69
- []
-
-[69]
-File: images/week_2.004.jpeg Graphic file (type bmp)
-<images/week_2.004.jpeg>
-
-Overfull \hbox (86.39453pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 70 \TU/lmr/m/sl/10 CHAPTER 8.  INTRODUCTION TO PROBABILITY AND P
 ROBABILITY DISTRIBUTIONS
  []
 
 [70]
-File: images/week_2.005.jpeg Graphic file (type bmp)
-<images/week_2.005.jpeg>
+File: images/prob.018.jpeg Graphic file (type bmp)
+<images/prob.018.jpeg>
 
 Overfull \hbox (76.64343pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 8.9.  PROBABILITY DISTRIBUTIONS COMMONLY USED IN BIOLOGICAL STA
@@ -1770,10 +1774,8 @@ TISTICS \TU/lmr/m/n/10 71
  []
 
 [71]
-File: images/prob.019.jpeg Graphic file (type bmp)
-<images/prob.019.jpeg>
-File: images/prob.020.jpeg Graphic file (type bmp)
-<images/prob.020.jpeg>
+File: images/week_2.004.jpeg Graphic file (type bmp)
+<images/week_2.004.jpeg>
 
 Overfull \hbox (86.39453pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 72 \TU/lmr/m/sl/10 CHAPTER 8.  INTRODUCTION TO PROBABILITY AND P
@@ -1781,14 +1783,8 @@ ROBABILITY DISTRIBUTIONS
  []
 
 [72]
-File: images/week_2.032.jpeg Graphic file (type bmp)
-<images/week_2.032.jpeg>
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 2593.
-
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 2595.
-
+File: images/week_2.005.jpeg Graphic file (type bmp)
+<images/week_2.005.jpeg>
 
 Overfull \hbox (76.64343pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 8.9.  PROBABILITY DISTRIBUTIONS COMMONLY USED IN BIOLOGICAL STA
@@ -1796,19 +1792,10 @@ TISTICS \TU/lmr/m/n/10 73
  []
 
 [73]
-
-LaTeX Font Warning: Command \large invalid in math mode on input line 2599.
-
-
-LaTeX Font Warning: Command \Large invalid in math mode on input line 2606.
-
-
-LaTeX Font Warning: Command \Large invalid in math mode on input line 2610.
-
-File: images/week_2.010.jpeg Graphic file (type bmp)
-<images/week_2.010.jpeg>
-File: images/week_2.013.jpeg Graphic file (type bmp)
-<images/week_2.013.jpeg>
+File: images/prob.019.jpeg Graphic file (type bmp)
+<images/prob.019.jpeg>
+File: images/prob.020.jpeg Graphic file (type bmp)
+<images/prob.020.jpeg>
 
 Overfull \hbox (86.39453pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 74 \TU/lmr/m/sl/10 CHAPTER 8.  INTRODUCTION TO PROBABILITY AND P
@@ -1816,6 +1803,41 @@ ROBABILITY DISTRIBUTIONS
  []
 
 [74]
+File: images/week_2.032.jpeg Graphic file (type bmp)
+<images/week_2.032.jpeg>
+
+LaTeX Font Warning: Command \large invalid in math mode on input line 2596.
+
+
+LaTeX Font Warning: Command \large invalid in math mode on input line 2598.
+
+
+Overfull \hbox (76.64343pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.9.  PROBABILITY DISTRIBUTIONS COMMONLY USED IN BIOLOGICAL STA
+TISTICS \TU/lmr/m/n/10 75
+ []
+
+[75]
+
+LaTeX Font Warning: Command \large invalid in math mode on input line 2602.
+
+
+LaTeX Font Warning: Command \Large invalid in math mode on input line 2609.
+
+
+LaTeX Font Warning: Command \Large invalid in math mode on input line 2613.
+
+File: images/week_2.010.jpeg Graphic file (type bmp)
+<images/week_2.010.jpeg>
+File: images/week_2.013.jpeg Graphic file (type bmp)
+<images/week_2.013.jpeg>
+
+Overfull \hbox (86.39453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 76 \TU/lmr/m/sl/10 CHAPTER 8.  INTRODUCTION TO PROBABILITY AND P
+ROBABILITY DISTRIBUTIONS
+ []
+
+[76]
 File: images/week_2.015.jpeg Graphic file (type bmp)
 <images/week_2.015.jpeg>
 File: images/week_2.014.jpeg Graphic file (type bmp)
@@ -1826,10 +1848,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Overfull \hbox (76.64343pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 8.9.  PROBABILITY DISTRIBUTIONS COMMONLY USED IN BIOLOGICAL STA
-TISTICS \TU/lmr/m/n/10 75
+TISTICS \TU/lmr/m/n/10 77
  []
 
-[75]
+[77]
 File: images/week_2.016.jpeg Graphic file (type bmp)
 <images/week_2.016.jpeg>
 File: images/week_2.017.jpeg Graphic file (type bmp)
@@ -1839,32 +1861,32 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (86.39453pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 76 \TU/lmr/m/sl/10 CHAPTER 8.  INTRODUCTION TO PROBABILITY AND P
-ROBABILITY DISTRIBUTIONS
- []
-
-[76]
-File: images/week_2.018.jpeg Graphic file (type bmp)
-<images/week_2.018.jpeg>
-
-Overfull \hbox (76.64343pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 8.9.  PROBABILITY DISTRIBUTIONS COMMONLY USED IN BIOLOGICAL STA
-TISTICS \TU/lmr/m/n/10 77
- []
-
-[77]
-
-LaTeX Font Warning: Command \huge invalid in math mode on input line 2696.
-
-
-Overfull \hbox (86.39453pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 78 \TU/lmr/m/sl/10 CHAPTER 8.  INTRODUCTION TO PROBABILITY AND P
 ROBABILITY DISTRIBUTIONS
  []
 
 [78]
+File: images/week_2.018.jpeg Graphic file (type bmp)
+<images/week_2.018.jpeg>
+
+Overfull \hbox (76.64343pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.9.  PROBABILITY DISTRIBUTIONS COMMONLY USED IN BIOLOGICAL STA
+TISTICS \TU/lmr/m/n/10 79
+ []
+
+[79]
+
+LaTeX Font Warning: Command \huge invalid in math mode on input line 2699.
+
+
+Overfull \hbox (86.39453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 80 \TU/lmr/m/sl/10 CHAPTER 8.  INTRODUCTION TO PROBABILITY AND P
+ROBABILITY DISTRIBUTIONS
+ []
+
+[80]
 Chapter 9.
-[79
+[81
 
 ]
 File: foundational_statistics_files/figure-latex/unnamed-chunk-60-1.pdf Graphic
@@ -1875,11 +1897,11 @@ Underfull \vbox (badness 4144) has occurred while \output is active []
 
 
 Overfull \hbox (57.65344pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 80 \TU/lmr/m/sl/10 CHAPTER 9.  PARAMETER ESTIMATION BASICS AND T
+\TU/lmr/m/n/10 82 \TU/lmr/m/sl/10 CHAPTER 9.  PARAMETER ESTIMATION BASICS AND T
 HE SAMPLING PROCESS
  []
 
-[80]
+[82]
 File: images/week_2.025.jpeg Graphic file (type bmp)
 <images/week_2.025.jpeg>
 
@@ -1888,10 +1910,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Overfull \hbox (35.56343pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 9.3.  MORE ON PARAMETER ESTIMATION AND SAMPLING DISTRIBUTIONS \
-TU/lmr/m/n/10 81
+TU/lmr/m/n/10 83
  []
 
-[81]
+[83]
 File: images/week_2.028.jpeg Graphic file (type bmp)
 <images/week_2.028.jpeg>
 
@@ -1899,46 +1921,125 @@ Underfull \vbox (badness 3189) has occurred while \output is active []
 
 
 Overfull \hbox (57.65344pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 82 \TU/lmr/m/sl/10 CHAPTER 9.  PARAMETER ESTIMATION BASICS AND T
-HE SAMPLING PROCESS
- []
-
-[82]
-
-LaTeX Font Warning: Command \huge invalid in math mode on input line 2767.
-
-
-Overfull \hbox (67.15123pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 9.5.  THE BOOTSTRAP TO ESTIMATE PARAMETERS AND THE STANDARD ERR
-OR \TU/lmr/m/n/10 83
- []
-
-[83]
-Overfull \hbox (57.65344pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 84 \TU/lmr/m/sl/10 CHAPTER 9.  PARAMETER ESTIMATION BASICS AND T
 HE SAMPLING PROCESS
  []
 
 [84]
-No file foundational_statistics.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2839.
+
+LaTeX Font Warning: Command \huge invalid in math mode on input line 2770.
+
+
+Overfull \hbox (67.15123pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 9.5.  THE BOOTSTRAP TO ESTIMATE PARAMETERS AND THE STANDARD ERR
+OR \TU/lmr/m/n/10 85
+ []
+
 [85]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2839.
+Overfull \hbox (57.65344pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 86 \TU/lmr/m/sl/10 CHAPTER 9.  PARAMETER ESTIMATION BASICS AND T
+HE SAMPLING PROCESS
+ []
+
+[86] [87]
+Overfull \hbox (57.65344pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 88 \TU/lmr/m/sl/10 CHAPTER 9.  PARAMETER ESTIMATION BASICS AND T
+HE SAMPLING PROCESS
+ []
+
+[88
+
+]
+Chapter 10.
+[89] [90]
+File: images/Logan_ExpTerms.jpg Graphic file (type bmp)
+<images/Logan_ExpTerms.jpg>
+
+Overfull \hbox (323.22516pt too wide) in paragraph at lines 2871--2872
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[91]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[92]
+File: images/images_6a.005.jpeg Graphic file (type bmp)
+<images/images_6a.005.jpeg>
+
+Overfull \hbox (587.32497pt too wide) in paragraph at lines 2885--2886
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[93]
+Underfull \vbox (badness 6808) has occurred while \output is active []
+
+[94] [95]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[96]
+File: images/images_6a.006.jpeg Graphic file (type bmp)
+<images/images_6a.006.jpeg>
+
+Overfull \hbox (596.52959pt too wide) in paragraph at lines 2958--2959
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[97]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[98]
+File: images/images_6a.007.jpeg Graphic file (type bmp)
+<images/images_6a.007.jpeg>
+
+Overfull \hbox (504.17041pt too wide) in paragraph at lines 2965--2966
+[][] 
+ []
+
+File: images/images_6a.008.jpeg Graphic file (type bmp)
+<images/images_6a.008.jpeg>
+
+Overfull \hbox (542.31284pt too wide) in paragraph at lines 2974--2975
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[99]
+File: images/images_6a.009.jpeg Graphic file (type bmp)
+<images/images_6a.009.jpeg>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[100] [101]
+No file foundational_statistics.bbl.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3013.
+[102]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3013.
 (./foundational_statistics.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2839.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2839.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3013.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3013.
 
 Package rerunfilecheck Info: File `foundational_statistics.out' has not changed
 .
-(rerunfilecheck)             Checksum: 531DD4A106EA4C3188A25A983645040B.
+(rerunfilecheck)             Checksum: 498D6D34063DFA8796293EAC6AFB92D4.
  ) 
 Here is how much of TeX's memory you used:
- 27671 strings out of 492916
- 511294 string characters out of 6133346
- 738859 words of memory out of 5000000
- 31362 multiletter control sequences out of 15000+600000
+ 27729 strings out of 492916
+ 512638 string characters out of 6133346
+ 741728 words of memory out of 5000000
+ 31404 multiletter control sequences out of 15000+600000
  538796 words of font info for 85 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  58i,6n,115p,2153b,458s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on foundational_statistics.pdf (85 pages).
+Output written on foundational_statistics.pdf (102 pages).

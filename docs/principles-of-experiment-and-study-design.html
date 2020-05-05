@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 Principles of Experiment and Study Design | Foundational Statistics - Bi 610 - Spring 2020</title>
+  <meta name="description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 Principles of Experiment and Study Design | Foundational Statistics - Bi 610 - Spring 2020" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 Principles of Experiment and Study Design | Foundational Statistics - Bi 610 - Spring 2020" />
+  
+  <meta name="twitter:description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  
+
+<meta name="author" content="Clayton M. Small and William A. Cresko" />
+
+
+<meta name="date" content="2020-05-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="parameter-estimation-basics-and-the-sampling-process.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Foundational Statistics Bi 610</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Course Overview</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>2</b> Introduction to the course</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#instructors"><i class="fa fa-check"></i><b>2.1</b> Instructors</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#course-information"><i class="fa fa-check"></i><b>2.2</b> Course Information</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#software"><i class="fa fa-check"></i><b>2.3</b> Software</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#inclusion-and-accessibility"><i class="fa fa-check"></i><b>2.4</b> Inclusion and Accessibility</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="course-schedule.html"><a href="course-schedule.html"><i class="fa fa-check"></i><b>3</b> Course Schedule</a><ul>
+<li class="chapter" data-level="3.1" data-path="course-schedule.html"><a href="course-schedule.html#weeks-1-2"><i class="fa fa-check"></i><b>3.1</b> Weeks 1-2</a></li>
+<li class="chapter" data-level="3.2" data-path="course-schedule.html"><a href="course-schedule.html#week-3"><i class="fa fa-check"></i><b>3.2</b> Week 3</a></li>
+<li class="chapter" data-level="3.3" data-path="course-schedule.html"><a href="course-schedule.html#week-4"><i class="fa fa-check"></i><b>3.3</b> Week 4</a></li>
+<li class="chapter" data-level="3.4" data-path="course-schedule.html"><a href="course-schedule.html#week-5"><i class="fa fa-check"></i><b>3.4</b> Week 5</a></li>
+<li class="chapter" data-level="3.5" data-path="course-schedule.html"><a href="course-schedule.html#week-6"><i class="fa fa-check"></i><b>3.5</b> Week 6</a></li>
+<li class="chapter" data-level="3.6" data-path="course-schedule.html"><a href="course-schedule.html#week-7"><i class="fa fa-check"></i><b>3.6</b> Week 7</a></li>
+<li class="chapter" data-level="3.7" data-path="course-schedule.html"><a href="course-schedule.html#week-8"><i class="fa fa-check"></i><b>3.7</b> Week 8</a></li>
+<li class="chapter" data-level="3.8" data-path="course-schedule.html"><a href="course-schedule.html#week-9"><i class="fa fa-check"></i><b>3.8</b> Week 9</a></li>
+<li class="chapter" data-level="3.9" data-path="course-schedule.html"><a href="course-schedule.html#week-10"><i class="fa fa-check"></i><b>3.9</b> Week 10</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html"><i class="fa fa-check"></i><b>4</b> Background material for the course</a><ul>
+<li class="chapter" data-level="4.1" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#description-of-the-course"><i class="fa fa-check"></i><b>4.1</b> Description of the course</a></li>
+<li class="chapter" data-level="4.2" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#course-goals"><i class="fa fa-check"></i><b>4.2</b> Course goals:</a></li>
+<li class="chapter" data-level="4.3" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#introduction-to-r-and-rstudio"><i class="fa fa-check"></i><b>4.3</b> Introduction to R and RStudio</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#learning-resources"><i class="fa fa-check"></i><b>4.3.1</b> Learning resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html"><i class="fa fa-check"></i><b>5</b> Organizing and manipulating data files</a><ul>
+<li class="chapter" data-level="5.1" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#introduction"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-file-systems-from-the-command-line"><i class="fa fa-check"></i><b>5.2</b> Navigating file systems from the command line</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#access-to-the-command-line"><i class="fa fa-check"></i><b>5.2.1</b> Access to the command line</a></li>
+<li class="chapter" data-level="5.2.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-directories-and-files"><i class="fa fa-check"></i><b>5.2.2</b> Navigating directories and files</a></li>
+<li class="chapter" data-level="5.2.3" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#useful-unix-commands-for-file-manipulation"><i class="fa fa-check"></i><b>5.2.3</b> Useful UNIX commands for file manipulation</a></li>
+<li class="chapter" data-level="5.2.4" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#a-quick-word-on-pipes-and-carrots"><i class="fa fa-check"></i><b>5.2.4</b> A quick word on pipes and carrots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#data-file-and-data-file-entry-dos-and-donts"><i class="fa fa-check"></i><b>5.3</b> Data file and data file entry dos and don’ts</a></li>
+<li class="chapter" data-level="5.4" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#exercises-associated-with-this-chapter"><i class="fa fa-check"></i><b>5.4</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="5.5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#additional-learning-resources"><i class="fa fa-check"></i><b>5.5</b> Additional learning resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html"><i class="fa fa-check"></i><b>6</b> An Introduction to the R language</a><ul>
+<li class="chapter" data-level="6.1" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#background"><i class="fa fa-check"></i><b>6.1</b> Background</a></li>
+<li class="chapter" data-level="6.2" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#why-use-r"><i class="fa fa-check"></i><b>6.2</b> Why use <code>R</code>?</a></li>
+<li class="chapter" data-level="6.3" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#important-r-terms-and-definitions"><i class="fa fa-check"></i><b>6.3</b> Important <code>R</code> terms and definitions</a></li>
+<li class="chapter" data-level="6.4" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#getting-started-with-r-via-the-rstudio-environment"><i class="fa fa-check"></i><b>6.4</b> Getting started with <code>R</code> via the RStudio Environment</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#r-programming-basics"><i class="fa fa-check"></i><b>6.4.1</b> R Programming Basics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#exercises-associated-with-this-chapter-1"><i class="fa fa-check"></i><b>6.5</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="6.6" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#additional-learning-resources-1"><i class="fa fa-check"></i><b>6.6</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><i class="fa fa-check"></i><b>7</b> More R Functions, Complex Objects, Basic Plotting, and RMarkdown</a><ul>
+<li class="chapter" data-level="7.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#background-1"><i class="fa fa-check"></i><b>7.1</b> Background</a></li>
+<li class="chapter" data-level="7.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-on-functions"><i class="fa fa-check"></i><b>7.2</b> More on functions</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-base-r-functions-useful-for-working-with-vectors"><i class="fa fa-check"></i><b>7.2.1</b> More base <code>R</code> functions useful for working with vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#indexing-vectors"><i class="fa fa-check"></i><b>7.3</b> Indexing vectors</a></li>
+<li class="chapter" data-level="7.4" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-complex-data-objects-in-r"><i class="fa fa-check"></i><b>7.4</b> More complex data objects in <code>R</code></a><ul>
+<li class="chapter" data-level="7.4.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#lists"><i class="fa fa-check"></i><b>7.4.1</b> lists</a></li>
+<li class="chapter" data-level="7.4.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#data-frames"><i class="fa fa-check"></i><b>7.4.2</b> data frames</a></li>
+<li class="chapter" data-level="7.4.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#matrices"><i class="fa fa-check"></i><b>7.4.3</b> matrices</a></li>
+<li class="chapter" data-level="7.4.4" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#a-few-additional-base-r-functions-for-working-with-complex-r-objects"><i class="fa fa-check"></i><b>7.4.4</b> A few additional base <code>R</code> functions for working with complex <code>R</code> objects</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#some-brief-notes-on-basic-programming-in-r"><i class="fa fa-check"></i><b>7.5</b> Some brief notes on basic programming in <code>R</code></a><ul>
+<li class="chapter" data-level="7.5.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#conditional-statements-with-ifelse"><i class="fa fa-check"></i><b>7.5.1</b> conditional statements with <code>ifelse()</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#replicate-tapply-and-apply"><i class="fa fa-check"></i><b>7.5.2</b> <code>replicate()</code>, <code>tapply()</code>, and <code>apply()</code></a></li>
+<li class="chapter" data-level="7.5.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#for-loops-in-r"><i class="fa fa-check"></i><b>7.5.3</b> for loops in <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#fundamentals-of-plotting-in-r"><i class="fa fa-check"></i><b>7.6</b> Fundamentals of plotting in <code>R</code></a><ul>
+<li class="chapter" data-level="7.6.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#basic-plotting-with-plot"><i class="fa fa-check"></i><b>7.6.1</b> Basic plotting with <code>plot()</code></a></li>
+<li class="chapter" data-level="7.6.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#histograms-using-hist"><i class="fa fa-check"></i><b>7.6.2</b> Histograms using <code>hist()</code></a></li>
+<li class="chapter" data-level="7.6.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#boxplots-using-boxplot"><i class="fa fa-check"></i><b>7.6.3</b> Boxplots using <code>boxplot()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#a-brief-introduction-to-rmarkdown"><i class="fa fa-check"></i><b>7.7</b> A brief introduction to <code>RMarkdown</code></a><ul>
+<li class="chapter" data-level="7.7.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#rmarkdown-formatting-basics"><i class="fa fa-check"></i><b>7.7.1</b> <code>RMarkdown</code> formatting basics</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#experiment-with-headers"><i class="fa fa-check"></i><b>7.8</b> Experiment with headers</a><ul>
+<li class="chapter" data-level="7.8.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#try-a-third-level-header"><i class="fa fa-check"></i><b>7.8.1</b> Try a third-level header</a></li>
+<li class="chapter" data-level="7.8.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#rmarkdown-code-chunk-options"><i class="fa fa-check"></i><b>7.8.2</b> <code>RMarkdown</code> code chunk options</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#exercises-associated-with-this-chapter-2"><i class="fa fa-check"></i><b>7.9</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="7.10" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#additional-learning-resources-2"><i class="fa fa-check"></i><b>7.10</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html"><i class="fa fa-check"></i><b>8</b> Introduction to Probability and Probability Distributions</a><ul>
+<li class="chapter" data-level="8.1" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#background-2"><i class="fa fa-check"></i><b>8.1</b> Background</a></li>
+<li class="chapter" data-level="8.2" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#what-is-probability"><i class="fa fa-check"></i><b>8.2</b> What is probability?</a></li>
+<li class="chapter" data-level="8.3" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#random-variables-probability"><i class="fa fa-check"></i><b>8.3</b> Random variables &amp; probability</a></li>
+<li class="chapter" data-level="8.4" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-and-the-bernoulli-distribution"><i class="fa fa-check"></i><b>8.4</b> Probability and the Bernoulli distribution</a></li>
+<li class="chapter" data-level="8.5" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-rules"><i class="fa fa-check"></i><b>8.5</b> Probability rules</a></li>
+<li class="chapter" data-level="8.6" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#joint-probability"><i class="fa fa-check"></i><b>8.6</b> Joint probability</a></li>
+<li class="chapter" data-level="8.7" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#conditional-probability"><i class="fa fa-check"></i><b>8.7</b> Conditional probability</a></li>
+<li class="chapter" data-level="8.8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#a-brief-note-on-likelihood-vs.probability"><i class="fa fa-check"></i><b>8.8</b> A brief note on likelihood vs. probability</a></li>
+<li class="chapter" data-level="8.9" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-distributions-commonly-used-in-biological-statistics"><i class="fa fa-check"></i><b>8.9</b> Probability distributions commonly used in biological statistics</a><ul>
+<li class="chapter" data-level="8.9.1" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#discrete-probability-distributions"><i class="fa fa-check"></i><b>8.9.1</b> Discrete Probability Distributions</a></li>
+<li class="chapter" data-level="8.9.2" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#continuous-probability-distributions"><i class="fa fa-check"></i><b>8.9.2</b> <strong>Continuous probability distributions</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#exercises-associated-with-this-chapter-3"><i class="fa fa-check"></i><b>8.10</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="8.11" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#additional-learning-resources-3"><i class="fa fa-check"></i><b>8.11</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html"><i class="fa fa-check"></i><b>9</b> Parameter Estimation Basics and the Sampling Process</a><ul>
+<li class="chapter" data-level="9.1" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#background-3"><i class="fa fa-check"></i><b>9.1</b> Background</a></li>
+<li class="chapter" data-level="9.2" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#understanding-populations-and-their-parameters"><i class="fa fa-check"></i><b>9.2</b> Understanding populations and their parameters</a></li>
+<li class="chapter" data-level="9.3" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#more-on-parameter-estimation-and-sampling-distributions"><i class="fa fa-check"></i><b>9.3</b> More on parameter estimation and sampling distributions</a></li>
+<li class="chapter" data-level="9.4" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#calculating-the-standard-error-of-the-mean"><i class="fa fa-check"></i><b>9.4</b> Calculating the standard error of the mean</a></li>
+<li class="chapter" data-level="9.5" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#the-bootstrap-to-estimate-parameters-and-the-standard-error"><i class="fa fa-check"></i><b>9.5</b> The bootstrap to estimate parameters and the standard error</a></li>
+<li class="chapter" data-level="9.6" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#confidence-intervals"><i class="fa fa-check"></i><b>9.6</b> Confidence intervals</a></li>
+<li class="chapter" data-level="9.7" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#the-relationship-between-mean-and-variance"><i class="fa fa-check"></i><b>9.7</b> The relationship between mean and variance</a></li>
+<li class="chapter" data-level="9.8" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#exercises-associated-with-this-chapter-4"><i class="fa fa-check"></i><b>9.8</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="9.9" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#additional-learning-resources-4"><i class="fa fa-check"></i><b>9.9</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html"><i class="fa fa-check"></i><b>10</b> Principles of Experiment and Study Design</a><ul>
+<li class="chapter" data-level="10.1" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#background-4"><i class="fa fa-check"></i><b>10.1</b> Background</a></li>
+<li class="chapter" data-level="10.2" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#what-is-an-experimental-study"><i class="fa fa-check"></i><b>10.2</b> What is an experimental study?</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#a-hypothetical-study-example"><i class="fa fa-check"></i><b>10.2.1</b> A hypothetical study example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#basic-study-design-terminology"><i class="fa fa-check"></i><b>10.3</b> Basic study design terminology</a></li>
+<li class="chapter" data-level="10.4" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#clinical-trials"><i class="fa fa-check"></i><b>10.4</b> Clinical trials</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#a-clinical-trial-example"><i class="fa fa-check"></i><b>10.4.1</b> A clinical trial example</a></li>
+<li class="chapter" data-level="10.4.2" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#simultaneous-control-groups"><i class="fa fa-check"></i><b>10.4.2</b> Simultaneous control groups</a></li>
+<li class="chapter" data-level="10.4.3" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#randomization"><i class="fa fa-check"></i><b>10.4.3</b> Randomization</a></li>
+<li class="chapter" data-level="10.4.4" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#blinding"><i class="fa fa-check"></i><b>10.4.4</b> Blinding</a></li>
+<li class="chapter" data-level="10.4.5" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#replication"><i class="fa fa-check"></i><b>10.4.5</b> Replication</a></li>
+<li class="chapter" data-level="10.4.6" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#a-note-on-pseudoreplication"><i class="fa fa-check"></i><b>10.4.6</b> A note on pseudoreplication</a></li>
+<li class="chapter" data-level="10.4.7" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#balance"><i class="fa fa-check"></i><b>10.4.7</b> Balance</a></li>
+<li class="chapter" data-level="10.4.8" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#blocking"><i class="fa fa-check"></i><b>10.4.8</b> Blocking</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#what-if-you-cant-do-experiments"><i class="fa fa-check"></i><b>10.5</b> What if you can’t do experiments?</a></li>
+<li class="chapter" data-level="10.6" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#exercises-associated-with-this-chapter-5"><i class="fa fa-check"></i><b>10.6</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="10.7" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#additional-learning-resources-5"><i class="fa fa-check"></i><b>10.7</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Foundational Statistics - Bi 610 - Spring 2020</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="principles-of-experiment-and-study-design" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Principles of Experiment and Study Design</h1>
+<div id="background-4" class="section level2">
+<h2><span class="header-section-number">10.1</span> Background</h2>
+<p>In order to obtain proper estimates for the parameters we care about as scientists, we have to keep in mind the probability and sampling principles discussed in the preceeding chapters. Studies and experiments enable us to take samples and effectively make statistical inferences, but only if we design the studies in structured ways that adhere to (and therefore take advantage of) sampling theory assumptions. Two of the most important conepts along these lines are <strong>replication</strong> and <strong>randomization</strong>.</p>
+<p>As you learned in the last chapter, our uncertainty (as measured by the standard error) about estimation of a particular population parameter is high when our sample size is low, and this uncertainty decreases as we increase sample size. For this reason, the number of “replicates” in a study is intrinsically tied to uncertainty. We will return to this in the context of “statistical power” in the next chapter. If we require little uncertainty when estimating or comparing parameters, we need adequate replication. Furthermore, sampling has to be performed at the level of each population in question. For example, if we are comparing two treatments in an experiment, we need adequate replication within both of those treatments, because they represent two different populations. We also learned that sampling theory is based on the notion of the random variable, which is modeled by random draws of observations from a theoretical population. Individuals in a study or experiment need to be selected or assigned to groups randomly and independent of one another to avoid bias in our parameter estimates and comparisons. In this chapter we will discuss how these considerations, and related ones, have been formalized into conventions of experimental design that should be followed across the scientific community.</p>
+</div>
+<div id="what-is-an-experimental-study" class="section level2">
+<h2><span class="header-section-number">10.2</span> What is an experimental study?</h2>
+<p>We should start by describing a few different categories of study. All categories usually involve, either directly or inderectly, the estimation of population parameters. In some studies, which we refer to as “experimental,” the researcher assigns treatments to units is such a way to “isolate” the effects of the treatments on the variable(s) of interest.</p>
+<p><br></p>
+<p><em>A quick aside: In study design parlance, we refer to these variables of interest as “dependent” or “response” variables. Response variables are usually the basis for the population parameters we are trying to estimate and compare. The variables we are manipulating (as in an experiment) or otherwise measuring for their explanatory potential, are called “independent” or “explanatory” variables.</em></p>
+<p><br></p>
+<p>In an observational study, on the other hand, we let nature “do the assigning” of treatments to units, and we simply observe and measure the relationships among variables, whether they are causal or not. The crucial advantage of experiments over observational studies, then, derives from the random assignment of treatments to units. Random assignment, or randomization, minimizes the influence of confounding variables. To illustrate the advantage of randmonization, consider the following example.</p>
+<div id="a-hypothetical-study-example" class="section level3">
+<h3><span class="header-section-number">10.2.1</span> A hypothetical study example</h3>
+<p>Let’s say that we know survival of climbers of Mount Everest is higher for individuals taking supplemental oxygen than those who don’t. As physiologists, or anthropologists, or exercise physiologists, or sociolgists, or tourism economists, we may want to know <strong><em>why</em></strong> this observation is true.</p>
+<p>One possibility is that supplemental oxygen (our explanatory variable) really does cause higher survival (our response variable). The other is that the two variables are associated because other variables affect both supplemental oxygen and survival. For instance, use of supplemental oxygen might be a benign indicator of a greater overall preparedness of the climbers that use it. Variables (like preparedness) that distort the causal relationship between the measured variables of interest (oxygen use and survival) are called <strong>confounding variables</strong>. They are correlated with the variable of interest, and therefore they prevent a decision about cause and effect. With randomized assignment, no confounding variables will be associated with treatment except by chance, so if sample sizes are large enough no spurious conclusions about cause and effect should be reached.</p>
+</div>
+</div>
+<div id="basic-study-design-terminology" class="section level2">
+<h2><span class="header-section-number">10.3</span> Basic study design terminology</h2>
+<p>Many experimentalists, and indeed most statisticians working with experimental data, use a common set of terms to describe elements of a study. Those terms are used and defined in this section. For example, we defined response (or dependent) and explanatory (or independent) variables above, and more will be introduced below. It is good to become familiar with these terms, as they will continually pop up as you read the literature within your own study discipline, read technical publications and online posts regarding statistical analysis, and engage in discussions with collaborators and analysts. To start out, below is a table of some general terms we have covered already, with some more formal definitions.</p>
+<p><img src="images/Logan_ExpTerms.jpg" width="446" /></p>
+<p>From Logan, M. 2010</p>
+</div>
+<div id="clinical-trials" class="section level2">
+<h2><span class="header-section-number">10.4</span> Clinical trials</h2>
+<p>The gold standard of experimental designs is the <strong>clinical trial</strong>. In fact, experimental design in all areas of biology have been informed by procedures used in clinical trials. A clinical trial is an experimental study in which two or more treatments are assigned to human subjects, usually with some design specifics we visit below. The design of clinical trials has been refined and approached with great care because the cost of making a mistake with human subjects is so high. Experiments on nonhuman subjects are simply called “laboratory experiments,” or “field experiments” in cases where the experiment is not confined to a small, indoor space.</p>
+<div id="a-clinical-trial-example" class="section level3">
+<h3><span class="header-section-number">10.4.1</span> A clinical trial example</h3>
+<p>Transmission of the HIV-1 virus via sex workers contributes to the rapid spread of AIDS in Africa. The spermicide nonoxynol-9 had shown <em>in vitro</em> activity against HIV-1, which motivated a clinical trial by van Damme et al. (2002). In this study the authors tested whether a vaginal gel containing the chemical would reduce the risk of acquiring the disease by female sex workers. Data were gathered on a volunteer sample of 765 HIV-free sex-workers in six clinics in Asia and Africa. Two gel treatments were assigned randomly to women at each clinic, one gel containing nonoxynol-9 and the other a placebo. Neither the subjects nor the researchers making observations at the clinics knew who received the treatment and who got the placebo. The table below shows the raw data.</p>
+<p><br></p>
+<p><img src="images/images_6a.005.jpeg" width="464" /></p>
+<p><br></p>
+<p>A major goal of experimental design is to eliminate bias and to reduce sampling error when estimating and testing effects of one variable on another.</p>
+<p><br></p>
+<p>To reduce bias, the experiment described above included the following:</p>
+<ul>
+<li>A <strong>Simultaneous control group</strong>: Inclusion of both the treatment of interest and a control group (the women receiving the placebo).</li>
+<li><strong>Randomization</strong>: Treatments were randomly assigned to women at each clinic.</li>
+<li><strong>Blinding</strong>: Neither the subjects nor the clinicians knew which women were assigned which treatment.</li>
+</ul>
+<p><br></p>
+<p>To reduce the effects of sampling error, the experiment included the following:</p>
+<ul>
+<li><strong>Replication</strong>: A study is carried out on multiple, independent subjects.</li>
+<li><strong>Balance</strong>: Equal sample sizes across treatment groups. In this case, the number of women was nearly equal in the two groups at every clinic.</li>
+<li><strong>Blocking</strong>: Treatments are applied systematically within larger groups that likely explain large amounts of variation. Here subjects were grouped according to the clinic they attended, yielding multiple repetitions of the same experiment in different settings (“blocks”).</li>
+</ul>
+<p><br></p>
+<p>Let’s consider each of these design elements in turn, in a bit more depth.</p>
+</div>
+<div id="simultaneous-control-groups" class="section level3">
+<h3><span class="header-section-number">10.4.2</span> Simultaneous control groups</h3>
+<p>In clinical trials either a placebo or the currently accepted treatment should be provided. In experiments requiring intrusive methods to administer treatment, such as injections, surgery, restraint, confinement, etc., the control subjects should be perturbed in the same way as the other subjects, except for the treatment itself, as far as ethical considerations permit. The “sham operation”, in which surgery is carried out without the experimental treatment itself, is an example.vIn field experiments, applying a treatment of interest may physically disturb the plots receiving it and the surrounding areas, perhaps by trampling the ground by the researchers.Ideally, the same disturbance should be applied to the control plots.</p>
+</div>
+<div id="randomization" class="section level3">
+<h3><span class="header-section-number">10.4.3</span> Randomization</h3>
+<p>The researcher should randomize assignment of treatments to units or subjects. Chance rather than conscious or unconscious decision determines which units end up receiving the treatment and which the control. A completely randomized design is one in which treatments are assigned to all units by randomization. Randomization breaks the association between possible confounding variables and the explanatory variable. It doesn’t eliminate the variation contributed by confounding variables, only their correlation with the treatment variable. Randomization ensures that variation from confounding variables is similar between the different treatment groups.</p>
+<p><br></p>
+<p>Randomization should be carried out using a random process such as a random number generator. A general strategy might include the following steps:</p>
+<ul>
+<li>List all n subjects, one per row, in a spreadsheet or computer programming object.</li>
+<li>Use the computer to give each individual a random number.</li>
+<li>Assign treatment A to those subjects receiving the lowest numbers and treatment B to those with the highest numbers.</li>
+</ul>
+<p><br></p>
+<p>Other procedures for assigning treatments to subjects are almost always inferior because they do not eliminate the effects of confounding variables. “Haphazard” assignment, in which the researcher chooses a treatment while trying to make it random, has repeatedly been shown to be non-random and prone to bias.</p>
+</div>
+<div id="blinding" class="section level3">
+<h3><span class="header-section-number">10.4.4</span> Blinding</h3>
+<p>Blinding is the process of concealing information from participants (sometimes including researchers) about which subjects receive which treatment. Blinding prevents subjects and researchers from changing their behavior, consciously or unconsciously, as a result of knowing which treatment they were receiving or administering. For example, studies showing that acupuncture has a significant effect on back pain are limited to those without blinding (Ernst and White 1998). In a single-blind experiment, the subjects are unaware of the treatment that they have been assigned. Treatments must be indistinguishable to subjects, which prevents them from responding differently according to knowledge of treatment. Blinding can also be a concern in non-human studies where animals respond to stimuli</p>
+<p><br></p>
+<p>In a double-blind experiment the researchers administering the treatments and measuring the response are also unaware of which subjects are receiving which treatments. Researchers sometimes have pet hypotheses, and they might treat experimental subjects in different ways depending on their hopes for the outcome. Many response variables are difficult to measure and require some subjective interpretation, which makes the results prone to a bias. Researchers are naturally more interested in the treated subjects than the control subjects, and this increased attention can itself result in improved response. Reviews of medical studies have revealed that studies carried out without double- blinding exaggerated treatment effects by 16% on average compared with studies carried out with double-blinding (Jüni et al. 2001). Experiments on non–human subjects are also prone to bias from lack of blinding. Bebarta et al.(2003) reviewed 290 two-treatment experiments carried out on animals or on cell lines. The odds of detecting a positive effect of treatment were more than threefold higher in studies without blinding than in studies with blinding. Blinding can be incorporated into experiments on nonhuman subjects using coded tags that identify the subject to a “blind” observer without revealing the treatment (and who measures units from different treatments in random order).</p>
+</div>
+<div id="replication" class="section level3">
+<h3><span class="header-section-number">10.4.5</span> Replication</h3>
+<p>The goal of experiments is to estimate and test treatment effects against the background of variation between individuals (“noise”) caused by other variables. One way to reduce noise is to make the experimental conditions constant. In field experiments, however, highly constant experimental conditions might not be feasible nor desirable. By limiting the conditions of an experiment, for example, we also limit the generality of the results. There is always a tradeoff between the range of explanatory variables explored and the extent of replication required. For many different treatment types in an experiment, or a broad range of explanatory variable values in an observational study, we need adequate replication across the range of that explanatory variable, so more replication will be required.</p>
+<p><br></p>
+<p>Replication in an experiment is the assignment of each treatment to multiple, independent experimental units. Without replication, we would not know whether response differences were due to the treatments or just chance differences between the treatments caused by other factors. As discussed, studies that use more units (i.e. that have larger sample sizes) will have smaller standard errors and a higher probability of getting the correct answer from a hypothesis test. Larger samples mean more information, and more information means better estimates and more powerful tests.</p>
+</div>
+<div id="a-note-on-pseudoreplication" class="section level3">
+<h3><span class="header-section-number">10.4.6</span> A note on pseudoreplication</h3>
+<p>Replication is not about the total number of plants or animals used, but the number of independent units in the experiment. An “experimental unit” is the independent unit to which treatments are assigned. The figure below shows three experimental designs used to compare plant growth under two temperature treatments (indicated by the shading of the pots). The first two designs are actually un-replicated with respect to temperature and regarding growth as a random, independent variable. When individual observations in a study are erroneously treated as independent in subsequent statistical analysis, we call it “psuedoreplication.” Pseudoreplication results in violation of the assumptions we rely on to conduct statistical hypothesis tests, and it will cause misleading conclusions to be drawn, usually in the form of rejection of the null hypothesis when the null hypothesis is actually true.</p>
+<p><img src="images/images_6a.006.jpeg" width="469" /></p>
+<p><br></p>
+</div>
+<div id="balance" class="section level3">
+<h3><span class="header-section-number">10.4.7</span> Balance</h3>
+<p>A study design is balanced if all treatments have the same sample size. Conversely, a design is unbalanced if there are unequal sample sizes between treatments. Balance is a second way to reduce the influence of sampling error on estimation and hypothesis testing. To appreciate this, look again at the equation for the standard error of the difference between two treatment means</p>
+<p><img src="images/images_6a.007.jpeg" width="423" /></p>
+<p>For a fixed total number of experimental units, n1 + n2, the standard error is smallest when n1 and n2 are equal. Balance has other benefits as well. For example, Analysis of Variance (discussed later in this book) is more robust to departures from the assumption of equal variances when designs are balanced or nearly so.</p>
+</div>
+<div id="blocking" class="section level3">
+<h3><span class="header-section-number">10.4.8</span> Blocking</h3>
+<p>Blocking is the grouping of experimental units that have similar properties. Within each block, treatments are randomly assigned to experimental units. Blocking essentially repeats the same, completely randomized experiment multiple times, once for each block. Differences between treatments are only evaluated within blocks, and in this way the component of variation arising from differences between blocks is discarded. The cartoon below depicts two blocks.</p>
+<p><img src="images/images_6a.008.jpeg" width="442" /></p>
+<p><br></p>
+<div id="blocking-paired-designs" class="section level4">
+<h4><span class="header-section-number">10.4.8.1</span> Blocking | Paired designs</h4>
+<p>As an example of blocks with paired subjects, consider the design choices for a two-treatment experiment to investigate the effect of clear cutting on salamander density. In the completely randomized (“two-sample”) design we take a random sample of forest plots from the population and then randomly assign each plot to either the clear-cut treatment or the no clear-cut treatment. In the paired design we take a random sample of forest plots and clear-cut a randomly chosen half of each plot, leaving the other half untouched. In the paired design, measurements on adjacent plot-halves are not independent. This is because they are likely to be similar in soil, water, sunlight, and other conditions that affect the number of salamanders. As a result, we must analyze paired data differently than when every plot is independent of all the others, as in the case of the two-sample design. Paired design is usually more powerful than completely randomized design because it controls for a lot of the extraneous variation between plots or sampling units that sometimes obscures the effects we are looking for.</p>
+<p><img src="images/images_6a.009.jpeg" width="90%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+</div>
+<div id="blocking-randomized-complete-block-design" class="section level4">
+<h4><span class="header-section-number">10.4.8.2</span> Blocking | Randomized complete block design</h4>
+<p>Randomized complete block (RCB) design is analogous to the paired design, but may have more than two treatments. Each treatment is applied once to every block. As in the paired design, treatment effects in a randomized block design are measured by differences between treatments exclusively within blocks. By accounting for some sources of sampling variation blocking can make differences between treatments stand out. Blocking is worthwhile if units within blocks are relatively homogeneous, apart from treatment effects, and units belonging to different blocks vary because of environmental or other differences.</p>
+</div>
+</div>
+</div>
+<div id="what-if-you-cant-do-experiments" class="section level2">
+<h2><span class="header-section-number">10.5</span> What if you can’t do experiments?</h2>
+<p>Experimental studies are not always feasible, in which case we must fall back upon observational studies. The best observational studies incorporate as many of the features of good experimental design as possible to minimize bias (e.g., blinding) and the impact of sampling error (e.g., replication, balance, blocking, and even extreme treatments) except for one: randomization. Randomization is out of the question, because in an observational study the researcher does not assign treatments to subjects. Two strategies are used to limit the effects of confounding variables on a difference between treatments in a controlled observational study: matching, and adjusting for known confounding variables (covariates). Matching is similar to the idea of blocks, but there is no random assignment. To give an example of matching, pairs of indivduals with similar explanatory variable values (e.g. females in a specific age class) might be defined, such that one member of the pair has one level of the focal explanatory variable (e.g. “control”) and the other member the other level (e.g. “treatment”). Study adjustment for known confounding covariates, on the other hand, simply restricts the study to subjects in such a way to exclude variation from confounding variable(s). With this strategy, groups of individuals, for example age rages, may be simply excluded from the study alltogether.</p>
+</div>
+<div id="exercises-associated-with-this-chapter-5" class="section level2">
+<h2><span class="header-section-number">10.6</span> Exercises associated with this chapter:</h2>
+<ul>
+<li>Problem Set 3</li>
+</ul>
+</div>
+<div id="additional-learning-resources-5" class="section level2">
+<h2><span class="header-section-number">10.7</span> Additional learning resources:</h2>
+<ul>
+<li>Logan, M. 2010. Biostatistical Design and Analysis Using R. - A great intro to R for statistical analysis</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="parameter-estimation-basics-and-the-sampling-process.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-experimental_design.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["foundational_statistics.pdf", "foundational_statistics.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
