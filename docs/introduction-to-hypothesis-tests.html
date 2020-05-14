@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 11 Introduction to Hypothesis Tests | Foundational Statistics - Bi 610 - Spring 2020</title>
+  <meta name="description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 11 Introduction to Hypothesis Tests | Foundational Statistics - Bi 610 - Spring 2020" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 11 Introduction to Hypothesis Tests | Foundational Statistics - Bi 610 - Spring 2020" />
+  
+  <meta name="twitter:description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  
+
+<meta name="author" content="Clayton M. Small and William A. Cresko" />
+
+
+<meta name="date" content="2020-05-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="principles-of-experiment-and-study-design.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Foundational Statistics Bi 610</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Course Overview</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>2</b> Introduction to the course</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#instructors"><i class="fa fa-check"></i><b>2.1</b> Instructors</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#course-information"><i class="fa fa-check"></i><b>2.2</b> Course Information</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#software"><i class="fa fa-check"></i><b>2.3</b> Software</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#inclusion-and-accessibility"><i class="fa fa-check"></i><b>2.4</b> Inclusion and Accessibility</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="course-schedule.html"><a href="course-schedule.html"><i class="fa fa-check"></i><b>3</b> Course Schedule</a><ul>
+<li class="chapter" data-level="3.1" data-path="course-schedule.html"><a href="course-schedule.html#weeks-1-2"><i class="fa fa-check"></i><b>3.1</b> Weeks 1-2</a></li>
+<li class="chapter" data-level="3.2" data-path="course-schedule.html"><a href="course-schedule.html#week-3"><i class="fa fa-check"></i><b>3.2</b> Week 3</a></li>
+<li class="chapter" data-level="3.3" data-path="course-schedule.html"><a href="course-schedule.html#week-4"><i class="fa fa-check"></i><b>3.3</b> Week 4</a></li>
+<li class="chapter" data-level="3.4" data-path="course-schedule.html"><a href="course-schedule.html#week-5"><i class="fa fa-check"></i><b>3.4</b> Week 5</a></li>
+<li class="chapter" data-level="3.5" data-path="course-schedule.html"><a href="course-schedule.html#week-6"><i class="fa fa-check"></i><b>3.5</b> Week 6</a></li>
+<li class="chapter" data-level="3.6" data-path="course-schedule.html"><a href="course-schedule.html#week-7"><i class="fa fa-check"></i><b>3.6</b> Week 7</a></li>
+<li class="chapter" data-level="3.7" data-path="course-schedule.html"><a href="course-schedule.html#week-8"><i class="fa fa-check"></i><b>3.7</b> Week 8</a></li>
+<li class="chapter" data-level="3.8" data-path="course-schedule.html"><a href="course-schedule.html#week-9"><i class="fa fa-check"></i><b>3.8</b> Week 9</a></li>
+<li class="chapter" data-level="3.9" data-path="course-schedule.html"><a href="course-schedule.html#week-10"><i class="fa fa-check"></i><b>3.9</b> Week 10</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html"><i class="fa fa-check"></i><b>4</b> Background material for the course</a><ul>
+<li class="chapter" data-level="4.1" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#description-of-the-course"><i class="fa fa-check"></i><b>4.1</b> Description of the course</a></li>
+<li class="chapter" data-level="4.2" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#course-goals"><i class="fa fa-check"></i><b>4.2</b> Course goals:</a></li>
+<li class="chapter" data-level="4.3" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#introduction-to-r-and-rstudio"><i class="fa fa-check"></i><b>4.3</b> Introduction to R and RStudio</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#learning-resources"><i class="fa fa-check"></i><b>4.3.1</b> Learning resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html"><i class="fa fa-check"></i><b>5</b> Organizing and manipulating data files</a><ul>
+<li class="chapter" data-level="5.1" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#introduction"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-file-systems-from-the-command-line"><i class="fa fa-check"></i><b>5.2</b> Navigating file systems from the command line</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#access-to-the-command-line"><i class="fa fa-check"></i><b>5.2.1</b> Access to the command line</a></li>
+<li class="chapter" data-level="5.2.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-directories-and-files"><i class="fa fa-check"></i><b>5.2.2</b> Navigating directories and files</a></li>
+<li class="chapter" data-level="5.2.3" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#useful-unix-commands-for-file-manipulation"><i class="fa fa-check"></i><b>5.2.3</b> Useful UNIX commands for file manipulation</a></li>
+<li class="chapter" data-level="5.2.4" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#a-quick-word-on-pipes-and-carrots"><i class="fa fa-check"></i><b>5.2.4</b> A quick word on pipes and carrots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#data-file-and-data-file-entry-dos-and-donts"><i class="fa fa-check"></i><b>5.3</b> Data file and data file entry dos and don’ts</a></li>
+<li class="chapter" data-level="5.4" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#exercises-associated-with-this-chapter"><i class="fa fa-check"></i><b>5.4</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="5.5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#additional-learning-resources"><i class="fa fa-check"></i><b>5.5</b> Additional learning resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html"><i class="fa fa-check"></i><b>6</b> An Introduction to the R language</a><ul>
+<li class="chapter" data-level="6.1" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#background"><i class="fa fa-check"></i><b>6.1</b> Background</a></li>
+<li class="chapter" data-level="6.2" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#why-use-r"><i class="fa fa-check"></i><b>6.2</b> Why use <code>R</code>?</a></li>
+<li class="chapter" data-level="6.3" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#important-r-terms-and-definitions"><i class="fa fa-check"></i><b>6.3</b> Important <code>R</code> terms and definitions</a></li>
+<li class="chapter" data-level="6.4" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#getting-started-with-r-via-the-rstudio-environment"><i class="fa fa-check"></i><b>6.4</b> Getting started with <code>R</code> via the RStudio Environment</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#r-programming-basics"><i class="fa fa-check"></i><b>6.4.1</b> R Programming Basics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#exercises-associated-with-this-chapter-1"><i class="fa fa-check"></i><b>6.5</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="6.6" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#additional-learning-resources-1"><i class="fa fa-check"></i><b>6.6</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><i class="fa fa-check"></i><b>7</b> More R Functions, Complex Objects, Basic Plotting, and RMarkdown</a><ul>
+<li class="chapter" data-level="7.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#background-1"><i class="fa fa-check"></i><b>7.1</b> Background</a></li>
+<li class="chapter" data-level="7.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-on-functions"><i class="fa fa-check"></i><b>7.2</b> More on functions</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-base-r-functions-useful-for-working-with-vectors"><i class="fa fa-check"></i><b>7.2.1</b> More base <code>R</code> functions useful for working with vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#indexing-vectors"><i class="fa fa-check"></i><b>7.3</b> Indexing vectors</a></li>
+<li class="chapter" data-level="7.4" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-complex-data-objects-in-r"><i class="fa fa-check"></i><b>7.4</b> More complex data objects in <code>R</code></a><ul>
+<li class="chapter" data-level="7.4.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#lists"><i class="fa fa-check"></i><b>7.4.1</b> lists</a></li>
+<li class="chapter" data-level="7.4.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#data-frames"><i class="fa fa-check"></i><b>7.4.2</b> data frames</a></li>
+<li class="chapter" data-level="7.4.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#matrices"><i class="fa fa-check"></i><b>7.4.3</b> matrices</a></li>
+<li class="chapter" data-level="7.4.4" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#a-few-additional-base-r-functions-for-working-with-complex-r-objects"><i class="fa fa-check"></i><b>7.4.4</b> A few additional base <code>R</code> functions for working with complex <code>R</code> objects</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#some-brief-notes-on-basic-programming-in-r"><i class="fa fa-check"></i><b>7.5</b> Some brief notes on basic programming in <code>R</code></a><ul>
+<li class="chapter" data-level="7.5.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#conditional-statements-with-ifelse"><i class="fa fa-check"></i><b>7.5.1</b> conditional statements with <code>ifelse()</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#replicate-tapply-and-apply"><i class="fa fa-check"></i><b>7.5.2</b> <code>replicate()</code>, <code>tapply()</code>, and <code>apply()</code></a></li>
+<li class="chapter" data-level="7.5.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#for-loops-in-r"><i class="fa fa-check"></i><b>7.5.3</b> for loops in <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#fundamentals-of-plotting-in-r"><i class="fa fa-check"></i><b>7.6</b> Fundamentals of plotting in <code>R</code></a><ul>
+<li class="chapter" data-level="7.6.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#basic-plotting-with-plot"><i class="fa fa-check"></i><b>7.6.1</b> Basic plotting with <code>plot()</code></a></li>
+<li class="chapter" data-level="7.6.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#histograms-using-hist"><i class="fa fa-check"></i><b>7.6.2</b> Histograms using <code>hist()</code></a></li>
+<li class="chapter" data-level="7.6.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#boxplots-using-boxplot"><i class="fa fa-check"></i><b>7.6.3</b> Boxplots using <code>boxplot()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#a-brief-introduction-to-rmarkdown"><i class="fa fa-check"></i><b>7.7</b> A brief introduction to <code>RMarkdown</code></a><ul>
+<li class="chapter" data-level="7.7.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#rmarkdown-formatting-basics"><i class="fa fa-check"></i><b>7.7.1</b> <code>RMarkdown</code> formatting basics</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#experiment-with-headers"><i class="fa fa-check"></i><b>7.8</b> Experiment with headers</a><ul>
+<li class="chapter" data-level="7.8.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#try-a-third-level-header"><i class="fa fa-check"></i><b>7.8.1</b> Try a third-level header</a></li>
+<li class="chapter" data-level="7.8.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#rmarkdown-code-chunk-options"><i class="fa fa-check"></i><b>7.8.2</b> <code>RMarkdown</code> code chunk options</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#exercises-associated-with-this-chapter-2"><i class="fa fa-check"></i><b>7.9</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="7.10" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#additional-learning-resources-2"><i class="fa fa-check"></i><b>7.10</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html"><i class="fa fa-check"></i><b>8</b> Introduction to Probability and Probability Distributions</a><ul>
+<li class="chapter" data-level="8.1" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#background-2"><i class="fa fa-check"></i><b>8.1</b> Background</a></li>
+<li class="chapter" data-level="8.2" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#what-is-probability"><i class="fa fa-check"></i><b>8.2</b> What is probability?</a></li>
+<li class="chapter" data-level="8.3" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#random-variables-probability"><i class="fa fa-check"></i><b>8.3</b> Random variables &amp; probability</a></li>
+<li class="chapter" data-level="8.4" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-and-the-bernoulli-distribution"><i class="fa fa-check"></i><b>8.4</b> Probability and the Bernoulli distribution</a></li>
+<li class="chapter" data-level="8.5" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-rules"><i class="fa fa-check"></i><b>8.5</b> Probability rules</a></li>
+<li class="chapter" data-level="8.6" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#joint-probability"><i class="fa fa-check"></i><b>8.6</b> Joint probability</a></li>
+<li class="chapter" data-level="8.7" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#conditional-probability"><i class="fa fa-check"></i><b>8.7</b> Conditional probability</a></li>
+<li class="chapter" data-level="8.8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#a-brief-note-on-likelihood-vs.probability"><i class="fa fa-check"></i><b>8.8</b> A brief note on likelihood vs. probability</a></li>
+<li class="chapter" data-level="8.9" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-distributions-commonly-used-in-biological-statistics"><i class="fa fa-check"></i><b>8.9</b> Probability distributions commonly used in biological statistics</a><ul>
+<li class="chapter" data-level="8.9.1" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#discrete-probability-distributions"><i class="fa fa-check"></i><b>8.9.1</b> Discrete Probability Distributions</a></li>
+<li class="chapter" data-level="8.9.2" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#continuous-probability-distributions"><i class="fa fa-check"></i><b>8.9.2</b> <strong>Continuous probability distributions</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#exercises-associated-with-this-chapter-3"><i class="fa fa-check"></i><b>8.10</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="8.11" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#additional-learning-resources-3"><i class="fa fa-check"></i><b>8.11</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html"><i class="fa fa-check"></i><b>9</b> Parameter Estimation Basics and the Sampling Process</a><ul>
+<li class="chapter" data-level="9.1" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#background-3"><i class="fa fa-check"></i><b>9.1</b> Background</a></li>
+<li class="chapter" data-level="9.2" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#understanding-populations-and-their-parameters"><i class="fa fa-check"></i><b>9.2</b> Understanding populations and their parameters</a></li>
+<li class="chapter" data-level="9.3" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#more-on-parameter-estimation-and-sampling-distributions"><i class="fa fa-check"></i><b>9.3</b> More on parameter estimation and sampling distributions</a></li>
+<li class="chapter" data-level="9.4" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#calculating-the-standard-error-of-the-mean"><i class="fa fa-check"></i><b>9.4</b> Calculating the standard error of the mean</a></li>
+<li class="chapter" data-level="9.5" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#the-bootstrap-to-estimate-parameters-and-the-standard-error"><i class="fa fa-check"></i><b>9.5</b> The bootstrap to estimate parameters and the standard error</a></li>
+<li class="chapter" data-level="9.6" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#confidence-intervals"><i class="fa fa-check"></i><b>9.6</b> Confidence intervals</a></li>
+<li class="chapter" data-level="9.7" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#the-relationship-between-mean-and-variance"><i class="fa fa-check"></i><b>9.7</b> The relationship between mean and variance</a></li>
+<li class="chapter" data-level="9.8" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#exercises-associated-with-this-chapter-4"><i class="fa fa-check"></i><b>9.8</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="9.9" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#additional-learning-resources-4"><i class="fa fa-check"></i><b>9.9</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html"><i class="fa fa-check"></i><b>10</b> Principles of Experiment and Study Design</a><ul>
+<li class="chapter" data-level="10.1" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#background-4"><i class="fa fa-check"></i><b>10.1</b> Background</a></li>
+<li class="chapter" data-level="10.2" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#what-is-an-experimental-study"><i class="fa fa-check"></i><b>10.2</b> What is an experimental study?</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#a-hypothetical-study-example"><i class="fa fa-check"></i><b>10.2.1</b> A hypothetical study example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#basic-study-design-terminology"><i class="fa fa-check"></i><b>10.3</b> Basic study design terminology</a></li>
+<li class="chapter" data-level="10.4" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#clinical-trials"><i class="fa fa-check"></i><b>10.4</b> Clinical trials</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#a-clinical-trial-example"><i class="fa fa-check"></i><b>10.4.1</b> A clinical trial example</a></li>
+<li class="chapter" data-level="10.4.2" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#simultaneous-control-groups"><i class="fa fa-check"></i><b>10.4.2</b> Simultaneous control groups</a></li>
+<li class="chapter" data-level="10.4.3" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#randomization"><i class="fa fa-check"></i><b>10.4.3</b> Randomization</a></li>
+<li class="chapter" data-level="10.4.4" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#blinding"><i class="fa fa-check"></i><b>10.4.4</b> Blinding</a></li>
+<li class="chapter" data-level="10.4.5" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#replication"><i class="fa fa-check"></i><b>10.4.5</b> Replication</a></li>
+<li class="chapter" data-level="10.4.6" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#a-note-on-pseudoreplication"><i class="fa fa-check"></i><b>10.4.6</b> A note on pseudoreplication</a></li>
+<li class="chapter" data-level="10.4.7" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#balance"><i class="fa fa-check"></i><b>10.4.7</b> Balance</a></li>
+<li class="chapter" data-level="10.4.8" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#blocking"><i class="fa fa-check"></i><b>10.4.8</b> Blocking</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#what-if-you-cant-do-experiments"><i class="fa fa-check"></i><b>10.5</b> What if you can’t do experiments?</a></li>
+<li class="chapter" data-level="10.6" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#exercises-associated-with-this-chapter-5"><i class="fa fa-check"></i><b>10.6</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="10.7" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#additional-learning-resources-5"><i class="fa fa-check"></i><b>10.7</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html"><i class="fa fa-check"></i><b>11</b> Introduction to Hypothesis Tests</a><ul>
+<li class="chapter" data-level="11.1" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#background-5"><i class="fa fa-check"></i><b>11.1</b> Background</a></li>
+<li class="chapter" data-level="11.2" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>11.2</b> Null and alternative hypotheses</a></li>
+<li class="chapter" data-level="11.3" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#hypotheses-tests"><i class="fa fa-check"></i><b>11.3</b> Hypotheses tests</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#p-values-type-i-and-type-ii-error"><i class="fa fa-check"></i><b>11.3.1</b> <em>p</em>-values, Type I, and Type II error</a></li>
+<li class="chapter" data-level="11.3.2" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#statistical-power"><i class="fa fa-check"></i><b>11.3.2</b> Statistical power</a></li>
+<li class="chapter" data-level="11.3.3" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#a-quick-note-on-practical-vs.statistical-significance"><i class="fa fa-check"></i><b>11.3.3</b> A quick note on practical vs. statistical significance</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#the-t-test-and-t-sampling-distribution"><i class="fa fa-check"></i><b>11.4</b> The <em>t</em>-test and <em>t</em> sampling distribution</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#assumptions-of-parameteric-t-tests"><i class="fa fa-check"></i><b>11.4.1</b> Assumptions of parameteric t-tests</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#comparing-means-using-resampling-and-randomization-tests"><i class="fa fa-check"></i><b>11.5</b> Comparing means using resampling and randomization tests</a></li>
+<li class="chapter" data-level="11.6" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#a-summary-of-key-components-of-hypothesis-testing"><i class="fa fa-check"></i><b>11.6</b> A summary of key components of hypothesis testing</a></li>
+<li class="chapter" data-level="11.7" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#exercises-associated-with-this-chapter-6"><i class="fa fa-check"></i><b>11.7</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="11.8" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#additional-learning-resources-6"><i class="fa fa-check"></i><b>11.8</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Foundational Statistics - Bi 610 - Spring 2020</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction-to-hypothesis-tests" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Introduction to Hypothesis Tests</h1>
+<div id="background-5" class="section level2">
+<h2><span class="header-section-number">11.1</span> Background</h2>
+<p>An extension from the concept of estimating a population parameter is the formal comparison of a such a parameter to a single value, or comparison to a value for another group, understood as another population. After all, if we can use probability and sampling theory to estimate a parameter and its uncertainty, we should also be able to compare parameter estimates, with inclusion of uncertainty about their true difference. The “frequentist” approach in statistics traditionally taken to perform these types of comparisons requires the definition of precise statements before we do the numerical comparisons. These statements are known as <strong><em>statistical hypotheses</em></strong>, and how we frame them is very important because it dictates both how we calculate the test statistics required to compare populations and how we use probability distributions to determine how extreme the statistics are, relative to random chance. This notion of paying attention to an observed test statistic’s value relative to “how frequently” we would expect to see a value that extreme or more extreme across multiple theoretical samples (under random expectations) is why we refer to this approach as “frequentist” statistical inference. We’ll get more into what test statistics are and how they are calculated for various tests later in the book. For now, let’s focus on how we frame hypotheses to enable the types of comparisons we wish to do as scientists.</p>
+</div>
+<div id="null-and-alternative-hypotheses" class="section level2">
+<h2><span class="header-section-number">11.2</span> Null and alternative hypotheses</h2>
+<p>Often as empiricists we want to know whether some parameter differs between groups (populations). Perhaps the populations are different because we have differentiated them in an experiment by applying a treatment to one and no treatment to another. And, if we expect a focal variable we are measuring (i.e. a response variable) to be fundamentally tied to the treatment based on our knowlede of the system, we can test the validity of that relationship. We might state very simply, for example, “I hypothesize that on average the variable <em>X</em> differs between the treatment and control groups.” A hypothesis is really just a statement of belief about the world. One issue with hypotheses is that from a logic of deduction standpoint, we can’t universally “prove” a hypothesis, only reject (i.e. falsify) it. For this reason we must frame a <strong><em>null hypothesis</em></strong> to complement our originally stated <strong><em>alternative hypothesis</em></strong>. The null hypothesis represents all possibilities <em>except</em> the expected outcome under the alternative. A statistical test is then conducted with respect to the null hypothesis, and if we reject the null hypothesis we typically infer support for the alternative, provided the assumptions of the statistical test about our data were valid.</p>
+<p><br></p>
+<p>It’s a good idea to practice the formal framing of null and alternative hypotheses, as this will help with the setting up of statistical tests and the reporting of tests in written reports or publications. Here is one example of a null and alternative hypothesis regarding trees of two different species (our populations) being of different heights.</p>
+<p><br></p>
+<p><span class="math inline">\(H_0\)</span> : <em>Null hypothesis</em> : Ponderosa pine trees are the same height on average as Douglas fir trees</p>
+<p><span class="math inline">\(H_A\)</span> : <em>Alternative Hypothesis</em>: Ponderosa pine trees are not the same height on average as Douglas fir trees</p>
+<p><br></p>
+<p>You will often see the shorthand notation above for hypotheses (<span class="math inline">\(H_0\)</span> for null and <span class="math inline">\(H_A\)</span> for alternative), especially when hypotheses are expressed nonverbally. An nonverbal (quantitative) expression of the above hypotheses, assuming we choose to compare “averages” using the mean, would be:</p>
+<p><br></p>
+<p><span class="math display">\[H_0 : \mu_1 = \mu_2\]</span></p>
+<p><span class="math display">\[H_A: \mu_1 \neq \mu_2\]</span></p>
+<p>Where <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span> are the population means for ponderosa pine and Douglas fir tree species, respectively.</p>
+<p><br></p>
+<p>One important point to make here is that unlike the example above, hypotheses (and the statistical tests used to evaluate them) can be directional (also called “one-sided” or “one-tailed”). If, for instance, we really wanted to test whether ponderosa pines are shorter, on average, than Douglas firs because we suspect this directionality, we could frame the null and alternative hypotheses as follows:</p>
+<p><br></p>
+<p><span class="math display">\[H_0 : \mu_1 \geq \mu_2\]</span></p>
+<p><span class="math display">\[H_A: \mu_1 &lt; \mu_2\]</span></p>
+<p><br></p>
+<p>Remember, the null hypothesis encapsulates all outcomes not specified by the alternative. The implications regarding uncertainty (<em>p</em>-values) when defining hypothesis tests as either non-directional (two-sided) or directional (one-sided) are important to understand and will be discussed below.</p>
+</div>
+<div id="hypotheses-tests" class="section level2">
+<h2><span class="header-section-number">11.3</span> Hypotheses tests</h2>
+<p>Statistical tests provide a way to perform formal evaluations we call <em>critical tests</em> of null hypotheses such as in the examples above. Statistical tests require the definition of <strong><em>test statistics</em></strong> that form the basis for comparison among populations. Just like raw data, test statistics are <strong><em>random variables</em></strong> and depend on sampling distributions of the underlying data. In the case of parametric statistical tests (those that make use of a particular probability distribution), test statistics are calculated from the data using a specialized formula. For example we may want to test the null hypothesis that two population means are equal. One option is to calculate what is called the <em>t</em>-statistic. (We will get into the details of the t-test shortly.) The <em>t</em>-statistic is a standardized difference between two sample means, so a value of <em>t</em> equal to zero indicates no difference between population means. We can then evaluate where our sample (data)-based value of <em>t</em> falls with respect to a known theoretical distribution for <em>t</em>, called the “<em>t</em>-distribution,” for which the center and peak are at the value zero. If our observed value of the test statistic is sufficiently far from zero (i.e. in the “tail” of the <em>t</em>-distribution), we will decide to reject the null hypothesis.</p>
+<p><br></p>
+<p>The <em>t</em>-distribution is just one example of probability distributions used in statistical hypothesis testing. The figure below shows the <em>t</em>-distribution and three others commonly used in statistical inference: the <em>z</em>, <span class="math inline">\(\chi^2\)</span>, and <em>F</em> distributions, some drawn with multiple shape parameters defined.</p>
+<p><img src="images/week_3.003.jpeg" width="50%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<p>The particular distribution and shape (such as those above) chosen for a statistical test depends on the whether the appropriate test statistic (such as the <em>t</em>-statistic) can be calculated from your data. That determination is ultimately made by the analyst, based on test assumptions about the sample (we will cover those in turn as we discuss different tests). The shape and associated parameters of a distribution used to evaluate a test statistic also depend on sample properties such as sample size. <strong><em>Degrees of freedom</em></strong>, for example are an important parameter for critical tests. The degrees of freedom for a particular test convey how many independent observations are used to estimate a population parameter of interest. Because parameter estimates are used in test statistics, we need to account for degrees of freedom. You may ask, “shouldn’t all observations in a sample be independent with respect to estimation of a parameter?” The answer is actually, “no” as it turns out, because estimates (like a sample mean, for example) are calculated from the individual observations in a sample. In a sample of 10, 9 of the observations can theoretically vary freely when calculating a given sample mean, but the final, 10th observation cannot, simply based on the nature of an arithmetic mean. In this case because only 9 observations can vary independently, we have <em>n</em> - 1 = 9 degrees of freedom. As mentioned, degrees of freedom determine the shape of the distributions used to evaluate test statistics. In particular, as the degrees of freedom increase (i.e. the sample size increases), the shape of the probability distribution gets narrower. This means that a test statistic calculated from large sample will be more extreme (“further in the tail”), relative to if that same test statistic value had been calculated from a smaller sample. Recall that as a test statistic is located further into the tail of its distribution, the more extreme it is relative to our null hypothesis expectation, and therefore the smaller the <em>p</em>-value is for our statistical test of the null hypothesis. In summary, we are more likely to reject the null hypothesis with a greater sample size. This gets to the concept of “statistical power” which we will return to below.</p>
+<p><br></p>
+<p>To think about all of this at a high level, consider the plots below of two different population distributions for the same variable. In <em>a</em> the two different population distributions are in very different locations. If we took even a moderately sized sample from both populations, the difference in the sample mean between the blue and red populations would be large relative to their respective variances. This means that if we calculated a <em>t</em>-statistic from our samples, it would be quite large. In <em>b</em> on the other hand, the population distributions are nearly on top of one another. If we calculated a <em>t</em>-statistic from samples in that scenario, it would be near zero. Finally, by comparing our calculated <em>t</em>-statistic to a <em>t</em>-distribution with the appropriate degrees of freedom, we could deterimine (in both scenarios) how likely it is to have observed that particular value for <em>t</em> under the null hypothesis of <em>t</em> = 0. In <em>a</em> we would observe an extreme value for <em>t</em> and reject the null hypothesis, but in <em>b</em> we would observe a value for <em>t</em> close to the center of the distribution (at 0), and fail to reject the null hypothesis of no difference in means.</p>
+<p><img src="images/week_3.001.jpeg" width="50%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<div id="p-values-type-i-and-type-ii-error" class="section level3">
+<h3><span class="header-section-number">11.3.1</span> <em>p</em>-values, Type I, and Type II error</h3>
+<p>At this point we should consider the possible outcomes of a hypothesis test. These include situations in which we may either falsely reject or falsely fail to reject the null hypothesis. The table below is a useful summary of the four possible outcomes we face when testing a null hypothesis.</p>
+<p><img src="images/week_3.007.jpeg" width="50%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<p>As indicated, the columns correspond to our actual evaluation of the null hypothesis (whether we reject or fail to reject it), and the rows correspond to whether the null hypothesis is actually incorrect or correct (which of course we never know unless data are simulated). In the upper left-hand scenario, we reject the null hypothesis and correctly conclude that there is an effect (e.g. population means differ, etc.). In the upper right-hand scenario, we fail to reject the null hypothesis and conclude there is no effect, but that conclusion is wrong. In this scenario, what we call a <strong><em>Type II error</em></strong> (“false negative”), there is a real effect but we “miss” it with our test. In the lower left-hand situation we reject the null hypothesis but do so incorrectly, as there is no real effect. This is called <strong><em>Type I error</em></strong> (“false positive”), and is the error reflected in a <em>p</em>-value from a statistical test. Finally, in the lower right-hand situation we fail to reject the null hypothesis and have done so correctly, as there really is no effect. You will often see the probability of Type II error represented by <span class="math inline">\(\beta\)</span> (<em>beta</em>) and the probability of Type I error represented by <span class="math inline">\(\alpha\)</span> (<em>alpha</em>). As mentioned, we usually decide to reject a null hypothesis if the <em>p-value</em> for our statistical test is smaller than a given Type I error rate we are “willing” to tolerate. As you are probably well aware, a routinely used threshold for <span class="math inline">\(\alpha\)</span> is 0.05. The origin of this convention dates back to a paper published by one of the founders of frequentist statistics, R. A. Fisher in 1926. In the paper, titled, “The Arrangment of Field Experiments,” Fisher proposed also considering more conservative <span class="math inline">\(\alpha\)</span> thresholds of 0.02 or 0.01 if desired, but expressed his “personal preference” of setting the <span class="math inline">\(\alpha\)</span> threshold at 0.05. The same passage in the paper does, however, imply that using an <span class="math inline">\(\alpha\)</span> threshold of 0.05 to assess significance should be done in the context of <em>multiple, repeated experiments</em>, in which the experimenter almost always observes <em>p</em>-values less than 0.05. The latter point is certainly worth thinking about carefully, as most experimentalists today stick with the “0.05” convention but do not commonly repeat experiments many times.</p>
+<p><br></p>
+<p>The <em>p</em>-value for a statistical test, as we will re-visit below for <em>t</em>-tests in more detail, is simply the area under the probability distribution that lies outside (in the tail or tails) of the test statistic value(s), and is calculated using integral calculus. You can think of a <em>p</em>-value, then, as the probability of observing a test statistic at least as surprising as the one you observed based on your data, assuming the null hypothesis is correct. So, if your test statistic is far into the tail(s) of its probability distribution, it is a surprising observation under the null hypothesis. You can think of the null hypothesis as being characterized by the test statistic sampling distribution. If you were to take samples over and over again many, many times, and calculate the test statistic each time, it would follow the shape of the distribution. Again taking the <em>t</em> distribution as an example of the null expectation of “no difference between means,” a value of zero is the most common outcome, with values in the tails much less likely. So the <em>p</em>-value reflects the probability that your null hypothesis is true, and very small values suggest that we reject the null hypothesis. Here is a generic schematic that illustrates the concept of <em>p</em>-values:</p>
+<p><img src="images/week_3.009.jpeg" width="50%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<p>To summarize, if we reject the null hypothesis, we conclude that there is evidence in favor of the alternative hypothesis (again assuming assumptions of the test are met), but we keep in mind that there is a non-zero chance of Type I error, reflected in our <em>p</em>-value. If we fail to reject our null hypothesis, the current evidence suggests that we have little reason to believe our alternative is true, but again there is risk of committing Type II error. How we interpret whether we actually had enough data to confidently rule out our null hypothesis requires an estimate of <strong><em>statistical power</em></strong>.</p>
+</div>
+<div id="statistical-power" class="section level3">
+<h3><span class="header-section-number">11.3.2</span> Statistical power</h3>
+<p>Power is the probability of rejecting a false null hypothesis, which is equivalent to 1 - <span class="math inline">\(\beta\)</span>, where <span class="math inline">\(\beta\)</span> is the Type II error rate. So, the higher the power, the more confident we can be in detecting “an effect” with our hypothesis test when that effect truly exists. Power is commonly calculated before an experiment (<em>a priori</em>), using either simulated data, a “pilot” data set, or data from similar experiments. As you will see from the relationships below, pre-study power analyses can be extremely useful in determining the sample sizes required to detect an effect of a particular size. This is especially important if the resources to conduct a study are limited, and indeed, pre-study power analyses are often required for grant proposals, especially those that involve experiments with animals. As a benchmark, statisticians conventionally “aim” for a power of 0.8 or higher, but this is of course subject to the nature of the experiment at hand and how critical detecting true effects is. For example, certain clinical studies may need to be especially high-powered for ethical reasons. It all depends on the “cost” of committing Type II error. Power analyses can also be conducted after a study (<em>post hoc</em>), especially if experimenters don’t want to be left wondering whether they may have detected the effect associated with their alternative hypothesis, had they only a larger sample size.</p>
+<p><br></p>
+<p>Just below is a generic expression for power, and how it varies given other variables associated with a particular hypothesis test. Adjustments to this expression may be required, depending on the particular statistical framework used, but it works as a good guide. Note that in this expression power is “proportional to” these variables as indicated, and not “equal to.” In many relatively simple experimental design scenarios this expression will provide practical estimates. If not, there are more complicated formulae depending on the design of your study, and there is also frequently the prospect of doing simulations to understand the power relationships inherent in your study system.</p>
+<p><span class="math display">\[ Power \propto \frac{(ES)(\alpha)(\sqrt n)}{\sigma}\]</span></p>
+<p><br></p>
+<p>In the above expression power is proportional to the combination of these parameters:</p>
+<ul>
+<li><p><em>ES</em> = Effect size. This is the magnitude of the difference between populations you hope to detect with your test. For example, the difference in population means, etc. It can be expressed in different ways depending on the calculation, so pay attention to the input requirements of functions you are using for power analysis.</p></li>
+<li><p><span class="math inline">\(\alpha\)</span> = Type I error rate tolerated (usually 0.05).</p></li>
+<li><p><em>n</em> = Sample size. The number of observations per sample group.</p></li>
+<li><p><span class="math inline">\(\sigma\)</span> = Standard deviation among the experimental units within the same group.</p></li>
+</ul>
+<p><br></p>
+<p>We often care about the relationships depicted in the example power relationships below. For instance, we may want to know what effect size we can detect at various power levels, assuming sample size and standard deviation are fixed. Likewise, we may want to identify the smallest sample size required to detect a particular effect size, assuming a given power (e.g. 0.8) and standard deviation.</p>
+<p><img src="images/images_6b.002.jpeg" width="90%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<p>For a rough calculation under certain experimental design constraints, the following can be used as a “quick” sample size estimator when desired power and <span class="math inline">\(\alpha\)</span> are the conventional 0.8 and 0.05, respectively.</p>
+<p><img src="images/images_6b.003.jpeg" width="472" style="display: block; margin: auto;" /></p>
+</div>
+<div id="a-quick-note-on-practical-vs.statistical-significance" class="section level3">
+<h3><span class="header-section-number">11.3.3</span> A quick note on practical vs. statistical significance</h3>
+<p>By studying the above power relationships you may have noticed that you might correctly reject your null hypothesis (and with a very low <em>p</em>-value at that) for an extremely small effect size if your sample size is very large. This is an important point, indeed. If your study is incredibly “well powered” (e.g. huge sample sizes and small standard deviations), you can detect very small effect sizes. In some cases, though, such small effect sizes may not be relevant to your larger questions at hand. In a clinical study, for instance, a tiny effect size may not have any practical bearing on future patients’ outcomes, so this should be understood. Just because you reject your null hypothesis and conclude “a significant test,” it does not necessarily mean the effect you’ve detected is significant in practical sense. Therefore, the results of any hypothesis test need to be interpreted in combination with the observed effect size.</p>
+</div>
+</div>
+<div id="the-t-test-and-t-sampling-distribution" class="section level2 smaller">
+<h2><span class="header-section-number">11.4</span> The <em>t</em>-test and <em>t</em> sampling distribution</h2>
+<p>Above we discussed that a difference between two population means can be compared using a test based on the <em>t</em> distribution. The <em>t</em>-test is also often referred to as “Student’s <em>t</em>-test,” because “Student” was the pseudonym used by a person who wrote a widely read paper (in 1908) in which the test’s practical application was published for one of the first times. That person, whose real name was William Sealy Gosset, was a student of statistician Karl Pearson, but because Gosset’s employer (Guinness Brewery) didn’t allow their employees to publish work-related material, the pseudonym was used.</p>
+<p><br></p>
+<p>As previously mentioned, the <em>t</em>-test is based on a test statistic (the <em>t</em>-statistic) that usually considers the difference between two sample means, to test the null hypothesis of no population difference in means. This is the so-called “two-sample <em>t</em>-test,” and the one we will consider in this course. It is also possible to perform a “one-sample <em>t</em>-test,” in which the sample mean from a single population is tested to differ from a fixed value (such as zero). Below we consider the calculation of the <em>t</em>-statistic and two forms of the hypothesis test (one- and two-tailed) for the two-sample comparison case. Note first that the <em>t</em>-statistic is simply the difference in sample means divided by the standard error for that difference, to account for variation within the two populations:</p>
+<p><span class="math display">\[\large t = \frac{(\bar{y}_1-\bar{y}_2)}{s_{\bar{y}_1-\bar{y}_2}} \]</span></p>
+<p>where</p>
+<p><img src="images/week_3.016.jpeg" width="60%" style="display: block; margin: auto;" /></p>
+<p>As mentioned, the denominator is the calculation for the standard error of the mean difference, in which <em>s</em> denotes the sample standard deviations for populations 1 and 2, and <em>n</em> denotes the sample sizes for populations 1 and 2. The degrees of freedom (<em>df</em>) for this test are equal to <span class="math inline">\(n_1+n_2-2\)</span>.</p>
+<p><br></p>
+<p>For a “one-tailed” test, recall that our hypothesis assumes directionality in the difference in means. So, if our alternative hypothesis is that <span class="math inline">\(\mu_1&gt;\mu_2\)</span>, a large value of <em>t</em> in the right tail of the distribution - one that is <strong>greater</strong> than the “critical value” - will result in a <em>p-value</em> of less than 0.05. The critical value simply marks the point beyond which the area under the probability density sums to 0.05. The generalized figure below illustrates where the critcal value <span class="math inline">\(t_c\)</span> falls. For a one-tailed test in this case, we would reject the null hypothesis if the observed <em>t</em> was greater than <span class="math inline">\(t_c\)</span>.</p>
+<p><img src="images/week_3.005_1_tailed.jpeg" width="90%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<p>For a “two-tailed” test, our hypothesis allows for the possibility that the difference in population means might be greater or less than zero (i.e. we don’t assume a directionality in the difference <em>a priori</em>). In this case, we simply have to consider our critical value at both tails of the <em>t</em> distribution, such that the areas under the probability density beyond the location in both tails <strong>sum</strong> to 0.05. And, if our observed <em>t</em> is either less than <span class="math inline">\(-t_c\)</span> or greater than <span class="math inline">\(t_c\)</span>, we would reject the null hypothesis.</p>
+<p><img src="images/week_3.005_2_tailed.jpeg" width="60%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<p>In <code>R</code> we can easily perform a <em>t</em>-test using the <code>t.test()</code> function. For two samples we simply supply the function two vectors of values, one from sample 1 (argument <code>x</code>) and one from sample 2 (argument <code>y</code>). The default test is two-tailed, but if we want to run a one-tailed test we supply “less” to the <code>alternative</code> argument if we are testing whether <span class="math inline">\(\mu_1&lt;\mu_2\)</span>, or “greater” to the <code>alternative</code> argument if our alternative hypothesis is that <span class="math inline">\(\mu_1&gt;\mu_2\)</span>. Note that the <code>t.test()</code> function actually performs a “Welch’s <em>t</em>-test,” which is an adpatation of the Student’s <em>t</em>-test. It is very similar, with only minor calculation differences, but more reliable for unequal sample sizes and/or slightly different variances.</p>
+<div id="assumptions-of-parameteric-t-tests" class="section level3">
+<h3><span class="header-section-number">11.4.1</span> Assumptions of parameteric t-tests</h3>
+<p>As with any parametric statistical test, we should only use a <em>t</em>-test if our samples adhere to certain assumptions. Otherwise, our actual Type I and/or Type II error will not be accurately reflected by the test, and we will be more likely to draw the wrong conclusions than intended. The theoretical t-distributions for each degree of freedom were calculated based on the following assumptions:</p>
+<ul>
+<li><p>The response variable in the populations is normally distributed. This assumption is most easily assessed by looking at histograms for your data (samples). Confirm that your variable appears to be approximately normally distributed in your samples.</p></li>
+<li><p>The response variable in the populations has equal variances (if comparing two means). Informally this can be evaluated by looking at histograms or boxplots to see if the spread of distributions for both of your samples looks similar. Formally, you can perform something called an F Test for equal variances, using the <code>var.test()</code> function.</p></li>
+<li><p>The observations within each sample are independent. This assumption stipulates that you randomly sampled individuals from each of your populations. For example, if your populations represented different species in a specific location, you need to randomly select individuals of each species, as opposed to selecting individuals from one particular family, sub-location, shape, etc.</p></li>
+</ul>
+<p><br></p>
+<p>What should you do if the assumption of normality and/or equal variances is not met? There are a few alternatives. As mentioned, we call these alternatives “non-parametric” approaches because they do not rely on specific probability distributions, and consequently their assumptions. Nonparametric tests based on the “rank” of the values instead of the orignal values themselves are often an option. The Mann-Whitney <em>U</em> (also called &quot;Mann-Whitney-Wilcoxon) Test tests for distributional differences bewtween the ranks of two samples. In <code>R</code> the function <code>wilcox.test()</code> can be used to perform it, in much the same way the <code>t.test()</code> function is used.</p>
+<p><br></p>
+<p>Another nonparametric option is to generate a null distribution of the appropriate test statistic from your samples, using either randomization, or resampling with replacement (i.e. a “bootstrap test”). These are briefly discussed below, with a simple coded example.</p>
+</div>
+</div>
+<div id="comparing-means-using-resampling-and-randomization-tests" class="section level2">
+<h2><span class="header-section-number">11.5</span> Comparing means using resampling and randomization tests</h2>
+<p>In many cases when our sample data don’t meet assumptions of parametric tests we can create a <strong><em>null statistical distribution</em></strong> that models the distribution of a test statistic under the null hypothesis. As in the parametric approaches described above, we first calculate an <strong>observed test statistic value</strong> for our data. In the situation of comparing two population means, for example, we can calculate the <em>t</em> statistic from our data, as above. To create the null distribution we can use either randomization or resampling. For randomization, and assuming a one-tailed test of a larger mean for population 1, we could:
+<br>
+1. Combine values from both populations into a single vector,
+<br>
+2. Randomly shuffle the vector using the <code>sample()</code> function,
+<br>
+3. Calculate a <em>t</em> statistic based on the first n1 and n2 observations as our “pseudo samples” from “populations” 1 and 2, respectively, and save the value,
+<br>
+4. Repeat steps 2 and 3 many times (e.g. $$1000),
+<br>
+5. Calculate the proportion of pseudo replicates in which <em>t</em> is <span class="math inline">\(\geq\)</span> to our original, observed value of <em>t</em>. This proportion is our estimated <em>p</em>-value for the test.
+<br>
+An example using simulated data in <code>R</code> is as follows:</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">56</span>)</a>
+<a class="sourceLine" id="cb114-2" data-line-number="2">pop_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">50</span>, <span class="dt">mean=</span><span class="fl">20.1</span>, <span class="dt">sd=</span><span class="dv">2</span>)<span class="co">#simulate population 1 for this example</span></a>
+<a class="sourceLine" id="cb114-3" data-line-number="3">pop_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">50</span>, <span class="dt">mean=</span><span class="fl">19.3</span>, <span class="dt">sd=</span><span class="dv">2</span>)<span class="co">#simulate population 2 for this example</span></a>
+<a class="sourceLine" id="cb114-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb114-5" data-line-number="5"><span class="co"># Store the t statistic calculated from our samples, using t.test()</span></a>
+<a class="sourceLine" id="cb114-6" data-line-number="6">t_obs &lt;-<span class="st"> </span><span class="kw">t.test</span>(<span class="dt">x=</span>pop_<span class="dv">1</span>, <span class="dt">y=</span>pop_<span class="dv">2</span>, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>)<span class="op">$</span>statistic</a>
+<a class="sourceLine" id="cb114-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb114-8" data-line-number="8"><span class="co"># Combine both population vectors into one</span></a>
+<a class="sourceLine" id="cb114-9" data-line-number="9">pops_comb &lt;-<span class="st"> </span><span class="kw">c</span>(pop_<span class="dv">1</span>, pop_<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb114-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb114-11" data-line-number="11"><span class="co"># Randomly shuffle and calculate t statistic 1000 times</span></a>
+<a class="sourceLine" id="cb114-12" data-line-number="12">t_rand &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">1000</span>, {</a>
+<a class="sourceLine" id="cb114-13" data-line-number="13">  pops_shuf &lt;-<span class="st"> </span><span class="kw">sample</span>(pops_comb)</a>
+<a class="sourceLine" id="cb114-14" data-line-number="14">  <span class="kw">t.test</span>(<span class="dt">x=</span>pops_shuf[<span class="dv">1</span><span class="op">:</span><span class="dv">50</span>], <span class="dt">y=</span>pops_shuf[<span class="dv">51</span><span class="op">:</span><span class="dv">100</span>], <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>)<span class="op">$</span>statistic</a>
+<a class="sourceLine" id="cb114-15" data-line-number="15">  })</a>
+<a class="sourceLine" id="cb114-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb114-17" data-line-number="17"><span class="co"># Plot the &quot;null distribution&quot; from the randomization-based t-values</span></a>
+<a class="sourceLine" id="cb114-18" data-line-number="18"><span class="kw">hist</span>(t_rand)</a></code></pre></div>
+<p><img src="foundational_statistics_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1"><span class="co"># Calculate the p-value for the test as the number of randomization t-values greater</span></a>
+<a class="sourceLine" id="cb115-2" data-line-number="2"><span class="co"># than or equal to our actual t-value observed from the data</span></a>
+<a class="sourceLine" id="cb115-3" data-line-number="3">p &lt;-<span class="st"> </span><span class="kw">sum</span>(t_rand<span class="op">&gt;=</span>t_obs)<span class="op">/</span><span class="dv">1000</span></a>
+<a class="sourceLine" id="cb115-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb115-5" data-line-number="5">p</a></code></pre></div>
+<pre><code>## [1] 0.016</code></pre>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="co"># p = 0.016, so we reject the null hypothesis of a population 1 mean less than or equal \</span></a>
+<a class="sourceLine" id="cb117-2" data-line-number="2"><span class="co"># to the population 2 mean. The population 1 mean is likely larger than the population 2 mean.</span></a></code></pre></div>
+<p><br></p>
+<p>A similar approach may be taken by randomly resampling (with replacement) from the combined vector of values for both populations, provided that the sample sizes are equal, in order to generate a null distribution against which the observed <em>t</em> statistic may be compared. This approach would technically be considered a “bootstrap” <em>t</em>-test. Both randomization and resampling approaches should yield similar results for moderate to large sample sizes. For small sample sizes the randomization approach is preferable, as all values from both populations will be included in each pseudo-replicate.</p>
+</div>
+<div id="a-summary-of-key-components-of-hypothesis-testing" class="section level2">
+<h2><span class="header-section-number">11.6</span> A summary of key components of hypothesis testing</h2>
+<ul>
+<li><p><em>p</em>-value = The long run probability of rejecting a true null hypothesis. If our observed test statistic is very extreme in relation to the distribution under the null hypothesis, the <em>p</em>-value will be very small.</p></li>
+<li><p><span class="math inline">\(\alpha\)</span> = The Type I error rate for a hypothesis test. Often stated as a “critical p-value cutoff” for experiments, as in the Type I error we are willing to tolerate.</p></li>
+<li><p><span class="math inline">\(\beta\)</span> = The Type II error rate for a hypothesis test. Often stated as a cutoff for probability of accepting a false null hypothesis.</p></li>
+<li><p>Power = The probability that a test will correctly reject the null hypothesis (1 - <span class="math inline">\(\beta\)</span>). It depends on effect size, sample size, chosen <span class="math inline">\(\alpha\)</span>, and population standard deviation.</p></li>
+<li><p>Multiple testing = Performing the same or similar tests multiple times. When we perform multiple hypothesis tests to answer a general study question (like in the case of analyzing many genes in an RNA-seq experiment), we need to adjust the <span class="math inline">\(\alpha\)</span> threshold to be lower than it would for a single test. There are multiple ways to correct <em>p</em>-values if multiple testing is used. One correction uses a “tax” (e.g. <strong>Bonferonni</strong> adjustment) based simply on the number of tests, while another is the direct estimation of a <strong>False Discovery Rate (FDR)</strong>. We will return to the multiple testing problem when we consider ANOVA.</p></li>
+</ul>
+</div>
+<div id="exercises-associated-with-this-chapter-6" class="section level2">
+<h2><span class="header-section-number">11.7</span> Exercises associated with this chapter:</h2>
+<ul>
+<li>Problem Set 3</li>
+</ul>
+</div>
+<div id="additional-learning-resources-6" class="section level2">
+<h2><span class="header-section-number">11.8</span> Additional learning resources:</h2>
+<ul>
+<li><p>Irizarry, R. A. Introduction to Data Science. <a href="https://rafalab.github.io/dsbook/" class="uri">https://rafalab.github.io/dsbook/</a> - A gitbook written by a statistician, with great introductions to key topics in statistical inference.</p></li>
+<li><p>Logan, M. 2010. Biostatistical Design and Analysis Using R. - A great intro to R for statistical analysis</p></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="principles-of-experiment-and-study-design.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-hypothesis_tets.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["foundational_statistics.pdf", "foundational_statistics.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -24,7 +24,7 @@
 <meta name="author" content="Clayton M. Small and William A. Cresko" />
 
 
-<meta name="date" content="2020-05-05" />
+<meta name="date" content="2020-05-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -256,6 +256,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#what-if-you-cant-do-experiments"><i class="fa fa-check"></i><b>10.5</b> What if you can’t do experiments?</a></li>
 <li class="chapter" data-level="10.6" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#exercises-associated-with-this-chapter-5"><i class="fa fa-check"></i><b>10.6</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="10.7" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#additional-learning-resources-5"><i class="fa fa-check"></i><b>10.7</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html"><i class="fa fa-check"></i><b>11</b> Introduction to Hypothesis Tests</a><ul>
+<li class="chapter" data-level="11.1" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#background-5"><i class="fa fa-check"></i><b>11.1</b> Background</a></li>
+<li class="chapter" data-level="11.2" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>11.2</b> Null and alternative hypotheses</a></li>
+<li class="chapter" data-level="11.3" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#hypotheses-tests"><i class="fa fa-check"></i><b>11.3</b> Hypotheses tests</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#p-values-type-i-and-type-ii-error"><i class="fa fa-check"></i><b>11.3.1</b> <em>p</em>-values, Type I, and Type II error</a></li>
+<li class="chapter" data-level="11.3.2" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#statistical-power"><i class="fa fa-check"></i><b>11.3.2</b> Statistical power</a></li>
+<li class="chapter" data-level="11.3.3" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#a-quick-note-on-practical-vs.statistical-significance"><i class="fa fa-check"></i><b>11.3.3</b> A quick note on practical vs. statistical significance</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#the-t-test-and-t-sampling-distribution"><i class="fa fa-check"></i><b>11.4</b> The <em>t</em>-test and <em>t</em> sampling distribution</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#assumptions-of-parameteric-t-tests"><i class="fa fa-check"></i><b>11.4.1</b> Assumptions of parameteric t-tests</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#comparing-means-using-resampling-and-randomization-tests"><i class="fa fa-check"></i><b>11.5</b> Comparing means using resampling and randomization tests</a></li>
+<li class="chapter" data-level="11.6" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#a-summary-of-key-components-of-hypothesis-testing"><i class="fa fa-check"></i><b>11.6</b> A summary of key components of hypothesis testing</a></li>
+<li class="chapter" data-level="11.7" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#exercises-associated-with-this-chapter-6"><i class="fa fa-check"></i><b>11.7</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="11.8" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#additional-learning-resources-6"><i class="fa fa-check"></i><b>11.8</b> Additional learning resources:</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -497,26 +513,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">x &lt;-<span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">100</span>)</a>
 <a class="sourceLine" id="cb35-2" data-line-number="2"><span class="kw">print</span> (x)</a></code></pre></div>
-<pre><code>##   [1] -293.1703458  -28.7186844   33.6639244  -33.7817280   43.4710271
-##   [6] -107.6153839 -257.5181379   85.6668100   43.2326262   43.7429316
-##  [11] -111.5037732   38.5168926  -60.8059215   22.8767176  -59.8814554
-##  [16]  -40.6739937   -9.5991325   43.2276705 -122.1021582  -38.6131712
-##  [21]  113.5625674   54.4263636   18.6685065  130.5286193  161.2273151
-##  [26]   38.1234806 -105.1727990    9.3133037  -72.1629423  199.5024710
-##  [31] -151.3845157   81.4303173  -86.1047415  131.2379429   71.6531888
-##  [36]  -28.7871053  -56.3557904   30.3093753  -46.9017641   98.3926707
-##  [41]   95.5847328  104.3012162  -67.0135817  124.5304126  -22.3785971
-##  [46]   57.6117399  -38.0552526   24.4472321    3.0588968  149.9694510
-##  [51]   28.6218300  -35.1761766   92.1074632   88.6264709  -96.2933075
-##  [56]   -0.3310341 -137.0277045  -12.0839394   67.5608046  -47.3782136
-##  [61]  -52.6049884  -50.7569155  128.7065265  134.0742150  -46.7196931
-##  [66]   44.7854102   14.7687141   38.7784715 -159.9988263  -62.2407475
-##  [71]  -24.7391813  -59.9884151   -9.5206068  -45.1518441 -113.6545105
-##  [76]  -90.3593001  183.3568255 -162.2419817  -69.8936849   60.4994573
-##  [81]   82.3256655    1.9057606 -137.8874501  -46.4349082 -206.5643470
-##  [86]  -89.9949075   67.7313580  -21.4833088  -30.4632375 -133.1634371
-##  [91]    0.5334347  -11.1167621  200.7463844 -168.5010651  -60.8872951
-##  [96]   36.1833624   89.5311800  -36.8187618 -120.5710449   -6.2621591</code></pre>
+<pre><code>##   [1]   21.567902 -108.852393  -80.352504  -67.682122 -198.274341 -100.213956
+##   [7]  119.622501  194.743688 -148.793726 -148.078098  -19.453571   34.545311
+##  [13]   -4.510077 -262.225940  -40.342391   21.578612 -104.878006 -209.930310
+##  [19]  224.145440  -46.787925  -20.438799  178.321628 -105.847843  -10.601562
+##  [25]  -99.537278 -155.542654   31.782858   41.727688   20.861684   -9.986855
+##  [31]  -30.745822  -93.542564  -80.450827   35.474161 -243.955171 -135.040546
+##  [37]   14.720300  150.026575 -137.071318  240.920846   24.086251  -21.611369
+##  [43]  -37.615608  106.795869  175.670697   81.184490 -103.311885   -8.215024
+##  [49]   69.304592  -52.066760  -85.082814  -49.011921  -56.584141  -17.730854
+##  [55]   25.179485   62.585114   52.444680   23.408105  -86.013020   74.169259
+##  [61]    2.488128    2.435709   75.510530  223.667471   22.075707   44.485135
+##  [67]  -58.921090    9.396080   79.466121  166.763002 -148.731667 -100.150528
+##  [73]  100.625083  236.060995 -166.744365  -31.973617   -1.475626 -248.939677
+##  [79]   77.374538   33.293154  181.581009   41.607169   45.837224 -134.608917
+##  [85]   91.546672   47.968427  -68.655597  -34.080382    6.402712  -47.678761
+##  [91]  221.734458   75.830214  -27.187724  -80.615455  -71.238982  -53.822710
+##  [97]  -21.421581  -46.443974   55.386768   -9.518862</code></pre>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">hist</span>(x, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>,<span class="dv">50</span>))</a></code></pre></div>
 <p><img src="foundational_statistics_files/figure-html/Samples%20from%20distributions%202-1.png" width="100%" /></p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">hist</span>(x, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">500</span>,<span class="dv">500</span>))</a></code></pre></div>
