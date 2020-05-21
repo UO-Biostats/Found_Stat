@@ -24,7 +24,7 @@
 <meta name="author" content="Clayton M. Small and William A. Cresko" />
 
 
-<meta name="date" content="2020-05-14" />
+<meta name="date" content="2020-05-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -273,6 +273,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.7" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#exercises-associated-with-this-chapter-6"><i class="fa fa-check"></i><b>11.7</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="11.8" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#additional-learning-resources-6"><i class="fa fa-check"></i><b>11.8</b> Additional learning resources:</a></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html"><i class="fa fa-check"></i><b>12</b> Correlation and Simple Linear Regression</a><ul>
+<li class="chapter" data-level="12.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#background-6"><i class="fa fa-check"></i><b>12.1</b> Background</a></li>
+<li class="chapter" data-level="12.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#covariance-and-correlation"><i class="fa fa-check"></i><b>12.2</b> Covariance and correlation</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#covariance"><i class="fa fa-check"></i><b>12.2.1</b> covariance</a></li>
+<li class="chapter" data-level="12.2.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#correlation"><i class="fa fa-check"></i><b>12.2.2</b> correlation</a></li>
+<li class="chapter" data-level="12.2.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#hyptohesis-tests-for-correlation"><i class="fa fa-check"></i><b>12.2.3</b> hyptohesis tests for correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>12.3</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#hypothesis-tests-in-linear-regression"><i class="fa fa-check"></i><b>12.3.1</b> Hypothesis tests in linear regression</a></li>
+<li class="chapter" data-level="12.3.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#linear-regression-in-r"><i class="fa fa-check"></i><b>12.3.2</b> linear regression in <code>R</code></a></li>
+<li class="chapter" data-level="12.3.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#a-note-on-the-coefficient-of-determination"><i class="fa fa-check"></i><b>12.3.3</b> a note on the coefficient of determination</a></li>
+<li class="chapter" data-level="12.3.4" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#a-note-on-model-ii-regression"><i class="fa fa-check"></i><b>12.3.4</b> a note on model II regression</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#exercises-associated-with-this-chapter-7"><i class="fa fa-check"></i><b>12.4</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="12.5" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#additional-learning-resources-7"><i class="fa fa-check"></i><b>12.5</b> Additional learning resources:</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -513,23 +529,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">x &lt;-<span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">100</span>)</a>
 <a class="sourceLine" id="cb35-2" data-line-number="2"><span class="kw">print</span> (x)</a></code></pre></div>
-<pre><code>##   [1]   21.567902 -108.852393  -80.352504  -67.682122 -198.274341 -100.213956
-##   [7]  119.622501  194.743688 -148.793726 -148.078098  -19.453571   34.545311
-##  [13]   -4.510077 -262.225940  -40.342391   21.578612 -104.878006 -209.930310
-##  [19]  224.145440  -46.787925  -20.438799  178.321628 -105.847843  -10.601562
-##  [25]  -99.537278 -155.542654   31.782858   41.727688   20.861684   -9.986855
-##  [31]  -30.745822  -93.542564  -80.450827   35.474161 -243.955171 -135.040546
-##  [37]   14.720300  150.026575 -137.071318  240.920846   24.086251  -21.611369
-##  [43]  -37.615608  106.795869  175.670697   81.184490 -103.311885   -8.215024
-##  [49]   69.304592  -52.066760  -85.082814  -49.011921  -56.584141  -17.730854
-##  [55]   25.179485   62.585114   52.444680   23.408105  -86.013020   74.169259
-##  [61]    2.488128    2.435709   75.510530  223.667471   22.075707   44.485135
-##  [67]  -58.921090    9.396080   79.466121  166.763002 -148.731667 -100.150528
-##  [73]  100.625083  236.060995 -166.744365  -31.973617   -1.475626 -248.939677
-##  [79]   77.374538   33.293154  181.581009   41.607169   45.837224 -134.608917
-##  [85]   91.546672   47.968427  -68.655597  -34.080382    6.402712  -47.678761
-##  [91]  221.734458   75.830214  -27.187724  -80.615455  -71.238982  -53.822710
-##  [97]  -21.421581  -46.443974   55.386768   -9.518862</code></pre>
+<pre><code>##   [1]   71.139462  -74.977332  -79.740856 -200.406492  -79.058322 -196.769820
+##   [7]   98.478925 -104.447331   69.873866   76.722394 -114.786377  -52.346876
+##  [13]   86.988827  -14.417018  -95.719836 -130.126017   -4.643431   82.007383
+##  [19]   44.678202  -42.755583  -38.744691 -273.161405  105.506693 -129.336137
+##  [25] -131.897296  -36.930683  -25.433914  144.519283 -143.256996  131.873938
+##  [31]   -3.386316   14.203172 -132.022008 -161.455265  -37.309896   19.827495
+##  [37]  -59.825322  123.550865   97.276812  100.384755  122.754698  -80.067389
+##  [43] -110.335418 -106.863480   50.982901  -77.717270 -116.761834  -89.244225
+##  [49]  -27.708941 -162.323268 -169.753234  -75.261782  -80.416746  -78.938141
+##  [55]  -90.926956   12.902616   81.457654   44.762924  -31.391787 -215.675574
+##  [61]  148.627779  159.785647 -148.446412  150.834132  -13.487156  179.566078
+##  [67] -173.849182  -87.827394  102.645663  -86.972906  -73.230246   17.421186
+##  [73]   47.711886   15.903283   20.201550   61.081519   55.479184 -245.105974
+##  [79]   22.792356 -131.847060   12.244781  -41.339263  100.996464  -12.832588
+##  [85]  -23.789257  109.956663   58.229901    8.921047   -3.289494   56.750735
+##  [91]  142.805678   59.822374    8.287093  -38.068072  126.733615  -76.325057
+##  [97]   -4.804751    3.743731   40.757089  112.771537</code></pre>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">hist</span>(x, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>,<span class="dv">50</span>))</a></code></pre></div>
 <p><img src="foundational_statistics_files/figure-html/Samples%20from%20distributions%202-1.png" width="100%" /></p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">hist</span>(x, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">500</span>,<span class="dv">500</span>))</a></code></pre></div>

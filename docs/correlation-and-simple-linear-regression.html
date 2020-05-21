@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 12 Correlation and Simple Linear Regression | Foundational Statistics - Bi 610 - Spring 2020</title>
+  <meta name="description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 12 Correlation and Simple Linear Regression | Foundational Statistics - Bi 610 - Spring 2020" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 12 Correlation and Simple Linear Regression | Foundational Statistics - Bi 610 - Spring 2020" />
+  
+  <meta name="twitter:description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  
+
+<meta name="author" content="Clayton M. Small and William A. Cresko" />
+
+
+<meta name="date" content="2020-05-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction-to-hypothesis-tests.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Foundational Statistics Bi 610</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Course Overview</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>2</b> Introduction to the course</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#instructors"><i class="fa fa-check"></i><b>2.1</b> Instructors</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#course-information"><i class="fa fa-check"></i><b>2.2</b> Course Information</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#software"><i class="fa fa-check"></i><b>2.3</b> Software</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#inclusion-and-accessibility"><i class="fa fa-check"></i><b>2.4</b> Inclusion and Accessibility</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="course-schedule.html"><a href="course-schedule.html"><i class="fa fa-check"></i><b>3</b> Course Schedule</a><ul>
+<li class="chapter" data-level="3.1" data-path="course-schedule.html"><a href="course-schedule.html#weeks-1-2"><i class="fa fa-check"></i><b>3.1</b> Weeks 1-2</a></li>
+<li class="chapter" data-level="3.2" data-path="course-schedule.html"><a href="course-schedule.html#week-3"><i class="fa fa-check"></i><b>3.2</b> Week 3</a></li>
+<li class="chapter" data-level="3.3" data-path="course-schedule.html"><a href="course-schedule.html#week-4"><i class="fa fa-check"></i><b>3.3</b> Week 4</a></li>
+<li class="chapter" data-level="3.4" data-path="course-schedule.html"><a href="course-schedule.html#week-5"><i class="fa fa-check"></i><b>3.4</b> Week 5</a></li>
+<li class="chapter" data-level="3.5" data-path="course-schedule.html"><a href="course-schedule.html#week-6"><i class="fa fa-check"></i><b>3.5</b> Week 6</a></li>
+<li class="chapter" data-level="3.6" data-path="course-schedule.html"><a href="course-schedule.html#week-7"><i class="fa fa-check"></i><b>3.6</b> Week 7</a></li>
+<li class="chapter" data-level="3.7" data-path="course-schedule.html"><a href="course-schedule.html#week-8"><i class="fa fa-check"></i><b>3.7</b> Week 8</a></li>
+<li class="chapter" data-level="3.8" data-path="course-schedule.html"><a href="course-schedule.html#week-9"><i class="fa fa-check"></i><b>3.8</b> Week 9</a></li>
+<li class="chapter" data-level="3.9" data-path="course-schedule.html"><a href="course-schedule.html#week-10"><i class="fa fa-check"></i><b>3.9</b> Week 10</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html"><i class="fa fa-check"></i><b>4</b> Background material for the course</a><ul>
+<li class="chapter" data-level="4.1" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#description-of-the-course"><i class="fa fa-check"></i><b>4.1</b> Description of the course</a></li>
+<li class="chapter" data-level="4.2" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#course-goals"><i class="fa fa-check"></i><b>4.2</b> Course goals:</a></li>
+<li class="chapter" data-level="4.3" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#introduction-to-r-and-rstudio"><i class="fa fa-check"></i><b>4.3</b> Introduction to R and RStudio</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#learning-resources"><i class="fa fa-check"></i><b>4.3.1</b> Learning resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html"><i class="fa fa-check"></i><b>5</b> Organizing and manipulating data files</a><ul>
+<li class="chapter" data-level="5.1" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#introduction"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-file-systems-from-the-command-line"><i class="fa fa-check"></i><b>5.2</b> Navigating file systems from the command line</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#access-to-the-command-line"><i class="fa fa-check"></i><b>5.2.1</b> Access to the command line</a></li>
+<li class="chapter" data-level="5.2.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-directories-and-files"><i class="fa fa-check"></i><b>5.2.2</b> Navigating directories and files</a></li>
+<li class="chapter" data-level="5.2.3" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#useful-unix-commands-for-file-manipulation"><i class="fa fa-check"></i><b>5.2.3</b> Useful UNIX commands for file manipulation</a></li>
+<li class="chapter" data-level="5.2.4" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#a-quick-word-on-pipes-and-carrots"><i class="fa fa-check"></i><b>5.2.4</b> A quick word on pipes and carrots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#data-file-and-data-file-entry-dos-and-donts"><i class="fa fa-check"></i><b>5.3</b> Data file and data file entry dos and don’ts</a></li>
+<li class="chapter" data-level="5.4" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#exercises-associated-with-this-chapter"><i class="fa fa-check"></i><b>5.4</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="5.5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#additional-learning-resources"><i class="fa fa-check"></i><b>5.5</b> Additional learning resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html"><i class="fa fa-check"></i><b>6</b> An Introduction to the R language</a><ul>
+<li class="chapter" data-level="6.1" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#background"><i class="fa fa-check"></i><b>6.1</b> Background</a></li>
+<li class="chapter" data-level="6.2" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#why-use-r"><i class="fa fa-check"></i><b>6.2</b> Why use <code>R</code>?</a></li>
+<li class="chapter" data-level="6.3" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#important-r-terms-and-definitions"><i class="fa fa-check"></i><b>6.3</b> Important <code>R</code> terms and definitions</a></li>
+<li class="chapter" data-level="6.4" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#getting-started-with-r-via-the-rstudio-environment"><i class="fa fa-check"></i><b>6.4</b> Getting started with <code>R</code> via the RStudio Environment</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#r-programming-basics"><i class="fa fa-check"></i><b>6.4.1</b> R Programming Basics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#exercises-associated-with-this-chapter-1"><i class="fa fa-check"></i><b>6.5</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="6.6" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#additional-learning-resources-1"><i class="fa fa-check"></i><b>6.6</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><i class="fa fa-check"></i><b>7</b> More R Functions, Complex Objects, Basic Plotting, and RMarkdown</a><ul>
+<li class="chapter" data-level="7.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#background-1"><i class="fa fa-check"></i><b>7.1</b> Background</a></li>
+<li class="chapter" data-level="7.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-on-functions"><i class="fa fa-check"></i><b>7.2</b> More on functions</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-base-r-functions-useful-for-working-with-vectors"><i class="fa fa-check"></i><b>7.2.1</b> More base <code>R</code> functions useful for working with vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#indexing-vectors"><i class="fa fa-check"></i><b>7.3</b> Indexing vectors</a></li>
+<li class="chapter" data-level="7.4" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-complex-data-objects-in-r"><i class="fa fa-check"></i><b>7.4</b> More complex data objects in <code>R</code></a><ul>
+<li class="chapter" data-level="7.4.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#lists"><i class="fa fa-check"></i><b>7.4.1</b> lists</a></li>
+<li class="chapter" data-level="7.4.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#data-frames"><i class="fa fa-check"></i><b>7.4.2</b> data frames</a></li>
+<li class="chapter" data-level="7.4.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#matrices"><i class="fa fa-check"></i><b>7.4.3</b> matrices</a></li>
+<li class="chapter" data-level="7.4.4" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#a-few-additional-base-r-functions-for-working-with-complex-r-objects"><i class="fa fa-check"></i><b>7.4.4</b> A few additional base <code>R</code> functions for working with complex <code>R</code> objects</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#some-brief-notes-on-basic-programming-in-r"><i class="fa fa-check"></i><b>7.5</b> Some brief notes on basic programming in <code>R</code></a><ul>
+<li class="chapter" data-level="7.5.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#conditional-statements-with-ifelse"><i class="fa fa-check"></i><b>7.5.1</b> conditional statements with <code>ifelse()</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#replicate-tapply-and-apply"><i class="fa fa-check"></i><b>7.5.2</b> <code>replicate()</code>, <code>tapply()</code>, and <code>apply()</code></a></li>
+<li class="chapter" data-level="7.5.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#for-loops-in-r"><i class="fa fa-check"></i><b>7.5.3</b> for loops in <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#fundamentals-of-plotting-in-r"><i class="fa fa-check"></i><b>7.6</b> Fundamentals of plotting in <code>R</code></a><ul>
+<li class="chapter" data-level="7.6.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#basic-plotting-with-plot"><i class="fa fa-check"></i><b>7.6.1</b> Basic plotting with <code>plot()</code></a></li>
+<li class="chapter" data-level="7.6.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#histograms-using-hist"><i class="fa fa-check"></i><b>7.6.2</b> Histograms using <code>hist()</code></a></li>
+<li class="chapter" data-level="7.6.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#boxplots-using-boxplot"><i class="fa fa-check"></i><b>7.6.3</b> Boxplots using <code>boxplot()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#a-brief-introduction-to-rmarkdown"><i class="fa fa-check"></i><b>7.7</b> A brief introduction to <code>RMarkdown</code></a><ul>
+<li class="chapter" data-level="7.7.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#rmarkdown-formatting-basics"><i class="fa fa-check"></i><b>7.7.1</b> <code>RMarkdown</code> formatting basics</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#experiment-with-headers"><i class="fa fa-check"></i><b>7.8</b> Experiment with headers</a><ul>
+<li class="chapter" data-level="7.8.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#try-a-third-level-header"><i class="fa fa-check"></i><b>7.8.1</b> Try a third-level header</a></li>
+<li class="chapter" data-level="7.8.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#rmarkdown-code-chunk-options"><i class="fa fa-check"></i><b>7.8.2</b> <code>RMarkdown</code> code chunk options</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#exercises-associated-with-this-chapter-2"><i class="fa fa-check"></i><b>7.9</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="7.10" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#additional-learning-resources-2"><i class="fa fa-check"></i><b>7.10</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html"><i class="fa fa-check"></i><b>8</b> Introduction to Probability and Probability Distributions</a><ul>
+<li class="chapter" data-level="8.1" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#background-2"><i class="fa fa-check"></i><b>8.1</b> Background</a></li>
+<li class="chapter" data-level="8.2" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#what-is-probability"><i class="fa fa-check"></i><b>8.2</b> What is probability?</a></li>
+<li class="chapter" data-level="8.3" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#random-variables-probability"><i class="fa fa-check"></i><b>8.3</b> Random variables &amp; probability</a></li>
+<li class="chapter" data-level="8.4" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-and-the-bernoulli-distribution"><i class="fa fa-check"></i><b>8.4</b> Probability and the Bernoulli distribution</a></li>
+<li class="chapter" data-level="8.5" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-rules"><i class="fa fa-check"></i><b>8.5</b> Probability rules</a></li>
+<li class="chapter" data-level="8.6" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#joint-probability"><i class="fa fa-check"></i><b>8.6</b> Joint probability</a></li>
+<li class="chapter" data-level="8.7" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#conditional-probability"><i class="fa fa-check"></i><b>8.7</b> Conditional probability</a></li>
+<li class="chapter" data-level="8.8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#a-brief-note-on-likelihood-vs.probability"><i class="fa fa-check"></i><b>8.8</b> A brief note on likelihood vs. probability</a></li>
+<li class="chapter" data-level="8.9" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-distributions-commonly-used-in-biological-statistics"><i class="fa fa-check"></i><b>8.9</b> Probability distributions commonly used in biological statistics</a><ul>
+<li class="chapter" data-level="8.9.1" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#discrete-probability-distributions"><i class="fa fa-check"></i><b>8.9.1</b> Discrete Probability Distributions</a></li>
+<li class="chapter" data-level="8.9.2" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#continuous-probability-distributions"><i class="fa fa-check"></i><b>8.9.2</b> <strong>Continuous probability distributions</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#exercises-associated-with-this-chapter-3"><i class="fa fa-check"></i><b>8.10</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="8.11" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#additional-learning-resources-3"><i class="fa fa-check"></i><b>8.11</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html"><i class="fa fa-check"></i><b>9</b> Parameter Estimation Basics and the Sampling Process</a><ul>
+<li class="chapter" data-level="9.1" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#background-3"><i class="fa fa-check"></i><b>9.1</b> Background</a></li>
+<li class="chapter" data-level="9.2" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#understanding-populations-and-their-parameters"><i class="fa fa-check"></i><b>9.2</b> Understanding populations and their parameters</a></li>
+<li class="chapter" data-level="9.3" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#more-on-parameter-estimation-and-sampling-distributions"><i class="fa fa-check"></i><b>9.3</b> More on parameter estimation and sampling distributions</a></li>
+<li class="chapter" data-level="9.4" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#calculating-the-standard-error-of-the-mean"><i class="fa fa-check"></i><b>9.4</b> Calculating the standard error of the mean</a></li>
+<li class="chapter" data-level="9.5" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#the-bootstrap-to-estimate-parameters-and-the-standard-error"><i class="fa fa-check"></i><b>9.5</b> The bootstrap to estimate parameters and the standard error</a></li>
+<li class="chapter" data-level="9.6" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#confidence-intervals"><i class="fa fa-check"></i><b>9.6</b> Confidence intervals</a></li>
+<li class="chapter" data-level="9.7" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#the-relationship-between-mean-and-variance"><i class="fa fa-check"></i><b>9.7</b> The relationship between mean and variance</a></li>
+<li class="chapter" data-level="9.8" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#exercises-associated-with-this-chapter-4"><i class="fa fa-check"></i><b>9.8</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="9.9" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#additional-learning-resources-4"><i class="fa fa-check"></i><b>9.9</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html"><i class="fa fa-check"></i><b>10</b> Principles of Experiment and Study Design</a><ul>
+<li class="chapter" data-level="10.1" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#background-4"><i class="fa fa-check"></i><b>10.1</b> Background</a></li>
+<li class="chapter" data-level="10.2" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#what-is-an-experimental-study"><i class="fa fa-check"></i><b>10.2</b> What is an experimental study?</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#a-hypothetical-study-example"><i class="fa fa-check"></i><b>10.2.1</b> A hypothetical study example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#basic-study-design-terminology"><i class="fa fa-check"></i><b>10.3</b> Basic study design terminology</a></li>
+<li class="chapter" data-level="10.4" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#clinical-trials"><i class="fa fa-check"></i><b>10.4</b> Clinical trials</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#a-clinical-trial-example"><i class="fa fa-check"></i><b>10.4.1</b> A clinical trial example</a></li>
+<li class="chapter" data-level="10.4.2" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#simultaneous-control-groups"><i class="fa fa-check"></i><b>10.4.2</b> Simultaneous control groups</a></li>
+<li class="chapter" data-level="10.4.3" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#randomization"><i class="fa fa-check"></i><b>10.4.3</b> Randomization</a></li>
+<li class="chapter" data-level="10.4.4" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#blinding"><i class="fa fa-check"></i><b>10.4.4</b> Blinding</a></li>
+<li class="chapter" data-level="10.4.5" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#replication"><i class="fa fa-check"></i><b>10.4.5</b> Replication</a></li>
+<li class="chapter" data-level="10.4.6" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#a-note-on-pseudoreplication"><i class="fa fa-check"></i><b>10.4.6</b> A note on pseudoreplication</a></li>
+<li class="chapter" data-level="10.4.7" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#balance"><i class="fa fa-check"></i><b>10.4.7</b> Balance</a></li>
+<li class="chapter" data-level="10.4.8" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#blocking"><i class="fa fa-check"></i><b>10.4.8</b> Blocking</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#what-if-you-cant-do-experiments"><i class="fa fa-check"></i><b>10.5</b> What if you can’t do experiments?</a></li>
+<li class="chapter" data-level="10.6" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#exercises-associated-with-this-chapter-5"><i class="fa fa-check"></i><b>10.6</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="10.7" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#additional-learning-resources-5"><i class="fa fa-check"></i><b>10.7</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html"><i class="fa fa-check"></i><b>11</b> Introduction to Hypothesis Tests</a><ul>
+<li class="chapter" data-level="11.1" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#background-5"><i class="fa fa-check"></i><b>11.1</b> Background</a></li>
+<li class="chapter" data-level="11.2" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>11.2</b> Null and alternative hypotheses</a></li>
+<li class="chapter" data-level="11.3" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#hypotheses-tests"><i class="fa fa-check"></i><b>11.3</b> Hypotheses tests</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#p-values-type-i-and-type-ii-error"><i class="fa fa-check"></i><b>11.3.1</b> <em>p</em>-values, Type I, and Type II error</a></li>
+<li class="chapter" data-level="11.3.2" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#statistical-power"><i class="fa fa-check"></i><b>11.3.2</b> Statistical power</a></li>
+<li class="chapter" data-level="11.3.3" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#a-quick-note-on-practical-vs.statistical-significance"><i class="fa fa-check"></i><b>11.3.3</b> A quick note on practical vs. statistical significance</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#the-t-test-and-t-sampling-distribution"><i class="fa fa-check"></i><b>11.4</b> The <em>t</em>-test and <em>t</em> sampling distribution</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#assumptions-of-parameteric-t-tests"><i class="fa fa-check"></i><b>11.4.1</b> Assumptions of parameteric t-tests</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#comparing-means-using-resampling-and-randomization-tests"><i class="fa fa-check"></i><b>11.5</b> Comparing means using resampling and randomization tests</a></li>
+<li class="chapter" data-level="11.6" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#a-summary-of-key-components-of-hypothesis-testing"><i class="fa fa-check"></i><b>11.6</b> A summary of key components of hypothesis testing</a></li>
+<li class="chapter" data-level="11.7" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#exercises-associated-with-this-chapter-6"><i class="fa fa-check"></i><b>11.7</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="11.8" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#additional-learning-resources-6"><i class="fa fa-check"></i><b>11.8</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html"><i class="fa fa-check"></i><b>12</b> Correlation and Simple Linear Regression</a><ul>
+<li class="chapter" data-level="12.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#background-6"><i class="fa fa-check"></i><b>12.1</b> Background</a></li>
+<li class="chapter" data-level="12.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#covariance-and-correlation"><i class="fa fa-check"></i><b>12.2</b> Covariance and correlation</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#covariance"><i class="fa fa-check"></i><b>12.2.1</b> covariance</a></li>
+<li class="chapter" data-level="12.2.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#correlation"><i class="fa fa-check"></i><b>12.2.2</b> correlation</a></li>
+<li class="chapter" data-level="12.2.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#hyptohesis-tests-for-correlation"><i class="fa fa-check"></i><b>12.2.3</b> hyptohesis tests for correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>12.3</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#hypothesis-tests-in-linear-regression"><i class="fa fa-check"></i><b>12.3.1</b> Hypothesis tests in linear regression</a></li>
+<li class="chapter" data-level="12.3.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#linear-regression-in-r"><i class="fa fa-check"></i><b>12.3.2</b> linear regression in <code>R</code></a></li>
+<li class="chapter" data-level="12.3.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#a-note-on-the-coefficient-of-determination"><i class="fa fa-check"></i><b>12.3.3</b> a note on the coefficient of determination</a></li>
+<li class="chapter" data-level="12.3.4" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#a-note-on-model-ii-regression"><i class="fa fa-check"></i><b>12.3.4</b> a note on model II regression</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#exercises-associated-with-this-chapter-7"><i class="fa fa-check"></i><b>12.4</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="12.5" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#additional-learning-resources-7"><i class="fa fa-check"></i><b>12.5</b> Additional learning resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Foundational Statistics - Bi 610 - Spring 2020</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="correlation-and-simple-linear-regression" class="section level1">
+<h1><span class="header-section-number">Chapter 12</span> Correlation and Simple Linear Regression</h1>
+<div id="background-6" class="section level2">
+<h2><span class="header-section-number">12.1</span> Background</h2>
+<p>Quite frequently we want to know whether two continuous variables are <em>related</em> based on measuring them in the same set of observations, and if so, how and how strongly they are related. When two random variables (say <em>X</em> and <em>Y</em>) deviate from their respective means in a systematic, predictable way, we say that they <strong><em>covary</em></strong>, or that they are <strong><em>correlated</em></strong> variables. Levels of expression for pairs of genes, for example, are often correlated, especially if the genes are members of the same regulatory network. Two genes may share the same transcription factor, for instance, and when the abundance of that transcription factor increases in cells, so do transcript levels for the two genes. In this case if you measure abundance of both transcripts in a sample of cells, tissues, individuals, or whatever, you may well find many observations with low expression values for both genes, many with moderate expression values for both, and many with high values for both genes. Cleary in this situation there appears to be a “positive” relationship bewteen the two gene expression variables, but as statisticians how do we formally describe the relationship better, and how might we make inferences about the system from a sample? This chapter focuses on the estimation of parameters, and the testing of hypotheses, relevant to relationships between quantitative variables.</p>
+</div>
+<div id="covariance-and-correlation" class="section level2">
+<h2><span class="header-section-number">12.2</span> Covariance and correlation</h2>
+<p>Before we get into the parameters of interest and how we estimate them from samples, we should first make some practical considerations. Two variables may covary for a number of reasons, which may or may not involve one variable systematically influencing the other. We would call that a “causal” relationship, but covariance can arise for non-causal reasons too, such as in the example above. In that example the expression level of “gene A” was not influenced by the expression of “gene B,” but the two covaried simply because they were affected in similar ways by a third force (the transcription factor). This can be an important distinction (between causal and non-causal relationships) when thinking about how to proceed with analysis because for some statistics (like covariance and correlation) causality is not assumed or interpreted, but for other approaches (like regression) it might be. In the case of regression, which we will return to later in this chapter, there is a clear dependent (response) and independent (explanatory) variable. Regression models, especially in the case of controlled experiments in which the values of the explanatory variable are set and assigned by the experimentors, the goal is often to understand whether, and if so by what magnitude, that variable directly influences the response variable in order to test hypothesis and/or make predictions about the system.</p>
+<p><br></p>
+<div id="covariance" class="section level3">
+<h3><span class="header-section-number">12.2.1</span> covariance</h3>
+<p>We stated above that “systematic deviation from respective means” defines a situation in which two variables covary, but how do we actually convey this numerically? One statistic, known as the <strong><em>covariance</em></strong>, multiplies each <em>y</em> and <em>x</em> deviation (for a given observation) from its respective mean, sums that product across all observations, and divides by the total number of observations to yield an average. If individual values of one variable deviate from their mean in one direction, and <em>corresponding</em> values of the other variable consistently deviate from their mean in the same (or the opposite) direction, the products in the sum will be either consistently positive or consistently negative, resulting in a substantial positive covariance, or a substantial negative covariance, respectively. If there is no consistent, directional deviation for the two variables, on the other hand, the products will sum to a covariance of zero (no relationship between variables).<br />
+<br></p>
+<p>The <em>population</em> covariance can be expressed as:
+<span class="math display">\[cov(X,Y)=\sigma_{XY}=\frac{\sum_{i=1}^N (x_i-\mu_x)(y_i-\mu_y)}{N}\]</span></p>
+<p>Where <span class="math inline">\(x_i\)</span> and <span class="math inline">\(y_i\)</span> correspond to the values of random variables <em>X</em> and <em>Y</em> for the <em>i</em>th observation in a populaiton of size <em>N</em>, and <span class="math inline">\(\mu_x\)</span> and <span class="math inline">\(\mu_y\)</span> are the respective population means. Again, the important takeaway is that when the product of <span class="math inline">\((x_i-\mu_x)\)</span> and <span class="math inline">\((y_i-\mu_y)\)</span> is <em>consistently</em> positive or negative across observations, the <em>x</em> and <em>y</em> variables are consistently deviating from their means in a similar or opposite manner, resulting in a positive or negative covariance.<br />
+<br></p>
+<p>To estimate covariance from a <em>sample</em>, we divide by the degrees of freedom (<em>n</em> - 1) instead of dividing by <em>n</em>:
+<span class="math display">\[cov(x,y)=s_{xy}=\frac{\sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})}{n-1}\]</span></p>
+</div>
+<div id="correlation" class="section level3">
+<h3><span class="header-section-number">12.2.2</span> correlation</h3>
+<p>Remember when we noted (in Chapter 9) that variables with larger values on average tend to have larger variances as well (the “positive mean-variance relationship”)? This dependence of variance magnitude on variable “scale” similarly applies to covariance. That is, if one or more variables that covary have relatively large values, it will be reflected in the magnitude of the covariance. For this reason, and much in the same way we use the coefficient of variation (CV) to adjust for scale when comparing standard deviations, we often use a standardized covariance called the <strong><em>correlation coefficient</em></strong> that is obtained by dividing the covariance by the standard deviations of <em>x</em> and <em>y</em>. The correlation coefficient, therefore, ranges from -1 to 1. Values of -1 and 1 indicate perfect linear relationships, and a value of 0 indicates uncorrelated variables. The correlation coefficient (sometimes called the Pearson correlation coefficient) for a <em>population</em> is:
+<span class="math display">\[\rho_{XY}=\frac{cov(X,Y)}{\sigma_X\sigma_Y} \]</span></p>
+<p>Where <span class="math inline">\(cov(X,Y)\)</span> is the population covariance between variables <em>X</em> and <em>Y</em>, and <span class="math inline">\(\sigma_X\)</span> and <span class="math inline">\(\sigma_Y\)</span> are the population standard deviations for <em>X</em> and <em>Y</em>.
+<br></p>
+<p>For a <em>sample</em>, the Pearson correlation coefficient can be calculated as:
+<span class="math display">\[r_{xy}=\frac{\sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n (x_i-\bar{x})^2}\sqrt{\sum_{i=1}^n (y_i-\bar{y})^2}}\]</span></p>
+<p>Where <span class="math inline">\(\bar{x}\)</span> and <span class="math inline">\(\bar{y}\)</span> are the sample means for variables <em>x</em> and <em>y</em>, and <em>n</em> is the sample size.
+<br></p>
+<p>The following scatter plots show a range of scenarios for two variables <em>x</em> and <em>y</em>, depicting various relationship types and corresponding covariance and correlation values.</p>
+<p><img src="foundational_statistics_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+<p>In plots A and B we see a positive covariance and correlation. In B the covariance is large because the scale of <em>x</em> is 10 times larger than in A, but the correlation coefficient is the same. In C we see a negative relationship between <em>x</em> and <em>y</em> (<em>y</em> decreases as <em>x</em> increases), and with covariance and correlation of greater magnitude than in A, owing to a “tighter” relationship. In plot D values for the variables <em>x</em> and <em>y</em> were both drawn randomly and independently, so there is no significant correlation or covariance.</p>
+</div>
+<div id="hyptohesis-tests-for-correlation" class="section level3">
+<h3><span class="header-section-number">12.2.3</span> hyptohesis tests for correlation</h3>
+<p>Formal hypothesis tests about correlation concern whether or not the population correlation coefficient (<span class="math inline">\(\rho\)</span>) differs from zero. The null and alternative hypothesis statements are as follows</p>
+<p><br></p>
+<p><span class="math display">\[H_0 : \rho_1 = 0\]</span></p>
+<p><span class="math display">\[H_A: \rho_1 \neq 0\]</span></p>
+<p>The null hypothesis can be tested by calculating a <em>t</em> statistic, which is the sample correlation coefficient (<em>r</em>) standardized by its standard error. Below is one way to calculate <em>t</em>:
+<span class="math display">\[t=r\sqrt{\frac{n-2}{1-r^2}}\]</span></p>
+<p>Where <em>n</em> is the sample size and <em>r</em> is the sample correlation coefficient. This <em>t</em> statistic can then be compared to a <em>t</em> distribution with <em>n</em>-2 degrees of freedom. In <code>R</code> the function <code>cor.test()</code> can be used for this parametric test, but keep in mind that the following assumptions apply:</p>
+<ul>
+<li><p>The relationship being tested under the alternative hypothesis is assumed to be linear (as opposed to strongly curvilinear), as the Pearson correlation coefficient won’t characterize non-linear relationships adequately.</p></li>
+<li><p>The “joint probability distribution” of the two variables in the population (and therefore the sample) is assumed to be bivariate normal. For this to be true, both <em>x</em> and <em>y</em> variables should be approximately normally distributed in the sample.</p></li>
+</ul>
+<p><br></p>
+<p>There are non-parametric alternatives to test the above null hypothesis that <span class="math inline">\(\rho\)</span> = 0 when either of these assumptions is not met. Rank-based approaches calculate a test statistc based on the ranks of <em>x</em> and <em>y</em> values, so they are appropriate as long as the association between the variables is monotonic (consistently increasing or decreasing) in nature. The Spearman’s rank correlation test is best suited for small sample sizes (e.g. <em>n</em> &lt; 30), and the Kendall’s tau (<span class="math inline">\(\tau\)</span>) test is more appropriate for larger sample sizes. These tests can also be performed in <code>R</code> using the <code>cor.test()</code> function, by supplying either “pearson” or “kendall” to the <code>method</code> argument. Yeta another nonparametric option would be to peform a randomization or bootstrap test for <span class="math inline">\(\rho\)</span> = 0, by either shuffling or resampling <em>x</em> and <em>y</em> values independently to generate a null distribution for the sample correlation coefficient <em>r</em>.</p>
+<p><br></p>
+<p>You may have noticed that correlation analysis can tell us whether, in what direction, and how “tightly” two variables are correlated, but it is agnostic with respect to other properties of the relationship, namely the <em>steepness</em> of the relationship (i.e. the rate at which <em>y</em> decreases (or increases) with an increase in <em>x</em>). This parameter, which is extremely important to understand in a variety of practical contexts, is inferred using linear regression.</p>
+</div>
+</div>
+<div id="simple-linear-regression" class="section level2">
+<h2><span class="header-section-number">12.3</span> Simple linear regression</h2>
+<p>We can also model linear relationships between variables using linear equations, with which you are probably quite familiar. Linear regression, as we refer to this approach in statistics, has been around since the 19th Century, when the biometrician Francis Galton developed it to understand phenotypic similarity between human parents and their offspring. One of the traits Galton studied extensively, for example, was adult height. Linear regression models describe how the magnitude of a response variable <em>y</em> changes as a function of a predictor variable <em>x</em>, based on the generic equation <span class="math inline">\(y=bx+a\)</span>. In this equation <em>b</em> (the slope) gives the amount of change that occurs in <em>y</em> per unit of <em>x</em>, and <em>a</em> is the “y-intercept” (the value of <em>y</em> when <em>x</em> = 0). Not surprisingly, <em>b</em> &gt; 0 indicates a positive relationship between <em>x</em> and <em>y</em>, <em>b</em> &lt; 0 indicates a negative relationship, and when <em>b</em> = 0 there is no linear relationship between <em>x</em> and <em>y</em></p>
+<p><br></p>
+<p>If we consider <em>X</em> and <em>Y</em> as random variables in a population, from an estimation standpoint we may naturally be interested in estimating the population slope <span class="math inline">\(\beta_1\)</span>. The population y-intercept <span class="math inline">\(\beta_0\)</span> is also a parameter in the linear regression model, but it is usually of little interest inference-wise. Under our usual sampling-based inference framework we can represent a simple linear regression model as:
+<span class="math display">\[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]</span>
+Where our sample includes <em>y</em> and <em>x</em> values across <em>i</em> observations, and with the aforementioned designations for population slope and intercept. Importantly, because we rarely expect a perfect, straight-line relationship between <em>X</em> and <em>Y</em>, we include an “error” (or “residual”) term <span class="math inline">\(\varepsilon_i\)</span> in the model. This term absorbs any “noise” (i.e. random error unexplained by the effect of <em>X</em>), and can be quantified by departures of <em>y</em> values from the straight line dictated by the model. We will return to these departures, also called “residuals” repeatedly in this chapter and the next. You may be asking how we estimate <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_0\)</span> from a sample. Similar to using a formula to calculate a sample mean, a sample correlation coefficient, etc., we can calculate a sample slope (<span class="math inline">\(b_1\)</span>) and intercept (<span class="math inline">\(b_0\)</span>) using one of several “best fit” equations. One of these, known as <strong><em>ordinary least squares (OLS)</em></strong>, or “model I regression,” derives a linear equation for a straight line such that the vertical distances between <em>y</em>-values in the sample and points on the line (the “predicted” <em>y</em>-values) are minimized. Effectively, the goal with this approach is to minimize the variation in <em>y</em> unexplained by <em>x</em>. The slope and intercept of this “best fit line” are (<span class="math inline">\(b_1\)</span>) and (<span class="math inline">\(b_0\)</span>), our estimates for <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_0\)</span>.</p>
+<div id="hypothesis-tests-in-linear-regression" class="section level3">
+<h3><span class="header-section-number">12.3.1</span> Hypothesis tests in linear regression</h3>
+<p>The first hypothesis testing approach for linear regression involves the individual parameters (<span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_0\)</span>) themselves. We can state a null hypothesis for the slope and intercept:
+<span class="math display">\[H_0:  \beta_1=0\]</span></p>
+<p><span class="math display">\[H_0:  \beta_0=0\]</span></p>
+<p>Alternative hypotheses are, of course, that these parameters are not equal to zero. As discussed, a nonzero population slope indicates a relationship between <em>X</em> and <em>Y</em>, and the slope’s magnitude indicates the rate at which <em>Y</em> changes with <em>X</em>. A nonzero <em>y</em>-intercept indicates the “background” level for <em>Y</em> in the absence of <em>X</em> but, as stated, is usually not of too much interest. Both the sample slope and sample intercept can be used to calculate respective <em>t</em> statistics (<span class="math inline">\(t=\frac{b}{s_b}\)</span>), where the denominator is the usual standard error of the point estimate, and <em>t</em> can be compared to a <em>t</em> distribution with <em>n</em> - 2 degrees of freedom.</p>
+<p><br></p>
+<p>A more generalized framework for testing linear regression hypotheses involves considering the amount of variation explained by the <strong><em>full</em></strong> linear model (<span class="math inline">\(y_i=\beta_0+\beta_1x_i+\varepsilon_i\)</span>) relative to the amount of variation it does not explain. If the amount of variation in <em>y</em> explained by the full model is significantly greater than the amount unexplained, we should reject our null hypothesis of a zero slope. In practice, though, we can only directly measure <em>unexplained variation</em>, so we calculate the difference between the unexplained variation in the <strong><em>reduced model</em></strong>, in which the slope is set to zero (<span class="math inline">\(y_i=\beta_0+\varepsilon_i\)</span>), and the unexplained variation in the full model above. If this difference is large, it means that the full model explains a lot of variation in <em>y</em>, and, as said, we should reject our null hypothesis.</p>
+<p><br></p>
+<p>You may be wondering how we quantify the variation unexplained in full and reduced linear models. This brings us back to the concept of <strong><em>residuals</em></strong>. By calculating the sum of squared deviations of observed <em>y</em> values from <em>y</em> values predicted under a given model (which we call <span class="math inline">\(\hat{y}\)</span>s), we can measure unexplained variation. These measures are referred to “sums of squares” (SS). Based on what was stated above, the expression <span class="math inline">\(\frac{SS_{reduced}-SS_{full}}{SS_{full}}\)</span> gives us the ratio we need to test the null hypothesis. The following example illustrates how SSs work for reduced and full models.</p>
+<p><img src="images/images_4b.011.jpeg" width="512" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<p>In this example, there is appears to be a negative relationship between body mass and captures. The reduced model, with a slope of zero, is not as good a fit, so the SS (reflected in the vertical lines characterizing residuals) is greater than in the full model.</p>
+<p><br></p>
+<p>Under the assumptions below, the ratio of explained to unexplained variation (called an <em>F</em>-ratio) can be compared to the <em>F</em> distribution for the null hypothesis test. Extremely large values of <em>F</em> are unlikely to be observed due to random chance under the null hypothesis, so if the <em>F</em>-ratio is large enough, we reject the null hypothesis.</p>
+<ul>
+<li><p>A linear relationship between the variables under the alternative hypothesis is assumed. Non-linear relationships (such as curvilinear ones) are not modeled adequately by this framework and need to be analyzed differently. This assumption can be checked with a scatter plot.</p></li>
+<li><p>Both variables are assumed to be normally distributed, so samples should also reflect normality, and can be checked in the usual ways (boxplots, histograms, etc.).</p></li>
+<li><p>Variance of the response variable (i.e. <em>y</em>) is assumed to be homogeneous across all values of the explantatory variable (i.e. <em>x</em>). In regression, this assumption is evaluted in the context of the fitted line. The residuals should form a uniform “band” of points when plotted against predicted values of <em>y</em>. A “residual plot” will address this assumption. Below is an example of what to look for in that plot type.</p></li>
+</ul>
+<p><img src="images/images_4b.018.jpeg" width="512" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<p>In the plots above, (a) shows the expected residual pattern under our assumptions, while (b), (c), and (d) show patterns of unequal or systematically changing variance, all violations of linear regression assumptions. The section below describes how to view a residual plot in <code>R</code>.</p>
+</div>
+<div id="linear-regression-in-r" class="section level3">
+<h3><span class="header-section-number">12.3.2</span> linear regression in <code>R</code></h3>
+<p>Fitting a regression model in <code>R</code> is very simple. We use the function <code>lm()</code> to specify the structure of the model. The <code>lm()</code> function can actually be used to fit an entire class of models we call “general linear models.” We will return to this idea in the next chapter, when we discuss categorical predictors and ANOVA. For now, know that you can fit a simple regression model with <code>lm()</code> using the simple <code>~</code> syntax. The response (<em>y</em>) variable goes to the left of the <code>~</code>, and the predictor variable to the right. Below is an example of how to fit a regression model for the toy data set (panel A) used to demonstrate covariance and correlation above.</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" data-line-number="1"><span class="co">## First, plot the relationship with a scatter plot</span></a>
+<a class="sourceLine" id="cb118-2" data-line-number="2"><span class="kw">plot</span>(x_<span class="dv">1</span>, y_<span class="dv">1</span>, <span class="dt">cex=</span><span class="fl">0.7</span>, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">ylab=</span><span class="st">&quot;y&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>)</a></code></pre></div>
+<p><img src="foundational_statistics_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="co">## Define the model using the lm() function and assign it to the object &quot;reg_mod_1&quot;</span></a>
+<a class="sourceLine" id="cb119-2" data-line-number="2">reg_mod_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(y_<span class="dv">1</span> <span class="op">~</span><span class="st"> </span>x_<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb119-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb119-4" data-line-number="4"><span class="co">## We can make a residual plot to help evaluate assumptions</span></a>
+<a class="sourceLine" id="cb119-5" data-line-number="5"><span class="kw">plot</span>(reg_mod_<span class="dv">1</span><span class="op">$</span>fitted.values, reg_mod_<span class="dv">1</span><span class="op">$</span>residuals, <span class="dt">xlab=</span><span class="st">&quot;predicted y&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;residuals&quot;</span>)</a></code></pre></div>
+<p><img src="foundational_statistics_files/figure-html/unnamed-chunk-82-2.png" width="672" /></p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" data-line-number="1"><span class="co">## We can use the summary() function to look at parameter estimates and hypothesis tests</span></a>
+<a class="sourceLine" id="cb120-2" data-line-number="2"><span class="kw">summary</span>(reg_mod_<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = y_1 ~ x_1)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.0042 -0.8783 -0.2644  1.1652  2.2413 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  1.02754    0.52547   1.955   0.0577 .  
+## x_1          0.79920    0.07803  10.243 1.29e-12 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.437 on 39 degrees of freedom
+## Multiple R-squared:  0.729,  Adjusted R-squared:  0.7221 
+## F-statistic: 104.9 on 1 and 39 DF,  p-value: 1.292e-12</code></pre>
+<p>As you can see in the example, our assumptions look to be met, and our hypothesis tests (both for the individual slope via <em>t</em>-test and equivalently for the full model via <em>F</em>-test), suggest that we should reject the null hypothesis of no linear relationship with high confidence. Also note that the parameter estimates are reported in the output. In this case we care the most about the population slope, which is estimated to be 0.7992.</p>
+</div>
+<div id="a-note-on-the-coefficient-of-determination" class="section level3">
+<h3><span class="header-section-number">12.3.3</span> a note on the coefficient of determination</h3>
+<p>There is a clear connection between regression and correlation if we consider the sources of unexplained variation in a regression model. As it turns out <span class="math inline">\(1-\frac{SS_{full}}{SS_{reduced}}\)</span> quantifies the proportion of variance in <em>y</em> that is explained by <em>x</em>. This quantity is also called <span class="math inline">\(r^2\)</span>, the “coefficient of determination,” and, for simple linear regression, is the square of the correlation coefficient <span class="math inline">\(r\)</span>. <span class="math inline">\(r^2\)</span>s (sometimes called “R-squred values”) are commonly reported in regression analysis results.</p>
+</div>
+<div id="a-note-on-model-ii-regression" class="section level3">
+<h3><span class="header-section-number">12.3.4</span> a note on model II regression</h3>
+<p>As stated, OLS regression assumes that we don’t have any error associated with our explanatory variable (<em>x</em>) values. While this certainly the case for experiments in which we set those values or can establish them with great precision, at least, in many cases (especially in observational or descriptive studies) we have as much measurement error for the <em>x</em> variable as we do for the <em>y</em> variable. In these cases, that uncertainty of measurement for <em>x</em> needs to be accounted for when fitting regression models. We use models classified as “model II” for these cases. Going into details about them is beyond the scope of this course, but you should at least know that they exist. The figure below depicts how residuals are calculated for three different versions of model II regression.</p>
+<p><img src="images/images_5a.002.jpeg" width="500" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<ul>
+<li><p>Major Axis (MA) regression should be used when <em>x</em> and <em>y</em> have the same error, and they have the same units or are dimensionless.</p></li>
+<li><p>Ranged Major Axis (ranged MA) regresion should be used when there is error in both <em>x</em> and <em>y</em>, but if they are on different scales or have different units. This approach should not be used when there are outliers (observations with large residuals).</p></li>
+<li><p>Reduced Major Axis (RMA or SMA) regression should be used when there is error in both <em>x</em> and <em>y</em>, but if they are on different scales or have different units. This method is robust to outliers and used when the two variables are strongly correlated.</p></li>
+</ul>
+</div>
+</div>
+<div id="exercises-associated-with-this-chapter-7" class="section level2">
+<h2><span class="header-section-number">12.4</span> Exercises associated with this chapter:</h2>
+<ul>
+<li>Problem Set 3</li>
+</ul>
+</div>
+<div id="additional-learning-resources-7" class="section level2">
+<h2><span class="header-section-number">12.5</span> Additional learning resources:</h2>
+<ul>
+<li><p>Irizarry, R. A. Introduction to Data Science. <a href="https://rafalab.github.io/dsbook/" class="uri">https://rafalab.github.io/dsbook/</a> - A gitbook written by a statistician, with great introductions to key topics in statistical inference.</p></li>
+<li><p>Logan, M. 2010. Biostatistical Design and Analysis Using R. - A great intro to R for statistical analysis</p></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction-to-hypothesis-tests.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/11-correlation_regression.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["foundational_statistics.pdf", "foundational_statistics.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

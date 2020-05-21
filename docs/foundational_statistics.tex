@@ -118,7 +118,7 @@
 
 \title{Foundational Statistics - Bi 610 - Spring 2020}
 \author{Clayton M. Small and William A. Cresko}
-\date{2020-05-14}
+\date{2020-05-21}
 
 \begin{document}
 \maketitle
@@ -1163,23 +1163,23 @@ Note that factor levels are reported alphabetically. I used the \texttt{class()}
 \end{Shaded}
 
 \begin{verbatim}
-##   [1]  -65.266896  -30.827069  -86.035309 -214.774711   -7.896535  -66.116162
-##   [7] -197.326195 -177.249910   46.313714   64.653512 -150.389208  -71.743680
-##  [13] -154.338995   14.617681   48.653022  -20.689159 -100.155935   -7.326197
-##  [19]  253.478815    8.412175   72.243322 -113.428606    4.619414  -25.630430
-##  [25] -149.177267   -8.115187    5.125217  -90.584902   82.815675  170.841473
-##  [31]  150.946160   91.167373   46.347102   63.524562   23.309270  139.370456
-##  [37]    6.354960    9.797533   42.510745   20.776038  200.761207  -50.161708
-##  [43]   73.836436  -61.614425  -68.474721 -203.444397   55.418896  -95.620189
-##  [49] -198.525664  -49.935007  139.794340  -95.451695  -23.671138  111.082149
-##  [55]  -58.295659 -131.635051   13.651075  -35.488002  -10.898505  -48.738018
-##  [61]  -89.439468   15.996228  -77.190547  -44.876975 -120.304373  125.777473
-##  [67]  -55.608352 -137.380309 -120.855416   74.840472   18.057998   26.190819
-##  [73]  253.448491 -119.163753 -118.862041  -68.637943  126.119756   73.902865
-##  [79]  -34.472049  150.885519    6.774799  146.195801    8.117310   48.662646
-##  [85]   33.354944   -4.766449  186.327745    3.763802   13.491137    5.250896
-##  [91]   -2.336939  -69.168707 -112.812186  -79.854300   28.292477  -68.353170
-##  [97]   65.452275  176.175807 -163.995832   48.392656
+##   [1]   82.585813   17.197688  -98.222231    1.676155   52.154331    3.469853
+##   [7]  -24.102905   -7.490737  157.029755   29.816953 -102.612918  -70.413218
+##  [13] -197.200216  -29.854518  110.464532   20.784773  139.043624  205.108175
+##  [19]   90.394463    6.941793 -139.704208 -126.346427  143.588851   96.498726
+##  [25]  291.516510  -43.363962   24.790851  -36.937633   44.940519   22.003231
+##  [31]   88.695486  -83.058456   35.976193   98.130615  -24.514779  -68.090142
+##  [37]   11.717744 -213.402068   45.938618   13.137587  -48.127879 -110.060229
+##  [43]   33.686430  -11.402240 -122.703833    1.493803  -36.320920  -11.319833
+##  [49]   92.444919 -176.399346   41.513744  -38.161664   78.557489   68.323958
+##  [55]   59.933018  -54.337675   74.455690  -60.810672 -127.471778   15.112981
+##  [61]    4.447024  -21.195271   75.425062   29.592908  -94.749393  -42.223687
+##  [67] -203.101648   66.437989 -245.122566  -13.716066   -6.733779  -18.652018
+##  [73] -203.557515  -54.411965   32.750502   38.287288  -98.673396  -99.018272
+##  [79]    7.568496   66.251194   14.895264   35.719907  -25.952585   46.323283
+##  [85] -120.319466   49.240888  160.073368   66.473660  -32.423630  -55.677980
+##  [91]   14.455975  156.245790   53.803041 -149.929515  -70.313989  -38.708958
+##  [97]  -53.738122 -119.780641   50.688592  180.054078
 \end{verbatim}
 
 \begin{Shaded}
@@ -1797,16 +1797,16 @@ In the example below, we ``shuffle'' the order of the integers 1 through 10 five
 
 \begin{verbatim}
 ##       [,1] [,2] [,3] [,4] [,5]
-##  [1,]    9    7   10    4    9
-##  [2,]    5    6    9    3    7
-##  [3,]    8    9    2   10    2
-##  [4,]    7    5    1    8    5
-##  [5,]    6    3    5    6    1
-##  [6,]    4   10    6    5    6
-##  [7,]    1    8    3    1    8
-##  [8,]    3    4    4    7    3
-##  [9,]    2    1    7    9   10
-## [10,]   10    2    8    2    4
+##  [1,]    8    4    5   10    4
+##  [2,]    3    1   10    3    8
+##  [3,]    7    2    1    8    9
+##  [4,]   10    8    6    6    7
+##  [5,]    2    6    8    4    5
+##  [6,]    6    7    4    2    2
+##  [7,]    5    9    2    1    6
+##  [8,]    1   10    7    5    3
+##  [9,]    4    5    9    7   10
+## [10,]    9    3    3    9    1
 \end{verbatim}
 
 Note that the first argument is the number of total iterations we want to reproduce, and that the function returns a matrix as output.
@@ -3234,6 +3234,214 @@ A similar approach may be taken by randomly resampling (with replacement) from t
 
 \hypertarget{additional-learning-resources-6}{%
 \section{Additional learning resources:}\label{additional-learning-resources-6}}
+
+\begin{itemize}
+\item
+  Irizarry, R. A. Introduction to Data Science. \url{https://rafalab.github.io/dsbook/} - A gitbook written by a statistician, with great introductions to key topics in statistical inference.
+\item
+  Logan, M. 2010. Biostatistical Design and Analysis Using R. - A great intro to R for statistical analysis
+\end{itemize}
+
+\hypertarget{correlation-and-simple-linear-regression}{%
+\chapter{Correlation and Simple Linear Regression}\label{correlation-and-simple-linear-regression}}
+
+\hypertarget{background-6}{%
+\section{Background}\label{background-6}}
+
+Quite frequently we want to know whether two continuous variables are \emph{related} based on measuring them in the same set of observations, and if so, how and how strongly they are related. When two random variables (say \emph{X} and \emph{Y}) deviate from their respective means in a systematic, predictable way, we say that they \textbf{\emph{covary}}, or that they are \textbf{\emph{correlated}} variables. Levels of expression for pairs of genes, for example, are often correlated, especially if the genes are members of the same regulatory network. Two genes may share the same transcription factor, for instance, and when the abundance of that transcription factor increases in cells, so do transcript levels for the two genes. In this case if you measure abundance of both transcripts in a sample of cells, tissues, individuals, or whatever, you may well find many observations with low expression values for both genes, many with moderate expression values for both, and many with high values for both genes. Cleary in this situation there appears to be a ``positive'' relationship bewteen the two gene expression variables, but as statisticians how do we formally describe the relationship better, and how might we make inferences about the system from a sample? This chapter focuses on the estimation of parameters, and the testing of hypotheses, relevant to relationships between quantitative variables.
+
+\hypertarget{covariance-and-correlation}{%
+\section{Covariance and correlation}\label{covariance-and-correlation}}
+
+Before we get into the parameters of interest and how we estimate them from samples, we should first make some practical considerations. Two variables may covary for a number of reasons, which may or may not involve one variable systematically influencing the other. We would call that a ``causal'' relationship, but covariance can arise for non-causal reasons too, such as in the example above. In that example the expression level of ``gene A'' was not influenced by the expression of ``gene B,'' but the two covaried simply because they were affected in similar ways by a third force (the transcription factor). This can be an important distinction (between causal and non-causal relationships) when thinking about how to proceed with analysis because for some statistics (like covariance and correlation) causality is not assumed or interpreted, but for other approaches (like regression) it might be. In the case of regression, which we will return to later in this chapter, there is a clear dependent (response) and independent (explanatory) variable. Regression models, especially in the case of controlled experiments in which the values of the explanatory variable are set and assigned by the experimentors, the goal is often to understand whether, and if so by what magnitude, that variable directly influences the response variable in order to test hypothesis and/or make predictions about the system.
+
+\hypertarget{covariance}{%
+\subsection{covariance}\label{covariance}}
+
+We stated above that ``systematic deviation from respective means'' defines a situation in which two variables covary, but how do we actually convey this numerically? One statistic, known as the \textbf{\emph{covariance}}, multiplies each \emph{y} and \emph{x} deviation (for a given observation) from its respective mean, sums that product across all observations, and divides by the total number of observations to yield an average. If individual values of one variable deviate from their mean in one direction, and \emph{corresponding} values of the other variable consistently deviate from their mean in the same (or the opposite) direction, the products in the sum will be either consistently positive or consistently negative, resulting in a substantial positive covariance, or a substantial negative covariance, respectively. If there is no consistent, directional deviation for the two variables, on the other hand, the products will sum to a covariance of zero (no relationship between variables).\\
+
+The \emph{population} covariance can be expressed as:
+\[cov(X,Y)=\sigma_{XY}=\frac{\sum_{i=1}^N (x_i-\mu_x)(y_i-\mu_y)}{N}\]
+
+Where \(x_i\) and \(y_i\) correspond to the values of random variables \emph{X} and \emph{Y} for the \emph{i}th observation in a populaiton of size \emph{N}, and \(\mu_x\) and \(\mu_y\) are the respective population means. Again, the important takeaway is that when the product of \((x_i-\mu_x)\) and \((y_i-\mu_y)\) is \emph{consistently} positive or negative across observations, the \emph{x} and \emph{y} variables are consistently deviating from their means in a similar or opposite manner, resulting in a positive or negative covariance.\\
+
+To estimate covariance from a \emph{sample}, we divide by the degrees of freedom (\emph{n} - 1) instead of dividing by \emph{n}:
+\[cov(x,y)=s_{xy}=\frac{\sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})}{n-1}\]
+
+\hypertarget{correlation}{%
+\subsection{correlation}\label{correlation}}
+
+Remember when we noted (in Chapter 9) that variables with larger values on average tend to have larger variances as well (the ``positive mean-variance relationship'')? This dependence of variance magnitude on variable ``scale'' similarly applies to covariance. That is, if one or more variables that covary have relatively large values, it will be reflected in the magnitude of the covariance. For this reason, and much in the same way we use the coefficient of variation (CV) to adjust for scale when comparing standard deviations, we often use a standardized covariance called the \textbf{\emph{correlation coefficient}} that is obtained by dividing the covariance by the standard deviations of \emph{x} and \emph{y}. The correlation coefficient, therefore, ranges from -1 to 1. Values of -1 and 1 indicate perfect linear relationships, and a value of 0 indicates uncorrelated variables. The correlation coefficient (sometimes called the Pearson correlation coefficient) for a \emph{population} is:
+\[\rho_{XY}=\frac{cov(X,Y)}{\sigma_X\sigma_Y} \]
+
+Where \(cov(X,Y)\) is the population covariance between variables \emph{X} and \emph{Y}, and \(\sigma_X\) and \(\sigma_Y\) are the population standard deviations for \emph{X} and \emph{Y}.
+
+For a \emph{sample}, the Pearson correlation coefficient can be calculated as:
+\[r_{xy}=\frac{\sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^n (x_i-\bar{x})^2}\sqrt{\sum_{i=1}^n (y_i-\bar{y})^2}}\]
+
+Where \(\bar{x}\) and \(\bar{y}\) are the sample means for variables \emph{x} and \emph{y}, and \emph{n} is the sample size.
+
+The following scatter plots show a range of scenarios for two variables \emph{x} and \emph{y}, depicting various relationship types and corresponding covariance and correlation values.
+
+\includegraphics{foundational_statistics_files/figure-latex/unnamed-chunk-79-1.pdf}
+
+In plots A and B we see a positive covariance and correlation. In B the covariance is large because the scale of \emph{x} is 10 times larger than in A, but the correlation coefficient is the same. In C we see a negative relationship between \emph{x} and \emph{y} (\emph{y} decreases as \emph{x} increases), and with covariance and correlation of greater magnitude than in A, owing to a ``tighter'' relationship. In plot D values for the variables \emph{x} and \emph{y} were both drawn randomly and independently, so there is no significant correlation or covariance.
+
+\hypertarget{hyptohesis-tests-for-correlation}{%
+\subsection{hyptohesis tests for correlation}\label{hyptohesis-tests-for-correlation}}
+
+Formal hypothesis tests about correlation concern whether or not the population correlation coefficient (\(\rho\)) differs from zero. The null and alternative hypothesis statements are as follows
+
+\[H_0 : \rho_1 = 0\]
+
+\[H_A: \rho_1 \neq 0\]
+
+The null hypothesis can be tested by calculating a \emph{t} statistic, which is the sample correlation coefficient (\emph{r}) standardized by its standard error. Below is one way to calculate \emph{t}:
+\[t=r\sqrt{\frac{n-2}{1-r^2}}\]
+
+Where \emph{n} is the sample size and \emph{r} is the sample correlation coefficient. This \emph{t} statistic can then be compared to a \emph{t} distribution with \emph{n}-2 degrees of freedom. In \texttt{R} the function \texttt{cor.test()} can be used for this parametric test, but keep in mind that the following assumptions apply:
+
+\begin{itemize}
+\item
+  The relationship being tested under the alternative hypothesis is assumed to be linear (as opposed to strongly curvilinear), as the Pearson correlation coefficient won't characterize non-linear relationships adequately.
+\item
+  The ``joint probability distribution'' of the two variables in the population (and therefore the sample) is assumed to be bivariate normal. For this to be true, both \emph{x} and \emph{y} variables should be approximately normally distributed in the sample.
+\end{itemize}
+
+There are non-parametric alternatives to test the above null hypothesis that \(\rho\) = 0 when either of these assumptions is not met. Rank-based approaches calculate a test statistc based on the ranks of \emph{x} and \emph{y} values, so they are appropriate as long as the association between the variables is monotonic (consistently increasing or decreasing) in nature. The Spearman's rank correlation test is best suited for small sample sizes (e.g. \emph{n} \textless{} 30), and the Kendall's tau (\(\tau\)) test is more appropriate for larger sample sizes. These tests can also be performed in \texttt{R} using the \texttt{cor.test()} function, by supplying either ``pearson'' or ``kendall'' to the \texttt{method} argument. Yeta another nonparametric option would be to peform a randomization or bootstrap test for \(\rho\) = 0, by either shuffling or resampling \emph{x} and \emph{y} values independently to generate a null distribution for the sample correlation coefficient \emph{r}.
+
+You may have noticed that correlation analysis can tell us whether, in what direction, and how ``tightly'' two variables are correlated, but it is agnostic with respect to other properties of the relationship, namely the \emph{steepness} of the relationship (i.e.~the rate at which \emph{y} decreases (or increases) with an increase in \emph{x}). This parameter, which is extremely important to understand in a variety of practical contexts, is inferred using linear regression.
+
+\hypertarget{simple-linear-regression}{%
+\section{Simple linear regression}\label{simple-linear-regression}}
+
+We can also model linear relationships between variables using linear equations, with which you are probably quite familiar. Linear regression, as we refer to this approach in statistics, has been around since the 19th Century, when the biometrician Francis Galton developed it to understand phenotypic similarity between human parents and their offspring. One of the traits Galton studied extensively, for example, was adult height. Linear regression models describe how the magnitude of a response variable \emph{y} changes as a function of a predictor variable \emph{x}, based on the generic equation \(y=bx+a\). In this equation \emph{b} (the slope) gives the amount of change that occurs in \emph{y} per unit of \emph{x}, and \emph{a} is the ``y-intercept'' (the value of \emph{y} when \emph{x} = 0). Not surprisingly, \emph{b} \textgreater{} 0 indicates a positive relationship between \emph{x} and \emph{y}, \emph{b} \textless{} 0 indicates a negative relationship, and when \emph{b} = 0 there is no linear relationship between \emph{x} and \emph{y}
+
+If we consider \emph{X} and \emph{Y} as random variables in a population, from an estimation standpoint we may naturally be interested in estimating the population slope \(\beta_1\). The population y-intercept \(\beta_0\) is also a parameter in the linear regression model, but it is usually of little interest inference-wise. Under our usual sampling-based inference framework we can represent a simple linear regression model as:
+\[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]
+Where our sample includes \emph{y} and \emph{x} values across \emph{i} observations, and with the aforementioned designations for population slope and intercept. Importantly, because we rarely expect a perfect, straight-line relationship between \emph{X} and \emph{Y}, we include an ``error'' (or ``residual'') term \(\varepsilon_i\) in the model. This term absorbs any ``noise'' (i.e.~random error unexplained by the effect of \emph{X}), and can be quantified by departures of \emph{y} values from the straight line dictated by the model. We will return to these departures, also called ``residuals'' repeatedly in this chapter and the next. You may be asking how we estimate \(\beta_1\) and \(\beta_0\) from a sample. Similar to using a formula to calculate a sample mean, a sample correlation coefficient, etc., we can calculate a sample slope (\(b_1\)) and intercept (\(b_0\)) using one of several ``best fit'' equations. One of these, known as \textbf{\emph{ordinary least squares (OLS)}}, or ``model I regression,'' derives a linear equation for a straight line such that the vertical distances between \emph{y}-values in the sample and points on the line (the ``predicted'' \emph{y}-values) are minimized. Effectively, the goal with this approach is to minimize the variation in \emph{y} unexplained by \emph{x}. The slope and intercept of this ``best fit line'' are (\(b_1\)) and (\(b_0\)), our estimates for \(\beta_1\) and \(\beta_0\).
+
+\hypertarget{hypothesis-tests-in-linear-regression}{%
+\subsection{Hypothesis tests in linear regression}\label{hypothesis-tests-in-linear-regression}}
+
+The first hypothesis testing approach for linear regression involves the individual parameters (\(\beta_1\) and \(\beta_0\)) themselves. We can state a null hypothesis for the slope and intercept:
+\[H_0:  \beta_1=0\]
+
+\[H_0:  \beta_0=0\]
+
+Alternative hypotheses are, of course, that these parameters are not equal to zero. As discussed, a nonzero population slope indicates a relationship between \emph{X} and \emph{Y}, and the slope's magnitude indicates the rate at which \emph{Y} changes with \emph{X}. A nonzero \emph{y}-intercept indicates the ``background'' level for \emph{Y} in the absence of \emph{X} but, as stated, is usually not of too much interest. Both the sample slope and sample intercept can be used to calculate respective \emph{t} statistics (\(t=\frac{b}{s_b}\)), where the denominator is the usual standard error of the point estimate, and \emph{t} can be compared to a \emph{t} distribution with \emph{n} - 2 degrees of freedom.
+
+A more generalized framework for testing linear regression hypotheses involves considering the amount of variation explained by the \textbf{\emph{full}} linear model (\(y_i=\beta_0+\beta_1x_i+\varepsilon_i\)) relative to the amount of variation it does not explain. If the amount of variation in \emph{y} explained by the full model is significantly greater than the amount unexplained, we should reject our null hypothesis of a zero slope. In practice, though, we can only directly measure \emph{unexplained variation}, so we calculate the difference between the unexplained variation in the \textbf{\emph{reduced model}}, in which the slope is set to zero (\(y_i=\beta_0+\varepsilon_i\)), and the unexplained variation in the full model above. If this difference is large, it means that the full model explains a lot of variation in \emph{y}, and, as said, we should reject our null hypothesis.
+
+You may be wondering how we quantify the variation unexplained in full and reduced linear models. This brings us back to the concept of \textbf{\emph{residuals}}. By calculating the sum of squared deviations of observed \emph{y} values from \emph{y} values predicted under a given model (which we call \(\hat{y}\)s), we can measure unexplained variation. These measures are referred to ``sums of squares'' (SS). Based on what was stated above, the expression \(\frac{SS_{reduced}-SS_{full}}{SS_{full}}\) gives us the ratio we need to test the null hypothesis. The following example illustrates how SSs work for reduced and full models.
+
+\begin{center}\includegraphics[width=14.22in]{images/images_4b.011} \end{center}
+
+In this example, there is appears to be a negative relationship between body mass and captures. The reduced model, with a slope of zero, is not as good a fit, so the SS (reflected in the vertical lines characterizing residuals) is greater than in the full model.
+
+Under the assumptions below, the ratio of explained to unexplained variation (called an \emph{F}-ratio) can be compared to the \emph{F} distribution for the null hypothesis test. Extremely large values of \emph{F} are unlikely to be observed due to random chance under the null hypothesis, so if the \emph{F}-ratio is large enough, we reject the null hypothesis.
+
+\begin{itemize}
+\item
+  A linear relationship between the variables under the alternative hypothesis is assumed. Non-linear relationships (such as curvilinear ones) are not modeled adequately by this framework and need to be analyzed differently. This assumption can be checked with a scatter plot.
+\item
+  Both variables are assumed to be normally distributed, so samples should also reflect normality, and can be checked in the usual ways (boxplots, histograms, etc.).
+\item
+  Variance of the response variable (i.e. \emph{y}) is assumed to be homogeneous across all values of the explantatory variable (i.e. \emph{x}). In regression, this assumption is evaluted in the context of the fitted line. The residuals should form a uniform ``band'' of points when plotted against predicted values of \emph{y}. A ``residual plot'' will address this assumption. Below is an example of what to look for in that plot type.
+\end{itemize}
+
+\begin{center}\includegraphics[width=14.22in]{images/images_4b.018} \end{center}
+
+In the plots above, (a) shows the expected residual pattern under our assumptions, while (b), (c), and (d) show patterns of unequal or systematically changing variance, all violations of linear regression assumptions. The section below describes how to view a residual plot in \texttt{R}.
+
+\hypertarget{linear-regression-in-r}{%
+\subsection{\texorpdfstring{linear regression in \texttt{R}}{linear regression in R}}\label{linear-regression-in-r}}
+
+Fitting a regression model in \texttt{R} is very simple. We use the function \texttt{lm()} to specify the structure of the model. The \texttt{lm()} function can actually be used to fit an entire class of models we call ``general linear models.'' We will return to this idea in the next chapter, when we discuss categorical predictors and ANOVA. For now, know that you can fit a simple regression model with \texttt{lm()} using the simple \texttt{\textasciitilde{}} syntax. The response (\emph{y}) variable goes to the left of the \texttt{\textasciitilde{}}, and the predictor variable to the right. Below is an example of how to fit a regression model for the toy data set (panel A) used to demonstrate covariance and correlation above.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## First, plot the relationship with a scatter plot}
+\KeywordTok{plot}\NormalTok{(x_}\DecValTok{1}\NormalTok{, y_}\DecValTok{1}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"y"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"x"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{foundational_statistics_files/figure-latex/unnamed-chunk-82-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Define the model using the lm() function and assign it to the object "reg_mod_1"}
+\NormalTok{reg_mod_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(y_}\DecValTok{1} \OperatorTok{~}\StringTok{ }\NormalTok{x_}\DecValTok{1}\NormalTok{)}
+
+\CommentTok{## We can make a residual plot to help evaluate assumptions}
+\KeywordTok{plot}\NormalTok{(reg_mod_}\DecValTok{1}\OperatorTok{$}\NormalTok{fitted.values, reg_mod_}\DecValTok{1}\OperatorTok{$}\NormalTok{residuals, }\DataTypeTok{xlab=}\StringTok{"predicted y"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"residuals"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{foundational_statistics_files/figure-latex/unnamed-chunk-82-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## We can use the summary() function to look at parameter estimates and hypothesis tests}
+\KeywordTok{summary}\NormalTok{(reg_mod_}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = y_1 ~ x_1)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.0042 -0.8783 -0.2644  1.1652  2.2413 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  1.02754    0.52547   1.955   0.0577 .  
+## x_1          0.79920    0.07803  10.243 1.29e-12 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.437 on 39 degrees of freedom
+## Multiple R-squared:  0.729,  Adjusted R-squared:  0.7221 
+## F-statistic: 104.9 on 1 and 39 DF,  p-value: 1.292e-12
+\end{verbatim}
+
+As you can see in the example, our assumptions look to be met, and our hypothesis tests (both for the individual slope via \emph{t}-test and equivalently for the full model via \emph{F}-test), suggest that we should reject the null hypothesis of no linear relationship with high confidence. Also note that the parameter estimates are reported in the output. In this case we care the most about the population slope, which is estimated to be 0.7992.
+
+\hypertarget{a-note-on-the-coefficient-of-determination}{%
+\subsection{a note on the coefficient of determination}\label{a-note-on-the-coefficient-of-determination}}
+
+There is a clear connection between regression and correlation if we consider the sources of unexplained variation in a regression model. As it turns out \(1-\frac{SS_{full}}{SS_{reduced}}\) quantifies the proportion of variance in \emph{y} that is explained by \emph{x}. This quantity is also called \(r^2\), the ``coefficient of determination,'' and, for simple linear regression, is the square of the correlation coefficient \(r\). \(r^2\)s (sometimes called ``R-squred values'') are commonly reported in regression analysis results.
+
+\hypertarget{a-note-on-model-ii-regression}{%
+\subsection{a note on model II regression}\label{a-note-on-model-ii-regression}}
+
+As stated, OLS regression assumes that we don't have any error associated with our explanatory variable (\emph{x}) values. While this certainly the case for experiments in which we set those values or can establish them with great precision, at least, in many cases (especially in observational or descriptive studies) we have as much measurement error for the \emph{x} variable as we do for the \emph{y} variable. In these cases, that uncertainty of measurement for \emph{x} needs to be accounted for when fitting regression models. We use models classified as ``model II'' for these cases. Going into details about them is beyond the scope of this course, but you should at least know that they exist. The figure below depicts how residuals are calculated for three different versions of model II regression.
+
+\begin{center}\includegraphics[width=13.89in]{images/images_5a.002} \end{center}
+
+\begin{itemize}
+\item
+  Major Axis (MA) regression should be used when \emph{x} and \emph{y} have the same error, and they have the same units or are dimensionless.
+\item
+  Ranged Major Axis (ranged MA) regresion should be used when there is error in both \emph{x} and \emph{y}, but if they are on different scales or have different units. This approach should not be used when there are outliers (observations with large residuals).
+\item
+  Reduced Major Axis (RMA or SMA) regression should be used when there is error in both \emph{x} and \emph{y}, but if they are on different scales or have different units. This method is robust to outliers and used when the two variables are strongly correlated.
+\end{itemize}
+
+\hypertarget{exercises-associated-with-this-chapter-7}{%
+\section{Exercises associated with this chapter:}\label{exercises-associated-with-this-chapter-7}}
+
+\begin{itemize}
+\tightlist
+\item
+  Problem Set 3
+\end{itemize}
+
+\hypertarget{additional-learning-resources-7}{%
+\section{Additional learning resources:}\label{additional-learning-resources-7}}
 
 \begin{itemize}
 \item
