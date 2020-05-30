@@ -118,7 +118,7 @@
 
 \title{Foundational Statistics - Bi 610 - Spring 2020}
 \author{Clayton M. Small and William A. Cresko}
-\date{2020-05-21}
+\date{2020-05-29}
 
 \begin{document}
 \maketitle
@@ -1163,23 +1163,23 @@ Note that factor levels are reported alphabetically. I used the \texttt{class()}
 \end{Shaded}
 
 \begin{verbatim}
-##   [1]   82.585813   17.197688  -98.222231    1.676155   52.154331    3.469853
-##   [7]  -24.102905   -7.490737  157.029755   29.816953 -102.612918  -70.413218
-##  [13] -197.200216  -29.854518  110.464532   20.784773  139.043624  205.108175
-##  [19]   90.394463    6.941793 -139.704208 -126.346427  143.588851   96.498726
-##  [25]  291.516510  -43.363962   24.790851  -36.937633   44.940519   22.003231
-##  [31]   88.695486  -83.058456   35.976193   98.130615  -24.514779  -68.090142
-##  [37]   11.717744 -213.402068   45.938618   13.137587  -48.127879 -110.060229
-##  [43]   33.686430  -11.402240 -122.703833    1.493803  -36.320920  -11.319833
-##  [49]   92.444919 -176.399346   41.513744  -38.161664   78.557489   68.323958
-##  [55]   59.933018  -54.337675   74.455690  -60.810672 -127.471778   15.112981
-##  [61]    4.447024  -21.195271   75.425062   29.592908  -94.749393  -42.223687
-##  [67] -203.101648   66.437989 -245.122566  -13.716066   -6.733779  -18.652018
-##  [73] -203.557515  -54.411965   32.750502   38.287288  -98.673396  -99.018272
-##  [79]    7.568496   66.251194   14.895264   35.719907  -25.952585   46.323283
-##  [85] -120.319466   49.240888  160.073368   66.473660  -32.423630  -55.677980
-##  [91]   14.455975  156.245790   53.803041 -149.929515  -70.313989  -38.708958
-##  [97]  -53.738122 -119.780641   50.688592  180.054078
+##   [1]   50.157832   63.136887  -54.873824   36.341080  112.605766   83.139587
+##   [7]  -69.953528  -33.673726  -30.288692  206.454567 -104.185929 -125.719462
+##  [13]  -53.382693  111.185426   42.121898  -36.603515   77.052453   25.013531
+##  [19]   38.403640   31.528277  -93.704517 -302.269355  113.488161  -25.429816
+##  [25]  -12.550136  -26.410952  -33.973197   47.305369 -121.865180  -45.298142
+##  [31] -218.129858  -84.966582  -98.352161  -54.030091   10.314356   38.720494
+##  [37]  -44.384576 -175.615366  -72.231175  -19.198160  -43.342318  -25.019345
+##  [43] -101.527149   64.741076 -103.511698  -58.025211  120.087321   14.059882
+##  [49]  -15.417569  -51.281519   87.185380  -64.045187  -19.903225   89.276656
+##  [55]  -26.761768  128.099821  -21.930537 -119.464433   -3.960663 -229.759354
+##  [61]  -33.199630  -15.040909  132.765643  -44.413753  -53.587042  -19.843694
+##  [67]   73.837308  127.838360  167.769834 -167.090259  -54.406245  -53.261368
+##  [73]  -97.961410    4.572084  -69.404197  -30.042415   23.455871 -146.680310
+##  [79]  -16.783562 -103.133123   17.719057   17.902750  -40.681669  -64.133786
+##  [85]  -57.770341   37.683332   -2.595933 -129.103872   81.540785  -75.901984
+##  [91]  -36.606088  -28.767307  163.605457    9.932433   85.160330  -54.588990
+##  [97]  141.080927  -87.757966  -68.929440   67.685817
 \end{verbatim}
 
 \begin{Shaded}
@@ -1797,16 +1797,16 @@ In the example below, we ``shuffle'' the order of the integers 1 through 10 five
 
 \begin{verbatim}
 ##       [,1] [,2] [,3] [,4] [,5]
-##  [1,]    8    4    5   10    4
-##  [2,]    3    1   10    3    8
-##  [3,]    7    2    1    8    9
-##  [4,]   10    8    6    6    7
-##  [5,]    2    6    8    4    5
-##  [6,]    6    7    4    2    2
-##  [7,]    5    9    2    1    6
-##  [8,]    1   10    7    5    3
-##  [9,]    4    5    9    7   10
-## [10,]    9    3    3    9    1
+##  [1,]    8    1   10    9    8
+##  [2,]    1    2    2   10    2
+##  [3,]    7    3    4    2    1
+##  [4,]    2   10    8    6    5
+##  [5,]   10    9    7    8    9
+##  [6,]    3    7    3    7   10
+##  [7,]    4    5    5    4    4
+##  [8,]    9    6    6    5    6
+##  [9,]    6    8    9    1    3
+## [10,]    5    4    1    3    7
 \end{verbatim}
 
 Note that the first argument is the number of total iterations we want to reproduce, and that the function returns a matrix as output.
@@ -3448,6 +3448,372 @@ As stated, OLS regression assumes that we don't have any error associated with o
   Irizarry, R. A. Introduction to Data Science. \url{https://rafalab.github.io/dsbook/} - A gitbook written by a statistician, with great introductions to key topics in statistical inference.
 \item
   Logan, M. 2010. Biostatistical Design and Analysis Using R. - A great intro to R for statistical analysis
+\end{itemize}
+
+\hypertarget{introduction-to-analysis-of-variance}{%
+\chapter{Introduction to Analysis of Variance}\label{introduction-to-analysis-of-variance}}
+
+\hypertarget{background-7}{%
+\section{Background}\label{background-7}}
+
+In the last chapter we covered analysis situations in which we want to understand the relationship between two continuous variables. We also learned that in some of those situations there is a clear response (\emph{y}) and a clear predictor (\emph{x}) variable, making possible the application of linear regression analysis. In this chapter we will continue to work within the space of response and predictor variables, but now we consider one or more predictors that are categorical (not quantitative) in nature. This type of study design is especially common when we apply treatments that fall into classes (e.g. ``mutant'' vs ``wild-type'' in genetics) or observe explanatory factors in nature that are qualitative (e.g.~some climatic and geological conditions). One approach to this type of problem is called ``Analysis of Variance'' (ANOVA or AOV), and it, like other frequentist methods we have discussed, was formalized in the early 1900s. The general idea behind ANOVA is that we can test hypotheses about differences in group means for a response variable by comparing average within-group variance to among-group variance. In this case the ``groups'' are different factor levels of our explanatory variable(s). When within-group variances are substantially smaller than the among-group variance it stands to reason, given a few assumptions, that the distributions (and therefore the means) of at least some of the ``groups'' are different. Interestingly, this exercise of variance partitioning is tractable in a regression framework, because we can calculate sums of squares to reflect different variance components, and we can conceptualize the degree of difference between group means much in the same way we think about a slope in a regression model. For this reason, approaches such as regression, ANOVA, and others are all categorized as \textbf{\emph{general linear models}}.
+
+\hypertarget{general-linear-models}{%
+\section{General linear models}\label{general-linear-models}}
+
+As mentioned, we can express the effects of categorical predictor variables on a numeric response in models that are very similar to regression models. Recall that for regression, we used the following straight-line model:
+\[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]
+
+Where \(y\) is the response variable, \(x\) is the predictor variable, \(\beta_0\) is the \emph{y}-intercept, \(\beta_1\) is the slope, and \(\varepsilon\) is the unexplained variation, or error.
+
+In the case of a single categorical predictor, for example, we can similarly include effects of each factor level relative to the overall mean of the response variable, as follows:
+\[y_{ij}=\mu+\beta_1(level_1)_{ij}+\beta_2(level_2)_{ij}+...+\varepsilon_{ij}\]
+Where each group (factor level) \(i\) contains a number of observations \(j\), \(\mu\) is the overall mean of \(y\), \(\beta\)s represent the effects of the corresponding factor levels relative to the overall mean, and \(\varepsilon_{ij}\) is the error term. You can think of \(\mu\) as being analogous to the \emph{y}-intercept, and the \(\beta\)s as adding or subtracting effect sizes to or from the grand mean. Because factor levels don't actually take on numeric values, in practice they are encoded using what are called binary ``dummy'' variables. If a particular observation is in group \(i\), it is represented as a ``1'', and otherwise as a ``0''. So, although your data frame (in \texttt{R}) may include a factor with three factor levels (for example ``A'', ``B'', and ``C''), under the hood \texttt{R} functions use three dummy variables to encode that factor and perform the appropriate calculations. A shorthand linear model notation, which collapses all level effects for a given factor into one term (denoted by \(\alpha\)) is often used:
+\[y_{ij}=\mu+\alpha_i+\varepsilon_{ij}\]
+Where \(\alpha_i\) represents the effect of belonging to group \(i\), expressed as the difference between each group \(i\) mean (\(\mu_i\)) and the overall mean (\(\mu\)). This notation is more convenient, especially when more than one factor is included in the model, a situation we will address later in the chapter.
+
+\hypertarget{single-factor-anova}{%
+\section{Single-factor ANOVA}\label{single-factor-anova}}
+
+Single-factor Analysis of Variance describes the case in which we have a single quantitative response variable and a single categorical predictor variable. As discussed, the predictor variable (which we call a \textbf{\emph{factor}}) consists of two or more \textbf{\emph{factor levels}} that make up the possible conditions, or categories, of that variable. The procedure for ANOVA involves calculating sum of squares (SS) describing variation between/among factor levels (groups), and the SS descrbing variation within each group. We divide each of these SS values by the appropriate degrees of freedom (resulting in values we refer to as ``mean squares'' or MS). Finally we divide the group-level MS (\(MS_{groups}\)) by the within-group MS (called \(MS_{residual}\) because it represents the residual variation not explained by the factor). This value is an \emph{F}-ratio, which should sound familiar from the regression section of last chapter. Recall that an \emph{F}-ratio (in this case \(F=\frac{MS_{groups}}{MS_{residual}}\)) quantifies how much variation in the response variable is explained by a model, relative to how much variation is not explained by it. Large \emph{F}-ratios in the case of ANOVA indicate that the explanatory variable (the factor) is explaining a significant amount of variation in \emph{y} relative to the overall variation. We compare \emph{F} to an \emph{F} distribution with the appropriate degrees of freedom in order to calculate our \emph{p}-value for a given hypothesis test.
+
+Let's walk through an example to help visualize what is actually going on when we perform single-factor ANOVA. Say that we are studying the percent time that male mice experiencing discomfort spend ``stretching,'' and that we are intereseted in how social context influences this variable. We have data from an actual experiment (Langford et al.~2006) in which mice experiencing mild discomfort (result of injection of 0.9\% acetic acid into the abdomen) were randomly assigned to one of three social treatments: 1. isolation, 2. housed with a companion mouse not injected, or 3. housed with a companion mouse also injected and exhibiting ``stretching'' behaviors associated with discomfort. The results suggest that mice stretch the most when a companion mouse is also experiencing mild discomfort. Mice experiencing pain appear to ``empathize'' with co-housed mice also in pain. To verbally state a linear model for the analysis of this experiment, we might say : \(stretching=mean_{overall}+treatment\). This model statement includes a response variable, a constant, and an explanatory variable. If we plot the data, we can see the respective distributions for time spent stretching among the three different treatments.
+
+\begin{center}\includegraphics[width=0.8\linewidth]{images/images_5b.014} \end{center}
+
+Note that in this type of plot (sometimes referred to as a ``strip chart''), the points are ``jittered'' with respect to the factor levels along the \emph{x}-axis, to assist with seeing all of the points clearly. In \texttt{R} we can use either the \texttt{plot()} function or the \texttt{stripchart()} function with the \texttt{method="jitter"} argument to do this. By the looks of the plot, we might reasonably suspect that the ``injected companion'' treatment appears to shift the percent time spent stretching up, relative to the other groups. As a consequence, we would expect the among-group SS to be larger than the average within-group SS.
+
+To calculate the appropriate \emph{F}-ratio, for this data set, we would use the MS equations from column 3 of the table below (from Logan 2010):
+
+\begin{center}\includegraphics[width=1\linewidth]{images/images_5b.018} \end{center}
+
+The next figure (also from Logan 2010) shows how SS, and therefore MS, calculations are visualized in a situation with two factor levels. Our mouse example from above includes three factor levels, but the concept is exactly the same. The quantity in the red box divided by the quantity in the blue box forms our \emph{F}-ratio, which we can then use to test our null hypothesis of no effect of treatment.
+
+\begin{center}\includegraphics[width=0.9\linewidth]{images/images_5b.019} \end{center}
+
+\hypertarget{single-factor-anova-hypothesis-tests}{%
+\subsection{Single-factor ANOVA hypothesis tests}\label{single-factor-anova-hypothesis-tests}}
+
+For the type of single-factor ANOVA described above, we can state our null and alternative hypotheses in terms of the group means, or in terms of the ``effect'' of the explanatory variable. These are of course equivalent, but let's state them below (in terms of the mouse stretching experiment) just to be complete. For population means, we could state the following:
+\[H_0:\mu_{isolated}=\mu_{companion}=\mu_{inj-companion}\]
+
+\[H_A:\mu_{isolated}\neq\mu_{companion}=\mu_{inj-companion}\]
+OR
+\[\mu_{isolated}=\mu_{companion}\neq\mu_{inj-companion}\]
+OR
+\[\mu_{isolated}\neq\mu_{companion}\neq\mu_{inj-companion}\]
+
+Recall that ANOVA tests for \textbf{\emph{any difference}} among groups, so there are multiple possible scenarios of group difference when we have more than two factor levels.
+
+Stated in terms of ``effect,'' we can state the hypotheses as follows:
+\[H_0:\alpha_i=0\]
+\[H_A:\alpha_i\neq0\]
+Where \(i\) represents any of our three factor levels (treatments)
+
+At this point we should also introduce (briefly) the idea of fixed versus random effects (factors) in linear models and ANOVA. So far when discussing explanatory variables we have understood them as factors with levels we want to explicity compare. In the mouse experiment above, comparing the effects of the three social treatments on time spent stretching was a clear focus of our inference. We wanted to test specifically whether those three factor levels could be influencing the response variable. This is an example of a \textbf{\emph{fixed factor or effect}}. If groups are predetermined, of direct interest, and/or repeatable, they should most likely be treated as a fixed effect. Examples include experimental treatments, doses, age groups, habitat type, season, etc. Any conclusions reached from the analysis are specific to those factor levels and should not be generalized to other possible factor levels.
+
+In some cases, though, we may be interested in whether a response variable is affected generically by a factor with a large range of possible levels. Examples may include plots, animal cages, kinship units, batches, buildings, etc. In these cases, assuming we don't care about the individual factor levels \emph{per se}, we can instead think of the factor levels in an experiment as a random sample of many possible levels. We call factors in this situation \textbf{\emph{random factors or effects}}. Many of the factors in your own studies will be fixed, but you should also consider the possibility of random factors in your study design. As stated below, how we frame the hypothesis for ANOVA depends on whether a factor is fixed versus random. Complex ANOVA models that include both fixed and random factors are called ``mixed models,'' and they are beyond the scope of this course. It is good practice, however, to learn the basic distinction between fixed and random effects. The null and alternative hypotheses for a random effect consider whether the variance associated with differing levels is zero:
+\[H_0:\sigma_{\alpha}^2=0\]
+\[H_A:\sigma_{\alpha}^2\neq0\]
+The consideration is whether including the factor in the model explains any variance in the response variable.
+
+\hypertarget{anova-assumptions}{%
+\subsection{ANOVA assumptions}\label{anova-assumptions}}
+
+The following assumptions should be met if the \emph{F}-ratio and \emph{F} distribution are used to evaluate an ANOVA hypothesis:
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    The response variable is approximately normally distributed in all groups (factor levels). Some departures from normality are tolerable if sample sizes and variances across the groups are equal. The normality assumption can be evaluated by histograms, and boxplots, for example.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Variances are equal across groups. As long as there is no clear relationship between variance and mean or variance and sample size across groups, some departures from this assumption are tolerable if sample sizes are equal. Boxplots, mean vs.~variance plots, and equal variances tests can be used to address this assumption.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Observations in a group are independent. As discussed previously, observations in a group should be randomly sampled and not structured in any way. If there is structure within groups (e.g.~via kinship, etc.), that structure should be dealt with by adding the appropriate nested terms to the model (see below).
+  \end{enumerate}
+\end{itemize}
+
+\hypertarget{post-hoc-comparisons}{%
+\subsection{Post-hoc comparisons}\label{post-hoc-comparisons}}
+
+We stated above that a fixed, single-factor ANOVA tests whether any of the group means are different from one another. This hypothesis test may be sufficient to address the questions of the analyst, but in many cases we want to know which factor levels are significantly different. This can be achieved via several different approaches. Planned comparisons or ``contrasts'' are defined in advance of the ANOVA, and performing them is part of the model evaluation. Setting up planned contrasts requires defining comparisons based on rules, which include the avoidance of comparisons among groups that overlap, for one. Learning to set them up properly is a more advanced topic beyond what we can reasonably cover in this course. Post-hoc, or ``unplanned'' comparisons, however, make all pairwise comparisons among factor levels and are relatively straightforward to perform. Their implementation is similar to the performance of individual \emph{t}-tests, adjusted to account for the inflated Type I error associated with multiple testing. The \texttt{R} package \texttt{multcomp} can be used to perform a variety of post-hoc comparisons.
+
+\hypertarget{single-factor-anova-in-r}{%
+\subsection{\texorpdfstring{Single-factor ANOVA in \texttt{R}}{Single-factor ANOVA in R}}\label{single-factor-anova-in-r}}
+
+In \texttt{R} we can use either the \texttt{lm()} or \texttt{aov()} functions to define fixed-effects ANOVA models, and then evaluate the models (e.g.~run \emph{F} tests, print ANOVA tables, etc.) using functions like \texttt{summary()} or \texttt{anova()} on the fitted model objects. The \texttt{aov()} function will format calculations in such a way as to present a traditional ANOVA table, whereas the \texttt{lm()} function will enable presentation of the parameter estimates. In the example below we will perform ANOVA using the \texttt{iris} data set to test whether there is a difference in mean sepal length among three flower species.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{stripchart}\NormalTok{(iris}\OperatorTok{$}\NormalTok{Sepal.Length }\OperatorTok{~}\StringTok{ }\NormalTok{iris}\OperatorTok{$}\NormalTok{Species, }\DataTypeTok{vertical=}\NormalTok{T, }\DataTypeTok{method=}\StringTok{"jitter"}\NormalTok{,}
+           \DataTypeTok{ylab=}\StringTok{"sepal length"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"species"}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{foundational_statistics_files/figure-latex/unnamed-chunk-87-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Set up and evaluate linear model using lm() and summary()}
+\NormalTok{iris_lm <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(Sepal.Length }\OperatorTok{~}\StringTok{ }\NormalTok{Species, iris)}
+\KeywordTok{summary}\NormalTok{(iris_lm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = Sepal.Length ~ Species, data = iris)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.6880 -0.3285 -0.0060  0.3120  1.3120 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)         5.0060     0.0728  68.762  < 2e-16 ***
+## Speciesversicolor   0.9300     0.1030   9.033 8.77e-16 ***
+## Speciesvirginica    1.5820     0.1030  15.366  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.5148 on 147 degrees of freedom
+## Multiple R-squared:  0.6187, Adjusted R-squared:  0.6135 
+## F-statistic: 119.3 on 2 and 147 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+In this output there are a few items that are especially useful. The most useful information is in the first 2 columns of the ``Coefficients'' table, which contain the group mean estimates and their standard errors. In default linear model output in \texttt{R}, the intercept is actually set to the mean of the first (alphabetically) factor level. In this case, ``setosa'' is the first factor level, so its mean (5.006) is the intercept. The means for ``versicolor'' and ``virginica'' are the \textbf{\emph{intercept plus the value in the column}}. So the versicolor mean is 5.936 and the virginica mean is 6.588. The last line in the output shows the results for the ANOVA null hypothesis test of equal means across all three species, including the \emph{F}-ratio, the groups and residuals degrees of freedom, respectively, and the \emph{p}-value.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Set up and evaluate ANOVA model using aov() and anova()}
+\NormalTok{iris_aov <-}\StringTok{ }\KeywordTok{aov}\NormalTok{(Sepal.Length }\OperatorTok{~}\StringTok{ }\NormalTok{Species, iris)}
+\KeywordTok{anova}\NormalTok{(iris_aov)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Response: Sepal.Length
+##            Df Sum Sq Mean Sq F value    Pr(>F)    
+## Species     2 63.212  31.606  119.26 < 2.2e-16 ***
+## Residuals 147 38.956   0.265                      
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+Here the output is the ANOVA table, complete with the degrees of freedom, SS, and MS for groups and residuals, our \emph{F}-ratio, and our \emph{p}-value. Clearly, we reject the null hypothesis. There is at least one difference among the three group means.
+
+Finally, if we wanted to know whether all three species are different from each other, we could apply a ``Tukey's'' (post-hoc) test of all three mean pairs.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(multcomp)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(}\KeywordTok{glht}\NormalTok{(iris_aov, }\DataTypeTok{linfct =} \KeywordTok{mcp}\NormalTok{(}\DataTypeTok{Species =} \StringTok{"Tukey"}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##   Simultaneous Tests for General Linear Hypotheses
+## 
+## Multiple Comparisons of Means: Tukey Contrasts
+## 
+## 
+## Fit: aov(formula = Sepal.Length ~ Species, data = iris)
+## 
+## Linear Hypotheses:
+##                             Estimate Std. Error t value Pr(>|t|)    
+## versicolor - setosa == 0       0.930      0.103   9.033   <1e-08 ***
+## virginica - setosa == 0        1.582      0.103  15.366   <1e-08 ***
+## virginica - versicolor == 0    0.652      0.103   6.333   <1e-08 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## (Adjusted p values reported -- single-step method)
+\end{verbatim}
+
+The \emph{p}-values adjusted for multiple comparisons are reported, and they are all very low. We therefore conclude that all three species means are significantly different from one another.
+
+\hypertarget{a-note-on-nonparametric-tests-similar-to-single-factor-anova}{%
+\subsection{A note on nonparametric tests similar to single-factor ANOVA}\label{a-note-on-nonparametric-tests-similar-to-single-factor-anova}}
+
+As with most categories of hypothesis test, there are nonparametric alternatives to ANOVA when the assumptions are not met. Randomization tests similar to the ones we have discussed previously can be used to generate a null distribution of \emph{F}-ratios on which to base a hypothesis test. There is also a rank-based ANOVA alternative that is similar to the Mann-Whitney U test we cited as a \emph{t}-test alternative. It is called the Kruskal-Wallis test, and is robust to non-normality and group variance differences. The Kruskal-Wallis test can be performed in \texttt{R} using the base function \texttt{kruskal.test()}.
+
+\hypertarget{multi-factor-anova}{%
+\section{Multi-factor ANOVA}\label{multi-factor-anova}}
+
+When more than one categorical predictor variable is included in a study, we can apply our general linear model and ANOVA framework to accommodate this complexity. Indeed, it is often very important to include multiple predictor variables in a model, even if they are not of primary interest, and especially if they are expected to explain a significant amount of variation in the response variable. If these addtional factors do explain variation in \emph{y}, it is crucial to include them in the model so that we can account for that variation and in the process ``isolate'' variation explained by the focal predictor(s) central to our questions. For multiple fixed-effect factors, the guidelines described for single-factor ANOVA in the previous section (including hypotheses, assumptions, and model structure in \texttt{R}) hold. The only difference is that more than one term is added to the model on the ``right-hand side'' of the equation (or the \texttt{\textasciitilde{}} in \texttt{R} model notation), with some added syntax depending on the nature of the model. In the sections below we will briefly cover two different forms of multi-factor ANOVA: ``nested'' and ``factorial'' models. Nested models allow us to deal with observations that are, in some structured way, not independent, and factorial models allow us to test for statistical interactions among factors.
+
+\hypertarget{nested-anova}{%
+\subsection{Nested ANOVA}\label{nested-anova}}
+
+In many observational studies and experiments the sampling units we measurements are heterogeneous in some way, be it spatially, temporally, or structurally. Measurements on individual organisms may vary substantially over time. Measurements in a plot may vary greatly depending on the region of the plot measured. The phenotypic effects of a mutation may vary across similar genetic backgrounds (e.g.~a family). In all of these cases, there could be a clear advantage to taking multiple, related measurments to capture some of this variation, especially when we have an experimental factor (e.g.~a treatment) that we are trying to test and understand. This is where \textbf{\emph{nested models}} come into play. We group observations (e.g.~sub-replicates) or measurements (e.g.~repeated measurements from the same individual) that are not independent of one another, according to a ``nested'' term in our ANOVA model. This allows us to account for that heterogeneity mentioned above, and is necessary to avoid violating the assumption of independence. When the appropriate nestedness is not included in a model, observations or measurements that are not independent are used erroneously to calculate mean squares, resulting in an artificially low \emph{p}-value. This is called \textbf{\emph{pseudoreplication}}. The schematic below shows the structure of a model with a main factor of interest (``A'') and a nested factor (``B'') which groups the non-independent subreplicates.
+
+\begin{center}\includegraphics[width=0.9\linewidth]{images/images_7a.005} \end{center}
+
+In this hypothetical example we have \emph{k} subreplicates for each site. Assuming we had 3 subreplicates for each site and did not include ``B'' (site) as a nested term in our model, we would erroneously include a sample size of 9 for each treatment group. By including ``B'' we properly account for the non-independence of observations within each site.
+
+\hypertarget{nested-anova-hypothesis-tests}{%
+\subsubsection{Nested ANOVA hypothesis tests}\label{nested-anova-hypothesis-tests}}
+
+Hypothesis tests for nested ANOVAs take on the same basic structure as single-factor models, except that we can define a null and alternative hypothesis for each factor in our model. Typically nested terms are included to account for variation unexplained by the main factor(s) of interest and properly structure non-independence, so they are almost always considered as random effects. So hypotheses for main factors are stated as in the single-factor ANOVA section above, and hypotheses for nested factors are usually stated in random effects format:
+\[H_0(B):\sigma_{\beta}^2=0\]
+\[H_A(B):\sigma_{\beta}^2\neq0\]
+Where the null hypothesis states that all possible levels of B within each level of the main factor (A) contribute no added variance to the response variable.
+
+The same assumptions we addressed for single-factor ANOVA hold for nested ANOVA. In the case of the independence assumption, we still have to ensure that levels of the nested term are independent. In the example above, the three ``sites'' within each treatment should be independent of one another.
+
+\hypertarget{nested-anova-in-r}{%
+\subsubsection{\texorpdfstring{Nested ANOVA in \texttt{R}}{Nested ANOVA in R}}\label{nested-anova-in-r}}
+
+As mentioned, mixed model ANOVA is not always straightforward to set up in \texttt{R}, but simple cases (e.g.~one main and one nested factor) can be analyzed easily. The function \texttt{lm()} function will not accommodate mixed models, so we instead rely on \texttt{aov()} if the design is balanced (equal sample sizes) and \texttt{lme()} (package \texttt{nlme}) or \texttt{lmer()} (package \texttt{lme4}) for unbalanced designs. Below is some hyptothetical \texttt{R} code that might be applied to the one main, one nested, two-factor example design above.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## With aov() use "Error" with parentheses to specify the nested term.}
+\CommentTok{## This will report the hypothesis test for the main effect.}
+\NormalTok{mod_nested <-}\StringTok{ }\KeywordTok{aov}\NormalTok{(Response }\OperatorTok{~}\StringTok{ }\NormalTok{Treatment }\OperatorTok{+}\StringTok{ }\KeywordTok{Error}\NormalTok{(Site), df_name)}
+\KeywordTok{summary}\NormalTok{(mod_nested)}
+
+\CommentTok{## To report the relative % variation explained by the main vs. nested factor,}
+\CommentTok{## we use the lme() function to fit the model and then VarCorr() to report variance components.}
+\CommentTok{## Note that the nested term notation is different for lme()}
+\KeywordTok{library}\NormalTok{(nlme)}
+\KeywordTok{library}\NormalTok{(lme4)}
+\NormalTok{mod_nested_lme <-}\StringTok{ }\KeywordTok{lme}\NormalTok{(Response }\OperatorTok{~}\StringTok{ }\NormalTok{Treatment, }\DataTypeTok{random=}\OperatorTok{~}\DecValTok{1}\OperatorTok{|}\NormalTok{Site, df_name)}
+\KeywordTok{VarCorr}\NormalTok{(mod_nested_lme)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{factorial-anova}{%
+\subsection{Factorial ANOVA}\label{factorial-anova}}
+
+Another example of multi-factor ANOVA is the factorial model. In a strictly factorial ANOVA we don't have nestedness, but the design is set up so that each level from one fixed-effects (usually) factor is observed together with the levels of another fixed-effects (usually) factor, and those ``factor level combinations'' are replicated. Factorial ANOVA allows one to test hypotheses for the main effects (the individual factors) and ``interactions'' between the factors. A statistical interaction is when the effect of a level from one factor depends on the level from another factor. For example, we may have a two-level factor like genotype (mutant vs.~wild-type) and a two-level treatment factor (control vs.~toxin). If all 4 combinations of the levels from those two factors are replicated across individuals in our experiment, we would have what is called a ``two-by-two'' factorial design. If we found that both mutant and wild-type groups respond similarly to the treatment (have the same control-toxin difference in means), there is no interaction. If, on the other hand, there is a difference in response (e.g.~there is a toxin-control difference for the wild-type group but not for the mutant group), we would say that there is evidence for an interaction, and in this example a ``genotype-by-environment'' interaction. The phenomenon of epistais in genetics is also an example of an interaction, between two or more loci, in which the phenotypic effect of a genotype at one locus depends on the genotype at another locus.
+
+Because an interaction can take different forms, understanding the nature of an interaction is often made easier by plotting group means (and standard errors) in what is called an ``interaction plot.'' The \texttt{R} function \texttt{interaction.plot()} can be used to produce two-by-two interactiosn plots, or you can use \texttt{plot()}, \texttt{points()}, and \texttt{segments()} functions to make a custom interaction plot. In the figure below (from Logan 2010), we see several possible scenarios for a hypothetical two-by-two factorial design. On the \emph{x}-axis are the two levels for the Temperature factor (high and low), and the two lines (dashed and solid) represent low and high fertilizer, respectively.
+
+\begin{center}\includegraphics[width=0.75\linewidth]{images/images_7a.022} \end{center}
+
+The upper-left plot shows a likely interaction between temperature and fertilizer, in which there is an effect of fertilizer on seedling growth rate, but only at the high temperature. In the upper-right plot we see what look like overall main effects of temperature and fertilizer, but not interaction (the lines are parallel). In the lower-left plot we see an effect of fertilizer, but no effect of temperature in both fertilizer treatments, so no interaction. In the lower-right plot we see a ``crossing'' interaction, in which fertilizer has an opposite effect at the two temperatures. In cases like the last one, it is possible to detect no significant main effects (because they ``average out''), but an obviously strong interaction.
+
+\hypertarget{factorial-anova-hypothesis-tests}{%
+\subsubsection{Factorial ANOVA hypothesis tests}\label{factorial-anova-hypothesis-tests}}
+
+Fixed- and random-effects hypotheses for the individual factors in a factorial ANOVA are subject to the same hypothesis statements mentioned above. However, a separate null hypothesis for each interaction term is testable in factorial models. As mentioned, for two factors (A and B) there is a single interaction term (A:B), with the following null and alternative hypotheses, assuming fixed main effects:
+\[H_0(AB):\mu_{ij}=\mu_i+\mu_j-\mu\]
+\[H_A(AB):\mu_{ij}\neq\mu_i+\mu_j-\mu\]
+
+The interaction null hypothesis may look a bit strange, but it's really just saying that if you compare a difference bewteen levels of factor A within one level of factor B, to the same difference within another level of factor B, that ``difference of a difference'' should be zero if there is no interaction.
+
+If at least one of the factors is a random-effects factor, then the interaction is understood as a random effect, with the following hypotheses:
+\[H_0(AB):\sigma_{\alpha\beta}^2=0\]
+\[H_A(AB):\sigma_{\alpha\beta}^2\neq0\]
+
+The null hypothesis states that there is no additional variation in \emph{y} contributed by all possible interactions among all possible factor levels of A and B.
+
+The same assumptions we addressed for single-factor ANOVA hold for factorial ANOVA, except that in this case groups are defined by factor level combinations, so the assumptions have to be met for each of those groups.
+
+\hypertarget{factorial-anova-in-r}{%
+\subsubsection{\texorpdfstring{Factorial ANOVA in \texttt{R}}{Factorial ANOVA in R}}\label{factorial-anova-in-r}}
+
+In \texttt{R} we can use either the \texttt{aov()} function to define fixed-effects factorial ANOVA models, and then evaluate the models (e.g.~run \emph{F} tests, print ANOVA tables, etc.) using functions like \texttt{summary()} or \texttt{anova()} on the fitted model objects. The \texttt{aov()} function will format calculations in such a way as to present a traditional ANOVA table, for example when running \texttt{anova()} on an object from \texttt{aov()}, as we did in the case of single-factor ANOVA above.
+
+Let's run a quick example of two-by-two factorial ANOVA below using the \texttt{mtcars} data frame. In this case we are interested in whether miles per gallon (\texttt{mpg}) is affected by the engine cylinder configuration (``V'' or ``straight''), the transmission type (``automatic'' or ``manual''), and their interaction. Before we specify the model and run the ANOVA, let's look at the group means in an interaction plot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## First, modify the vs and am factor levels to be more descriptive}
+\NormalTok{mtcars_mod <-}\StringTok{ }\NormalTok{mtcars}
+\NormalTok{mtcars_mod}\OperatorTok{$}\NormalTok{vs <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(}\KeywordTok{ifelse}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{vs}\OperatorTok{==}\DecValTok{0}\NormalTok{, }\StringTok{"V"}\NormalTok{,}\StringTok{"straight"}\NormalTok{))}
+\NormalTok{mtcars_mod}\OperatorTok{$}\NormalTok{am <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(}\KeywordTok{ifelse}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{am}\OperatorTok{==}\DecValTok{0}\NormalTok{, }\StringTok{"auto"}\NormalTok{,}\StringTok{"manual"}\NormalTok{))}
+
+\CommentTok{## Make an interaction plot}
+\KeywordTok{with}\NormalTok{(mtcars_mod, \{}
+  \KeywordTok{interaction.plot}\NormalTok{(}\DataTypeTok{x.factor=}\NormalTok{am, }\DataTypeTok{trace.factor=}\NormalTok{vs, }\DataTypeTok{response=}\NormalTok{mpg, }\DataTypeTok{xlab=}\StringTok{"transmission"}\NormalTok{,}
+                   \DataTypeTok{trace.label=}\StringTok{"cyl config"}\NormalTok{) }
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{foundational_statistics_files/figure-latex/unnamed-chunk-94-1.pdf}
+
+The lines look fairly parallel, but let's run a factorial ANOVA to test for the two main effects, and their interaction, with respect to miles per gallon.
+
+When specifying interactions in \texttt{R} models, there are options. In the two-by-two factorial case with fixed effects, we can set up the model in two, equivalent ways.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## To specify the main and interaction effects individually}
+\NormalTok{mpg_fac1 <-}\StringTok{ }\KeywordTok{aov}\NormalTok{(mpg }\OperatorTok{~}\StringTok{ }\NormalTok{vs }\OperatorTok{+}\StringTok{ }\NormalTok{am }\OperatorTok{+}\StringTok{ }\NormalTok{vs}\OperatorTok{:}\NormalTok{am, mtcars_mod)}
+
+\CommentTok{## Shorthand notation to include all main effects and interactions}
+\NormalTok{mpg_fac2 <-}\StringTok{ }\KeywordTok{aov}\NormalTok{(mpg }\OperatorTok{~}\StringTok{ }\NormalTok{vs}\OperatorTok{*}\NormalTok{am, mtcars_mod)}
+\end{Highlighting}
+\end{Shaded}
+
+And we can obtain the ANOVA table using the \texttt{anova()} function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(mpg_fac1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Response: mpg
+##           Df Sum Sq Mean Sq F value    Pr(>F)    
+## vs         1 496.53  496.53 41.1963 5.981e-07 ***
+## am         1 276.03  276.03 22.9021 4.984e-05 ***
+## vs:am      1  16.01   16.01  1.3283    0.2589    
+## Residuals 28 337.48   12.05                      
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+Consistent with our suspicion from the plot, we do not reject the null hypothesis of no interaction. There is evidence for the main effects of cylinder configuration (\texttt{vs}) and transmission (\texttt{am}), but not for an interaction (\texttt{vs:am}) between them.
+
+In other more complex scenarios with multiple terms and interactions, interpretation can often be complicated. It definitely helps to use interaction plots to make those interpretations more clearly, but one can also perform either contrasts or post-hoc comparisons among groups to better understand significant differences among factor level combinations. It is also possible to have both nested and factorial terms in the same, ``partly nested'' analysis model. More advanced courses and reading on mixed general linear models go into these complex situations in depth, and evaluating these models requires careful consideration in many cases.
+
+\hypertarget{exercises-associated-with-this-chapter-8}{%
+\section{Exercises associated with this chapter:}\label{exercises-associated-with-this-chapter-8}}
+
+\begin{itemize}
+\tightlist
+\item
+  Problem Set 4
+\end{itemize}
+
+\hypertarget{additional-learning-resources-8}{%
+\section{Additional learning resources:}\label{additional-learning-resources-8}}
+
+\begin{itemize}
+\item
+  Logan, M. 2010. Biostatistical Design and Analysis Using R. - A great intro to R for statistical analysis
+\item
+  Langford, D. J.,et al.~2006. Science 312: 1967-1970. - example used for single-factor ANOVA
 \end{itemize}
 
 \bibliography{book.bib,packages.bib}
