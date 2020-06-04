@@ -1,0 +1,139 @@
+# Introduction to Frequency Analysis
+
+## Background
+
+Up to this point we have dealt exclusively with response variables that are continuous. It is possible, and relatively common, to encounter response variables that are not continuously distributed. For example, we may have a binary response variable or a categorical response with more than two levels. One way to approach the analysis of these discrete variables is to tally the number of observations in each category and compare these "frequencies" (proportions) to a null (i.e. random) expectation for the frequencies, possibly with respect to another factor. In this multi-factor situation we often want to know whether the two categorical variables are independent of one another, that is, whether an observation is more or less likely than expected by random chance to take on a certain level of factor A, given it is characterized by a certain level of factor B. Hypothesis tests of this nature are often called "tests of independence." Another common goal is to compare the frequencies of observations across factor levels to an expectation based on certain "rules" of a natural system. This type of test is called a "goodness of fit" test, and one example of its application is to test expected genetic patterns of Mendelian segregation using offspring phenotypes that result from a particular cross of plant or animal parents. In this chapter we will focus on fundamental application of goodness of fit tests and tests of independence. Although we will not cover it in this course, you should also be aware of another widely used analytical framework for discrete response variables: generalized linear models. These models take a non-continuous response variable and mathematically relate it to a linear combination of predictor variables, via something called a "link" function." For a binary response variable, for example, observations are modeled probabilistically as if they vary between 0 and 1 (even though they don't in reality), using an approach called logistic regression. More advanced statistical inference courses cover generalized linear models, as these approaches are frequently used to analyze counts, binary variables, frequencies, and ordinal categorical variables.   
+
+
+## Goodness of fit tests
+
+The null hypothesis for a goodness of fit test is that the relative frequencies of observations across categories in a population occur at a specific ratio. In practice this means that we need to compare observed frequency ratios with expected ones. If the deviation of observed from expected ratios is high, our test statistic should reflect that how extreme it is and be useful in a null hypothesis test. One such test statistic is the chi-square ($\chi^2$) statistic. It is calculated based on a sum of values (across categories) that reflects how much the observed frequencies differ from the expected:
+$$\chi^2=\sum\frac{(o-e)^2}{e}$$
+Where $o$ and $e$ are observed and expected counts, respectively in each category. If the observed and expected frequencies are the same (our null hypothesis), $\chi^2$ sums to zero, or approximately zero considering sampling noise. We compare this test statistic calculated from a sample to a $\chi^2$ distribution with degrees of freedom equal to the number of categories minus 1. Especially large values of $\chi^2$ fall in the tail of the distribution and are extremely likely under the null hypothesis. The probablility of observing a value at least this extreme is our *p*-value for the hypothesis test. In nearly all cases it makes sense to perform a one-sided test in this direction, but in principle a left-sided test could be performed to test for "artificially high" congruence of observed and expected frequencies. 
+
+### Assumptions of the chi-square test
+
+There are two assumptions for a valid null hypothesis test using the $\chi^2$ statistic and its theoretical distribution:
+
+ - The observations are classified independently of one another, which should be satisfied through a random sample.
+
+ - Only a small proportion of the categories (20% or less) should have expected frequencies of less than five. Increasing the sample size sufficiently will ensure that this assumption is met. Other tests are more appropriate if this assumption cannot be met. 
+
+### goodness of fit tests in `R`
+
+As an example, let's say that we repeated one of Gregor Mendel's pea crossing experiments in which we were tracking the inheritance pattern for two traits: pea color (yellow vs. green) and pea shape (smooth vs. dented). Assuming independent assortment and unbiased segregation, we would expect a dihybrid cross (between two heterozygous parents) for these tratis to yield an expected 9:3:3:1 ratio of phenotype combinations in the progeny. We can perform a quick chi-square test in `R` to test the null hypothesis that our observed progeny from the cross adhere to this expected ratio.
+```{r, echo=TRUE, eval=TRUE}
+## First, we create a vector for our observed counts
+pea_count <- c(160, 39, 48, 11)
+
+## Next, we create a vector of factor levels that name the 4 different categories, using the `gl()` function, and combine into a data frame
+pea_type <- gl(4,1,4, c("yellow_smooth","yellow_dent","green_smooth","green_dent"))
+pea_data <- data.frame(pea_type, pea_count)
+
+## Many frequency test functions need the data formatted as a "table," so we need to reformat
+pea_table <- xtabs(pea_count ~ pea_type, data=pea_data)
+
+## Before the test, let's evaluate our 20% of expected frequencies < 5 assumption.
+## We can do this by running the chi-square test and pulling out just the expected counts vector
+chisq.test(pea_table, p=c(9/16, 3/16, 3/16, 1/16), correct=F)$exp
+
+## It looks like all 4 expected counts are greater than 5, so we will proceed.
+chisq.test(pea_table, p=c(9/16, 3/16, 3/16, 1/16), correct=F)
+```
+
+Here we fail to reject the null hypothesis that our data adhere to our 9:3:3:1 ratio expectation, given that our *p*-value is quite high. If the 20% or fewer of expected frequencies < 5 assumption had not been met, several test statistic corrections (e.g. Williams'), or a randomization test could have been applied. Also, if differences between observed and expected values are especially small (i.e. much smaller than the expected values) the G-test (see below) can be a more powerful alternative.
+
+
+## Tests of independence for frequencies
+
+The null hypothesis for frequency-based tests of independence is that the two or more categorical variables are independent of one another. Tests of independence do not assume causal relationships between variables, but causality may be argued depending on context. To test the independence of two categorical variables we organize the sample data into what is known as a "contingency table," in which the rows represent the conditional category counts of variable 1 and the columns represent the conditional category counts of variable 2. Expected frequencies (under the null hypothesis of independence) for each cell in the table can be calculated by the product of the row and column total divided by the overall total. One possible test is to use these expected frequencies to calculate a ($\chi^2$) statistic with degrees of freedom equal to the number of rows minus 1 multiplied by the number of columns minus 1.
+
+<br>
+
+Another way to test the null hypothesis of independence between categorical variables is with something called a G-test. This test is a form of the "likelihood ratio test," which is a test that evaluates whether the likelihoods (see Chapter 8) of two models or hypotheses are equal by evaluating how extreme their ratio (in practice the natural log of their ratio) is. If the log-likelihood ratio is extreme, the two models are likely different in how well they fit the data, and we reject the null hypothesis. For G-tests of independence, we sum up log-likelihood ratios (based on observed divided by expected counts) across all categories (cells in our contingency table), and then compare twice that sum to a ($\chi^2$) distribution with degrees of freedom again equal to $(n_{rows}-1)*(n_{columns}-1)$:
+$$G^2=2\sum{o*ln(\frac{o}{e})}$$
+Where $o$ and $e$ are observed and expected cell counts, respectively from the contingency table. Again, especially large values of $G^2$ will result in rejection of the null hypothesis. G-tests of independence have the same aforementioned assumptions as the chi-square test.
+
+### G-test of independence in `R`
+
+As an example of a G-test of independence, we can use the base `R` data set `HairEyeColor` to test whether hair and eye color are independent in a sample of female students from the University of Delaware in the 70s. We will use the `GTest()` function from the package `DescTools`.
+```{r, echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+library(DescTools)
+```
+
+```{r, echo=TRUE, eval=TRUE, warning=FALSE}
+## First, use indexing to retrieve just the female data from the 3-D table
+hair_eye_females <- HairEyeColor[,,2]
+
+## Test the assumption that 20% or fewer of expected frequencies are < 5
+chisq.test(hair_eye_females, correct=F)$exp
+
+## Only one cell of 16 has a count < 5, so proceed with the G-test
+GTest(hair_eye_females)
+```
+
+We reject our null hypothesis of independence between hair and eye color for this data set. It is extremely likely that certain hair colors are more or less likely to co-occur with certain eye colors than what is expected through random chance. There is very strong evidence of a statistical association between hair and eye color in this sample.
+
+### odds ratios
+
+Rejecting a null hypothesis in a test of independence is one thing, but it doesn't tell us much about how or to what extent the variables are independent. For one, recall our past discussion of statistical versus practical significance. A *p*-value from a statistical test does not, by itself, tell us how big a difference between or effect on populations actually is. For this, we rely on the calculation and reporting of ***effect sizes***. An effect size, such as a slope in a regression analysis, a difference in means, a "fold-change" in a gene expression analysis, etc., qunatifies the effect on or association between variables. Furthermore, in tests of independence with multiple factors or many more than two categories per factor, the strurctural details of how categories depend on one another may be complex and are not apparent in a *p*-value.
+
+<br>
+
+Fortunately, we can appraise what are equivalent to effect sizes for frequency data by looking at the cells and marginal totals in a contingency table, and by calcuating what are called ***odds ratios*** to measure the magnitude of indpendence among categories. The term "odds" in statistics simply refers to how likely a particular outcome is relative to how likely all other possible outcomes are. The formal expression of this is $\pi_j=(1-\pi_j)$, with $\pi_j$ representing the probability of that particular event occurring.  If we flip a fair coin once, for example, the probability of getting "tails" is 0.5, and the probability of all other alternatives is 0.5. So, our odds of getting tails is $0.5/(1-0.5) = 1$. An odds of one, also referred to as "even odds" simply means that getting tails is equally likely relative to all other possibilities (in this case getting "heads"). But we can also compare odds for two different conditions that are distinct in some way, which is where odds ratios come into play. Say that we have a coin that we know is not fair, and specifically we know (because we flipped it a million times) that the probability of getting tails is actually 0.6. If we calculate an odds ratio for this "tails-biased" coin relative to the "fair" coin, we get 
+$\frac{0.6/(1-0.4)}{0.5/(1-0.5)}=1.5$. The odds ratio tells us how many times more (or less) likely a particular event is in one scenario versus another. In this example, we are 1.5 times more likely to get a tails with the tails-biased coin than with the fair coin. This same logic applies to contingency tables. We might, for instance, compare the odds of selecting (from the `HairEyeColor` sample) a person with brown eyes who also has black hair, to the odds of selecting a person with brown eyes who also has blonde hair. In a situation where one has rejected the null hypothesis of independence, the odds ratios that deviate the most from one will give us some signal of where the association between variables is most likely coming from. For contingency table odds ratio calculations, the following simplified form of equation can be used for a 2x2 table to calculate the odds ratio $\theta$:
+$$\theta=\frac{(cell_{1,1}+0.5)(cell_{2,2}+0.5)}{(cell_{1,2}+0.5)(cell_{2,1}+0.5)}$$
+
+Where the counts in the cells of a $r$x$c$ table are denoted as $cell_{r,c}$. A value of 0.5 is usually added to each cell count to prevent division by zero. If we revisit the coin flip example, but with (unrealistically perfect) coin flip data, we can work through how the odds ratio is calculated using this equation.
+```{r, echo=TRUE, eval=TRUE}
+## Set up our imaginary coin flip data
+## Rows will represent the tail-heavy and fair coin, respectively
+## Columns will represent number of tails, and heads, respectively in 100 flips
+flips <- matrix(c(60, 40, 50, 50), ncol=2, byrow=TRUE)
+colnames(flips) <- c("tails","heads")
+rownames(flips) <- c("tail_biased","fair")
+flips <- as.table(flips)
+flips
+
+## Perform the odds ratio calculation for odds of tails with the biased coin over odds of tails for the fair coin
+
+odds_ratio_flips <- ((flips[1,1]+0.5)*(flips[2,2]+0.5))/((flips[1,2]+0.5)*(flips[2,1]+0.5))
+odds_ratio_flips
+```
+
+We see that this odds ratio is ~1.5, the same as calculated based on probabilies above. Here the value is a bit smaller than 1.5 because of the "convenience" 0.5 addtions. In practice, calculating odds ratios from tables that are larger than 2x2 requires splitting up those tables into "partial tables," because odds ratios must always be calculated in a pairwise manner. Also, it is common to interpret odds ratios after taking their natural logarithm. These "log odds" or "LOD" values are necessary when calculating confidence intervals, for example. In `R`, odds ratios can be calculated manually from a contingency table, or using a function such as `oddsratio()` from the `epitools` package.
+
+## A final note on presenting statistical test results in writing
+
+One final topic we should cover briefly in this course is the written presentation of statistical results. It is important to present your statistical analysis results in a clearly stated, consistent, and efficient manner, especially in reports and scientific articles or books. The general guidelines below apply to at least all frequentist statistical analyses (definitely the ones in this book!), and most apply to non-frequentist results as well.
+
+<br>
+
+As an example, suppose you asked the question, "Is the average height of male students the same as female students in a pool of randomly selected Biology majors?" During your study you collected height data from random samples (100 each) of male and female students. You then visualized the data using the appropriate plots, calculated descriptive statistics, and performed your hypothesis test. In your results section you would would include the figures, perhaps a table of your descriptive statistics for those samples (e.g. mean, standard error of the mean, n, range, etc), and a declaration of your hypothesis test result with the formal details (effect size, test statistic, degrees of freedom, and *p*-value) to support it. Don't forget to refer to your tables or figures as you state the main results in the text. Suppose you found that male Biology majors are, on average, 12.5 cm taller than female majors, and you rejected your null hypothesis of no difference in means. Declaring that males were taller by an average of 12.5 cm is the most important message, and the statistical details (which give support and clarification of your conclusion) come after that statement. When stating a main result, make sure that you actively state it as your (or your and your co-authors') finding. A statistical test doesn't "do" anything iteself, so it weakens the strength and confidence of your statement if you say, "An ANOVA showed that males were significantly taller than females..." Instead write something like, "We found that male Biology students were significantly taller than female Biology students, by an average of 12.5 cm (single-factor ANOVA, $F=59.9$, $d.f.=1;198$, $p=1.23*10^{-8}$)." If the means and standard errors were not reported in a table or elsewhere, you could also have included them parenthetically in that sentence. Also, degrees of freedom can alternatively be reported as subscripts to the test statistic symbol (i.e. $F_{1,198}=59.9$). Below are some bulleted guidelines with good additional details about presentation of statistical analysis results.
+
+### Differences, directionality, and magnitude
+
+- Emphasize clearly the nature of differences or relationships. 
+
+- If you are testing for differences among groups, and you find a significant difference, it is not sufficient to simply report that "groups A and B were significantly different". How are they different and by how much? 
+
+- It is much more informative to say "Group A individuals were 23% larger than those in Group B", or, "Group B pups gained weight at twice the rate of Group A pups." 
+
+- Report the direction of differences (greater, larger, smaller, etc) and the magnitude of differences (% difference, how many times, etc.) whenever possible.
+    
+### Other statistical results reporting formalities
+
+- Always enter the appropriate units when reporting data or summary statistics. For an individual value you would write, "...the mean length was 10 cm", or, "...the maximum time was 140 min."
+
+- When including a measure of variability, place the unit after the error value, e.g., "...was 10 ± 2.3 m".
+
+- Likewise place the unit after the last in a series of numbers all having the same unit. For example: "...lengths of 5, 10, 15, and 20 m", or "...no differences were observed after 2, 4, 6, or 8 min. of incubation".
+
+
+## Exercises associated with this chapter:
+
+- Problem Set 4
+
+## Additional learning resources:
+
+- Logan, M. 2010. Biostatistical Design and Analysis Using R. - A great intro to R for statistical analysis

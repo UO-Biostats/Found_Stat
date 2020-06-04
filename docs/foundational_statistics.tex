@@ -118,7 +118,7 @@
 
 \title{Foundational Statistics - Bi 610 - Spring 2020}
 \author{Clayton M. Small and William A. Cresko}
-\date{2020-05-29}
+\date{2020-06-04}
 
 \begin{document}
 \maketitle
@@ -1163,23 +1163,23 @@ Note that factor levels are reported alphabetically. I used the \texttt{class()}
 \end{Shaded}
 
 \begin{verbatim}
-##   [1]   50.157832   63.136887  -54.873824   36.341080  112.605766   83.139587
-##   [7]  -69.953528  -33.673726  -30.288692  206.454567 -104.185929 -125.719462
-##  [13]  -53.382693  111.185426   42.121898  -36.603515   77.052453   25.013531
-##  [19]   38.403640   31.528277  -93.704517 -302.269355  113.488161  -25.429816
-##  [25]  -12.550136  -26.410952  -33.973197   47.305369 -121.865180  -45.298142
-##  [31] -218.129858  -84.966582  -98.352161  -54.030091   10.314356   38.720494
-##  [37]  -44.384576 -175.615366  -72.231175  -19.198160  -43.342318  -25.019345
-##  [43] -101.527149   64.741076 -103.511698  -58.025211  120.087321   14.059882
-##  [49]  -15.417569  -51.281519   87.185380  -64.045187  -19.903225   89.276656
-##  [55]  -26.761768  128.099821  -21.930537 -119.464433   -3.960663 -229.759354
-##  [61]  -33.199630  -15.040909  132.765643  -44.413753  -53.587042  -19.843694
-##  [67]   73.837308  127.838360  167.769834 -167.090259  -54.406245  -53.261368
-##  [73]  -97.961410    4.572084  -69.404197  -30.042415   23.455871 -146.680310
-##  [79]  -16.783562 -103.133123   17.719057   17.902750  -40.681669  -64.133786
-##  [85]  -57.770341   37.683332   -2.595933 -129.103872   81.540785  -75.901984
-##  [91]  -36.606088  -28.767307  163.605457    9.932433   85.160330  -54.588990
-##  [97]  141.080927  -87.757966  -68.929440   67.685817
+##   [1] -103.401885  -15.712430 -107.652410 -120.340092  133.767694  -38.195053
+##   [7]   57.915132  -84.854651 -130.268305   77.399223   20.480137   91.489955
+##  [13]  -94.599242  143.383936  -99.139118 -135.020818 -206.453729  -92.232382
+##  [19]  110.680912  102.401535  -18.538340 -164.652845 -212.558447   25.814463
+##  [25]   74.686795  129.059320   47.713880   49.038609  -38.621126   -4.991785
+##  [31]    2.160557  122.937603   25.415801  -81.953996   70.030177   65.299991
+##  [37]  -52.630014    5.550989  -45.441178  -63.641496   69.243815  146.201157
+##  [43]  -60.548276   41.901994   13.872516  -12.009082  -27.051311  -35.391488
+##  [49]  -82.975158   11.506389  -23.680896   13.724999  186.406322 -156.288464
+##  [55]   15.131509 -208.696924  -46.095696   21.301589  -17.023168   18.991224
+##  [61]   -9.294626   31.332359  -88.223403  -23.087442 -266.832909 -124.579299
+##  [67]  -18.179425    5.405148  -67.914278  -97.938934 -184.765330   47.508364
+##  [73] -254.119707   48.860473 -159.490100  134.997625  -90.244722 -176.395346
+##  [79] -167.375311  122.391815 -103.414862  -47.166852  100.696040  -20.717207
+##  [85]  -15.168634 -103.081778   41.828821  -78.803724 -102.797986   35.353839
+##  [91] -105.805698   54.578568  -55.714059  -11.423634  -78.477777  -70.094251
+##  [97]   -5.007154  -17.038045   26.691174   82.166528
 \end{verbatim}
 
 \begin{Shaded}
@@ -1797,16 +1797,16 @@ In the example below, we ``shuffle'' the order of the integers 1 through 10 five
 
 \begin{verbatim}
 ##       [,1] [,2] [,3] [,4] [,5]
-##  [1,]    8    1   10    9    8
-##  [2,]    1    2    2   10    2
-##  [3,]    7    3    4    2    1
-##  [4,]    2   10    8    6    5
-##  [5,]   10    9    7    8    9
-##  [6,]    3    7    3    7   10
-##  [7,]    4    5    5    4    4
-##  [8,]    9    6    6    5    6
-##  [9,]    6    8    9    1    3
-## [10,]    5    4    1    3    7
+##  [1,]    2    1    5    9    7
+##  [2,]    9   10    7    2    3
+##  [3,]    8    8    6    8    9
+##  [4,]    4    6    9    5    6
+##  [5,]    7    9    3    4    8
+##  [6,]    5    2    4    3    5
+##  [7,]    6    5   10    7    2
+##  [8,]    3    3    2    1   10
+##  [9,]   10    4    8   10    4
+## [10,]    1    7    1    6    1
 \end{verbatim}
 
 Note that the first argument is the number of total iterations we want to reproduce, and that the function returns a matrix as output.
@@ -3814,6 +3814,230 @@ In other more complex scenarios with multiple terms and interactions, interpreta
   Logan, M. 2010. Biostatistical Design and Analysis Using R. - A great intro to R for statistical analysis
 \item
   Langford, D. J.,et al.~2006. Science 312: 1967-1970. - example used for single-factor ANOVA
+\end{itemize}
+
+\hypertarget{introduction-to-frequency-analysis}{%
+\chapter{Introduction to Frequency Analysis}\label{introduction-to-frequency-analysis}}
+
+\hypertarget{background-8}{%
+\section{Background}\label{background-8}}
+
+Up to this point we have dealt exclusively with response variables that are continuous. It is possible, and relatively common, to encounter response variables that are not continuously distributed. For example, we may have a binary response variable or a categorical response with more than two levels. One way to approach the analysis of these discrete variables is to tally the number of observations in each category and compare these ``frequencies'' (proportions) to a null (i.e.~random) expectation for the frequencies, possibly with respect to another factor. In this multi-factor situation we often want to know whether the two categorical variables are independent of one another, that is, whether an observation is more or less likely than expected by random chance to take on a certain level of factor A, given it is characterized by a certain level of factor B. Hypothesis tests of this nature are often called ``tests of independence.'' Another common goal is to compare the frequencies of observations across factor levels to an expectation based on certain ``rules'' of a natural system. This type of test is called a ``goodness of fit'' test, and one example of its application is to test expected genetic patterns of Mendelian segregation using offspring phenotypes that result from a particular cross of plant or animal parents. In this chapter we will focus on fundamental application of goodness of fit tests and tests of independence. Although we will not cover it in this course, you should also be aware of another widely used analytical framework for discrete response variables: generalized linear models. These models take a non-continuous response variable and mathematically relate it to a linear combination of predictor variables, via something called a ``link'' function." For a binary response variable, for example, observations are modeled probabilistically as if they vary between 0 and 1 (even though they don't in reality), using an approach called logistic regression. More advanced statistical inference courses cover generalized linear models, as these approaches are frequently used to analyze counts, binary variables, frequencies, and ordinal categorical variables.
+
+\hypertarget{goodness-of-fit-tests}{%
+\section{Goodness of fit tests}\label{goodness-of-fit-tests}}
+
+The null hypothesis for a goodness of fit test is that the relative frequencies of observations across categories in a population occur at a specific ratio. In practice this means that we need to compare observed frequency ratios with expected ones. If the deviation of observed from expected ratios is high, our test statistic should reflect that how extreme it is and be useful in a null hypothesis test. One such test statistic is the chi-square (\(\chi^2\)) statistic. It is calculated based on a sum of values (across categories) that reflects how much the observed frequencies differ from the expected:
+\[\chi^2=\sum\frac{(o-e)^2}{e}\]
+Where \(o\) and \(e\) are observed and expected counts, respectively in each category. If the observed and expected frequencies are the same (our null hypothesis), \(\chi^2\) sums to zero, or approximately zero considering sampling noise. We compare this test statistic calculated from a sample to a \(\chi^2\) distribution with degrees of freedom equal to the number of categories minus 1. Especially large values of \(\chi^2\) fall in the tail of the distribution and are extremely likely under the null hypothesis. The probablility of observing a value at least this extreme is our \emph{p}-value for the hypothesis test. In nearly all cases it makes sense to perform a one-sided test in this direction, but in principle a left-sided test could be performed to test for ``artificially high'' congruence of observed and expected frequencies.
+
+\hypertarget{assumptions-of-the-chi-square-test}{%
+\subsection{Assumptions of the chi-square test}\label{assumptions-of-the-chi-square-test}}
+
+There are two assumptions for a valid null hypothesis test using the \(\chi^2\) statistic and its theoretical distribution:
+
+\begin{itemize}
+\item
+  The observations are classified independently of one another, which should be satisfied through a random sample.
+\item
+  Only a small proportion of the categories (20\% or less) should have expected frequencies of less than five. Increasing the sample size sufficiently will ensure that this assumption is met. Other tests are more appropriate if this assumption cannot be met.
+\end{itemize}
+
+\hypertarget{goodness-of-fit-tests-in-r}{%
+\subsection{\texorpdfstring{goodness of fit tests in \texttt{R}}{goodness of fit tests in R}}\label{goodness-of-fit-tests-in-r}}
+
+As an example, let's say that we repeated one of Gregor Mendel's pea crossing experiments in which we were tracking the inheritance pattern for two traits: pea color (yellow vs.~green) and pea shape (smooth vs.~dented). Assuming independent assortment and unbiased segregation, we would expect a dihybrid cross (between two heterozygous parents) for these tratis to yield an expected 9:3:3:1 ratio of phenotype combinations in the progeny. We can perform a quick chi-square test in \texttt{R} to test the null hypothesis that our observed progeny from the cross adhere to this expected ratio.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## First, we create a vector for our observed counts}
+\NormalTok{pea_count <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{160}\NormalTok{, }\DecValTok{39}\NormalTok{, }\DecValTok{48}\NormalTok{, }\DecValTok{11}\NormalTok{)}
+
+\CommentTok{## Next, we create a vector of factor levels that name the 4 different categories, using the `gl()` function, and combine into a data frame}
+\NormalTok{pea_type <-}\StringTok{ }\KeywordTok{gl}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\StringTok{"yellow_smooth"}\NormalTok{,}\StringTok{"yellow_dent"}\NormalTok{,}\StringTok{"green_smooth"}\NormalTok{,}\StringTok{"green_dent"}\NormalTok{))}
+\NormalTok{pea_data <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(pea_type, pea_count)}
+
+\CommentTok{## Many frequency test functions need the data formatted as a "table," so we need to reformat}
+\NormalTok{pea_table <-}\StringTok{ }\KeywordTok{xtabs}\NormalTok{(pea_count }\OperatorTok{~}\StringTok{ }\NormalTok{pea_type, }\DataTypeTok{data=}\NormalTok{pea_data)}
+
+\CommentTok{## Before the test, let's evaluate our 20% of expected frequencies < 5 assumption.}
+\CommentTok{## We can do this by running the chi-square test and pulling out just the expected counts vector}
+\KeywordTok{chisq.test}\NormalTok{(pea_table, }\DataTypeTok{p=}\KeywordTok{c}\NormalTok{(}\DecValTok{9}\OperatorTok{/}\DecValTok{16}\NormalTok{, }\DecValTok{3}\OperatorTok{/}\DecValTok{16}\NormalTok{, }\DecValTok{3}\OperatorTok{/}\DecValTok{16}\NormalTok{, }\DecValTok{1}\OperatorTok{/}\DecValTok{16}\NormalTok{), }\DataTypeTok{correct=}\NormalTok{F)}\OperatorTok{$}\NormalTok{exp}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## yellow_smooth   yellow_dent  green_smooth    green_dent 
+##       145.125        48.375        48.375        16.125
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## It looks like all 4 expected counts are greater than 5, so we will proceed.}
+\KeywordTok{chisq.test}\NormalTok{(pea_table, }\DataTypeTok{p=}\KeywordTok{c}\NormalTok{(}\DecValTok{9}\OperatorTok{/}\DecValTok{16}\NormalTok{, }\DecValTok{3}\OperatorTok{/}\DecValTok{16}\NormalTok{, }\DecValTok{3}\OperatorTok{/}\DecValTok{16}\NormalTok{, }\DecValTok{1}\OperatorTok{/}\DecValTok{16}\NormalTok{), }\DataTypeTok{correct=}\NormalTok{F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Chi-squared test for given probabilities
+## 
+## data:  pea_table
+## X-squared = 4.9733, df = 3, p-value = 0.1738
+\end{verbatim}
+
+Here we fail to reject the null hypothesis that our data adhere to our 9:3:3:1 ratio expectation, given that our \emph{p}-value is quite high. If the 20\% or fewer of expected frequencies \textless{} 5 assumption had not been met, several test statistic corrections (e.g.~Williams'), or a randomization test could have been applied. Also, if differences between observed and expected values are especially small (i.e.~much smaller than the expected values) the G-test (see below) can be a more powerful alternative.
+
+\hypertarget{tests-of-independence-for-frequencies}{%
+\section{Tests of independence for frequencies}\label{tests-of-independence-for-frequencies}}
+
+The null hypothesis for frequency-based tests of independence is that the two or more categorical variables are independent of one another. Tests of independence do not assume causal relationships between variables, but causality may be argued depending on context. To test the independence of two categorical variables we organize the sample data into what is known as a ``contingency table,'' in which the rows represent the conditional category counts of variable 1 and the columns represent the conditional category counts of variable 2. Expected frequencies (under the null hypothesis of independence) for each cell in the table can be calculated by the product of the row and column total divided by the overall total. One possible test is to use these expected frequencies to calculate a (\(\chi^2\)) statistic with degrees of freedom equal to the number of rows minus 1 multiplied by the number of columns minus 1.
+
+Another way to test the null hypothesis of independence between categorical variables is with something called a G-test. This test is a form of the ``likelihood ratio test,'' which is a test that evaluates whether the likelihoods (see Chapter 8) of two models or hypotheses are equal by evaluating how extreme their ratio (in practice the natural log of their ratio) is. If the log-likelihood ratio is extreme, the two models are likely different in how well they fit the data, and we reject the null hypothesis. For G-tests of independence, we sum up log-likelihood ratios (based on observed divided by expected counts) across all categories (cells in our contingency table), and then compare twice that sum to a (\(\chi^2\)) distribution with degrees of freedom again equal to \((n_{rows}-1)*(n_{columns}-1)\):
+\[G^2=2\sum{o*ln(\frac{o}{e})}\]
+Where \(o\) and \(e\) are observed and expected cell counts, respectively from the contingency table. Again, especially large values of \(G^2\) will result in rejection of the null hypothesis. G-tests of independence have the same aforementioned assumptions as the chi-square test.
+
+\hypertarget{g-test-of-independence-in-r}{%
+\subsection{\texorpdfstring{G-test of independence in \texttt{R}}{G-test of independence in R}}\label{g-test-of-independence-in-r}}
+
+As an example of a G-test of independence, we can use the base \texttt{R} data set \texttt{HairEyeColor} to test whether hair and eye color are independent in a sample of female students from the University of Delaware in the 70s. We will use the \texttt{GTest()} function from the package \texttt{DescTools}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(DescTools)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## First, use indexing to retrieve just the female data from the 3-D table}
+\NormalTok{hair_eye_females <-}\StringTok{ }\NormalTok{HairEyeColor[,,}\DecValTok{2}\NormalTok{]}
+
+\CommentTok{## Test the assumption that 20% or fewer of expected frequencies are < 5}
+\KeywordTok{chisq.test}\NormalTok{(hair_eye_females, }\DataTypeTok{correct=}\NormalTok{F)}\OperatorTok{$}\NormalTok{exp}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        Eye
+## Hair       Brown     Blue     Hazel     Green
+##   Black 20.26837 18.93930  7.642173  5.150160
+##   Brown 55.73802 52.08307 21.015974 14.162939
+##   Red   14.42173 13.47604  5.437700  3.664537
+##   Blond 31.57188 29.50160 11.904153  8.022364
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Only one cell of 16 has a count < 5, so proceed with the G-test}
+\KeywordTok{GTest}\NormalTok{(hair_eye_females)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Log likelihood ratio (G-test) test of independence without correction
+## 
+## data:  hair_eye_females
+## G = 112.23, X-squared df = 9, p-value < 2.2e-16
+\end{verbatim}
+
+We reject our null hypothesis of independence between hair and eye color for this data set. It is extremely likely that certain hair colors are more or less likely to co-occur with certain eye colors than what is expected through random chance. There is very strong evidence of a statistical association between hair and eye color in this sample.
+
+\hypertarget{odds-ratios}{%
+\subsection{odds ratios}\label{odds-ratios}}
+
+Rejecting a null hypothesis in a test of independence is one thing, but it doesn't tell us much about how or to what extent the variables are independent. For one, recall our past discussion of statistical versus practical significance. A \emph{p}-value from a statistical test does not, by itself, tell us how big a difference between or effect on populations actually is. For this, we rely on the calculation and reporting of \textbf{\emph{effect sizes}}. An effect size, such as a slope in a regression analysis, a difference in means, a ``fold-change'' in a gene expression analysis, etc., qunatifies the effect on or association between variables. Furthermore, in tests of independence with multiple factors or many more than two categories per factor, the strurctural details of how categories depend on one another may be complex and are not apparent in a \emph{p}-value.
+
+Fortunately, we can appraise what are equivalent to effect sizes for frequency data by looking at the cells and marginal totals in a contingency table, and by calcuating what are called \textbf{\emph{odds ratios}} to measure the magnitude of indpendence among categories. The term ``odds'' in statistics simply refers to how likely a particular outcome is relative to how likely all other possible outcomes are. The formal expression of this is \(\pi_j=(1-\pi_j)\), with \(\pi_j\) representing the probability of that particular event occurring. If we flip a fair coin once, for example, the probability of getting ``tails'' is 0.5, and the probability of all other alternatives is 0.5. So, our odds of getting tails is \(0.5/(1-0.5) = 1\). An odds of one, also referred to as ``even odds'' simply means that getting tails is equally likely relative to all other possibilities (in this case getting ``heads''). But we can also compare odds for two different conditions that are distinct in some way, which is where odds ratios come into play. Say that we have a coin that we know is not fair, and specifically we know (because we flipped it a million times) that the probability of getting tails is actually 0.6. If we calculate an odds ratio for this ``tails-biased'' coin relative to the ``fair'' coin, we get
+\(\frac{0.6/(1-0.4)}{0.5/(1-0.5)}=1.5\). The odds ratio tells us how many times more (or less) likely a particular event is in one scenario versus another. In this example, we are 1.5 times more likely to get a tails with the tails-biased coin than with the fair coin. This same logic applies to contingency tables. We might, for instance, compare the odds of selecting (from the \texttt{HairEyeColor} sample) a person with brown eyes who also has black hair, to the odds of selecting a person with brown eyes who also has blonde hair. In a situation where one has rejected the null hypothesis of independence, the odds ratios that deviate the most from one will give us some signal of where the association between variables is most likely coming from. For contingency table odds ratio calculations, the following simplified form of equation can be used for a 2x2 table to calculate the odds ratio \(\theta\):
+\[\theta=\frac{(cell_{1,1}+0.5)(cell_{2,2}+0.5)}{(cell_{1,2}+0.5)(cell_{2,1}+0.5)}\]
+
+Where the counts in the cells of a \(r\)x\(c\) table are denoted as \(cell_{r,c}\). A value of 0.5 is usually added to each cell count to prevent division by zero. If we revisit the coin flip example, but with (unrealistically perfect) coin flip data, we can work through how the odds ratio is calculated using this equation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Set up our imaginary coin flip data}
+\CommentTok{## Rows will represent the tail-heavy and fair coin, respectively}
+\CommentTok{## Columns will represent number of tails, and heads, respectively in 100 flips}
+\NormalTok{flips <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{60}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{50}\NormalTok{), }\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{, }\DataTypeTok{byrow=}\OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{colnames}\NormalTok{(flips) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"tails"}\NormalTok{,}\StringTok{"heads"}\NormalTok{)}
+\KeywordTok{rownames}\NormalTok{(flips) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"tail_biased"}\NormalTok{,}\StringTok{"fair"}\NormalTok{)}
+\NormalTok{flips <-}\StringTok{ }\KeywordTok{as.table}\NormalTok{(flips)}
+\NormalTok{flips}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             tails heads
+## tail_biased    60    40
+## fair           50    50
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Perform the odds ratio calculation for odds of tails with the biased coin over odds of tails for the fair coin}
+
+\NormalTok{odds_ratio_flips <-}\StringTok{ }\NormalTok{((flips[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\FloatTok{0.5}\NormalTok{)}\OperatorTok{*}\NormalTok{(flips[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{]}\OperatorTok{+}\FloatTok{0.5}\NormalTok{))}\OperatorTok{/}\NormalTok{((flips[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{]}\OperatorTok{+}\FloatTok{0.5}\NormalTok{)}\OperatorTok{*}\NormalTok{(flips[}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\FloatTok{0.5}\NormalTok{))}
+\NormalTok{odds_ratio_flips}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.493827
+\end{verbatim}
+
+We see that this odds ratio is \textasciitilde{}1.5, the same as calculated based on probabilies above. Here the value is a bit smaller than 1.5 because of the ``convenience'' 0.5 addtions. In practice, calculating odds ratios from tables that are larger than 2x2 requires splitting up those tables into ``partial tables,'' because odds ratios must always be calculated in a pairwise manner. Also, it is common to interpret odds ratios after taking their natural logarithm. These ``log odds'' or ``LOD'' values are necessary when calculating confidence intervals, for example. In \texttt{R}, odds ratios can be calculated manually from a contingency table, or using a function such as \texttt{oddsratio()} from the \texttt{epitools} package.
+
+\hypertarget{a-final-note-on-presenting-statistical-test-results-in-writing}{%
+\section{A final note on presenting statistical test results in writing}\label{a-final-note-on-presenting-statistical-test-results-in-writing}}
+
+One final topic we should cover briefly in this course is the written presentation of statistical results. It is important to present your statistical analysis results in a clearly stated, consistent, and efficient manner, especially in reports and scientific articles or books. The general guidelines below apply to at least all frequentist statistical analyses (definitely the ones in this book!), and most apply to non-frequentist results as well.
+
+As an example, suppose you asked the question, ``Is the average height of male students the same as female students in a pool of randomly selected Biology majors?'' During your study you collected height data from random samples (100 each) of male and female students. You then visualized the data using the appropriate plots, calculated descriptive statistics, and performed your hypothesis test. In your results section you would would include the figures, perhaps a table of your descriptive statistics for those samples (e.g.~mean, standard error of the mean, n, range, etc), and a declaration of your hypothesis test result with the formal details (effect size, test statistic, degrees of freedom, and \emph{p}-value) to support it. Don't forget to refer to your tables or figures as you state the main results in the text. Suppose you found that male Biology majors are, on average, 12.5 cm taller than female majors, and you rejected your null hypothesis of no difference in means. Declaring that males were taller by an average of 12.5 cm is the most important message, and the statistical details (which give support and clarification of your conclusion) come after that statement. When stating a main result, make sure that you actively state it as your (or your and your co-authors') finding. A statistical test doesn't ``do'' anything iteself, so it weakens the strength and confidence of your statement if you say, ``An ANOVA showed that males were significantly taller than females\ldots{}'' Instead write something like, ``We found that male Biology students were significantly taller than female Biology students, by an average of 12.5 cm (single-factor ANOVA, \(F=59.9\), \(d.f.=1;198\), \(p=1.23*10^{-8}\)).'' If the means and standard errors were not reported in a table or elsewhere, you could also have included them parenthetically in that sentence. Also, degrees of freedom can alternatively be reported as subscripts to the test statistic symbol (i.e. \(F_{1,198}=59.9\)). Below are some bulleted guidelines with good additional details about presentation of statistical analysis results.
+
+\hypertarget{differences-directionality-and-magnitude}{%
+\subsection{Differences, directionality, and magnitude}\label{differences-directionality-and-magnitude}}
+
+\begin{itemize}
+\item
+  Emphasize clearly the nature of differences or relationships.
+\item
+  If you are testing for differences among groups, and you find a significant difference, it is not sufficient to simply report that ``groups A and B were significantly different''. How are they different and by how much?
+\item
+  It is much more informative to say ``Group A individuals were 23\% larger than those in Group B'', or, ``Group B pups gained weight at twice the rate of Group A pups.''
+\item
+  Report the direction of differences (greater, larger, smaller, etc) and the magnitude of differences (\% difference, how many times, etc.) whenever possible.
+\end{itemize}
+
+\hypertarget{other-statistical-results-reporting-formalities}{%
+\subsection{Other statistical results reporting formalities}\label{other-statistical-results-reporting-formalities}}
+
+\begin{itemize}
+\item
+  Always enter the appropriate units when reporting data or summary statistics. For an individual value you would write, ``\ldots{}the mean length was 10 cm'', or, ``\ldots{}the maximum time was 140 min.''
+\item
+  When including a measure of variability, place the unit after the error value, e.g., ``\ldots{}was 10 ± 2.3 m''.
+\item
+  Likewise place the unit after the last in a series of numbers all having the same unit. For example: ``\ldots{}lengths of 5, 10, 15, and 20 m'', or ``\ldots{}no differences were observed after 2, 4, 6, or 8 min. of incubation''.
+\end{itemize}
+
+\hypertarget{exercises-associated-with-this-chapter-9}{%
+\section{Exercises associated with this chapter:}\label{exercises-associated-with-this-chapter-9}}
+
+\begin{itemize}
+\tightlist
+\item
+  Problem Set 4
+\end{itemize}
+
+\hypertarget{additional-learning-resources-9}{%
+\section{Additional learning resources:}\label{additional-learning-resources-9}}
+
+\begin{itemize}
+\tightlist
+\item
+  Logan, M. 2010. Biostatistical Design and Analysis Using R. - A great intro to R for statistical analysis
 \end{itemize}
 
 \bibliography{book.bib,packages.bib}

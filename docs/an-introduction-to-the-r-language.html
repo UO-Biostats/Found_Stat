@@ -24,7 +24,7 @@
 <meta name="author" content="Clayton M. Small and William A. Cresko" />
 
 
-<meta name="date" content="2020-05-29" />
+<meta name="date" content="2020-06-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -306,6 +306,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.5" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#exercises-associated-with-this-chapter-8"><i class="fa fa-check"></i><b>13.5</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="13.6" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#additional-learning-resources-8"><i class="fa fa-check"></i><b>13.6</b> Additional learning resources:</a></li>
 </ul></li>
+<li class="chapter" data-level="14" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html"><i class="fa fa-check"></i><b>14</b> Introduction to Frequency Analysis</a><ul>
+<li class="chapter" data-level="14.1" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#background-8"><i class="fa fa-check"></i><b>14.1</b> Background</a></li>
+<li class="chapter" data-level="14.2" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>14.2</b> Goodness of fit tests</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#assumptions-of-the-chi-square-test"><i class="fa fa-check"></i><b>14.2.1</b> Assumptions of the chi-square test</a></li>
+<li class="chapter" data-level="14.2.2" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#goodness-of-fit-tests-in-r"><i class="fa fa-check"></i><b>14.2.2</b> goodness of fit tests in <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#tests-of-independence-for-frequencies"><i class="fa fa-check"></i><b>14.3</b> Tests of independence for frequencies</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#g-test-of-independence-in-r"><i class="fa fa-check"></i><b>14.3.1</b> G-test of independence in <code>R</code></a></li>
+<li class="chapter" data-level="14.3.2" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#odds-ratios"><i class="fa fa-check"></i><b>14.3.2</b> odds ratios</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#a-final-note-on-presenting-statistical-test-results-in-writing"><i class="fa fa-check"></i><b>14.4</b> A final note on presenting statistical test results in writing</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#differences-directionality-and-magnitude"><i class="fa fa-check"></i><b>14.4.1</b> Differences, directionality, and magnitude</a></li>
+<li class="chapter" data-level="14.4.2" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#other-statistical-results-reporting-formalities"><i class="fa fa-check"></i><b>14.4.2</b> Other statistical results reporting formalities</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#exercises-associated-with-this-chapter-9"><i class="fa fa-check"></i><b>14.5</b> Exercises associated with this chapter:</a></li>
+<li class="chapter" data-level="14.6" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#additional-learning-resources-9"><i class="fa fa-check"></i><b>14.6</b> Additional learning resources:</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -546,26 +563,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">x &lt;-<span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">100</span>)</a>
 <a class="sourceLine" id="cb35-2" data-line-number="2"><span class="kw">print</span> (x)</a></code></pre></div>
-<pre><code>##   [1]  207.9441729  133.7286843  -32.8661438  -46.3172372  183.4046528
-##   [6]   84.4391923   20.5850465   83.3358471 -144.4944832    0.3971797
-##  [11]  154.5244442   74.4146679   24.3939872  -30.2927397 -156.8167040
-##  [16]  -13.8507866 -113.8492633   -0.6253472  -12.7291879  -36.1050548
-##  [21]  -58.0354242   21.5168420   44.7821413  -57.4133422  115.8886279
-##  [26] -139.4899908   47.6831570   76.8600600   37.0015840  -75.8149702
-##  [31]   52.0967728    1.9891174   -8.4895365  -38.1846935  -20.5770103
-##  [36]  -23.3810160 -146.8459053 -110.6392666 -152.7251169   89.0258612
-##  [41]  -15.3070275  213.6284342  -44.9832754 -153.5449691   40.2036790
-##  [46]  -36.1878652  162.7394457  203.2730042  -39.7726842  -67.2811456
-##  [51]  -63.9164028  137.5753738  -35.8612199  -75.9735093 -163.8589848
-##  [56]   41.0706983   72.3289204  -71.4840769   23.7507719  159.6139469
-##  [61] -147.3649359 -124.0018659  -64.4042955  273.8976903   84.1962082
-##  [66]  -21.8792918   79.9385635  -66.1013307   46.1241532  113.2515703
-##  [71] -171.2332827   81.4497682  107.7647097   -3.4635379  122.1786129
-##  [76]  -97.9823387   13.3105599  139.9863405  -93.1418924   14.6377023
-##  [81]   39.7687139  -85.5673959  -38.1071953   -6.0471094  193.5629864
-##  [86] -170.5588776  -61.1202115  -66.3205527  -23.9722414   27.9916013
-##  [91] -104.6023477 -207.9043703  -41.3910757   -7.4041682  -60.2008139
-##  [96]   45.8224097  -27.0605951  -17.0140812   10.6956764   91.4499998</code></pre>
+<pre><code>##   [1] -211.0003353  170.4725728 -165.7089067   77.4422612  173.9944929
+##   [6] -101.6045311   77.2201175  -59.5434010   26.4471062    0.4145475
+##  [11]   35.4602470  199.8419279  -63.5796049   37.2577906  123.2145042
+##  [16]  169.3903720  -50.9990205  -54.2938124   29.9458088   28.9125664
+##  [21] -148.1247026   -0.5653383   56.1283558  -63.6606658  -80.6486492
+##  [26] -129.3464640  -40.0691279   27.1100401    8.3627907  -82.0006780
+##  [31]  -25.6911553 -110.0477939 -200.6571895   66.2059985   52.8956300
+##  [36]   52.5631923  351.4879989   40.5716761 -127.2825415  125.7350357
+##  [41]  110.5508336  -36.4554174   31.8558034  -47.8256420  156.6629939
+##  [46] -117.2376516   -8.7065669  -21.9321430    0.4402651  164.3972591
+##  [51]  -78.2136532  180.2349054  -60.9280444  -70.3947342  -46.6306985
+##  [56]  -33.8900259  172.8254857  -58.5267900 -129.0655520   45.5736254
+##  [61]  -55.5934270 -123.2481118   63.3260991   76.7033367 -101.3523472
+##  [66]  -25.0408222  142.1559104   58.7234628    2.4932786  129.2006981
+##  [71]   58.6820360 -175.8653460  -35.4211947 -100.7105822 -121.6789932
+##  [76] -249.1675813   65.9053132   74.9160509  -60.5485948   90.6192341
+##  [81]  175.1067242  -32.2337905  -69.2081765 -164.1038439  208.2458762
+##  [86]  -48.6131172  -70.1311758  -64.4951955    5.4388052   -3.5799001
+##  [91]  -61.2597766  -95.0550962  -79.4208919   57.7976529  -39.3377039
+##  [96]  -41.7211450   22.8662633 -232.7333085 -130.1042595  -23.6953100</code></pre>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">hist</span>(x, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>,<span class="dv">50</span>))</a></code></pre></div>
 <p><img src="foundational_statistics_files/figure-html/Samples%20from%20distributions%202-1.png" width="100%" /></p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">hist</span>(x, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">500</span>,<span class="dv">500</span>))</a></code></pre></div>
