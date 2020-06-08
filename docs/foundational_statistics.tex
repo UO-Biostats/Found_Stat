@@ -118,7 +118,7 @@
 
 \title{Foundational Statistics - Bi 610 - Spring 2020}
 \author{Clayton M. Small and William A. Cresko}
-\date{2020-06-04}
+\date{2020-06-08}
 
 \begin{document}
 \maketitle
@@ -170,7 +170,7 @@ Please tell us your preferred pronouns and/or name, especially if it differs fro
 
 We are committed to making this course an inclusive and respectful learning space. Being respectful includes using preferred pronouns for your classmates. Your classmates come from a diverse set of backgrounds and experiences; please avoid assumptions or stereotypes, and aim for inclusivity. Let us know if there are classroom dynamics that impede your (or someone else's) full engagement.
 
-Because of the COVID-19 pandemic, this course is being delivered entirely remotely. We realized that this situation makes it difficult for some students to interact with the material, for a variety of reasons. We are committed to flexibility during this stressful time and emphasize that we will work with students to overcome difficult barriers as they arise.
+Because of the COVID-19 pandemic, this course is being delivered entirely remotely. We realize that this situation makes it difficult for some students to interact with the material, for a variety of reasons. We are committed to flexibility during this stressful time and emphasize that we will work with students to overcome difficult barriers as they arise.
 
 Please see this page for more information on campus resources, academic integrity, discrimination, and harassment (and reporting of it).
 
@@ -473,7 +473,7 @@ programming is assumed. The primary objective of the course is to get students u
 speed with respect to organization, manipulation, visualization, and analysis of data,
 using the R statistical language. The emphasis on application is strong, with the goal
 of enabling students (after the course) to analyze their own data sets with confidence
-using reasonable approaches, and, when faced with more difficult analysis problems,
+using reasonable approaches, and, when faced with more difficult analyses,
 to be able to communicate their inference objectives clearly to expert analysts.
 Students will learn to organize and analyze data sets in the form of RStudio projects,
 using R Markdown files to reproducibly capture and render code, visualizations, and
@@ -523,11 +523,11 @@ see the course goals and tentative schedule below.
 \hypertarget{introduction-to-r-and-rstudio}{%
 \section{Introduction to R and RStudio}\label{introduction-to-r-and-rstudio}}
 
-R is a core computational platform for statistical analysis. It was developed a number of years ago to create an open source envirnment for advanced computing in statistics and has since become the standard for statistical analysis in the field, replacing commerical packages like SAS and SPSS for the most part. Learning R is an essential part of becoming a scientist who is able to work at the cutting edge of statistical analysis -- or even to perform conventional statistical tests (e.g.~a t-test) in a standard way. An important part of R is that it is script-based, which makes it easy to create reproducible analysis pipelines, which is an emerging feature of the open data/open analysis movement in science. This is becoming an important component of publication and sharing of research results, so being able to engage fully with this effort is something that all young scientists should do.
+R is a core computational platform for statistical analysis. It was developed a number of years ago to create an open source environment for advanced computing in statistics and has since become the standard for statistical analysis in the field, replacing commercial packages like SAS and SPSS for the most part. Learning R is an essential part of becoming a scientist who is able to work at the cutting edge of statistical analysis -- or even to perform conventional statistical tests (e.g.~a t-test) in a standard way. An important part of R is that it is script-based, which makes it easy to create reproducible analysis pipelines, which is an emerging feature of the open data/open analysis movement in science. This is becoming an important component of publication and sharing of research results, so being able to engage fully with this effort is something that all young scientists should do.
 
 RMarkdown is an extra layer placed on top of R that makes it easy to integrate text explanations of what is going on, native R code/scripts, and R output all in one document. The final result can be put into a variety of forms, including webpages, pdf documents, Word documents, etc. Entire books are now written in RMarkdown and its relatives. It is a great way to make quick webpages, like this document, for instance. It is very easy to use and will be the format that I use to distribute your assignments to you and that you will use to turn in your assignments.
 
-R Projects are a simple way of designating a working directory in which to house files related to a given, well, project. Those files might include primary data and metadata files ready for reading into R, \texttt{.R} scripts, Rmarkdown files, and output such as Rmarkdown-rendered .html files or individual plots, for example. The nice thing about organizing your work with R Projects is that you can keep everthing needed to reproduce an analysis in a single directory on your computer. You can open an R Project in RStudio by opening the project's index (\texttt{.RProj}) file, which will automatically set your working directory to that of the project and facilitate loading any saved environments, etc.
+R Projects are a simple way of designating a working directory in which to house files related to a given, well, project. Those files might include primary data and metadata files ready for reading into R, \texttt{.R} scripts, Rmarkdown files, and output such as Rmarkdown-rendered .html files or individual plots, for example. The nice thing about organizing your work with R Projects is that you can keep everything needed to reproduce an analysis in a single directory on your computer. You can open an R Project in RStudio by opening the project's index (\texttt{.RProj}) file, which will automatically set your working directory to that of the project and facilitate loading any saved environments, etc.
 
 In Chapter 6 we will begin working in R and RStudio, but you can get them installed now (in that order) on your computer, if you haven't already. Get the most recent \emph{released} R version by following this link:
 \url{https://www.r-project.org/}
@@ -541,7 +541,7 @@ We will do our work using Rstudio, which is a powerful and convenient user inter
 There are tons of resources for learning R and RMarkdown on the internet. Here are just a few, but you will no doubt find your own favorites as you become routine R users.
 
 There is an organized group that is dedicated to training in R called DataCamp (\url{https://www.datacamp.com/}). They provide all of the basics for free. They actually have training for most data science platforms. RStudio provides links for training directly related to R and RMarkdown here:
-\url{https://www.rstudio.com/online-learning/}
+\url{https://education.rstudio.com/}
 
 There are also many, many R training videos on YouTube. Most of them are very well meaning but may not be as in-depth as you want.
 
@@ -579,13 +579,13 @@ You are now ready to navigate and explore files simply by typing!
 \hypertarget{navigating-directories-and-files}{%
 \subsection{Navigating directories and files}\label{navigating-directories-and-files}}
 
-When you are at the command line, just think of your computer as you would if you were navigating using a graphical application (e.g.~Mac Finder or Windows Explorer). You are always in a directory in your file system, and you can move to any other directory by typing the approriate command and destination, then hitting Enter.
+When you are at the command line, just think of your computer as you would if you were navigating using a graphical application (e.g.~Mac Finder or Windows Explorer). You are always in a directory in your file system, and you can move to any other directory by typing the appropriate command and destination, then hitting Enter.
 
 The first crucial UNIX command to learn is \texttt{pwd}. This command stands for ``print working directory,'' and it will literally print the path of the directory you are currently in.
 
-Another important command is \texttt{ls}. This lists the files and directories (by default) in your working directory. If you specify a different directory, it will list the files and/or directories there. Most UNIX commands (and indeed command-line programs in general), can be run with options. One way to invoke the and option is to type a ``flag'' along with the command. In the case of \texttt{ls}, we can type \texttt{ls\ -l}, for example, which will print the output line-by-line. We can also add annother flag: \texttt{ls\ -lh} (equivalent to \texttt{ls\ -l\ -h}), which will print items line-by-line but also make sure the item sizes are ``human readable.'' If you ever have quesitons about how to use UNIX program, including the flags and other options, you can type \texttt{man\ program\_name} and a wonderful help manual will appear. To exit and return to the command prompt, just hit ``q''. These \texttt{man} pages are extremely useful and should be your first go-to if you need information for a particular command. Please use these regularly!
+Another important command is \texttt{ls}. This lists the files and directories (by default) in your working directory. If you specify a different directory, it will list the files and/or directories there. Most UNIX commands (and indeed command-line programs in general), can be run with options. One way to invoke an option is to type a ``flag'' along with the command. In the case of \texttt{ls}, we can type \texttt{ls\ -l}, for example, which will print the output line-by-line. We can also add another flag: \texttt{ls\ -lh} (equivalent to \texttt{ls\ -l\ -h}), which will print items line-by-line but also make sure the item sizes are ``human readable.'' If you ever have questions about how to use a UNIX program, including the flags and other options, you can type \texttt{man\ program\_name} and a wonderful help manual will appear. To exit and return to the command prompt, just hit ``q''. These \texttt{man} pages are extremely useful and should be your first go-to if you need information for a particular command. Please use these regularly!
 
-The command \texttt{cd} will change your location from the current directory to another directory. Like many other programs (UNIX and otherwise) require you to input directory and file locations, with \texttt{cd} you can specify your desired location using either the \emph{absolute} or \emph{relative} path. An absolute path is the full ``address'' of a directory or file, starting from the root of your file system. An example of an absolute path to a directory in my file system is \texttt{/Users/csmall/Dropbox/sculpin\_project/images/}. Regardless of where my current working directory is in my file system, I can change to this \texttt{images/} directory using \texttt{cd} and the full path. I can also use a relative path, which is a sort of ``shortcut,'' to specify the location of a directory or file. Let's say I am in \texttt{/Users/csmall/Dropbox/BiostatsFound\_S2020/} and I want to get to the \texttt{images/} directory above. I could type \texttt{cd\ ../sculpin\_project/images}, which uses a relative path to take me ``up'' one directory (as denoted by \texttt{../}) into \texttt{Dropbox/} and back ``down'' into \texttt{sculpin\_project/images}. In fact, \texttt{..} is a special file in every directory that just means ``the directory above.'' The special file \texttt{.} is the current directory. And to mention one final useful designation for navigation shortcuts, you can use the \texttt{\textasciitilde{}} to denote your home directory.
+The command \texttt{cd} will change your location from the current directory to another directory. Like many other programs (UNIX and otherwise) requiring you to input directory and file locations, with \texttt{cd} you can specify your desired location using either the \emph{absolute} or \emph{relative} path. An absolute path is the full ``address'' of a directory or file, starting from the root of your file system. An example of an absolute path to a directory in my file system is \texttt{/Users/csmall/Dropbox/sculpin\_project/images/}. Regardless of where my current working directory is in my file system, I can change to this \texttt{images/} directory using \texttt{cd} and the full path. I can also use a relative path, which is a sort of ``shortcut,'' to specify the location of a directory or file. Let's say I am in \texttt{/Users/csmall/Dropbox/BiostatsFound\_S2020/} and I want to get to the \texttt{images/} directory above. I could type \texttt{cd\ ../sculpin\_project/images}, which uses a relative path to take me ``up'' one directory (as denoted by \texttt{../}) into \texttt{Dropbox/} and back ``down'' into \texttt{sculpin\_project/images}. In fact, \texttt{..} is a special file in every directory that just means ``the directory above.'' The special file \texttt{.} is the current directory. And to mention one final useful designation for navigation shortcuts, you can use the \texttt{\textasciitilde{}} to denote your home directory.
 
 The schematic below should help you visualize how to think about file system navigation from the commmand line:
 \includegraphics{/Users/csmall/github_repos/Found_Stat/images/Directory_example.jpeg}
@@ -620,7 +620,7 @@ An aside: If you are working from the command line and want to terminate a proce
 
 \texttt{mv} - changes the name of a file or directory
 
-\texttt{rm} - deletes a file, or a directory and everyting inside with \texttt{-r}
+\texttt{rm} - deletes a file, or a directory and everything inside with \texttt{-r}
 
 \texttt{cat} - prints the entire file to the terminal, or concatenates and prints multiple files
 
@@ -635,11 +635,11 @@ An aside: If you are working from the command line and want to terminate a proce
 \hypertarget{useful-unix-commands-for-file-manipulation}{%
 \subsection{Useful UNIX commands for file manipulation}\label{useful-unix-commands-for-file-manipulation}}
 
-In many cases you will want to search for specific characters or combinations of characters, and do various things with that information. Maybe you want to isolate the lines of a file that contain the query, or perhaps you want to count how many lines contain the query. The tool \texttt{grep} is extremely useful in this regard. We don't have time for a comprehensive dive into the utilities of \texttt{grep}, but a few common applications are worth mentioning. Character patterns we search for using \texttt{grep} may or may not involve special characters that are not interpretted literally. Here we will discuss just a few common cases of \texttt{grep} searches and the special characters involved. Some examples of these special characters include \texttt{\^{}} (beginning of a line), \texttt{\$} (end of a line), \texttt{.} (any single character except a newline), \texttt{*} (zero or more instances of the preceeding character), and \texttt{\textbackslash{}s} (any white space). The standard syntax for \texttt{grep} from the command line is \texttt{grep\ "expression"\ filename}. So, if you wanted to return all of the lines in the data file \texttt{zfish\_data.tsv} (assuming it is in the current directory) that begin with ``embryo\_10'', you could try \texttt{grep\ "\^{}embryo\_10"\ zfish\_data.tsv}. This search would also (unintentionally) find lines beginning with ``embryo\_100'' or ``embryo\_101'', etc., if they exist. So, you have to be careful, and learning the rules just takes practice. In this case \texttt{grep\ "\^{}embryo\_10\textbackslash{}s"\ zfish\_data.tsv} would acheive the desired result, assuming that there is a whitespace delimiter between fields (``columns'') in the data file. Useful flags for \texttt{grep} include \texttt{-c} (which counts the number of lines containing the query), \texttt{-v} (which returns the lines that \emph{do not} contain the query), and \texttt{-n} (which prints the line number for each line containing the query). I encourage you to look at many different \texttt{grep} use cases online as your demand for complex searches grows.
+In many cases you will want to search for specific characters or combinations of characters, and do various things with that information. Maybe you want to isolate the lines of a file that contain the query, or perhaps you want to count how many lines contain the query. The tool \texttt{grep} is extremely useful in this regard. We don't have time for a comprehensive dive into the utilities of \texttt{grep}, but a few common applications are worth mentioning. Character patterns we search for using \texttt{grep} may or may not involve special characters that are not interpreted literally. Here we will discuss just a few common cases of \texttt{grep} searches and the special characters involved. Some examples of these special characters include \texttt{\^{}} (beginning of a line), \texttt{\$} (end of a line), \texttt{.} (any single character except a newline), \texttt{*} (zero or more instances of the preceding character), and \texttt{\textbackslash{}s} (any white space). The standard syntax for \texttt{grep} from the command line is \texttt{grep\ "expression"\ filename}. So, if you wanted to return all of the lines in the data file \texttt{zfish\_data.tsv} (assuming it is in the current directory) that begin with ``embryo\_10'', you could try \texttt{grep\ "\^{}embryo\_10"\ zfish\_data.tsv}. This search would also (unintentionally) find lines beginning with ``embryo\_100'' or ``embryo\_101'', etc., if they exist. So, you have to be careful, and learning the rules just takes practice. In this case \texttt{grep\ "\^{}embryo\_10\textbackslash{}s"\ zfish\_data.tsv} would achieve the desired result, assuming that there is a whitespace delimiter between fields (``columns'') in the data file. Useful flags for \texttt{grep} include \texttt{-c} (which counts the number of lines containing the query), \texttt{-v} (which returns the lines that \emph{do not} contain the query), and \texttt{-n} (which prints the line number for each line containing the query). I encourage you to look at many different \texttt{grep} use cases online as your demand for complex searches grows.
 
-The program \texttt{sed} has reasonably complex applciations, but is commonly used as a sort of ``search and replace'' tool. The syntax for \texttt{sed} use is similar to \texttt{grep}, except that the query and replacement expressions are organized (with other information) using slashes. For ``search and replace'' functionality, that sytax looks like this: \texttt{sed\ \textquotesingle{}s/query/replacement/flag\textquotesingle{}\ filename}. One common option for the ``flag'' component is ``g'', meaning ``global'', which replaces all instances. If no flag designation is made only the first instance in the file is replaced. Building on our toy example from above, \texttt{sed\ \textquotesingle{}s/\^{}embryo\_/\^{}larva\_/g\textquotesingle{}\ zfish\_data.tsv} would perform a global replacement and print the output to the terminal. To change the contents in the original file on the fly, including \texttt{sed\ -i} would do the trick, but is riskier than redirecting the output to a new file.
+The program \texttt{sed} has reasonably complex applications, but is commonly used as a sort of ``search and replace'' tool. The syntax for \texttt{sed} use is similar to \texttt{grep}, except that the query and replacement expressions are organized (with other information) using slashes. For ``search and replace'' functionality, that syntax looks like this: \texttt{sed\ \textquotesingle{}s/query/replacement/flag\textquotesingle{}\ filename}. One common option for the ``flag'' component is ``g'', meaning ``global'', which replaces all instances. If no flag designation is made only the first instance in the file is replaced. Building on our toy example from above, \texttt{sed\ \textquotesingle{}s/\^{}embryo\_/\^{}larva\_/g\textquotesingle{}\ zfish\_data.tsv} would perform a global replacement and print the output to the terminal. To change the contents in the original file on the fly, including \texttt{sed\ -i} would do the trick, but is riskier than redirecting the output to a new file.
 
-\texttt{cut} is quite straightforward, and can be used to isolate individual fields (think of them like ``columns'') from a text file, provided the fields are consistently separated by a delimeter on each line. So, if I had a comma-separated file and I just wanted the first two columns I could type \texttt{cut\ -f1,2\ -d"\textbackslash{}t"\ filename}. Note that if you don't specify a delimter using the \texttt{-d} flag, then it is assumed to be tab-delimited. If you want to bring together fields in separate files, \texttt{join} can be used to accomplish this. The two files should have equivalent rows, however, for this action to work properly.
+\texttt{cut} is quite straightforward, and can be used to isolate individual fields (think of them like ``columns'') from a text file, provided the fields are consistently separated by a delimiter on each line. So, if I had a comma-separated file and I just wanted the first two columns I could type \texttt{cut\ -f1,2\ -d"\textbackslash{}t"\ filename}. Note that if you don't specify a delimiter using the \texttt{-d} flag, then it is assumed to be tab-delimited. If you want to bring together fields in separate files, \texttt{join} can be used to accomplish this. The two files should have equivalent rows, however, for this action to work properly.
 
 If you want to sort text files alphanumerically, in a field-wise fashion, \texttt{sort} is quite useful. If a file contains a single field, minimal specification is required, aside from tuning numerical sorting. For example, if you want to sort numerically, use the \texttt{-n} flag, and if you want to sort from largest to smallest, add the \texttt{-r} flag. If you want to sort a multi-field file based on just one field, you can use the ``key'' flag. For instance, if you have a tab-delimited file and want to sort by the second field in reverse numerical order, \texttt{sort\ -k2,2\ -nr\ filename.tsv} would give you the desired result. Finally, if you want to eliminate lines with the same value for a given field, you can use the \texttt{-u} ``unique'' flag.
 
@@ -663,7 +663,7 @@ The UNIX program \texttt{awk} is an extremely powerful tool, and can itself be u
 \hypertarget{a-quick-word-on-pipes-and-carrots}{%
 \subsection{A quick word on pipes and carrots}\label{a-quick-word-on-pipes-and-carrots}}
 
-One very convenient feature of UNIX commands is that you can control the flow of input and output from one command to another using the \texttt{\textbar{}} (``pipe'') character. For instance, I may want to search an entire file for rows that begin with ``fish-1'', and then replace the ``-'' with "\_``. To do this I could do something like \texttt{cat\ file.tsv\ \textbar{}\ grep\ "\^{}fish-1"\ \textbar{}\ sed\ \textquotesingle{}s/fish-1/fish\_1/g\textquotesingle{}} This, of course, would print the output to the terminal, but I could actually capture that output into a file using the \texttt{\textgreater{}} charcter. \texttt{cat\ filename\ \textbar{}\ grep\ "\^{}fish-1"\ \textbar{}\ sed\ \textquotesingle{}s/fish-1/fish\_1/g\textquotesingle{}\ \textgreater{}\ ./newfile.tsv} would write this new file to my current working directory. Furthermore, if you want to append lines of text to an existing file, the''double sideways right-pointing carrot" character \texttt{\textgreater{}\textgreater{}} can be used.
+One very convenient feature of UNIX commands is that you can control the flow of input and output from one command to another using the \texttt{\textbar{}} (``pipe'') character. For instance, I may want to search an entire file for rows that begin with ``fish-1'', and then replace the ``-'' with ``\_''. To do this I could do something like \texttt{cat\ file.tsv\ \textbar{}\ grep\ "\^{}fish-1"\ \textbar{}\ sed\ \textquotesingle{}s/fish-1/fish\_1/g\textquotesingle{}} This, of course, would print the output to the terminal, but I could actually capture that output into a file using the \texttt{\textgreater{}} character. \texttt{cat\ filename\ \textbar{}\ grep\ "\^{}fish-1"\ \textbar{}\ sed\ \textquotesingle{}s/fish-1/fish\_1/g\textquotesingle{}\ \textgreater{}\ ./newfile.tsv} would write this new file to my current working directory. Furthermore, if you want to append lines of text to an existing file, the ``double sideways right-pointing carrot'' character \texttt{\textgreater{}\textgreater{}} can be used.
 
 The above lessons on UNIX commands for file manipulation truly just scratch the surface of what can be accomplished at the command line and in ``shell scripts.'' You certainly will have further questions and be hungry for more, but we simply don't have time during this course. But to work on your UNIX skills for now, check out \texttt{Ex1\_Unix\_Intro.html} (on Canvas). We need to move on to R now, but at the bottom of this chapter are some UNIX command resources I have found to be especially useful.
 
@@ -672,7 +672,7 @@ The above lessons on UNIX commands for file manipulation truly just scratch the 
 
 Do store a copy of your data in a nonproprietary format, such as plain ASCII text (aka a flat file). This is especially important if you are using tools (like UNIX commands) to parse and manipulate the files. Formats like Microsoft Excel are not acceptable as input for many analysis tools, and not everyone has access to proprietary software.
 
-Do leave an un-edited copy of an original data file, even when main analyes require an edited version.
+Do leave an un-edited copy of an original data file, even when main analyses require an edited version.
 
 Do use descriptive names for your data files and variables, and use them consistently!
 
@@ -686,7 +686,7 @@ Don't include multiple data types in the same column.
 
 Don't use non-alphanumeric characters (other than the underscore) in file or directory names.
 
-Don't use spaces, tabs, commas, colons, semicolons, or other chacters commonly used as field (column) delimiters in names of individual data entries. For example, don't use something like \texttt{March\ 8} as a value for date in a data set.
+Don't use spaces, tabs, commas, colons, semicolons, or other characters commonly used as field (column) delimiters in names of individual data entries. For example, don't use something like \texttt{March\ 8} as a value for date in a data set.
 
 Don't copy and paste data directly from rich-text-formatted files (like Microsoft Word) into primary data files.
 
@@ -1163,23 +1163,23 @@ Note that factor levels are reported alphabetically. I used the \texttt{class()}
 \end{Shaded}
 
 \begin{verbatim}
-##   [1] -103.401885  -15.712430 -107.652410 -120.340092  133.767694  -38.195053
-##   [7]   57.915132  -84.854651 -130.268305   77.399223   20.480137   91.489955
-##  [13]  -94.599242  143.383936  -99.139118 -135.020818 -206.453729  -92.232382
-##  [19]  110.680912  102.401535  -18.538340 -164.652845 -212.558447   25.814463
-##  [25]   74.686795  129.059320   47.713880   49.038609  -38.621126   -4.991785
-##  [31]    2.160557  122.937603   25.415801  -81.953996   70.030177   65.299991
-##  [37]  -52.630014    5.550989  -45.441178  -63.641496   69.243815  146.201157
-##  [43]  -60.548276   41.901994   13.872516  -12.009082  -27.051311  -35.391488
-##  [49]  -82.975158   11.506389  -23.680896   13.724999  186.406322 -156.288464
-##  [55]   15.131509 -208.696924  -46.095696   21.301589  -17.023168   18.991224
-##  [61]   -9.294626   31.332359  -88.223403  -23.087442 -266.832909 -124.579299
-##  [67]  -18.179425    5.405148  -67.914278  -97.938934 -184.765330   47.508364
-##  [73] -254.119707   48.860473 -159.490100  134.997625  -90.244722 -176.395346
-##  [79] -167.375311  122.391815 -103.414862  -47.166852  100.696040  -20.717207
-##  [85]  -15.168634 -103.081778   41.828821  -78.803724 -102.797986   35.353839
-##  [91] -105.805698   54.578568  -55.714059  -11.423634  -78.477777  -70.094251
-##  [97]   -5.007154  -17.038045   26.691174   82.166528
+##   [1] -115.736062   46.162100  -20.570776  -76.484887 -123.604512  -26.888954
+##   [7]   76.317225  -57.788088  110.387306 -112.070642  -24.530856   68.746708
+##  [13] -120.029738   93.466653   39.184877    9.435532  -81.923434 -192.788644
+##  [19]  -43.199988   12.227361 -107.457187  -50.481329  -39.041030   74.775718
+##  [25]   16.151459    7.464346  151.623071  -95.181466  -79.264048  -97.977955
+##  [31]  -66.382312  -60.579807 -131.643555  -91.266695  116.313564   26.891971
+##  [37]  119.407931   39.898933   -7.547961    3.272318   14.036778   49.989889
+##  [43]  182.852914  102.644496   40.666657  -75.383949   68.251600 -119.179269
+##  [49]  141.137111   41.354446   19.627214   18.594767 -101.945437  176.305210
+##  [55]  182.163007  -13.627601  -79.786733   12.449008   53.162520 -142.908410
+##  [61]   38.408529  -33.026918   64.944359  -39.583385 -142.549870  172.957354
+##  [67]   30.252369   87.199171   72.097828   -7.062924   -5.167127  -93.072087
+##  [73]  -75.259291 -222.993224  215.267991  111.004214   -9.791820 -262.514250
+##  [79]   26.070458  127.347038    9.721671  -50.540868    2.243590  -22.680583
+##  [85]  155.454690  -51.485703  -28.734447 -124.666379  139.953807  124.313111
+##  [91]   18.581008  165.526695  -25.762179  110.525407  -83.971741  -13.418931
+##  [97]  -75.917847  -44.366603 -194.754218  116.146678
 \end{verbatim}
 
 \begin{Shaded}
@@ -1797,16 +1797,16 @@ In the example below, we ``shuffle'' the order of the integers 1 through 10 five
 
 \begin{verbatim}
 ##       [,1] [,2] [,3] [,4] [,5]
-##  [1,]    2    1    5    9    7
-##  [2,]    9   10    7    2    3
-##  [3,]    8    8    6    8    9
-##  [4,]    4    6    9    5    6
-##  [5,]    7    9    3    4    8
-##  [6,]    5    2    4    3    5
-##  [7,]    6    5   10    7    2
-##  [8,]    3    3    2    1   10
-##  [9,]   10    4    8   10    4
-## [10,]    1    7    1    6    1
+##  [1,]    6    8    8    1    2
+##  [2,]   10    1    9    3    7
+##  [3,]    3    9    5    5    1
+##  [4,]    8    5    7    6    8
+##  [5,]    9    4   10    4    9
+##  [6,]    5    2    1    2    3
+##  [7,]    2   10    6    7   10
+##  [8,]    4    7    4   10    6
+##  [9,]    7    6    3    8    4
+## [10,]    1    3    2    9    5
 \end{verbatim}
 
 Note that the first argument is the number of total iterations we want to reproduce, and that the function returns a matrix as output.

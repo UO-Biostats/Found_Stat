@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.8)  4 JUN 2020 15:22
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.8)  8 JUN 2020 12:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1115,12 +1115,6 @@ Overfull \hbox (188.67497pt too wide) in paragraph at lines 593--595
  []
 
 [22] [23]
-Underfull \hbox (badness 1331) in paragraph at lines 640--641
-\TU/lmr/m/n/10 that sytax looks like this: \TU/lmtt/m/n/10 sed []s/query/replac
-ement/flag[] filename\TU/lmr/m/n/10 .
- []
-
-
 Underfull \hbox (badness 5260) in paragraph at lines 640--641
 \TU/lmtt/m/n/10 sed []s/^embryo_/^larva_/g[] zfish_data.tsv \TU/lmr/m/n/10 woul
 d perform a global
@@ -1378,98 +1372,98 @@ Overfull \hbox (109.3802pt too wide) in paragraph at lines 1147--1148
 
 [38]
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##   [1] -103.401885  -15.712430 -107.652410 -120.340092  133
-.767694  -38.195053[] 
+[]\TU/lmtt/m/n/10 ##   [1] -115.736062   46.162100  -20.570776  -76.484887 -123
+.604512  -26.888954[] 
  []
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##   [7]   57.915132  -84.854651 -130.268305   77.399223   20
-.480137   91.489955[] 
+[]\TU/lmtt/m/n/10 ##   [7]   76.317225  -57.788088  110.387306 -112.070642  -24
+.530856   68.746708[] 
  []
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [13]  -94.599242  143.383936  -99.139118 -135.020818 -206
-.453729  -92.232382[] 
+[]\TU/lmtt/m/n/10 ##  [13] -120.029738   93.466653   39.184877    9.435532  -81
+.923434 -192.788644[] 
  []
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [19]  110.680912  102.401535  -18.538340 -164.652845 -212
-.558447   25.814463[] 
+[]\TU/lmtt/m/n/10 ##  [19]  -43.199988   12.227361 -107.457187  -50.481329  -39
+.041030   74.775718[] 
  []
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [25]   74.686795  129.059320   47.713880   49.038609  -38
-.621126   -4.991785[] 
+[]\TU/lmtt/m/n/10 ##  [25]   16.151459    7.464346  151.623071  -95.181466  -79
+.264048  -97.977955[] 
  []
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [31]    2.160557  122.937603   25.415801  -81.953996   70
-.030177   65.299991[] 
+[]\TU/lmtt/m/n/10 ##  [31]  -66.382312  -60.579807 -131.643555  -91.266695  116
+.313564   26.891971[] 
  []
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [37]  -52.630014    5.550989  -45.441178  -63.641496   69
-.243815  146.201157[] 
+[]\TU/lmtt/m/n/10 ##  [37]  119.407931   39.898933   -7.547961    3.272318   14
+.036778   49.989889[] 
  []
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [43]  -60.548276   41.901994   13.872516  -12.009082  -27
-.051311  -35.391488[] 
+[]\TU/lmtt/m/n/10 ##  [43]  182.852914  102.644496   40.666657  -75.383949   68
+.251600 -119.179269[] 
  []
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [49]  -82.975158   11.506389  -23.680896   13.724999  186
-.406322 -156.288464[] 
+[]\TU/lmtt/m/n/10 ##  [49]  141.137111   41.354446   19.627214   18.594767 -101
+.945437  176.305210[] 
  []
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [55]   15.131509 -208.696924  -46.095696   21.301589  -17
-.023168   18.991224[] 
+[]\TU/lmtt/m/n/10 ##  [55]  182.163007  -13.627601  -79.786733   12.449008   53
+.162520 -142.908410[] 
  []
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [61]   -9.294626   31.332359  -88.223403  -23.087442 -266
-.832909 -124.579299[] 
+[]\TU/lmtt/m/n/10 ##  [61]   38.408529  -33.026918   64.944359  -39.583385 -142
+.549870  172.957354[] 
  []
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [67]  -18.179425    5.405148  -67.914278  -97.938934 -184
-.765330   47.508364[] 
+[]\TU/lmtt/m/n/10 ##  [67]   30.252369   87.199171   72.097828   -7.062924   -5
+.167127  -93.072087[] 
  []
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [73] -254.119707   48.860473 -159.490100  134.997625  -90
-.244722 -176.395346[] 
+[]\TU/lmtt/m/n/10 ##  [73]  -75.259291 -222.993224  215.267991  111.004214   -9
+.791820 -262.514250[] 
  []
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [79] -167.375311  122.391815 -103.414862  -47.166852  100
-.696040  -20.717207[] 
+[]\TU/lmtt/m/n/10 ##  [79]   26.070458  127.347038    9.721671  -50.540868    2
+.243590  -22.680583[] 
  []
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [85]  -15.168634 -103.081778   41.828821  -78.803724 -102
-.797986   35.353839[] 
+[]\TU/lmtt/m/n/10 ##  [85]  155.454690  -51.485703  -28.734447 -124.666379  139
+.953807  124.313111[] 
  []
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 1183--1183
-[]\TU/lmtt/m/n/10 ##  [91] -105.805698   54.578568  -55.714059  -11.423634  -78
-.477777  -70.094251[] 
+[]\TU/lmtt/m/n/10 ##  [91]   18.581008  165.526695  -25.762179  110.525407  -83
+.971741  -13.418931[] 
  []
 
 File: foundational_statistics_files/figure-latex/Samples from distributions 2-1
@@ -1643,7 +1637,7 @@ File: foundational_statistics_files/figure-latex/binomial function-1.pdf Graphi
 c file (type pdf)
 <use foundational_statistics_files/figure-latex/binomial function-1.pdf>
 
-Overfull \hbox (60.3183pt too wide) in paragraph at lines 1968--1969
+Overfull \hbox (60.31384pt too wide) in paragraph at lines 1968--1969
 []\TU/lmr/m/n/10 function-1.bb [] 
  []
 

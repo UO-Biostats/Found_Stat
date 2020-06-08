@@ -24,7 +24,7 @@
 <meta name="author" content="Clayton M. Small and William A. Cresko" />
 
 
-<meta name="date" content="2020-06-04" />
+<meta name="date" content="2020-06-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -576,16 +576,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In the example below, we “shuffle” the order of the integers 1 through 10 five times using <code>replicate()</code>:</p>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="kw">replicate</span>(<span class="dv">5</span>, <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size=</span><span class="dv">10</span>, <span class="dt">replace=</span><span class="ot">FALSE</span>))</a></code></pre></div>
 <pre><code>##       [,1] [,2] [,3] [,4] [,5]
-##  [1,]   10    2    5    1    7
-##  [2,]    8    4    6    5    2
-##  [3,]    5    5    4    7    5
-##  [4,]    3    8   10    4    9
-##  [5,]    4    3    8    9    3
-##  [6,]    9    9    7    6   10
-##  [7,]    6   10    9    8    4
-##  [8,]    7    1    3    2    8
-##  [9,]    2    6    2   10    6
-## [10,]    1    7    1    3    1</code></pre>
+##  [1,]    4    9    4    4    1
+##  [2,]    3   10    5    1   10
+##  [3,]   10    7    6    8    3
+##  [4,]    8    2   10   10    8
+##  [5,]    9    1    8    3    9
+##  [6,]    6    3    1    6    2
+##  [7,]    5    4    3    2    7
+##  [8,]    7    6    2    7    6
+##  [9,]    1    8    7    9    4
+## [10,]    2    5    9    5    5</code></pre>
 <p>Note that the first argument is the number of total iterations we want to reproduce, and that the function returns a matrix as output.</p>
 <p>The <code>replicate()</code> function belongs to a group of functions referred to informally as the “apply” family. Another commonly used function from this group is <code>tapply()</code>, which allows you to apply a function to one vector (for example a numeric vector in a data frame), in a group-wise manner based on one or more factor vectors that correspond to the numeric vector. In other words, if we want to find the maximum value of variable x for each level of factor y in a data frame, we could use <code>tapply()</code> to do so. Below is an example, again using the <code>iris</code> data frame.</p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="co">## Find the maximum petal length for each species in the iris data frame</span></a>
