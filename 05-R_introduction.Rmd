@@ -79,7 +79,7 @@ This format provides a much better way to embed code and output, in an easily re
 
 - Variables are assigned values using the `<-` operator.
 
-- Variable names must begin with a letter, and should not contain spaces or `R` operators (see above) but other than that, just about anything goes. 
+- Variable names must begin with a letter, and should not contain spaces or `R` operators (see above) but other than that, just about anything goes. It is good practice to avoid periods in variable names, as they have other functionality in related programming languages, like Python. 
 
 - Do keep in mind that `R` is case sensitive.
 
@@ -163,9 +163,34 @@ class(z_factor)
 
 Note that factor levels are reported alphabetically. I used the `class()` function to ask `R` what type of object "z_factor" is. `class()` is one of the most important tools at your disposal. Often times you can debug your code simply by changing the class of an object. Because functions are written to work with specific classes, changing the class of a given object is crucial in many cases.
 
+#### Null values
+
+- R (and many programming languages) have special strings that mean 'no value', or 'null'. In R, the most common is `NA`, although there are others as well (`NULL` and `NaN`) 
+
+- Typically, `NA` is used to indicate a lack of data for a given observation, or a missing value where there normally should be one. 
+
+- Any instance of a blank entry in your data file will be read into R as an `NA`. 
+
+- NA is a technically a logical data type, and is *not* equivalent to an empty string or the numeric 0. It is also a reserved word and can't be used as a variable name. 
+
+```{r, echo = TRUE}
+class(NA)
+```
+
+Many functions in R (e.g. `mean()`) will not work by default if passed any NA values as an argument. So if we want to determine the mean of a vector of numeric values, we need to ensure there are either no NA values in the vector, or specify an additional 'argument' to the function telling it to ignore `NA`. Additionally `NA`, like other 'null' values, are operated on by a number of unique functions in R.
+
+```{r, echo = TRUE}
+num <- c(0,1,2,NA,4)
+mean(num)
+mean(num, na.rm = TRUE)
+is.na(num)
+```
+
 #### Vectors
 
 - In general R thinks in terms of vectors (a list of characters factors or numerical values) and it will benefit any R user to try to write programs with that in mind.
+
+- The simplest vectors in R are 'atomic' vectors, meaning that they consist of only one data type. 
 
 - R operations, and therefore functions, are vectorized.
 
