@@ -136,7 +136,7 @@ c(10, 20, 30, 40, 50, 100, 200)[-c(1:2)]
 Vectors are extremely important object types in `R`, for the reasons and examples we have already discussed. Other types of objects in `R` are also important, and necessary to learn about to do meaningful and efficient work. These other types of objects are more complex than vectors, but they can, in many cases, be composed of vectors.
 
 
-### lists
+### Lists
 
 Lists in `R` are aggregates of different objects, and those objects can be a mixed variety of types. For example, a list could be an aggregate of 3 different vectors, even if those vectors are different lengths and contain elements of a different class. We can generate lists using the `list()` function.
 
@@ -169,12 +169,12 @@ mylist[[2]][2]
 The other things we should note from our exploration of `mylist` above is that 1. It has a class when we call the `class()` function, and 2. We see a nice breakdown of the 3 components that make up `mylist` when we call the `str()` function. `str()`, which is short for "structure," is an especially useful function for trying to understand the organization of complex objects in `R`.
 
 
-### data frames
+### Data frames
 
 There is a special class of list we very often work with in `R` called a "data frame." You can think of data frames as an especially useful organizing structure for data sets. Data frames are lists of vectors, but the vectors have to be the same length. Also, the vectors (officially known as "columns") in data frames have names we refer to as "column names," and the rows also have names. For the types of analysis we will be dealing with in this course, it helps to organize our data so that variables in our study correspond to columns and observations correspond to rows. Let's explore some practical details regarding the generation and use of data frames.
 
 
-#### creating data frames in `R`
+#### Creating data frames in `R`
 
 We can generate data frames manually, like we did with the list `mylist` above. Here, for example, we can set up three variables (habitat, temp and elevation) as vectors.
 
@@ -195,7 +195,7 @@ row.names(mydata) <- c("Reedy Lake", "Pearcadale", "Warneet", "Cranbourne",
 Note above that we used a function called `row.names` to assign row names to `mydata`. The function `colnames()` does the same, but for column names.
 
 
-#### working with pre-loaded base `R` data frames.
+#### Working with pre-loaded base `R` data frames.
 
 There are a few data frames that are available to work with whenever you begin an `R` session. These can be a great way to practice plotting and analysis, and in fact many examples written to accompany `R` functions include these data frames to promote reproducibility and convenience. Two of these pre-loaded data frames that are especially popular are `mtcars` and `iris`.
 
@@ -208,7 +208,7 @@ head(iris)
 ```
 
 
-#### reading in data frames in `R`
+#### Reading in data frames in `R`
 
 A strength of `R` is being able to import data from an external source. For example, if you have a comma- or tab- separated text file (like the UNIX-friendly formats we discussed previously), it can be easily read into `R`, by default as a data frame. One function for accomplishing this is `read.table()`, although functions like `read.delim()` can be similarly applied. Two important arguments for `read.table()` are "header" and "row.names", which indicate that there is a header row (with column names) and row label column (with row names), respectively. You also need to supply the file path and name in quotation marks (no path necessary if the file is in the current working directory), and what character is used as the field (column) delimiter. Here is an example:
 
@@ -217,7 +217,7 @@ YourFile <- read.table('yourfile.csv', header=T, row.names=1, sep=',')
 YourFile <- read.table('yourfile.txt', header=T, row.names=1, sep='\t')
 ```
 
-#### exporting data frames in `R`
+#### Exporting data frames in `R`
 
 If you ever want to save a data frame in a format that you can work with outside of `R`, the `write.table()` function does pretty much the opposite of its "read" counterpart.
 
@@ -226,7 +226,7 @@ write.table(YourFile, "yourfile.csv", quote=F, row.names=T, sep=",")
 write.table(YourFile, "yourfile.txt", quote=F, row.names=T, sep="\t")
 ```
 
-#### indexing data frames
+#### Indexing data frames
 Indexing data frames can be acheived in two different ways. We can use numeric (positional) indexing as in the case of vectors and lists (see above). With a data frame, we can index any subset of it using two pieces of information: row coordinates and column coordinates. To accomplish this we use single square braces `[,]`, in which the row coordinate(s) are typed first, followed by a comma, followed by the column cooridate(s). If we want to index all rows or all columns, we just leave the space to the left or right of the comma blank, respectively. Here are some examples for indexing subsets of the `iris` data frame.
 
 ```{r, echo=TRUE}
@@ -244,7 +244,7 @@ iris$Sepal.Length[1:5]
 ```
 
 
-### matrices
+### Matrices
 
 Matrices in `R` are somewhat similar to data frames, but mixed classes among columns are not permitted, and rows and columns are only positionally indexed as opposed to having names. Positional indexing for matrices, not surprisingly, follows the `[rownumber, columnnumber]` convention, similar to data frames. A matrix can be generated using the `matrix()` function, as demonstrated below.
 
@@ -289,8 +289,11 @@ col_vec <- ifelse(char_vec=="treatment", "red", "blue")
 print(col_vec)
 ```
 
+## The Split-Apply-Combine approach to data analysis
 
-### `replicate()`, `tapply()`, and `apply()`
+It can often feel like the specific tools and strategies required for data analysis are unique to any given combination of question and data. However, one motif does appear time and time again: the need to take a larger data set, summarize a key variable by one or more grouping variables, and return the result as a new, more directly useful data object. This work flow is often called the 'Split-Apply-Combine' approach to data analysis. You first (1) **Split** your data by some grouping variables of interest e.g. treatment, (2) **Apply** a function to another variable for each group separately e.g. the mean of some response variable, and (3) **Combine** the output into a new data object e.g. a named vector or data frame. Because this approach is so common, `R` has many ready-made functions and packages to make this as easy as possible. 
+
+### `replicate()`, `apply()`, `tapply()`, and `aggregate()`
 
 In some cases we want to repeat a given process over and over again. For example, maybe we want to simulate the sampling process and generate 100 random samples of 100 values from a normal distribution. Fortunately, the `R` function `replicate()` makes this very easy.
 
@@ -302,22 +305,32 @@ replicate(5, sample(1:10, size=10, replace=FALSE))
 
 Note that the first argument is the number of total iterations we want to reproduce, and that the function returns a matrix as output. 
 
+The `replicate()` function belongs to a group of functions referred to informally as the "apply" family. Another, similar function from this family is simply called `apply()`, and it can be used to apply a function to either all rows (with the MARGIN argument set to 1) or all columns (with the MARGIN argument set to 2) in a data frame or matrix. This is especially useful for calculating summary statistics for what we call the "margins" of data in tables. 
 
-The `replicate()` function belongs to a group of functions referred to informally as the "apply" family. Another commonly used function from this group is `tapply()`, which allows you to apply a function to one vector (for example a numeric vector in a data frame), in a group-wise manner based on one or more factor vectors that correspond to the numeric vector. In other words, if we want to find the maximum value of variable x for each level of factor y in a data frame, we could use `tapply()` to do so. Below is an example, again using the `iris` data frame.
+You might be starting to see how this family of functions could emulate the **S-A-C** approach to data analysis. A very useful function from this group is `tapply()`, which allows you to apply a function to one vector (for example a numeric vector in a data frame), in a group-wise manner based on one or more factor vectors that correspond to the numeric vector. In other words, if we want to find the maximum value of variable x for each level of factor y in a data frame, we could use `tapply()` to do so. Below is an example, again using the `iris` data frame.
 
 ```{r, echo=TRUE}
 ## Find the maximum petal length for each species in the iris data frame
 tapply(iris$Petal.Length, iris$Species, max)
 ```
 
-Note that the first argument is the numerical column, and the second is a factor column. The third is the function we wish to apply, in this case to each species separately.
+Note that the first argument is the numerical column, and the second is a factor column. The third is the function we wish to apply, in this case to each species separately. 
 
-Another, similar function from this family is simply called `apply()`, and it can be used to apply a function to either all rows (with the MARGIN argument set to 1) or all columns (with the MARGIN argument set to 2) in a data frame or matrix. This is especially useful for calculating summary statistics for what we call the "margins" of data in tables. 
+One problem with `tapply()` is that it only allows you to apply a function to a single variable of interest. What if you would like to summarize *all* relevant variables based on one or more factors? For that, we can use `aggregate()`. For example, we could collapse the entire `iris` data frame by finding the average of each numeric column by species.
+
+```{r, echo=TRUE, warning = FALSE}
+## Find the mean of each variable for each species in the iris data frame
+aggregate(iris, by = list(iris$Species), FUN = mean)
+```
+
+Much like `tapply()`, the first argument is the data we wish to summarize, the second argument is the grouping variable (which must be passed as a list), and the third argument is our function. Note that in this case, we end up with a pointless `Species` column, as the `aggregate()` function attempts to apply a function to *every* variable, including the grouping variable, producing a column of NAs in this case. `aggregate()` is a highly flexible function - you can choose to select only a subset of data to summarize, specify multiple grouping variables, and aggregate your data using formula notation as well (a topic that  will be covered later in this book). 
 
 
-### for loops in `R`
+### For loops in `R`
 
-Another fundamental concept in computer programming is the "for loop," which is an algorithmic strategy for iteratively performing a task according to a pre-defined counter or loop variable, then terminating when the "loop" is evaluated as complete. For example, we may want to perform a specific calculation again and again for sucessive elements of an `R` object (like a data frame), and build a vector that successively stores the calculation for each iteration of the "loop." We will not devote much time to for loops in `R` here, because the "apply" group of functions can accomplish many of the tasks you would write a for loop to perform, with much greater speed. If you do find a need for including a for loop in your future `R` programming, however, the commented example below illustrates an efficient framework in which "pre-allocation" of an output vector maximizes for loop speed despite some of `R`'s. 
+Another fundamental concept in computer programming is the "for loop," which is an algorithmic strategy for iteratively performing a task according to a pre-defined counter or loop variable, then terminating when the "loop" is evaluated as complete. For example, we may want to perform a specific calculation again and again for successive elements of an `R` object (like a data frame), and build a vector that successively stores the calculation for each iteration of the "loop." We will not devote much time to for loops in `R` here, because a lot of looping functionality is accessible in `R` without ever needing to specify a loop. For example, the "apply" group of functions accomplish many of the tasks you would otherwise write a for loop to perform. Additionally, remember that `R` is a vectorized programming language, meaning that many basic operations, like addition or multiplication, are automatically performed iteratively to each element in vectors. Whenever you are considering writing a for loop, carefully consider whether there is a much faster alternative. 
+
+However, the commented example below illustrates an application in which a for loop is warranted. Note that we "pre-allocate" output vectors by creating an empty data frame to store the results. This maximizes for loop speed by circumventing the need to re-write objects as we iteratively add elements. 
 
 ```{r, echo=TRUE}
 ## Calculate mpg/cyl and mpg/wt, for every row in mtcars and if the second is at least twice the size of the first include that ratio and another character value "Yes" in a growing 2-column dataframe. If the ratio is less than 2, then include "No" in the second column. 
