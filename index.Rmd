@@ -1,6 +1,6 @@
 --- 
 title: "Foundational Statistics - Bi 610 - Spring 2020"
-author: "Clayton M. Small and William A. Cresko"
+author: "Clayton M. Small, William A. Cresko, and Andrew Muehleisen"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
