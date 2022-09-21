@@ -1,5 +1,5 @@
 --- 
-title: "Foundational Statistics - Bi 610 - Spring 2020"
+title: "Foundational Statistics - Bi 610 - Fall 2022"
 author: "Clayton M. Small, William A. Cresko, and Andrew Muehleisen"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -9,7 +9,7 @@ bibliography: ["book.bib", "packages.bib"]
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
-description: "This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020"
+description: "This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Fall Term of 2022"
 ---
 
 # Course Overview
