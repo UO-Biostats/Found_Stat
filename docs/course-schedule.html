@@ -4,27 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Course Schedule | Foundational Statistics - Bi 610 - Spring 2020</title>
-  <meta name="description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <title>Chapter 3 Course Schedule | Foundational Compuational and Statistical Tools for the Natural Sciences</title>
+  <meta name="description" content="This is the book of materials Foundational Computational and Statistical Tools for the Natural Sciences at the University of Oregon" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Course Schedule | Foundational Statistics - Bi 610 - Spring 2020" />
+  <meta property="og:title" content="Chapter 3 Course Schedule | Foundational Compuational and Statistical Tools for the Natural Sciences" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  <meta property="og:description" content="This is the book of materials Foundational Computational and Statistical Tools for the Natural Sciences at the University of Oregon" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Course Schedule | Foundational Statistics - Bi 610 - Spring 2020" />
+  <meta name="twitter:title" content="Chapter 3 Course Schedule | Foundational Compuational and Statistical Tools for the Natural Sciences" />
   
-  <meta name="twitter:description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  <meta name="twitter:description" content="This is the book of materials Foundational Computational and Statistical Tools for the Natural Sciences at the University of Oregon" />
   
 
-<meta name="author" content="Clayton M. Small, William A. Cresko, and Andrew Muehleisen" />
+<meta name="author" content="Clayton M. Small, William A. Cresko, Andrew Muehleisen, Hope Healey and Sabrina Mostoufi" />
 
 
-<meta name="date" content="2020-09-25" />
+<meta name="date" content="2022-12-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,8 @@
   
 <link rel="prev" href="introduction-to-the-course.html"/>
 <link rel="next" href="background-material-for-the-course.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,29 +49,33 @@
 
 
 
-
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +84,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -115,6 +119,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -131,14 +136,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Foundational Statistics Bi 610</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Course Overview</a></li>
-<li class="chapter" data-level="2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>2</b> Introduction to the course</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Book Overview</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>2</b> Introduction to the course</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#instructors"><i class="fa fa-check"></i><b>2.1</b> Instructors</a></li>
 <li class="chapter" data-level="2.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#course-information"><i class="fa fa-check"></i><b>2.2</b> Course Information</a></li>
 <li class="chapter" data-level="2.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#software"><i class="fa fa-check"></i><b>2.3</b> Software</a></li>
 <li class="chapter" data-level="2.4" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#inclusion-and-accessibility"><i class="fa fa-check"></i><b>2.4</b> Inclusion and Accessibility</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="course-schedule.html"><a href="course-schedule.html"><i class="fa fa-check"></i><b>3</b> Course Schedule</a><ul>
+<li class="chapter" data-level="3" data-path="course-schedule.html"><a href="course-schedule.html"><i class="fa fa-check"></i><b>3</b> Course Schedule</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="course-schedule.html"><a href="course-schedule.html#weeks-1-2"><i class="fa fa-check"></i><b>3.1</b> Weeks 1-2</a></li>
 <li class="chapter" data-level="3.2" data-path="course-schedule.html"><a href="course-schedule.html#week-3"><i class="fa fa-check"></i><b>3.2</b> Week 3</a></li>
 <li class="chapter" data-level="3.3" data-path="course-schedule.html"><a href="course-schedule.html#week-4"><i class="fa fa-check"></i><b>3.3</b> Week 4</a></li>
@@ -149,16 +156,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.8" data-path="course-schedule.html"><a href="course-schedule.html#week-9"><i class="fa fa-check"></i><b>3.8</b> Week 9</a></li>
 <li class="chapter" data-level="3.9" data-path="course-schedule.html"><a href="course-schedule.html#week-10"><i class="fa fa-check"></i><b>3.9</b> Week 10</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html"><i class="fa fa-check"></i><b>4</b> Background material for the course</a><ul>
+<li class="chapter" data-level="4" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html"><i class="fa fa-check"></i><b>4</b> Background material for the course</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#description-of-the-course"><i class="fa fa-check"></i><b>4.1</b> Description of the course</a></li>
 <li class="chapter" data-level="4.2" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#course-goals"><i class="fa fa-check"></i><b>4.2</b> Course goals:</a></li>
-<li class="chapter" data-level="4.3" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#introduction-to-r-and-rstudio"><i class="fa fa-check"></i><b>4.3</b> Introduction to R and RStudio</a><ul>
+<li class="chapter" data-level="4.3" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#introduction-to-r-and-rstudio"><i class="fa fa-check"></i><b>4.3</b> Introduction to R and RStudio</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#learning-resources"><i class="fa fa-check"></i><b>4.3.1</b> Learning resources</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html"><i class="fa fa-check"></i><b>5</b> Organizing and manipulating data files</a><ul>
+<li class="chapter" data-level="5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html"><i class="fa fa-check"></i><b>5</b> Organizing and manipulating data files</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#introduction"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-file-systems-from-the-command-line"><i class="fa fa-check"></i><b>5.2</b> Navigating file systems from the command line</a><ul>
+<li class="chapter" data-level="5.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-file-systems-from-the-command-line"><i class="fa fa-check"></i><b>5.2</b> Navigating file systems from the command line</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#access-to-the-command-line"><i class="fa fa-check"></i><b>5.2.1</b> Access to the command line</a></li>
 <li class="chapter" data-level="5.2.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-directories-and-files"><i class="fa fa-check"></i><b>5.2.2</b> Navigating directories and files</a></li>
 <li class="chapter" data-level="5.2.3" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#useful-unix-commands-for-file-manipulation"><i class="fa fa-check"></i><b>5.2.3</b> Useful UNIX commands for file manipulation</a></li>
@@ -168,51 +179,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#exercises-associated-with-this-chapter"><i class="fa fa-check"></i><b>5.4</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="5.5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#additional-learning-resources"><i class="fa fa-check"></i><b>5.5</b> Additional learning resources</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html"><i class="fa fa-check"></i><b>6</b> An Introduction to the R language</a><ul>
+<li class="chapter" data-level="6" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html"><i class="fa fa-check"></i><b>6</b> An Introduction to the R language</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#background"><i class="fa fa-check"></i><b>6.1</b> Background</a></li>
 <li class="chapter" data-level="6.2" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#why-use-r"><i class="fa fa-check"></i><b>6.2</b> Why use <code>R</code>?</a></li>
 <li class="chapter" data-level="6.3" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#important-r-terms-and-definitions"><i class="fa fa-check"></i><b>6.3</b> Important <code>R</code> terms and definitions</a></li>
-<li class="chapter" data-level="6.4" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#getting-started-with-r-via-the-rstudio-environment"><i class="fa fa-check"></i><b>6.4</b> Getting started with <code>R</code> via the RStudio Environment</a><ul>
+<li class="chapter" data-level="6.4" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#getting-started-with-r-via-the-rstudio-environment"><i class="fa fa-check"></i><b>6.4</b> Getting started with <code>R</code> via the RStudio Environment</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#r-programming-basics"><i class="fa fa-check"></i><b>6.4.1</b> R Programming Basics</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#exercises-associated-with-this-chapter-1"><i class="fa fa-check"></i><b>6.5</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="6.6" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#additional-learning-resources-1"><i class="fa fa-check"></i><b>6.6</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><i class="fa fa-check"></i><b>7</b> More R Functions, Complex Objects, Basic Plotting, and RMarkdown</a><ul>
+<li class="chapter" data-level="7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><i class="fa fa-check"></i><b>7</b> More R Functions, Complex Objects, Basic Plotting, and RMarkdown</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#background-1"><i class="fa fa-check"></i><b>7.1</b> Background</a></li>
-<li class="chapter" data-level="7.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-on-functions"><i class="fa fa-check"></i><b>7.2</b> More on functions</a><ul>
+<li class="chapter" data-level="7.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-on-functions"><i class="fa fa-check"></i><b>7.2</b> More on functions</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-base-r-functions-useful-for-working-with-vectors"><i class="fa fa-check"></i><b>7.2.1</b> More base <code>R</code> functions useful for working with vectors</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#indexing-vectors"><i class="fa fa-check"></i><b>7.3</b> Indexing vectors</a></li>
-<li class="chapter" data-level="7.4" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-complex-data-objects-in-r"><i class="fa fa-check"></i><b>7.4</b> More complex data objects in <code>R</code></a><ul>
+<li class="chapter" data-level="7.4" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-complex-data-objects-in-r"><i class="fa fa-check"></i><b>7.4</b> More complex data objects in <code>R</code></a>
+<ul>
 <li class="chapter" data-level="7.4.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#lists"><i class="fa fa-check"></i><b>7.4.1</b> Lists</a></li>
 <li class="chapter" data-level="7.4.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#data-frames"><i class="fa fa-check"></i><b>7.4.2</b> Data frames</a></li>
 <li class="chapter" data-level="7.4.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#matrices"><i class="fa fa-check"></i><b>7.4.3</b> Matrices</a></li>
 <li class="chapter" data-level="7.4.4" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#a-few-additional-base-r-functions-for-working-with-complex-r-objects"><i class="fa fa-check"></i><b>7.4.4</b> A few additional base <code>R</code> functions for working with complex <code>R</code> objects</a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#some-brief-notes-on-basic-programming-in-r"><i class="fa fa-check"></i><b>7.5</b> Some brief notes on basic programming in <code>R</code></a><ul>
+<li class="chapter" data-level="7.5" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#some-brief-notes-on-basic-programming-in-r"><i class="fa fa-check"></i><b>7.5</b> Some brief notes on basic programming in <code>R</code></a>
+<ul>
 <li class="chapter" data-level="7.5.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#conditional-statements-with-ifelse"><i class="fa fa-check"></i><b>7.5.1</b> conditional statements with <code>ifelse()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#the-split-apply-combine-approach-to-data-analysis"><i class="fa fa-check"></i><b>7.6</b> The Split-Apply-Combine approach to data analysis</a><ul>
+<li class="chapter" data-level="7.6" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#the-split-apply-combine-approach-to-data-analysis"><i class="fa fa-check"></i><b>7.6</b> The Split-Apply-Combine approach to data analysis</a>
+<ul>
 <li class="chapter" data-level="7.6.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#replicate-apply-tapply-and-aggregate"><i class="fa fa-check"></i><b>7.6.1</b> <code>replicate()</code>, <code>apply()</code>, <code>tapply()</code>, and <code>aggregate()</code></a></li>
 <li class="chapter" data-level="7.6.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#for-loops-in-r"><i class="fa fa-check"></i><b>7.6.2</b> For loops in <code>R</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7.7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#fundamentals-of-plotting-in-r"><i class="fa fa-check"></i><b>7.7</b> Fundamentals of plotting in <code>R</code></a><ul>
+<li class="chapter" data-level="7.7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#fundamentals-of-plotting-in-r"><i class="fa fa-check"></i><b>7.7</b> Fundamentals of plotting in <code>R</code></a>
+<ul>
 <li class="chapter" data-level="7.7.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#basic-plotting-with-plot"><i class="fa fa-check"></i><b>7.7.1</b> Basic plotting with <code>plot()</code></a></li>
 <li class="chapter" data-level="7.7.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#histograms-using-hist"><i class="fa fa-check"></i><b>7.7.2</b> Histograms using <code>hist()</code></a></li>
 <li class="chapter" data-level="7.7.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#boxplots-using-boxplot"><i class="fa fa-check"></i><b>7.7.3</b> Boxplots using <code>boxplot()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7.8" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#a-brief-introduction-to-rmarkdown"><i class="fa fa-check"></i><b>7.8</b> A brief introduction to <code>RMarkdown</code></a><ul>
+<li class="chapter" data-level="7.8" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#a-brief-introduction-to-rmarkdown"><i class="fa fa-check"></i><b>7.8</b> A brief introduction to <code>RMarkdown</code></a>
+<ul>
 <li class="chapter" data-level="7.8.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#rmarkdown-formatting-basics"><i class="fa fa-check"></i><b>7.8.1</b> <code>RMarkdown</code> formatting basics</a></li>
 </ul></li>
-<li class="chapter" data-level="7.9" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#experiment-with-headers"><i class="fa fa-check"></i><b>7.9</b> Experiment with headers</a><ul>
+<li class="chapter" data-level="7.9" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#experiment-with-headers"><i class="fa fa-check"></i><b>7.9</b> Experiment with headers</a>
+<ul>
 <li class="chapter" data-level="7.9.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#try-a-third-level-header"><i class="fa fa-check"></i><b>7.9.1</b> Try a third-level header</a></li>
 <li class="chapter" data-level="7.9.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#rmarkdown-code-chunk-options"><i class="fa fa-check"></i><b>7.9.2</b> <code>RMarkdown</code> code chunk options</a></li>
 </ul></li>
 <li class="chapter" data-level="7.10" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#exercises-associated-with-this-chapter-2"><i class="fa fa-check"></i><b>7.10</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="7.11" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#additional-learning-resources-2"><i class="fa fa-check"></i><b>7.11</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html"><i class="fa fa-check"></i><b>8</b> Introduction to Probability and Probability Distributions</a><ul>
+<li class="chapter" data-level="8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html"><i class="fa fa-check"></i><b>8</b> Introduction to Probability and Probability Distributions</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#background-2"><i class="fa fa-check"></i><b>8.1</b> Background</a></li>
 <li class="chapter" data-level="8.2" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#what-is-probability"><i class="fa fa-check"></i><b>8.2</b> What is probability?</a></li>
 <li class="chapter" data-level="8.3" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#random-variables-probability"><i class="fa fa-check"></i><b>8.3</b> Random variables &amp; probability</a></li>
@@ -220,15 +242,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.5" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-rules"><i class="fa fa-check"></i><b>8.5</b> Probability rules</a></li>
 <li class="chapter" data-level="8.6" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#joint-probability"><i class="fa fa-check"></i><b>8.6</b> Joint probability</a></li>
 <li class="chapter" data-level="8.7" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#conditional-probability"><i class="fa fa-check"></i><b>8.7</b> Conditional probability</a></li>
-<li class="chapter" data-level="8.8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#a-brief-note-on-likelihood-vs.probability"><i class="fa fa-check"></i><b>8.8</b> A brief note on likelihood vs. probability</a></li>
-<li class="chapter" data-level="8.9" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-distributions-commonly-used-in-biological-statistics"><i class="fa fa-check"></i><b>8.9</b> Probability distributions commonly used in biological statistics</a><ul>
+<li class="chapter" data-level="8.8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#a-brief-note-on-likelihood-vs.-probability"><i class="fa fa-check"></i><b>8.8</b> A brief note on likelihood vs. probability</a></li>
+<li class="chapter" data-level="8.9" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-distributions-commonly-used-in-biological-statistics"><i class="fa fa-check"></i><b>8.9</b> Probability distributions commonly used in biological statistics</a>
+<ul>
 <li class="chapter" data-level="8.9.1" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#discrete-probability-distributions"><i class="fa fa-check"></i><b>8.9.1</b> Discrete Probability Distributions</a></li>
 <li class="chapter" data-level="8.9.2" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#continuous-probability-distributions"><i class="fa fa-check"></i><b>8.9.2</b> <strong>Continuous probability distributions</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="8.10" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#exercises-associated-with-this-chapter-3"><i class="fa fa-check"></i><b>8.10</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="8.11" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#additional-learning-resources-3"><i class="fa fa-check"></i><b>8.11</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html"><i class="fa fa-check"></i><b>9</b> Parameter Estimation Basics and the Sampling Process</a><ul>
+<li class="chapter" data-level="9" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html"><i class="fa fa-check"></i><b>9</b> Parameter Estimation Basics and the Sampling Process</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#background-3"><i class="fa fa-check"></i><b>9.1</b> Background</a></li>
 <li class="chapter" data-level="9.2" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#understanding-populations-and-their-parameters"><i class="fa fa-check"></i><b>9.2</b> Understanding populations and their parameters</a></li>
 <li class="chapter" data-level="9.3" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#more-on-parameter-estimation-and-sampling-distributions"><i class="fa fa-check"></i><b>9.3</b> More on parameter estimation and sampling distributions</a></li>
@@ -239,13 +263,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.8" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#exercises-associated-with-this-chapter-4"><i class="fa fa-check"></i><b>9.8</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="9.9" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#additional-learning-resources-4"><i class="fa fa-check"></i><b>9.9</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html"><i class="fa fa-check"></i><b>10</b> Principles of Experiment and Study Design</a><ul>
+<li class="chapter" data-level="10" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html"><i class="fa fa-check"></i><b>10</b> Principles of Experiment and Study Design</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#background-4"><i class="fa fa-check"></i><b>10.1</b> Background</a></li>
-<li class="chapter" data-level="10.2" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#what-is-an-experimental-study"><i class="fa fa-check"></i><b>10.2</b> What is an experimental study?</a><ul>
+<li class="chapter" data-level="10.2" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#what-is-an-experimental-study"><i class="fa fa-check"></i><b>10.2</b> What is an experimental study?</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#a-hypothetical-study-example"><i class="fa fa-check"></i><b>10.2.1</b> A hypothetical study example</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#basic-study-design-terminology"><i class="fa fa-check"></i><b>10.3</b> Basic study design terminology</a></li>
-<li class="chapter" data-level="10.4" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#clinical-trials"><i class="fa fa-check"></i><b>10.4</b> Clinical trials</a><ul>
+<li class="chapter" data-level="10.4" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#clinical-trials"><i class="fa fa-check"></i><b>10.4</b> Clinical trials</a>
+<ul>
 <li class="chapter" data-level="10.4.1" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#a-clinical-trial-example"><i class="fa fa-check"></i><b>10.4.1</b> A clinical trial example</a></li>
 <li class="chapter" data-level="10.4.2" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#simultaneous-control-groups"><i class="fa fa-check"></i><b>10.4.2</b> Simultaneous control groups</a></li>
 <li class="chapter" data-level="10.4.3" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#randomization"><i class="fa fa-check"></i><b>10.4.3</b> Randomization</a></li>
@@ -259,15 +286,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.6" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#exercises-associated-with-this-chapter-5"><i class="fa fa-check"></i><b>10.6</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="10.7" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#additional-learning-resources-5"><i class="fa fa-check"></i><b>10.7</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html"><i class="fa fa-check"></i><b>11</b> Introduction to Hypothesis Tests</a><ul>
+<li class="chapter" data-level="11" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html"><i class="fa fa-check"></i><b>11</b> Introduction to Hypothesis Tests</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#background-5"><i class="fa fa-check"></i><b>11.1</b> Background</a></li>
 <li class="chapter" data-level="11.2" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>11.2</b> Null and alternative hypotheses</a></li>
-<li class="chapter" data-level="11.3" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#hypotheses-tests"><i class="fa fa-check"></i><b>11.3</b> Hypotheses tests</a><ul>
+<li class="chapter" data-level="11.3" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#hypotheses-tests"><i class="fa fa-check"></i><b>11.3</b> Hypotheses tests</a>
+<ul>
 <li class="chapter" data-level="11.3.1" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#p-values-type-i-and-type-ii-error"><i class="fa fa-check"></i><b>11.3.1</b> <em>p</em>-values, Type I, and Type II error</a></li>
 <li class="chapter" data-level="11.3.2" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#statistical-power"><i class="fa fa-check"></i><b>11.3.2</b> Statistical power</a></li>
 <li class="chapter" data-level="11.3.3" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#a-note-on-p-values-and-null-hypothesis-significance-testing-nhst"><i class="fa fa-check"></i><b>11.3.3</b> A note on <em>p</em>-values and Null-Hypothesis Significance Testing (NHST)</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#the-t-test-and-t-sampling-distribution"><i class="fa fa-check"></i><b>11.4</b> The <em>t</em>-test and <em>t</em> sampling distribution</a><ul>
+<li class="chapter" data-level="11.4" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#the-t-test-and-t-sampling-distribution"><i class="fa fa-check"></i><b>11.4</b> The <em>t</em>-test and <em>t</em> sampling distribution</a>
+<ul>
 <li class="chapter" data-level="11.4.1" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#assumptions-of-parameteric-t-tests"><i class="fa fa-check"></i><b>11.4.1</b> Assumptions of parameteric t-tests</a></li>
 </ul></li>
 <li class="chapter" data-level="11.5" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#comparing-means-using-resampling-and-randomization-tests"><i class="fa fa-check"></i><b>11.5</b> Comparing means using resampling and randomization tests</a></li>
@@ -275,14 +305,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.7" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#exercises-associated-with-this-chapter-6"><i class="fa fa-check"></i><b>11.7</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="11.8" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#additional-learning-resources-6"><i class="fa fa-check"></i><b>11.8</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html"><i class="fa fa-check"></i><b>12</b> Correlation and Simple Linear Regression</a><ul>
+<li class="chapter" data-level="12" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html"><i class="fa fa-check"></i><b>12</b> Correlation and Simple Linear Regression</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#background-6"><i class="fa fa-check"></i><b>12.1</b> Background</a></li>
-<li class="chapter" data-level="12.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#covariance-and-correlation"><i class="fa fa-check"></i><b>12.2</b> Covariance and correlation</a><ul>
+<li class="chapter" data-level="12.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#covariance-and-correlation"><i class="fa fa-check"></i><b>12.2</b> Covariance and correlation</a>
+<ul>
 <li class="chapter" data-level="12.2.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#covariance"><i class="fa fa-check"></i><b>12.2.1</b> Covariance</a></li>
 <li class="chapter" data-level="12.2.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#correlation"><i class="fa fa-check"></i><b>12.2.2</b> Correlation</a></li>
 <li class="chapter" data-level="12.2.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#hypothesis-tests-for-correlation"><i class="fa fa-check"></i><b>12.2.3</b> Hypothesis tests for correlation</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>12.3</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="12.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>12.3</b> Simple linear regression</a>
+<ul>
 <li class="chapter" data-level="12.3.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#hypothesis-tests-in-linear-regression"><i class="fa fa-check"></i><b>12.3.1</b> Hypothesis tests in linear regression</a></li>
 <li class="chapter" data-level="12.3.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#linear-regression-in-r"><i class="fa fa-check"></i><b>12.3.2</b> Linear regression in <code>R</code></a></li>
 <li class="chapter" data-level="12.3.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#a-note-on-the-coefficient-of-determination"><i class="fa fa-check"></i><b>12.3.3</b> A note on the coefficient of determination</a></li>
@@ -291,34 +324,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.4" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#exercises-associated-with-this-chapter-7"><i class="fa fa-check"></i><b>12.4</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="12.5" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#additional-learning-resources-7"><i class="fa fa-check"></i><b>12.5</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html"><i class="fa fa-check"></i><b>13</b> Introduction to Analysis of Variance</a><ul>
+<li class="chapter" data-level="13" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html"><i class="fa fa-check"></i><b>13</b> Introduction to Analysis of Variance</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#background-7"><i class="fa fa-check"></i><b>13.1</b> Background</a></li>
 <li class="chapter" data-level="13.2" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#general-linear-models"><i class="fa fa-check"></i><b>13.2</b> General linear models</a></li>
-<li class="chapter" data-level="13.3" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#single-factor-anova"><i class="fa fa-check"></i><b>13.3</b> Single-factor ANOVA</a><ul>
+<li class="chapter" data-level="13.3" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#single-factor-anova"><i class="fa fa-check"></i><b>13.3</b> Single-factor ANOVA</a>
+<ul>
 <li class="chapter" data-level="13.3.1" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#single-factor-anova-hypothesis-tests"><i class="fa fa-check"></i><b>13.3.1</b> Single-factor ANOVA hypothesis tests</a></li>
 <li class="chapter" data-level="13.3.2" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#anova-assumptions"><i class="fa fa-check"></i><b>13.3.2</b> ANOVA assumptions</a></li>
 <li class="chapter" data-level="13.3.3" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#post-hoc-comparisons"><i class="fa fa-check"></i><b>13.3.3</b> Post-hoc comparisons</a></li>
 <li class="chapter" data-level="13.3.4" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#single-factor-anova-in-r"><i class="fa fa-check"></i><b>13.3.4</b> Single-factor ANOVA in <code>R</code></a></li>
 <li class="chapter" data-level="13.3.5" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#a-note-on-nonparametric-tests-similar-to-single-factor-anova"><i class="fa fa-check"></i><b>13.3.5</b> A note on nonparametric tests similar to single-factor ANOVA</a></li>
 </ul></li>
-<li class="chapter" data-level="13.4" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#multi-factor-anova"><i class="fa fa-check"></i><b>13.4</b> Multi-factor ANOVA</a><ul>
+<li class="chapter" data-level="13.4" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#multi-factor-anova"><i class="fa fa-check"></i><b>13.4</b> Multi-factor ANOVA</a>
+<ul>
 <li class="chapter" data-level="13.4.1" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#nested-anova"><i class="fa fa-check"></i><b>13.4.1</b> Nested ANOVA</a></li>
 <li class="chapter" data-level="13.4.2" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#factorial-anova"><i class="fa fa-check"></i><b>13.4.2</b> Factorial ANOVA</a></li>
 </ul></li>
 <li class="chapter" data-level="13.5" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#exercises-associated-with-this-chapter-8"><i class="fa fa-check"></i><b>13.5</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="13.6" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#additional-learning-resources-8"><i class="fa fa-check"></i><b>13.6</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html"><i class="fa fa-check"></i><b>14</b> Introduction to Frequency Analysis</a><ul>
+<li class="chapter" data-level="14" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html"><i class="fa fa-check"></i><b>14</b> Introduction to Frequency Analysis</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#background-8"><i class="fa fa-check"></i><b>14.1</b> Background</a></li>
-<li class="chapter" data-level="14.2" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>14.2</b> Goodness of fit tests</a><ul>
+<li class="chapter" data-level="14.2" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>14.2</b> Goodness of fit tests</a>
+<ul>
 <li class="chapter" data-level="14.2.1" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#assumptions-of-the-chi-square-test"><i class="fa fa-check"></i><b>14.2.1</b> Assumptions of the chi-square test</a></li>
 <li class="chapter" data-level="14.2.2" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#goodness-of-fit-tests-in-r"><i class="fa fa-check"></i><b>14.2.2</b> goodness of fit tests in <code>R</code></a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#tests-of-independence-for-frequencies"><i class="fa fa-check"></i><b>14.3</b> Tests of independence for frequencies</a><ul>
+<li class="chapter" data-level="14.3" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#tests-of-independence-for-frequencies"><i class="fa fa-check"></i><b>14.3</b> Tests of independence for frequencies</a>
+<ul>
 <li class="chapter" data-level="14.3.1" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#g-test-of-independence-in-r"><i class="fa fa-check"></i><b>14.3.1</b> G-test of independence in <code>R</code></a></li>
 <li class="chapter" data-level="14.3.2" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#odds-ratios"><i class="fa fa-check"></i><b>14.3.2</b> odds ratios</a></li>
 </ul></li>
-<li class="chapter" data-level="14.4" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#a-final-note-on-presenting-statistical-test-results-in-writing"><i class="fa fa-check"></i><b>14.4</b> A final note on presenting statistical test results in writing</a><ul>
+<li class="chapter" data-level="14.4" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#a-final-note-on-presenting-statistical-test-results-in-writing"><i class="fa fa-check"></i><b>14.4</b> A final note on presenting statistical test results in writing</a>
+<ul>
 <li class="chapter" data-level="14.4.1" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#differences-directionality-and-magnitude"><i class="fa fa-check"></i><b>14.4.1</b> Differences, directionality, and magnitude</a></li>
 <li class="chapter" data-level="14.4.2" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#other-statistical-results-reporting-formalities"><i class="fa fa-check"></i><b>14.4.2</b> Other statistical results reporting formalities</a></li>
 </ul></li>
@@ -338,7 +378,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Foundational Statistics - Bi 610 - Spring 2020</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Foundational Compuational and Statistical Tools for the Natural Sciences</a>
           </h1>
         </div>
 
@@ -346,10 +386,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="course-schedule" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Course Schedule</h1>
-<div id="weeks-1-2" class="section level2">
-<h2><span class="header-section-number">3.1</span> Weeks 1-2</h2>
+<div id="course-schedule" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Course Schedule<a href="course-schedule.html#course-schedule" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="weeks-1-2" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Weeks 1-2<a href="course-schedule.html#weeks-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Data organization and management
 <ul>
@@ -376,8 +416,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </div>
-<div id="week-3" class="section level2">
-<h2><span class="header-section-number">3.2</span> Week 3</h2>
+<div id="week-3" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Week 3<a href="course-schedule.html#week-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Plotting/visualizing data as a means of exploration
 <ul>
@@ -393,23 +433,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>R markdown</li>
 </ol>
 </div>
-<div id="week-4" class="section level2">
-<h2><span class="header-section-number">3.3</span> Week 4</h2>
+<div id="week-4" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Week 4<a href="course-schedule.html#week-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
-<li>Population parameters, samples, and sampling distributions
+<li><p>Population parameters, samples, and sampling distributions</p>
 <ul>
 <li>Central Limit Theorem and the normal dist.</li>
 <li>Mean and st. dev.</li>
 </ul></li>
 <li><p>Probability and probability distributions</p></li>
-<li>Calculating summary statistics
+<li><p>Calculating summary statistics</p>
 <ul>
 <li>Other common summary statistics (quantiles, etc.)</li>
 </ul></li>
 </ol>
 </div>
-<div id="week-5" class="section level2">
-<h2><span class="header-section-number">3.4</span> Week 5</h2>
+<div id="week-5" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Week 5<a href="course-schedule.html#week-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Parameter estimation
 <ul>
@@ -422,8 +462,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </div>
-<div id="week-6" class="section level2">
-<h2><span class="header-section-number">3.5</span> Week 6</h2>
+<div id="week-6" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Week 6<a href="course-schedule.html#week-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Experimental design
 <ul>
@@ -442,8 +482,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </div>
-<div id="week-7" class="section level2">
-<h2><span class="header-section-number">3.6</span> Week 7</h2>
+<div id="week-7" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Week 7<a href="course-schedule.html#week-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Comparing means between groups
 <ul>
@@ -452,8 +492,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Bootstrapping and randomization to compare means</li>
 </ol>
 </div>
-<div id="week-8" class="section level2">
-<h2><span class="header-section-number">3.7</span> Week 8</h2>
+<div id="week-8" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Week 8<a href="course-schedule.html#week-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Relationships between quantitative variables
 <ul>
@@ -466,8 +506,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </div>
-<div id="week-9" class="section level2">
-<h2><span class="header-section-number">3.8</span> Week 9</h2>
+<div id="week-9" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> Week 9<a href="course-schedule.html#week-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Analysis of variance
 <ul>
@@ -485,8 +525,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </div>
-<div id="week-10" class="section level2">
-<h2><span class="header-section-number">3.9</span> Week 10</h2>
+<div id="week-10" class="section level2 hasAnchor" number="3.9">
+<h2><span class="header-section-number">3.9</span> Week 10<a href="course-schedule.html#week-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Frequency-based statistical tests
 <ul>
@@ -511,7 +551,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -530,6 +569,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -550,6 +590,10 @@ gitbook.start({
 "text": null
 },
 "download": ["foundational_statistics.pdf", "foundational_statistics.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

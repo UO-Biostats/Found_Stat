@@ -4,27 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 13 Introduction to Analysis of Variance | Foundational Statistics - Bi 610 - Spring 2020</title>
-  <meta name="description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <title>Chapter 13 Introduction to Analysis of Variance | Foundational Compuational and Statistical Tools for the Natural Sciences</title>
+  <meta name="description" content="This is the book of materials Foundational Computational and Statistical Tools for the Natural Sciences at the University of Oregon" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 13 Introduction to Analysis of Variance | Foundational Statistics - Bi 610 - Spring 2020" />
+  <meta property="og:title" content="Chapter 13 Introduction to Analysis of Variance | Foundational Compuational and Statistical Tools for the Natural Sciences" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  <meta property="og:description" content="This is the book of materials Foundational Computational and Statistical Tools for the Natural Sciences at the University of Oregon" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 13 Introduction to Analysis of Variance | Foundational Statistics - Bi 610 - Spring 2020" />
+  <meta name="twitter:title" content="Chapter 13 Introduction to Analysis of Variance | Foundational Compuational and Statistical Tools for the Natural Sciences" />
   
-  <meta name="twitter:description" content="This is the book of materials we will be using for Foundational Statistics (Bi 610) at the University of Oregon for the Spring Term of 2020" />
+  <meta name="twitter:description" content="This is the book of materials Foundational Computational and Statistical Tools for the Natural Sciences at the University of Oregon" />
   
 
-<meta name="author" content="Clayton M. Small, William A. Cresko, and Andrew Muehleisen" />
+<meta name="author" content="Clayton M. Small, William A. Cresko, Andrew Muehleisen, Hope Healey and Sabrina Mostoufi" />
 
 
-<meta name="date" content="2020-09-25" />
+<meta name="date" content="2022-12-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,8 @@
   
 <link rel="prev" href="correlation-and-simple-linear-regression.html"/>
 <link rel="next" href="introduction-to-frequency-analysis.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,29 +49,33 @@
 
 
 
-
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +84,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -115,6 +119,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -131,14 +136,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Foundational Statistics Bi 610</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Course Overview</a></li>
-<li class="chapter" data-level="2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>2</b> Introduction to the course</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Book Overview</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>2</b> Introduction to the course</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#instructors"><i class="fa fa-check"></i><b>2.1</b> Instructors</a></li>
 <li class="chapter" data-level="2.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#course-information"><i class="fa fa-check"></i><b>2.2</b> Course Information</a></li>
 <li class="chapter" data-level="2.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#software"><i class="fa fa-check"></i><b>2.3</b> Software</a></li>
 <li class="chapter" data-level="2.4" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#inclusion-and-accessibility"><i class="fa fa-check"></i><b>2.4</b> Inclusion and Accessibility</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="course-schedule.html"><a href="course-schedule.html"><i class="fa fa-check"></i><b>3</b> Course Schedule</a><ul>
+<li class="chapter" data-level="3" data-path="course-schedule.html"><a href="course-schedule.html"><i class="fa fa-check"></i><b>3</b> Course Schedule</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="course-schedule.html"><a href="course-schedule.html#weeks-1-2"><i class="fa fa-check"></i><b>3.1</b> Weeks 1-2</a></li>
 <li class="chapter" data-level="3.2" data-path="course-schedule.html"><a href="course-schedule.html#week-3"><i class="fa fa-check"></i><b>3.2</b> Week 3</a></li>
 <li class="chapter" data-level="3.3" data-path="course-schedule.html"><a href="course-schedule.html#week-4"><i class="fa fa-check"></i><b>3.3</b> Week 4</a></li>
@@ -149,16 +156,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.8" data-path="course-schedule.html"><a href="course-schedule.html#week-9"><i class="fa fa-check"></i><b>3.8</b> Week 9</a></li>
 <li class="chapter" data-level="3.9" data-path="course-schedule.html"><a href="course-schedule.html#week-10"><i class="fa fa-check"></i><b>3.9</b> Week 10</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html"><i class="fa fa-check"></i><b>4</b> Background material for the course</a><ul>
+<li class="chapter" data-level="4" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html"><i class="fa fa-check"></i><b>4</b> Background material for the course</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#description-of-the-course"><i class="fa fa-check"></i><b>4.1</b> Description of the course</a></li>
 <li class="chapter" data-level="4.2" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#course-goals"><i class="fa fa-check"></i><b>4.2</b> Course goals:</a></li>
-<li class="chapter" data-level="4.3" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#introduction-to-r-and-rstudio"><i class="fa fa-check"></i><b>4.3</b> Introduction to R and RStudio</a><ul>
+<li class="chapter" data-level="4.3" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#introduction-to-r-and-rstudio"><i class="fa fa-check"></i><b>4.3</b> Introduction to R and RStudio</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="background-material-for-the-course.html"><a href="background-material-for-the-course.html#learning-resources"><i class="fa fa-check"></i><b>4.3.1</b> Learning resources</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html"><i class="fa fa-check"></i><b>5</b> Organizing and manipulating data files</a><ul>
+<li class="chapter" data-level="5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html"><i class="fa fa-check"></i><b>5</b> Organizing and manipulating data files</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#introduction"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-file-systems-from-the-command-line"><i class="fa fa-check"></i><b>5.2</b> Navigating file systems from the command line</a><ul>
+<li class="chapter" data-level="5.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-file-systems-from-the-command-line"><i class="fa fa-check"></i><b>5.2</b> Navigating file systems from the command line</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#access-to-the-command-line"><i class="fa fa-check"></i><b>5.2.1</b> Access to the command line</a></li>
 <li class="chapter" data-level="5.2.2" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#navigating-directories-and-files"><i class="fa fa-check"></i><b>5.2.2</b> Navigating directories and files</a></li>
 <li class="chapter" data-level="5.2.3" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#useful-unix-commands-for-file-manipulation"><i class="fa fa-check"></i><b>5.2.3</b> Useful UNIX commands for file manipulation</a></li>
@@ -168,51 +179,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#exercises-associated-with-this-chapter"><i class="fa fa-check"></i><b>5.4</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="5.5" data-path="organizing-and-manipulating-data-files.html"><a href="organizing-and-manipulating-data-files.html#additional-learning-resources"><i class="fa fa-check"></i><b>5.5</b> Additional learning resources</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html"><i class="fa fa-check"></i><b>6</b> An Introduction to the R language</a><ul>
+<li class="chapter" data-level="6" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html"><i class="fa fa-check"></i><b>6</b> An Introduction to the R language</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#background"><i class="fa fa-check"></i><b>6.1</b> Background</a></li>
 <li class="chapter" data-level="6.2" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#why-use-r"><i class="fa fa-check"></i><b>6.2</b> Why use <code>R</code>?</a></li>
 <li class="chapter" data-level="6.3" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#important-r-terms-and-definitions"><i class="fa fa-check"></i><b>6.3</b> Important <code>R</code> terms and definitions</a></li>
-<li class="chapter" data-level="6.4" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#getting-started-with-r-via-the-rstudio-environment"><i class="fa fa-check"></i><b>6.4</b> Getting started with <code>R</code> via the RStudio Environment</a><ul>
+<li class="chapter" data-level="6.4" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#getting-started-with-r-via-the-rstudio-environment"><i class="fa fa-check"></i><b>6.4</b> Getting started with <code>R</code> via the RStudio Environment</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#r-programming-basics"><i class="fa fa-check"></i><b>6.4.1</b> R Programming Basics</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#exercises-associated-with-this-chapter-1"><i class="fa fa-check"></i><b>6.5</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="6.6" data-path="an-introduction-to-the-r-language.html"><a href="an-introduction-to-the-r-language.html#additional-learning-resources-1"><i class="fa fa-check"></i><b>6.6</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><i class="fa fa-check"></i><b>7</b> More R Functions, Complex Objects, Basic Plotting, and RMarkdown</a><ul>
+<li class="chapter" data-level="7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><i class="fa fa-check"></i><b>7</b> More R Functions, Complex Objects, Basic Plotting, and RMarkdown</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#background-1"><i class="fa fa-check"></i><b>7.1</b> Background</a></li>
-<li class="chapter" data-level="7.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-on-functions"><i class="fa fa-check"></i><b>7.2</b> More on functions</a><ul>
+<li class="chapter" data-level="7.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-on-functions"><i class="fa fa-check"></i><b>7.2</b> More on functions</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-base-r-functions-useful-for-working-with-vectors"><i class="fa fa-check"></i><b>7.2.1</b> More base <code>R</code> functions useful for working with vectors</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#indexing-vectors"><i class="fa fa-check"></i><b>7.3</b> Indexing vectors</a></li>
-<li class="chapter" data-level="7.4" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-complex-data-objects-in-r"><i class="fa fa-check"></i><b>7.4</b> More complex data objects in <code>R</code></a><ul>
+<li class="chapter" data-level="7.4" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#more-complex-data-objects-in-r"><i class="fa fa-check"></i><b>7.4</b> More complex data objects in <code>R</code></a>
+<ul>
 <li class="chapter" data-level="7.4.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#lists"><i class="fa fa-check"></i><b>7.4.1</b> Lists</a></li>
 <li class="chapter" data-level="7.4.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#data-frames"><i class="fa fa-check"></i><b>7.4.2</b> Data frames</a></li>
 <li class="chapter" data-level="7.4.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#matrices"><i class="fa fa-check"></i><b>7.4.3</b> Matrices</a></li>
 <li class="chapter" data-level="7.4.4" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#a-few-additional-base-r-functions-for-working-with-complex-r-objects"><i class="fa fa-check"></i><b>7.4.4</b> A few additional base <code>R</code> functions for working with complex <code>R</code> objects</a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#some-brief-notes-on-basic-programming-in-r"><i class="fa fa-check"></i><b>7.5</b> Some brief notes on basic programming in <code>R</code></a><ul>
+<li class="chapter" data-level="7.5" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#some-brief-notes-on-basic-programming-in-r"><i class="fa fa-check"></i><b>7.5</b> Some brief notes on basic programming in <code>R</code></a>
+<ul>
 <li class="chapter" data-level="7.5.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#conditional-statements-with-ifelse"><i class="fa fa-check"></i><b>7.5.1</b> conditional statements with <code>ifelse()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#the-split-apply-combine-approach-to-data-analysis"><i class="fa fa-check"></i><b>7.6</b> The Split-Apply-Combine approach to data analysis</a><ul>
+<li class="chapter" data-level="7.6" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#the-split-apply-combine-approach-to-data-analysis"><i class="fa fa-check"></i><b>7.6</b> The Split-Apply-Combine approach to data analysis</a>
+<ul>
 <li class="chapter" data-level="7.6.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#replicate-apply-tapply-and-aggregate"><i class="fa fa-check"></i><b>7.6.1</b> <code>replicate()</code>, <code>apply()</code>, <code>tapply()</code>, and <code>aggregate()</code></a></li>
 <li class="chapter" data-level="7.6.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#for-loops-in-r"><i class="fa fa-check"></i><b>7.6.2</b> For loops in <code>R</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7.7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#fundamentals-of-plotting-in-r"><i class="fa fa-check"></i><b>7.7</b> Fundamentals of plotting in <code>R</code></a><ul>
+<li class="chapter" data-level="7.7" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#fundamentals-of-plotting-in-r"><i class="fa fa-check"></i><b>7.7</b> Fundamentals of plotting in <code>R</code></a>
+<ul>
 <li class="chapter" data-level="7.7.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#basic-plotting-with-plot"><i class="fa fa-check"></i><b>7.7.1</b> Basic plotting with <code>plot()</code></a></li>
 <li class="chapter" data-level="7.7.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#histograms-using-hist"><i class="fa fa-check"></i><b>7.7.2</b> Histograms using <code>hist()</code></a></li>
 <li class="chapter" data-level="7.7.3" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#boxplots-using-boxplot"><i class="fa fa-check"></i><b>7.7.3</b> Boxplots using <code>boxplot()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7.8" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#a-brief-introduction-to-rmarkdown"><i class="fa fa-check"></i><b>7.8</b> A brief introduction to <code>RMarkdown</code></a><ul>
+<li class="chapter" data-level="7.8" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#a-brief-introduction-to-rmarkdown"><i class="fa fa-check"></i><b>7.8</b> A brief introduction to <code>RMarkdown</code></a>
+<ul>
 <li class="chapter" data-level="7.8.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#rmarkdown-formatting-basics"><i class="fa fa-check"></i><b>7.8.1</b> <code>RMarkdown</code> formatting basics</a></li>
 </ul></li>
-<li class="chapter" data-level="7.9" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#experiment-with-headers"><i class="fa fa-check"></i><b>7.9</b> Experiment with headers</a><ul>
+<li class="chapter" data-level="7.9" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#experiment-with-headers"><i class="fa fa-check"></i><b>7.9</b> Experiment with headers</a>
+<ul>
 <li class="chapter" data-level="7.9.1" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#try-a-third-level-header"><i class="fa fa-check"></i><b>7.9.1</b> Try a third-level header</a></li>
 <li class="chapter" data-level="7.9.2" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#rmarkdown-code-chunk-options"><i class="fa fa-check"></i><b>7.9.2</b> <code>RMarkdown</code> code chunk options</a></li>
 </ul></li>
 <li class="chapter" data-level="7.10" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#exercises-associated-with-this-chapter-2"><i class="fa fa-check"></i><b>7.10</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="7.11" data-path="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html"><a href="more-r-functions-complex-objects-basic-plotting-and-rmarkdown.html#additional-learning-resources-2"><i class="fa fa-check"></i><b>7.11</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html"><i class="fa fa-check"></i><b>8</b> Introduction to Probability and Probability Distributions</a><ul>
+<li class="chapter" data-level="8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html"><i class="fa fa-check"></i><b>8</b> Introduction to Probability and Probability Distributions</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#background-2"><i class="fa fa-check"></i><b>8.1</b> Background</a></li>
 <li class="chapter" data-level="8.2" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#what-is-probability"><i class="fa fa-check"></i><b>8.2</b> What is probability?</a></li>
 <li class="chapter" data-level="8.3" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#random-variables-probability"><i class="fa fa-check"></i><b>8.3</b> Random variables &amp; probability</a></li>
@@ -220,15 +242,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.5" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-rules"><i class="fa fa-check"></i><b>8.5</b> Probability rules</a></li>
 <li class="chapter" data-level="8.6" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#joint-probability"><i class="fa fa-check"></i><b>8.6</b> Joint probability</a></li>
 <li class="chapter" data-level="8.7" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#conditional-probability"><i class="fa fa-check"></i><b>8.7</b> Conditional probability</a></li>
-<li class="chapter" data-level="8.8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#a-brief-note-on-likelihood-vs.probability"><i class="fa fa-check"></i><b>8.8</b> A brief note on likelihood vs. probability</a></li>
-<li class="chapter" data-level="8.9" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-distributions-commonly-used-in-biological-statistics"><i class="fa fa-check"></i><b>8.9</b> Probability distributions commonly used in biological statistics</a><ul>
+<li class="chapter" data-level="8.8" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#a-brief-note-on-likelihood-vs.-probability"><i class="fa fa-check"></i><b>8.8</b> A brief note on likelihood vs. probability</a></li>
+<li class="chapter" data-level="8.9" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#probability-distributions-commonly-used-in-biological-statistics"><i class="fa fa-check"></i><b>8.9</b> Probability distributions commonly used in biological statistics</a>
+<ul>
 <li class="chapter" data-level="8.9.1" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#discrete-probability-distributions"><i class="fa fa-check"></i><b>8.9.1</b> Discrete Probability Distributions</a></li>
 <li class="chapter" data-level="8.9.2" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#continuous-probability-distributions"><i class="fa fa-check"></i><b>8.9.2</b> <strong>Continuous probability distributions</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="8.10" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#exercises-associated-with-this-chapter-3"><i class="fa fa-check"></i><b>8.10</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="8.11" data-path="introduction-to-probability-and-probability-distributions.html"><a href="introduction-to-probability-and-probability-distributions.html#additional-learning-resources-3"><i class="fa fa-check"></i><b>8.11</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html"><i class="fa fa-check"></i><b>9</b> Parameter Estimation Basics and the Sampling Process</a><ul>
+<li class="chapter" data-level="9" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html"><i class="fa fa-check"></i><b>9</b> Parameter Estimation Basics and the Sampling Process</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#background-3"><i class="fa fa-check"></i><b>9.1</b> Background</a></li>
 <li class="chapter" data-level="9.2" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#understanding-populations-and-their-parameters"><i class="fa fa-check"></i><b>9.2</b> Understanding populations and their parameters</a></li>
 <li class="chapter" data-level="9.3" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#more-on-parameter-estimation-and-sampling-distributions"><i class="fa fa-check"></i><b>9.3</b> More on parameter estimation and sampling distributions</a></li>
@@ -239,13 +263,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.8" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#exercises-associated-with-this-chapter-4"><i class="fa fa-check"></i><b>9.8</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="9.9" data-path="parameter-estimation-basics-and-the-sampling-process.html"><a href="parameter-estimation-basics-and-the-sampling-process.html#additional-learning-resources-4"><i class="fa fa-check"></i><b>9.9</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html"><i class="fa fa-check"></i><b>10</b> Principles of Experiment and Study Design</a><ul>
+<li class="chapter" data-level="10" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html"><i class="fa fa-check"></i><b>10</b> Principles of Experiment and Study Design</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#background-4"><i class="fa fa-check"></i><b>10.1</b> Background</a></li>
-<li class="chapter" data-level="10.2" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#what-is-an-experimental-study"><i class="fa fa-check"></i><b>10.2</b> What is an experimental study?</a><ul>
+<li class="chapter" data-level="10.2" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#what-is-an-experimental-study"><i class="fa fa-check"></i><b>10.2</b> What is an experimental study?</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#a-hypothetical-study-example"><i class="fa fa-check"></i><b>10.2.1</b> A hypothetical study example</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#basic-study-design-terminology"><i class="fa fa-check"></i><b>10.3</b> Basic study design terminology</a></li>
-<li class="chapter" data-level="10.4" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#clinical-trials"><i class="fa fa-check"></i><b>10.4</b> Clinical trials</a><ul>
+<li class="chapter" data-level="10.4" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#clinical-trials"><i class="fa fa-check"></i><b>10.4</b> Clinical trials</a>
+<ul>
 <li class="chapter" data-level="10.4.1" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#a-clinical-trial-example"><i class="fa fa-check"></i><b>10.4.1</b> A clinical trial example</a></li>
 <li class="chapter" data-level="10.4.2" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#simultaneous-control-groups"><i class="fa fa-check"></i><b>10.4.2</b> Simultaneous control groups</a></li>
 <li class="chapter" data-level="10.4.3" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#randomization"><i class="fa fa-check"></i><b>10.4.3</b> Randomization</a></li>
@@ -259,15 +286,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.6" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#exercises-associated-with-this-chapter-5"><i class="fa fa-check"></i><b>10.6</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="10.7" data-path="principles-of-experiment-and-study-design.html"><a href="principles-of-experiment-and-study-design.html#additional-learning-resources-5"><i class="fa fa-check"></i><b>10.7</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html"><i class="fa fa-check"></i><b>11</b> Introduction to Hypothesis Tests</a><ul>
+<li class="chapter" data-level="11" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html"><i class="fa fa-check"></i><b>11</b> Introduction to Hypothesis Tests</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#background-5"><i class="fa fa-check"></i><b>11.1</b> Background</a></li>
 <li class="chapter" data-level="11.2" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>11.2</b> Null and alternative hypotheses</a></li>
-<li class="chapter" data-level="11.3" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#hypotheses-tests"><i class="fa fa-check"></i><b>11.3</b> Hypotheses tests</a><ul>
+<li class="chapter" data-level="11.3" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#hypotheses-tests"><i class="fa fa-check"></i><b>11.3</b> Hypotheses tests</a>
+<ul>
 <li class="chapter" data-level="11.3.1" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#p-values-type-i-and-type-ii-error"><i class="fa fa-check"></i><b>11.3.1</b> <em>p</em>-values, Type I, and Type II error</a></li>
 <li class="chapter" data-level="11.3.2" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#statistical-power"><i class="fa fa-check"></i><b>11.3.2</b> Statistical power</a></li>
 <li class="chapter" data-level="11.3.3" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#a-note-on-p-values-and-null-hypothesis-significance-testing-nhst"><i class="fa fa-check"></i><b>11.3.3</b> A note on <em>p</em>-values and Null-Hypothesis Significance Testing (NHST)</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#the-t-test-and-t-sampling-distribution"><i class="fa fa-check"></i><b>11.4</b> The <em>t</em>-test and <em>t</em> sampling distribution</a><ul>
+<li class="chapter" data-level="11.4" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#the-t-test-and-t-sampling-distribution"><i class="fa fa-check"></i><b>11.4</b> The <em>t</em>-test and <em>t</em> sampling distribution</a>
+<ul>
 <li class="chapter" data-level="11.4.1" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#assumptions-of-parameteric-t-tests"><i class="fa fa-check"></i><b>11.4.1</b> Assumptions of parameteric t-tests</a></li>
 </ul></li>
 <li class="chapter" data-level="11.5" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#comparing-means-using-resampling-and-randomization-tests"><i class="fa fa-check"></i><b>11.5</b> Comparing means using resampling and randomization tests</a></li>
@@ -275,14 +305,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.7" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#exercises-associated-with-this-chapter-6"><i class="fa fa-check"></i><b>11.7</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="11.8" data-path="introduction-to-hypothesis-tests.html"><a href="introduction-to-hypothesis-tests.html#additional-learning-resources-6"><i class="fa fa-check"></i><b>11.8</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html"><i class="fa fa-check"></i><b>12</b> Correlation and Simple Linear Regression</a><ul>
+<li class="chapter" data-level="12" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html"><i class="fa fa-check"></i><b>12</b> Correlation and Simple Linear Regression</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#background-6"><i class="fa fa-check"></i><b>12.1</b> Background</a></li>
-<li class="chapter" data-level="12.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#covariance-and-correlation"><i class="fa fa-check"></i><b>12.2</b> Covariance and correlation</a><ul>
+<li class="chapter" data-level="12.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#covariance-and-correlation"><i class="fa fa-check"></i><b>12.2</b> Covariance and correlation</a>
+<ul>
 <li class="chapter" data-level="12.2.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#covariance"><i class="fa fa-check"></i><b>12.2.1</b> Covariance</a></li>
 <li class="chapter" data-level="12.2.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#correlation"><i class="fa fa-check"></i><b>12.2.2</b> Correlation</a></li>
 <li class="chapter" data-level="12.2.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#hypothesis-tests-for-correlation"><i class="fa fa-check"></i><b>12.2.3</b> Hypothesis tests for correlation</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>12.3</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="12.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>12.3</b> Simple linear regression</a>
+<ul>
 <li class="chapter" data-level="12.3.1" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#hypothesis-tests-in-linear-regression"><i class="fa fa-check"></i><b>12.3.1</b> Hypothesis tests in linear regression</a></li>
 <li class="chapter" data-level="12.3.2" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#linear-regression-in-r"><i class="fa fa-check"></i><b>12.3.2</b> Linear regression in <code>R</code></a></li>
 <li class="chapter" data-level="12.3.3" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#a-note-on-the-coefficient-of-determination"><i class="fa fa-check"></i><b>12.3.3</b> A note on the coefficient of determination</a></li>
@@ -291,34 +324,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.4" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#exercises-associated-with-this-chapter-7"><i class="fa fa-check"></i><b>12.4</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="12.5" data-path="correlation-and-simple-linear-regression.html"><a href="correlation-and-simple-linear-regression.html#additional-learning-resources-7"><i class="fa fa-check"></i><b>12.5</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html"><i class="fa fa-check"></i><b>13</b> Introduction to Analysis of Variance</a><ul>
+<li class="chapter" data-level="13" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html"><i class="fa fa-check"></i><b>13</b> Introduction to Analysis of Variance</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#background-7"><i class="fa fa-check"></i><b>13.1</b> Background</a></li>
 <li class="chapter" data-level="13.2" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#general-linear-models"><i class="fa fa-check"></i><b>13.2</b> General linear models</a></li>
-<li class="chapter" data-level="13.3" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#single-factor-anova"><i class="fa fa-check"></i><b>13.3</b> Single-factor ANOVA</a><ul>
+<li class="chapter" data-level="13.3" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#single-factor-anova"><i class="fa fa-check"></i><b>13.3</b> Single-factor ANOVA</a>
+<ul>
 <li class="chapter" data-level="13.3.1" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#single-factor-anova-hypothesis-tests"><i class="fa fa-check"></i><b>13.3.1</b> Single-factor ANOVA hypothesis tests</a></li>
 <li class="chapter" data-level="13.3.2" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#anova-assumptions"><i class="fa fa-check"></i><b>13.3.2</b> ANOVA assumptions</a></li>
 <li class="chapter" data-level="13.3.3" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#post-hoc-comparisons"><i class="fa fa-check"></i><b>13.3.3</b> Post-hoc comparisons</a></li>
 <li class="chapter" data-level="13.3.4" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#single-factor-anova-in-r"><i class="fa fa-check"></i><b>13.3.4</b> Single-factor ANOVA in <code>R</code></a></li>
 <li class="chapter" data-level="13.3.5" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#a-note-on-nonparametric-tests-similar-to-single-factor-anova"><i class="fa fa-check"></i><b>13.3.5</b> A note on nonparametric tests similar to single-factor ANOVA</a></li>
 </ul></li>
-<li class="chapter" data-level="13.4" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#multi-factor-anova"><i class="fa fa-check"></i><b>13.4</b> Multi-factor ANOVA</a><ul>
+<li class="chapter" data-level="13.4" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#multi-factor-anova"><i class="fa fa-check"></i><b>13.4</b> Multi-factor ANOVA</a>
+<ul>
 <li class="chapter" data-level="13.4.1" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#nested-anova"><i class="fa fa-check"></i><b>13.4.1</b> Nested ANOVA</a></li>
 <li class="chapter" data-level="13.4.2" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#factorial-anova"><i class="fa fa-check"></i><b>13.4.2</b> Factorial ANOVA</a></li>
 </ul></li>
 <li class="chapter" data-level="13.5" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#exercises-associated-with-this-chapter-8"><i class="fa fa-check"></i><b>13.5</b> Exercises associated with this chapter:</a></li>
 <li class="chapter" data-level="13.6" data-path="introduction-to-analysis-of-variance.html"><a href="introduction-to-analysis-of-variance.html#additional-learning-resources-8"><i class="fa fa-check"></i><b>13.6</b> Additional learning resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html"><i class="fa fa-check"></i><b>14</b> Introduction to Frequency Analysis</a><ul>
+<li class="chapter" data-level="14" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html"><i class="fa fa-check"></i><b>14</b> Introduction to Frequency Analysis</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#background-8"><i class="fa fa-check"></i><b>14.1</b> Background</a></li>
-<li class="chapter" data-level="14.2" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>14.2</b> Goodness of fit tests</a><ul>
+<li class="chapter" data-level="14.2" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>14.2</b> Goodness of fit tests</a>
+<ul>
 <li class="chapter" data-level="14.2.1" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#assumptions-of-the-chi-square-test"><i class="fa fa-check"></i><b>14.2.1</b> Assumptions of the chi-square test</a></li>
 <li class="chapter" data-level="14.2.2" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#goodness-of-fit-tests-in-r"><i class="fa fa-check"></i><b>14.2.2</b> goodness of fit tests in <code>R</code></a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#tests-of-independence-for-frequencies"><i class="fa fa-check"></i><b>14.3</b> Tests of independence for frequencies</a><ul>
+<li class="chapter" data-level="14.3" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#tests-of-independence-for-frequencies"><i class="fa fa-check"></i><b>14.3</b> Tests of independence for frequencies</a>
+<ul>
 <li class="chapter" data-level="14.3.1" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#g-test-of-independence-in-r"><i class="fa fa-check"></i><b>14.3.1</b> G-test of independence in <code>R</code></a></li>
 <li class="chapter" data-level="14.3.2" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#odds-ratios"><i class="fa fa-check"></i><b>14.3.2</b> odds ratios</a></li>
 </ul></li>
-<li class="chapter" data-level="14.4" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#a-final-note-on-presenting-statistical-test-results-in-writing"><i class="fa fa-check"></i><b>14.4</b> A final note on presenting statistical test results in writing</a><ul>
+<li class="chapter" data-level="14.4" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#a-final-note-on-presenting-statistical-test-results-in-writing"><i class="fa fa-check"></i><b>14.4</b> A final note on presenting statistical test results in writing</a>
+<ul>
 <li class="chapter" data-level="14.4.1" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#differences-directionality-and-magnitude"><i class="fa fa-check"></i><b>14.4.1</b> Differences, directionality, and magnitude</a></li>
 <li class="chapter" data-level="14.4.2" data-path="introduction-to-frequency-analysis.html"><a href="introduction-to-frequency-analysis.html#other-statistical-results-reporting-formalities"><i class="fa fa-check"></i><b>14.4.2</b> Other statistical results reporting formalities</a></li>
 </ul></li>
@@ -338,7 +378,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Foundational Statistics - Bi 610 - Spring 2020</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Foundational Compuational and Statistical Tools for the Natural Sciences</a>
           </h1>
         </div>
 
@@ -346,14 +386,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction-to-analysis-of-variance" class="section level1">
-<h1><span class="header-section-number">Chapter 13</span> Introduction to Analysis of Variance</h1>
-<div id="background-7" class="section level2">
-<h2><span class="header-section-number">13.1</span> Background</h2>
-<p>In the last chapter we covered analysis situations in which we want to understand the relationship between two continuous variables. We also learned that in some of those situations there is a clear response (<em>y</em>) and a clear predictor (<em>x</em>) variable, making possible the application of linear regression analysis. In this chapter we will continue to work within the space of response and predictor variables, but now we consider one or more predictors that are categorical (not quantitative) in nature. This type of study design is especially common when we apply treatments that fall into classes (e.g. “mutant” vs “wild-type” in genetics) or observe explanatory factors in nature that are qualitative (e.g. some climatic and geological conditions). One approach to this type of problem is called “Analysis of Variance” (ANOVA or AOV), and it, like other frequentist methods we have discussed, was formalized in the early 1900s. The general idea behind ANOVA is that we can test hypotheses about differences in group means for a response variable by comparing average within-group variance to among-group variance. In this case the “groups” are different factor levels of our explanatory variable(s). When within-group variances are substantially smaller than the among-group variance it stands to reason, given a few assumptions, that the distributions (and therefore the means) of at least some of the “groups” are different. Interestingly, this exercise of variance partitioning is tractable in a regression framework, because we can calculate sums of squares to reflect different variance components, and we can conceptualize the degree of difference between group means much in the same way we think about a slope in a regression model. For this reason, approaches such as regression, ANOVA, and others are all categorized as <strong><em>general linear models</em></strong>.</p>
+<div id="introduction-to-analysis-of-variance" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Introduction to Analysis of Variance<a href="introduction-to-analysis-of-variance.html#introduction-to-analysis-of-variance" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="background-7" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Background<a href="introduction-to-analysis-of-variance.html#background-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the last chapter we covered analysis situations in which we want to understand the relationship between two continuous variables. We also learned that in some of those situations there is a clear response (<em>y</em>) and a clear predictor (<em>x</em>) variable, making possible the application of linear regression analysis. In this chapter we will continue to work within the space of response and predictor variables, but now we consider one or more predictors that are categorical (not quantitative) in nature. This type of study design is especially common when we apply treatments that fall into classes (e.g. “mutant” vs “wild-type” in genetics) or observe explanatory factors in nature that are qualitative (e.g. some climatic and geological conditions). One approach to this type of problem is called “Analysis of Variance” (ANOVA or AOV), and it, like other frequentist methods we have discussed, was formalized in the early 1900s. The general idea behind ANOVA is that we can test hypotheses about differences in group means for a response variable by comparing average within-group variance to among-group variance. In this case the “groups” are different factor levels of our explanatory variable(s). When within-group variances are substantially smaller than the among-group variance it stands to reason, given a few assumptions, that the distributions (and therefore the means) of at least some of the “groups” are different. Interestingly, this exercise of variance partitioning is tractable in a regression framework, because we can calculate sums of squares to reflect different variance components, and we can conceptualize the degree of difference between group means much in the same way we think about a slope in a regression model. For this reason, approaches such as regression, ANOVA, and others are all categorized as <strong><em>general linear models</em></strong>.</p>
 </div>
-<div id="general-linear-models" class="section level2">
-<h2><span class="header-section-number">13.2</span> General linear models</h2>
+<div id="general-linear-models" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> General linear models<a href="introduction-to-analysis-of-variance.html#general-linear-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As mentioned, we can express the effects of categorical predictor variables on a numeric response in models that are very similar to regression models. Recall that for regression, we used the following straight-line model:
 <span class="math display">\[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]</span></p>
 <p>Where <span class="math inline">\(y\)</span> is the response variable, <span class="math inline">\(x\)</span> is the predictor variable, <span class="math inline">\(\beta_0\)</span> is the <em>y</em>-intercept, <span class="math inline">\(\beta_1\)</span> is the slope, and <span class="math inline">\(\varepsilon\)</span> is the unexplained variation, or error.</p>
@@ -364,13 +404,13 @@ Where each group (factor level) <span class="math inline">\(i\)</span> contains 
 <span class="math display">\[y_{ij}=\mu+\alpha_i+\varepsilon_{ij}\]</span>
 Where <span class="math inline">\(\alpha_i\)</span> represents the effect of belonging to group <span class="math inline">\(i\)</span>, expressed as the difference between each group <span class="math inline">\(i\)</span> mean (<span class="math inline">\(\mu_i\)</span>) and the overall mean (<span class="math inline">\(\mu\)</span>). This notation is more convenient, especially when more than one factor is included in the model, a situation we will address later in the chapter.</p>
 </div>
-<div id="single-factor-anova" class="section level2">
-<h2><span class="header-section-number">13.3</span> Single-factor ANOVA</h2>
+<div id="single-factor-anova" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Single-factor ANOVA<a href="introduction-to-analysis-of-variance.html#single-factor-anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Single-factor Analysis of Variance describes the case in which we have a single quantitative response variable and a single categorical predictor variable. As discussed, the predictor variable (which we call a <strong><em>factor</em></strong>) consists of two or more <strong><em>factor levels</em></strong> that make up the possible conditions, or categories, of that variable. The procedure for ANOVA involves calculating sum of squares (SS) describing variation between/among factor levels (groups), and the SS descrbing variation within each group. We divide each of these SS values by the appropriate degrees of freedom (resulting in values we refer to as “mean squares” or MS). Finally we divide the group-level MS (<span class="math inline">\(MS_{groups}\)</span>) by the within-group MS (called <span class="math inline">\(MS_{residual}\)</span> because it represents the residual variation not explained by the factor). This value is an <em>F</em>-ratio, which should sound familiar from the regression section of last chapter. Recall that an <em>F</em>-ratio (in this case <span class="math inline">\(F=\frac{MS_{groups}}{MS_{residual}}\)</span>) quantifies how much variation in the response variable is explained by a model, relative to how much variation is not explained by it. Large <em>F</em>-ratios in the case of ANOVA indicate that the explanatory variable (the factor) is explaining a significant amount of variation in <em>y</em> relative to the overall variation. We compare <em>F</em> to an <em>F</em> distribution with the appropriate degrees of freedom in order to calculate our <em>p</em>-value for a given hypothesis test.</p>
 <p><br></p>
 <p>Let’s walk through an example to help visualize what is actually going on when we perform single-factor ANOVA. Say that we are studying the percent time that male mice experiencing discomfort spend “stretching,” and that we are intereseted in how social context influences this variable. We have data from an actual experiment (Langford et al. 2006) in which mice experiencing mild discomfort (result of injection of 0.9% acetic acid into the abdomen) were randomly assigned to one of three social treatments: 1. isolation, 2. housed with a companion mouse not injected, or 3. housed with a companion mouse also injected and exhibiting “stretching” behaviors associated with discomfort. The results suggest that mice stretch the most when a companion mouse is also experiencing mild discomfort. Mice experiencing pain appear to “empathize” with co-housed mice also in pain. To verbally state a linear model for the analysis of this experiment, we might say : <span class="math inline">\(stretching=mean_{overall}+treatment\)</span>. This model statement includes a response variable, a constant, and an explanatory variable. If we plot the data, we can see the respective distributions for time spent stretching among the three different treatments.</p>
 <p><img src="images/Images_5b.014.jpeg" width="80%" style="display: block; margin: auto;" /></p>
-<p>Note that in this type of plot (sometimes referred to as a “strip chart”), the points are “jittered” with respect to the factor levels along the <em>x</em>-axis, to assist with seeing all of the points clearly. In <code>R</code> we can use either the <code>plot()</code> function or the <code>stripchart()</code> function with the <code>method=&quot;jitter&quot;</code> argument to do this. By the looks of the plot, we might reasonably suspect that the “injected companion” treatment appears to shift the percent time spent stretching up, relative to the other groups. As a consequence, we would expect the among-group SS to be larger than the average within-group SS.</p>
+<p>Note that in this type of plot (sometimes referred to as a “strip chart”), the points are “jittered” with respect to the factor levels along the <em>x</em>-axis, to assist with seeing all of the points clearly. In <code>R</code> we can use either the <code>plot()</code> function or the <code>stripchart()</code> function with the <code>method="jitter"</code> argument to do this. By the looks of the plot, we might reasonably suspect that the “injected companion” treatment appears to shift the percent time spent stretching up, relative to the other groups. As a consequence, we would expect the among-group SS to be larger than the average within-group SS.</p>
 <p><br></p>
 <p>To calculate the appropriate <em>F</em>-ratio, for this data set, we would use the MS equations from column 3 of the table below (from Logan 2010):
 <img src="images/Images_5b.018.jpeg" width="100%" style="display: block; margin: auto;" /></p>
@@ -378,8 +418,8 @@ Where <span class="math inline">\(\alpha_i\)</span> represents the effect of bel
 <p>The next figure (also from Logan 2010) shows how SS, and therefore MS, calculations are visualized in a situation with two factor levels. Our mouse example from above includes three factor levels, but the concept is exactly the same. The quantity in the red box divided by the quantity in the blue box forms our <em>F</em>-ratio, which we can then use to test our null hypothesis of no effect of treatment.</p>
 <p><img src="images/Images_5b.019.jpeg" width="90%" style="display: block; margin: auto;" /></p>
 <p><br></p>
-<div id="single-factor-anova-hypothesis-tests" class="section level3">
-<h3><span class="header-section-number">13.3.1</span> Single-factor ANOVA hypothesis tests</h3>
+<div id="single-factor-anova-hypothesis-tests" class="section level3 hasAnchor" number="13.3.1">
+<h3><span class="header-section-number">13.3.1</span> Single-factor ANOVA hypothesis tests<a href="introduction-to-analysis-of-variance.html#single-factor-anova-hypothesis-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For the type of single-factor ANOVA described above, we can state our null and alternative hypotheses in terms of the group means, or in terms of the “effect” of the explanatory variable. These are of course equivalent, but let’s state them below (in terms of the mouse stretching experiment) just to be complete. For population means, we could state the following:
 <span class="math display">\[H_0:\mu_{isolated}=\mu_{companion}=\mu_{inj-companion}\]</span></p>
 <p><span class="math display">\[H_A:\mu_{isolated}\neq\mu_{companion}=\mu_{inj-companion}\]</span>
@@ -401,8 +441,8 @@ Where <span class="math inline">\(i\)</span> represents any of our three factor 
 The consideration is whether including the factor in the model explains any variance in the response variable.</p>
 <p><br></p>
 </div>
-<div id="anova-assumptions" class="section level3">
-<h3><span class="header-section-number">13.3.2</span> ANOVA assumptions</h3>
+<div id="anova-assumptions" class="section level3 hasAnchor" number="13.3.2">
+<h3><span class="header-section-number">13.3.2</span> ANOVA assumptions<a href="introduction-to-analysis-of-variance.html#anova-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The following assumptions should be met if the <em>F</em>-ratio and <em>F</em> distribution are used to evaluate an ANOVA hypothesis:</p>
 <ul>
 <li><ol style="list-style-type: decimal">
@@ -416,19 +456,19 @@ The consideration is whether including the factor in the model explains any vari
 </ol></li>
 </ul>
 </div>
-<div id="post-hoc-comparisons" class="section level3">
-<h3><span class="header-section-number">13.3.3</span> Post-hoc comparisons</h3>
+<div id="post-hoc-comparisons" class="section level3 hasAnchor" number="13.3.3">
+<h3><span class="header-section-number">13.3.3</span> Post-hoc comparisons<a href="introduction-to-analysis-of-variance.html#post-hoc-comparisons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We stated above that a fixed, single-factor ANOVA tests whether any of the group means are different from one another. This hypothesis test may be sufficient to address the questions of the analyst, but in many cases we want to know which factor levels are significantly different. This can be achieved via several different approaches. Planned comparisons or “contrasts” are defined in advance of the ANOVA, and performing them is part of the model evaluation. Setting up planned contrasts requires defining comparisons based on rules, which include the avoidance of comparisons among groups that overlap, for one. Learning to set them up properly is a more advanced topic beyond what we can reasonably cover in this course. Post-hoc, or “unplanned” comparisons, however, make all pairwise comparisons among factor levels and are relatively straightforward to perform. Their implementation is similar to the performance of individual <em>t</em>-tests, adjusted to account for the inflated Type I error associated with multiple testing. The <code>R</code> package <code>multcomp</code> can be used to perform a variety of post-hoc comparisons.</p>
 </div>
-<div id="single-factor-anova-in-r" class="section level3">
-<h3><span class="header-section-number">13.3.4</span> Single-factor ANOVA in <code>R</code></h3>
+<div id="single-factor-anova-in-r" class="section level3 hasAnchor" number="13.3.4">
+<h3><span class="header-section-number">13.3.4</span> Single-factor ANOVA in <code>R</code><a href="introduction-to-analysis-of-variance.html#single-factor-anova-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In <code>R</code> we can use either the <code>lm()</code> or <code>aov()</code> functions to define fixed-effects ANOVA models, and then evaluate the models (e.g. run <em>F</em> tests, print ANOVA tables, etc.) using functions like <code>summary()</code> or <code>anova()</code> on the fitted model objects. The <code>aov()</code> function will format calculations in such a way as to present a traditional ANOVA table, whereas the <code>lm()</code> function will enable presentation of the parameter estimates. In the example below we will perform ANOVA using the <code>iris</code> data set to test whether there is a difference in mean sepal length among three flower species.</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="kw">stripchart</span>(iris<span class="op">$</span>Sepal.Length <span class="op">~</span><span class="st"> </span>iris<span class="op">$</span>Species, <span class="dt">vertical=</span>T, <span class="dt">method=</span><span class="st">&quot;jitter&quot;</span>,</a>
-<a class="sourceLine" id="cb132-2" data-line-number="2">           <span class="dt">ylab=</span><span class="st">&quot;sepal length&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;species&quot;</span>, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">cex=</span><span class="fl">0.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="introduction-to-analysis-of-variance.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stripchart</span>(iris<span class="sc">$</span>Sepal.Length <span class="sc">~</span> iris<span class="sc">$</span>Species, <span class="at">vertical=</span>T, <span class="at">method=</span><span class="st">&quot;jitter&quot;</span>,</span>
+<span id="cb132-2"><a href="introduction-to-analysis-of-variance.html#cb132-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">ylab=</span><span class="st">&quot;sepal length&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;species&quot;</span>, <span class="at">pch=</span><span class="dv">19</span>, <span class="at">cex=</span><span class="fl">0.5</span>)</span></code></pre></div>
 <p><img src="foundational_statistics_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1"><span class="co"># Set up and evaluate linear model using lm() and summary()</span></a>
-<a class="sourceLine" id="cb133-2" data-line-number="2">iris_lm &lt;-<span class="st"> </span><span class="kw">lm</span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Species, iris)</a>
-<a class="sourceLine" id="cb133-3" data-line-number="3"><span class="kw">summary</span>(iris_lm)</a></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="introduction-to-analysis-of-variance.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up and evaluate linear model using lm() and summary()</span></span>
+<span id="cb133-2"><a href="introduction-to-analysis-of-variance.html#cb133-2" aria-hidden="true" tabindex="-1"></a>iris_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sepal.Length <span class="sc">~</span> Species, iris)</span>
+<span id="cb133-3"><a href="introduction-to-analysis-of-variance.html#cb133-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris_lm)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Sepal.Length ~ Species, data = iris)
@@ -450,9 +490,9 @@ The consideration is whether including the factor in the model explains any vari
 ## F-statistic: 119.3 on 2 and 147 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>In this output there are a few items that are especially useful. The most useful information is in the first 2 columns of the “Coefficients” table, which contain the group mean estimates and their standard errors. In default linear model output in <code>R</code>, the intercept is actually set to the mean of the first (alphabetically) factor level. In this case, “setosa” is the first factor level, so its mean (5.006) is the intercept. The means for “versicolor” and “virginica” are the <strong><em>intercept plus the value in the column</em></strong>. So the versicolor mean is 5.936 and the virginica mean is 6.588. The last line in the output shows the results for the ANOVA null hypothesis test of equal means across all three species, including the <em>F</em>-ratio, the groups and residuals degrees of freedom, respectively, and the <em>p</em>-value.</p>
 <p><br></p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1"><span class="co"># Set up and evaluate ANOVA model using aov() and anova()</span></a>
-<a class="sourceLine" id="cb135-2" data-line-number="2">iris_aov &lt;-<span class="st"> </span><span class="kw">aov</span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Species, iris)</a>
-<a class="sourceLine" id="cb135-3" data-line-number="3"><span class="kw">anova</span>(iris_aov)</a></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="introduction-to-analysis-of-variance.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up and evaluate ANOVA model using aov() and anova()</span></span>
+<span id="cb135-2"><a href="introduction-to-analysis-of-variance.html#cb135-2" aria-hidden="true" tabindex="-1"></a>iris_aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(Sepal.Length <span class="sc">~</span> Species, iris)</span>
+<span id="cb135-3"><a href="introduction-to-analysis-of-variance.html#cb135-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(iris_aov)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: Sepal.Length
@@ -464,8 +504,8 @@ The consideration is whether including the factor in the model explains any vari
 <p>Here the output is the ANOVA table, complete with the degrees of freedom, SS, and MS for groups and residuals, our <em>F</em>-ratio, and our <em>p</em>-value. Clearly, we reject the null hypothesis. There is at least one difference among the three group means.</p>
 <p><br></p>
 <p>Finally, if we wanted to know whether all three species are different from each other, we could apply a “Tukey’s” (post-hoc) test of all three mean pairs.</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1"><span class="kw">library</span>(multcomp)</a></code></pre></div>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">glht</span>(iris_aov, <span class="dt">linfct =</span> <span class="kw">mcp</span>(<span class="dt">Species =</span> <span class="st">&quot;Tukey&quot;</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="introduction-to-analysis-of-variance.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="introduction-to-analysis-of-variance.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">glht</span>(iris_aov, <span class="at">linfct =</span> <span class="fu">mcp</span>(<span class="at">Species =</span> <span class="st">&quot;Tukey&quot;</span>)))</span></code></pre></div>
 <pre><code>## 
 ##   Simultaneous Tests for General Linear Hypotheses
 ## 
@@ -484,52 +524,52 @@ The consideration is whether including the factor in the model explains any vari
 ## (Adjusted p values reported -- single-step method)</code></pre>
 <p>The <em>p</em>-values adjusted for multiple comparisons are reported, and they are all very low. We therefore conclude that all three species means are significantly different from one another.</p>
 </div>
-<div id="a-note-on-nonparametric-tests-similar-to-single-factor-anova" class="section level3">
-<h3><span class="header-section-number">13.3.5</span> A note on nonparametric tests similar to single-factor ANOVA</h3>
+<div id="a-note-on-nonparametric-tests-similar-to-single-factor-anova" class="section level3 hasAnchor" number="13.3.5">
+<h3><span class="header-section-number">13.3.5</span> A note on nonparametric tests similar to single-factor ANOVA<a href="introduction-to-analysis-of-variance.html#a-note-on-nonparametric-tests-similar-to-single-factor-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As with most categories of hypothesis test, there are nonparametric alternatives to ANOVA when the assumptions are not met. Randomization tests similar to the ones we have discussed previously can be used to generate a null distribution of <em>F</em>-ratios on which to base a hypothesis test. There is also a rank-based ANOVA alternative that is similar to the Mann-Whitney U test we cited as a <em>t</em>-test alternative. It is called the Kruskal-Wallis test, and is robust to non-normality and group variance differences. The Kruskal-Wallis test can be performed in <code>R</code> using the base function <code>kruskal.test()</code>.</p>
 </div>
 </div>
-<div id="multi-factor-anova" class="section level2">
-<h2><span class="header-section-number">13.4</span> Multi-factor ANOVA</h2>
+<div id="multi-factor-anova" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">13.4</span> Multi-factor ANOVA<a href="introduction-to-analysis-of-variance.html#multi-factor-anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When more than one categorical predictor variable is included in a study, we can apply our general linear model and ANOVA framework to accommodate this complexity. Indeed, it is often very important to include multiple predictor variables in a model, even if they are not of primary interest, and especially if they are expected to explain a significant amount of variation in the response variable. If these addtional factors do explain variation in <em>y</em>, it is crucial to include them in the model so that we can account for that variation and in the process “isolate” variation explained by the focal predictor(s) central to our questions. For multiple fixed-effect factors, the guidelines described for single-factor ANOVA in the previous section (including hypotheses, assumptions, and model structure in <code>R</code>) hold. The only difference is that more than one term is added to the model on the “right-hand side” of the equation (or the <code>~</code> in <code>R</code> model notation), with some added syntax depending on the nature of the model. In the sections below we will briefly cover two different forms of multi-factor ANOVA: “nested” and “factorial” models. Nested models allow us to deal with observations that are, in some structured way, not independent, and factorial models allow us to test for statistical interactions among factors.</p>
-<div id="nested-anova" class="section level3">
-<h3><span class="header-section-number">13.4.1</span> Nested ANOVA</h3>
+<div id="nested-anova" class="section level3 hasAnchor" number="13.4.1">
+<h3><span class="header-section-number">13.4.1</span> Nested ANOVA<a href="introduction-to-analysis-of-variance.html#nested-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In many observational studies and experiments the sampling units we measurements are heterogeneous in some way, be it spatially, temporally, or structurally. Measurements on individual organisms may vary substantially over time. Measurements in a plot may vary greatly depending on the region of the plot measured. The phenotypic effects of a mutation may vary across similar genetic backgrounds (e.g. a family). In all of these cases, there could be a clear advantage to taking multiple, related measurments to capture some of this variation, especially when we have an experimental factor (e.g. a treatment) that we are trying to test and understand. This is where <strong><em>nested models</em></strong> come into play. We group observations (e.g. sub-replicates) or measurements (e.g. repeated measurements from the same individual) that are not independent of one another, according to a “nested” term in our ANOVA model. This allows us to account for that heterogeneity mentioned above, and is necessary to avoid violating the assumption of independence. When the appropriate nestedness is not included in a model, observations or measurements that are not independent are used erroneously to calculate mean squares, resulting in an artificially low <em>p</em>-value. This is called <strong><em>pseudoreplication</em></strong>. The schematic below shows the structure of a model with a main factor of interest (“A”) and a nested factor (“B”) which groups the non-independent subreplicates.</p>
 <p><img src="images/images_7a.005.jpeg" width="90%" style="display: block; margin: auto;" /></p>
 <p>In this hypothetical example we have <em>k</em> subreplicates for each site. Assuming we had 3 subreplicates for each site and did not include “B” (site) as a nested term in our model, we would erroneously include a sample size of 9 for each treatment group. By including “B” we properly account for the non-independence of observations within each site.</p>
-<div id="nested-anova-hypothesis-tests" class="section level4">
-<h4><span class="header-section-number">13.4.1.1</span> Nested ANOVA hypothesis tests</h4>
+<div id="nested-anova-hypothesis-tests" class="section level4 hasAnchor" number="13.4.1.1">
+<h4><span class="header-section-number">13.4.1.1</span> Nested ANOVA hypothesis tests<a href="introduction-to-analysis-of-variance.html#nested-anova-hypothesis-tests" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Hypothesis tests for nested ANOVAs take on the same basic structure as single-factor models, except that we can define a null and alternative hypothesis for each factor in our model. Typically nested terms are included to account for variation unexplained by the main factor(s) of interest and properly structure non-independence, so they are almost always considered as random effects. So hypotheses for main factors are stated as in the single-factor ANOVA section above, and hypotheses for nested factors are usually stated in random effects format:
 <span class="math display">\[H_0(B):\sigma_{\beta}^2=0\]</span>
 <span class="math display">\[H_A(B):\sigma_{\beta}^2\neq0\]</span>
 Where the null hypothesis states that all possible levels of B within each level of the main factor (A) contribute no added variance to the response variable.</p>
 <p>The same assumptions we addressed for single-factor ANOVA hold for nested ANOVA. In the case of the independence assumption, we still have to ensure that levels of the nested term are independent. In the example above, the three “sites” within each treatment should be independent of one another.</p>
 </div>
-<div id="nested-anova-in-r" class="section level4">
-<h4><span class="header-section-number">13.4.1.2</span> Nested ANOVA in <code>R</code></h4>
+<div id="nested-anova-in-r" class="section level4 hasAnchor" number="13.4.1.2">
+<h4><span class="header-section-number">13.4.1.2</span> Nested ANOVA in <code>R</code><a href="introduction-to-analysis-of-variance.html#nested-anova-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>As mentioned, mixed model ANOVA is not always straightforward to set up in <code>R</code>, but simple cases (e.g. one main and one nested factor) can be analyzed easily. The function <code>lm()</code> function will not accommodate mixed models, so we instead rely on <code>aov()</code> if the design is balanced (equal sample sizes) and <code>lme()</code> (package <code>nlme</code>) or <code>lmer()</code> (package <code>lme4</code>) for unbalanced designs. Below is some hyptothetical <code>R</code> code that might be applied to the one main, one nested, two-factor example design above.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="co">## With aov() use &quot;Error&quot; with parentheses to specify the nested term.</span></a>
-<a class="sourceLine" id="cb140-2" data-line-number="2"><span class="co">## This will report the hypothesis test for the main effect.</span></a>
-<a class="sourceLine" id="cb140-3" data-line-number="3">mod_nested &lt;-<span class="st"> </span><span class="kw">aov</span>(Response <span class="op">~</span><span class="st"> </span>Treatment <span class="op">+</span><span class="st"> </span><span class="kw">Error</span>(Site), df_name)</a>
-<a class="sourceLine" id="cb140-4" data-line-number="4"><span class="kw">summary</span>(mod_nested)</a>
-<a class="sourceLine" id="cb140-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb140-6" data-line-number="6"><span class="co">## To report the relative % variation explained by the main vs. nested factor,</span></a>
-<a class="sourceLine" id="cb140-7" data-line-number="7"><span class="co">## we use the lme() function to fit the model and then VarCorr() to report variance components.</span></a>
-<a class="sourceLine" id="cb140-8" data-line-number="8"><span class="co">## Note that the nested term notation is different for lme()</span></a>
-<a class="sourceLine" id="cb140-9" data-line-number="9"><span class="kw">library</span>(nlme)</a>
-<a class="sourceLine" id="cb140-10" data-line-number="10"><span class="kw">library</span>(lme4)</a>
-<a class="sourceLine" id="cb140-11" data-line-number="11">mod_nested_lme &lt;-<span class="st"> </span><span class="kw">lme</span>(Response <span class="op">~</span><span class="st"> </span>Treatment, <span class="dt">random=</span><span class="op">~</span><span class="dv">1</span><span class="op">|</span>Site, df_name)</a>
-<a class="sourceLine" id="cb140-12" data-line-number="12"><span class="kw">VarCorr</span>(mod_nested_lme)</a></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="introduction-to-analysis-of-variance.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="do">## With aov() use &quot;Error&quot; with parentheses to specify the nested term.</span></span>
+<span id="cb140-2"><a href="introduction-to-analysis-of-variance.html#cb140-2" aria-hidden="true" tabindex="-1"></a><span class="do">## This will report the hypothesis test for the main effect.</span></span>
+<span id="cb140-3"><a href="introduction-to-analysis-of-variance.html#cb140-3" aria-hidden="true" tabindex="-1"></a>mod_nested <span class="ot">&lt;-</span> <span class="fu">aov</span>(Response <span class="sc">~</span> Treatment <span class="sc">+</span> <span class="fu">Error</span>(Site), df_name)</span>
+<span id="cb140-4"><a href="introduction-to-analysis-of-variance.html#cb140-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_nested)</span>
+<span id="cb140-5"><a href="introduction-to-analysis-of-variance.html#cb140-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-6"><a href="introduction-to-analysis-of-variance.html#cb140-6" aria-hidden="true" tabindex="-1"></a><span class="do">## To report the relative % variation explained by the main vs. nested factor,</span></span>
+<span id="cb140-7"><a href="introduction-to-analysis-of-variance.html#cb140-7" aria-hidden="true" tabindex="-1"></a><span class="do">## we use the lme() function to fit the model and then VarCorr() to report variance components.</span></span>
+<span id="cb140-8"><a href="introduction-to-analysis-of-variance.html#cb140-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Note that the nested term notation is different for lme()</span></span>
+<span id="cb140-9"><a href="introduction-to-analysis-of-variance.html#cb140-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb140-10"><a href="introduction-to-analysis-of-variance.html#cb140-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb140-11"><a href="introduction-to-analysis-of-variance.html#cb140-11" aria-hidden="true" tabindex="-1"></a>mod_nested_lme <span class="ot">&lt;-</span> <span class="fu">lme</span>(Response <span class="sc">~</span> Treatment, <span class="at">random=</span><span class="sc">~</span><span class="dv">1</span><span class="sc">|</span>Site, df_name)</span>
+<span id="cb140-12"><a href="introduction-to-analysis-of-variance.html#cb140-12" aria-hidden="true" tabindex="-1"></a><span class="fu">VarCorr</span>(mod_nested_lme)</span></code></pre></div>
 </div>
 </div>
-<div id="factorial-anova" class="section level3">
-<h3><span class="header-section-number">13.4.2</span> Factorial ANOVA</h3>
+<div id="factorial-anova" class="section level3 hasAnchor" number="13.4.2">
+<h3><span class="header-section-number">13.4.2</span> Factorial ANOVA<a href="introduction-to-analysis-of-variance.html#factorial-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Another example of multi-factor ANOVA is the factorial model. In a strictly factorial ANOVA we don’t have nestedness, but the design is set up so that each level from one fixed-effects (usually) factor is observed together with the levels of another fixed-effects (usually) factor, and those “factor level combinations” are replicated. Factorial ANOVA allows one to test hypotheses for the main effects (the individual factors) and “interactions” between the factors. A statistical interaction is when the effect of a level from one factor depends on the level from another factor. For example, we may have a two-level factor like genotype (mutant vs. wild-type) and a two-level treatment factor (control vs. toxin). If all 4 combinations of the levels from those two factors are replicated across individuals in our experiment, we would have what is called a “two-by-two” factorial design. If we found that both mutant and wild-type groups respond similarly to the treatment (have the same control-toxin difference in means), there is no interaction. If, on the other hand, there is a difference in response (e.g. there is a toxin-control difference for the wild-type group but not for the mutant group), we would say that there is evidence for an interaction, and in this example a “genotype-by-environment” interaction. The phenomenon of epistais in genetics is also an example of an interaction, between two or more loci, in which the phenotypic effect of a genotype at one locus depends on the genotype at another locus.</p>
 <p>Because an interaction can take different forms, understanding the nature of an interaction is often made easier by plotting group means (and standard errors) in what is called an “interaction plot.” The <code>R</code> function <code>interaction.plot()</code> can be used to produce two-by-two interactiosn plots, or you can use <code>plot()</code>, <code>points()</code>, and <code>segments()</code> functions to make a custom interaction plot. In the figure below (from Logan 2010), we see several possible scenarios for a hypothetical two-by-two factorial design. On the <em>x</em>-axis are the two levels for the Temperature factor (high and low), and the two lines (dashed and solid) represent low and high fertilizer, respectively.</p>
 <p><img src="images/images_7a.022.jpeg" width="75%" style="display: block; margin: auto;" /></p>
 <p>The upper-left plot shows a likely interaction between temperature and fertilizer, in which there is an effect of fertilizer on seedling growth rate, but only at the high temperature. In the upper-right plot we see what look like overall main effects of temperature and fertilizer, but not interaction (the lines are parallel). In the lower-left plot we see an effect of fertilizer, but no effect of temperature in both fertilizer treatments, so no interaction. In the lower-right plot we see a “crossing” interaction, in which fertilizer has an opposite effect at the two temperatures. In cases like the last one, it is possible to detect no significant main effects (because they “average out”), but an obviously strong interaction.</p>
-<div id="factorial-anova-hypothesis-tests" class="section level4">
-<h4><span class="header-section-number">13.4.2.1</span> Factorial ANOVA hypothesis tests</h4>
+<div id="factorial-anova-hypothesis-tests" class="section level4 hasAnchor" number="13.4.2.1">
+<h4><span class="header-section-number">13.4.2.1</span> Factorial ANOVA hypothesis tests<a href="introduction-to-analysis-of-variance.html#factorial-anova-hypothesis-tests" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Fixed- and random-effects hypotheses for the individual factors in a factorial ANOVA are subject to the same hypothesis statements mentioned above. However, a separate null hypothesis for each interaction term is testable in factorial models. As mentioned, for two factors (A and B) there is a single interaction term (A:B), with the following null and alternative hypotheses, assuming fixed main effects:
 <span class="math display">\[H_0(AB):\mu_{ij}=\mu_i+\mu_j-\mu\]</span>
 <span class="math display">\[H_A(AB):\mu_{ij}\neq\mu_i+\mu_j-\mu\]</span></p>
@@ -541,32 +581,32 @@ Where the null hypothesis states that all possible levels of B within each level
 <p>The null hypothesis states that there is no additional variation in <em>y</em> contributed by all possible interactions among all possible factor levels of A and B.</p>
 <p>The same assumptions we addressed for single-factor ANOVA hold for factorial ANOVA, except that in this case groups are defined by factor level combinations, so the assumptions have to be met for each of those groups.</p>
 </div>
-<div id="factorial-anova-in-r" class="section level4">
-<h4><span class="header-section-number">13.4.2.2</span> Factorial ANOVA in <code>R</code></h4>
+<div id="factorial-anova-in-r" class="section level4 hasAnchor" number="13.4.2.2">
+<h4><span class="header-section-number">13.4.2.2</span> Factorial ANOVA in <code>R</code><a href="introduction-to-analysis-of-variance.html#factorial-anova-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In <code>R</code> we can use either the <code>aov()</code> function to define fixed-effects factorial ANOVA models, and then evaluate the models (e.g. run <em>F</em> tests, print ANOVA tables, etc.) using functions like <code>summary()</code> or <code>anova()</code> on the fitted model objects. The <code>aov()</code> function will format calculations in such a way as to present a traditional ANOVA table, for example when running <code>anova()</code> on an object from <code>aov()</code>, as we did in the case of single-factor ANOVA above.</p>
 <p><br></p>
 <p>Let’s run a quick example of two-by-two factorial ANOVA below using the <code>mtcars</code> data frame. In this case we are interested in whether miles per gallon (<code>mpg</code>) is affected by the engine cylinder configuration (“V” or “straight”), the transmission type (“automatic” or “manual”), and their interaction. Before we specify the model and run the ANOVA, let’s look at the group means in an interaction plot.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" data-line-number="1"><span class="co">## First, modify the vs and am factor levels to be more descriptive</span></a>
-<a class="sourceLine" id="cb141-2" data-line-number="2">mtcars_mod &lt;-<span class="st"> </span>mtcars</a>
-<a class="sourceLine" id="cb141-3" data-line-number="3">mtcars_mod<span class="op">$</span>vs &lt;-<span class="st"> </span><span class="kw">as.factor</span>(<span class="kw">ifelse</span>(mtcars<span class="op">$</span>vs<span class="op">==</span><span class="dv">0</span>, <span class="st">&quot;V&quot;</span>,<span class="st">&quot;straight&quot;</span>))</a>
-<a class="sourceLine" id="cb141-4" data-line-number="4">mtcars_mod<span class="op">$</span>am &lt;-<span class="st"> </span><span class="kw">as.factor</span>(<span class="kw">ifelse</span>(mtcars<span class="op">$</span>am<span class="op">==</span><span class="dv">0</span>, <span class="st">&quot;auto&quot;</span>,<span class="st">&quot;manual&quot;</span>))</a>
-<a class="sourceLine" id="cb141-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb141-6" data-line-number="6"><span class="co">## Make an interaction plot</span></a>
-<a class="sourceLine" id="cb141-7" data-line-number="7"><span class="kw">with</span>(mtcars_mod, {</a>
-<a class="sourceLine" id="cb141-8" data-line-number="8">  <span class="kw">interaction.plot</span>(<span class="dt">x.factor=</span>am, <span class="dt">trace.factor=</span>vs, <span class="dt">response=</span>mpg, <span class="dt">xlab=</span><span class="st">&quot;transmission&quot;</span>,</a>
-<a class="sourceLine" id="cb141-9" data-line-number="9">                   <span class="dt">trace.label=</span><span class="st">&quot;cyl config&quot;</span>) </a>
-<a class="sourceLine" id="cb141-10" data-line-number="10">})</a></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="introduction-to-analysis-of-variance.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="do">## First, modify the vs and am factor levels to be more descriptive</span></span>
+<span id="cb141-2"><a href="introduction-to-analysis-of-variance.html#cb141-2" aria-hidden="true" tabindex="-1"></a>mtcars_mod <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb141-3"><a href="introduction-to-analysis-of-variance.html#cb141-3" aria-hidden="true" tabindex="-1"></a>mtcars_mod<span class="sc">$</span>vs <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(<span class="fu">ifelse</span>(mtcars<span class="sc">$</span>vs<span class="sc">==</span><span class="dv">0</span>, <span class="st">&quot;V&quot;</span>,<span class="st">&quot;straight&quot;</span>))</span>
+<span id="cb141-4"><a href="introduction-to-analysis-of-variance.html#cb141-4" aria-hidden="true" tabindex="-1"></a>mtcars_mod<span class="sc">$</span>am <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(<span class="fu">ifelse</span>(mtcars<span class="sc">$</span>am<span class="sc">==</span><span class="dv">0</span>, <span class="st">&quot;auto&quot;</span>,<span class="st">&quot;manual&quot;</span>))</span>
+<span id="cb141-5"><a href="introduction-to-analysis-of-variance.html#cb141-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-6"><a href="introduction-to-analysis-of-variance.html#cb141-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Make an interaction plot</span></span>
+<span id="cb141-7"><a href="introduction-to-analysis-of-variance.html#cb141-7" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(mtcars_mod, {</span>
+<span id="cb141-8"><a href="introduction-to-analysis-of-variance.html#cb141-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">interaction.plot</span>(<span class="at">x.factor=</span>am, <span class="at">trace.factor=</span>vs, <span class="at">response=</span>mpg, <span class="at">xlab=</span><span class="st">&quot;transmission&quot;</span>,</span>
+<span id="cb141-9"><a href="introduction-to-analysis-of-variance.html#cb141-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">trace.label=</span><span class="st">&quot;cyl config&quot;</span>) </span>
+<span id="cb141-10"><a href="introduction-to-analysis-of-variance.html#cb141-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <p><img src="foundational_statistics_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
 <p>The lines look fairly parallel, but let’s run a factorial ANOVA to test for the two main effects, and their interaction, with respect to miles per gallon.</p>
 <p><br></p>
 <p>When specifying interactions in <code>R</code> models, there are options. In the two-by-two factorial case with fixed effects, we can set up the model in two, equivalent ways.</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1"><span class="co">## To specify the main and interaction effects individually</span></a>
-<a class="sourceLine" id="cb142-2" data-line-number="2">mpg_fac1 &lt;-<span class="st"> </span><span class="kw">aov</span>(mpg <span class="op">~</span><span class="st"> </span>vs <span class="op">+</span><span class="st"> </span>am <span class="op">+</span><span class="st"> </span>vs<span class="op">:</span>am, mtcars_mod)</a>
-<a class="sourceLine" id="cb142-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb142-4" data-line-number="4"><span class="co">## Shorthand notation to include all main effects and interactions</span></a>
-<a class="sourceLine" id="cb142-5" data-line-number="5">mpg_fac2 &lt;-<span class="st"> </span><span class="kw">aov</span>(mpg <span class="op">~</span><span class="st"> </span>vs<span class="op">*</span>am, mtcars_mod)</a></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="introduction-to-analysis-of-variance.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="do">## To specify the main and interaction effects individually</span></span>
+<span id="cb142-2"><a href="introduction-to-analysis-of-variance.html#cb142-2" aria-hidden="true" tabindex="-1"></a>mpg_fac1 <span class="ot">&lt;-</span> <span class="fu">aov</span>(mpg <span class="sc">~</span> vs <span class="sc">+</span> am <span class="sc">+</span> vs<span class="sc">:</span>am, mtcars_mod)</span>
+<span id="cb142-3"><a href="introduction-to-analysis-of-variance.html#cb142-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-4"><a href="introduction-to-analysis-of-variance.html#cb142-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Shorthand notation to include all main effects and interactions</span></span>
+<span id="cb142-5"><a href="introduction-to-analysis-of-variance.html#cb142-5" aria-hidden="true" tabindex="-1"></a>mpg_fac2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(mpg <span class="sc">~</span> vs<span class="sc">*</span>am, mtcars_mod)</span></code></pre></div>
 <p>And we can obtain the ANOVA table using the <code>anova()</code> function</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" data-line-number="1"><span class="kw">anova</span>(mpg_fac1)</a></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="introduction-to-analysis-of-variance.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mpg_fac1)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: mpg
@@ -583,14 +623,14 @@ Where the null hypothesis states that all possible levels of B within each level
 </div>
 </div>
 </div>
-<div id="exercises-associated-with-this-chapter-8" class="section level2">
-<h2><span class="header-section-number">13.5</span> Exercises associated with this chapter:</h2>
+<div id="exercises-associated-with-this-chapter-8" class="section level2 hasAnchor" number="13.5">
+<h2><span class="header-section-number">13.5</span> Exercises associated with this chapter:<a href="introduction-to-analysis-of-variance.html#exercises-associated-with-this-chapter-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Problem Set 4</li>
 </ul>
 </div>
-<div id="additional-learning-resources-8" class="section level2">
-<h2><span class="header-section-number">13.6</span> Additional learning resources:</h2>
+<div id="additional-learning-resources-8" class="section level2 hasAnchor" number="13.6">
+<h2><span class="header-section-number">13.6</span> Additional learning resources:<a href="introduction-to-analysis-of-variance.html#additional-learning-resources-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Logan, M. 2010. Biostatistical Design and Analysis Using R. - A great intro to R for statistical analysis</p></li>
 <li><p>Langford, D. J.,et al. 2006. Science 312: 1967-1970. - example used for single-factor ANOVA</p></li>
@@ -608,7 +648,6 @@ Where the null hypothesis states that all possible levels of B within each level
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -627,6 +666,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -647,6 +687,10 @@ gitbook.start({
 "text": null
 },
 "download": ["foundational_statistics.pdf", "foundational_statistics.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
