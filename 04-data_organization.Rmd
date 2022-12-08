@@ -59,7 +59,7 @@ An aside: If you are working from the command line and want to terminate a proce
 
 `cp` - copies a file or directory
 
-`mv` - changes the name of a file or directory
+`mv` - changes the name of a file or directory or moves a file or directory
 
 `rm` - deletes a file, or a directory and everything inside with `-r`
 
